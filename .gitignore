@@ -1,0 +1,22 @@
+# Ignore common data files, but keep json files
+*.csv
+*.xlsx
+*.xls
+*.data
+*.dat
+*.db
+*.sqlite
+*.sqlite3
+*.parquet
+*.hdf
+*.h5
+*.pkl
+*.pickle
+*.sav
+*.arff
+*.feather
+
+# Ignore virtual environments
+venv/
+.venv/
+.env/
