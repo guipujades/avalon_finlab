@@ -1,0 +1,29 @@
+{
+  "data_execucao": "2025-06-19T13:20:07.516441",
+  "empresas_solicitadas": [
+    "ITAU"
+  ],
+  "anos_processados": [
+    2025
+  ],
+  "limite_por_empresa": null,
+  "apenas_releases_trimestrais": true,
+  "resumo_geral": {
+    "releases_trimestrais": 2,
+    "outros_documentos": 0,
+    "erros": 0,
+    "pulados": 0,
+    "empresas_processadas": [
+      {
+        "empresa": "ITAU",
+        "trimestrais": 2,
+        "outros": 0,
+        "erros": 0,
+        "pulados": 0,
+        "total": 2
+      }
+    ]
+  },
+  "pasta_pending": "documents\\pending",
+  "pasta_residuals": "documents\\residuals"
+}

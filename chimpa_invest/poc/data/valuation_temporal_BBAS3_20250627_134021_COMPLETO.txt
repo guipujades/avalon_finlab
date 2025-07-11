@@ -1,0 +1,566 @@
+================================================================================
+RELATÓRIO COMPLETO DE VALUATION TEMPORAL - BANCO DO BRASIL S.A. (BBAS3)
+================================================================================
+Data da Análise: 2025-06-27 13:40:21
+Código CVM: 1023
+CNPJ: 00.000.000/0001-91
+Período: 2015-12-31 00:00:00 a 2024-12-31 00:00:00
+Total de Períodos: 10
+
+1. ESTATÍSTICAS DOS ÚLTIMOS 5 ANOS
+--------------------------------------------------
+
+DEMONSTRAÇÕES FINANCEIRAS (Milhões R$)
+--------------------------------------
+Receita Liquida:
+  Média: R$ 200.0M | Último: R$ 273.5M
+  Mínimo: R$ 98.7M | Máximo: R$ 273.5M
+  Desvio Padrão: R$ 81.8M | Mediana: R$ 236.5M
+
+Lucro Liquido:
+  Média: R$ 25.0M | Último: R$ 29.2M
+  Mínimo: R$ 13.3M | Máximo: R$ 33.2M
+  Desvio Padrão: R$ 8.3M | Mediana: R$ 29.2M
+
+Ebit:
+  Média: R$ 28.5M | Último: R$ 27.7M
+  Mínimo: R$ 11.6M | Máximo: R$ 41.1M
+  Desvio Padrão: R$ 11.9M | Mediana: R$ 27.7M
+
+Ebitda:
+  Média: R$ 53.1M | Último: R$ 55.7M
+  Mínimo: R$ 34.2M | Máximo: R$ 66.1M
+  Desvio Padrão: R$ 13.0M | Mediana: R$ 55.7M
+
+Lucro Bruto:
+  Média: R$ 76.5M | Último: R$ 104.5M
+  Mínimo: R$ 55.4M | Máximo: R$ 104.5M
+  Desvio Padrão: R$ 20.4M | Mediana: R$ 74.3M
+
+
+MARGENS (%)
+-----------
+Margem Bruta:
+  Média: 41.33% | Último: 38.21%
+  Mínimo: 31.43% | Máximo: 56.18%
+  Desvio Padrão: 10.33% | Mediana: 38.21%
+
+Margem Liquida:
+  Média: 12.98% | Último: 10.67%
+  Mínimo: 10.67% | Máximo: 15.66%
+  Desvio Padrão: 1.81% | Mediana: 12.62%
+
+Margem Ebit:
+  Média: 14.52% | Último: 10.13%
+  Mínimo: 10.13% | Máximo: 19.05%
+  Desvio Padrão: 3.58% | Mediana: 15.50%
+
+Margem Ebitda:
+  Média: 28.73% | Último: 20.38%
+  Mínimo: 20.38% | Máximo: 37.05%
+  Desvio Padrão: 6.96% | Mediana: 26.61%
+
+
+RENTABILIDADE (%)
+-----------------
+Roe:
+  Média: 115.96% | Último: 111.77%
+  Mínimo: 78.68% | Máximo: 152.23%
+  Desvio Padrão: 28.89% | Mediana: 111.77%
+
+Roa:
+  Média: 1.21% | Último: 1.22%
+  Mínimo: 0.78% | Máximo: 1.54%
+  Desvio Padrão: 0.31% | Mediana: 1.22%
+
+Roi:
+  Média: 1.38% | Último: 1.16%
+  Mínimo: 0.68% | Máximo: 1.91%
+  Desvio Padrão: 0.53% | Mediana: 1.26%
+
+Roic:
+  Média: 2917.75% | Último: 460.36%
+  Mínimo: 460.36% | Máximo: 10518.81%
+  Desvio Padrão: 4269.78% | Mediana: 1050.21%
+
+
+LIQUIDEZ E ENDIVIDAMENTO
+------------------------
+Liquidez Corrente:
+  Média: 28.06x | Último: 10.06x
+  Mínimo: 10.06x | Máximo: 56.87x
+  Desvio Padrão: 17.35x | Mediana: 24.89x
+
+Divida Pl:
+  Média: -0.86x | Último: -0.77x
+  Mínimo: -0.99x | Máximo: -0.77x
+  Desvio Padrão: 0.09x | Mediana: -0.83x
+
+Divida Ebitda:
+  Média: -0.36x | Último: -0.36x
+  Mínimo: -0.49x | Máximo: -0.26x
+  Desvio Padrão: 0.09x | Mediana: -0.36x
+
+
+ESTRUTURA PATRIMONIAL (Milhões R$)
+----------------------------------
+Ativo Total:
+  Média: R$ 2030.7M | Último: R$ 2398.7M
+  Mínimo: R$ 1693.8M | Máximo: R$ 2398.7M
+  Desvio Padrão: R$ 265.5M | Mediana: R$ 2007.7M
+
+Patrimonio Liquido:
+  Média: R$ 21.2M | Último: R$ 26.1M
+  Mínimo: R$ 16.9M | Máximo: R$ 26.1M
+  Desvio Padrão: R$ 3.4M | Mediana: R$ 21.8M
+
+Ativo Circulante:
+  Média: R$ 87.5M | Último: R$ 83.2M
+  Mínimo: R$ 54.5M | Máximo: R$ 176.2M
+  Desvio Padrão: R$ 50.9M | Mediana: R$ 68.8M
+
+Passivo Circulante:
+  Média: R$ 3.7M | Último: R$ 8.3M
+  Mínimo: R$ 2.1M | Máximo: R$ 8.3M
+  Desvio Padrão: R$ 2.6M | Mediana: R$ 2.8M
+
+Divida Liquida:
+  Média: R$ -18.1M | Último: R$ -20.1M
+  Mínimo: R$ -20.1M | Máximo: R$ -16.8M
+  Desvio Padrão: R$ 1.3M | Mediana: R$ -18.0M
+
+
+2. SÉRIE TEMPORAL COMPLETA - TODAS AS MÉTRICAS
+--------------------------------------------------
+
+Períodos disponíveis: 10 trimestres/anos
+De 2015-12-31 até 2024-12-31
+
+RECEITA LIQUIDA
+---------------
+Total de períodos: 10
+Média histórica: R$ 173.4M
+Último valor: R$ 273.5M
+CAGR (crescimento anual): 4.1%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 139.8M
+  2018-12: R$ 120.3M
+  2019-12: R$ 123.1M
+  2020-12: R$ 98.7M
+  2021-12: R$ 125.9M
+  2022-12: R$ 236.5M
+  2023-12: R$ 265.4M
+  2024-12: R$ 273.5M
+
+========================================
+
+CUSTOS
+------
+Total de períodos: 10
+Média histórica: 119263660.80x
+Último valor: 168990827.00x
+
+Evolução (últimos 8 períodos):
+  2017-12: 109398266.00x
+  2018-12: 82160825.00x
+  2019-12: 89253866.00x
+  2020-12: 43232120.00x
+  2021-12: 66273138.00x
+  2022-12: 162202484.00x
+  2023-12: 176689874.00x
+  2024-12: 168990827.00x
+
+========================================
+
+LUCRO BRUTO
+-----------
+Total de períodos: 10
+Média histórica: R$ 54.1M
+Último valor: R$ 104.5M
+CAGR (crescimento anual): 16.6%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 30.4M
+  2018-12: R$ 38.1M
+  2019-12: R$ 33.9M
+  2020-12: R$ 55.4M
+  2021-12: R$ 59.7M
+  2022-12: R$ 74.3M
+  2023-12: R$ 88.7M
+  2024-12: R$ 104.5M
+
+========================================
+
+LUCRO LIQUIDO
+-------------
+Total de períodos: 5
+Média histórica: R$ 25.0M
+Último valor: R$ 29.2M
+CAGR (crescimento anual): 17.0%
+
+Evolução (últimos 8 períodos):
+  2020-12: R$ 13.3M
+  2021-12: R$ 19.7M
+  2022-12: R$ 29.8M
+  2023-12: R$ 33.2M
+  2024-12: R$ 29.2M
+
+========================================
+
+EBIT
+----
+Total de períodos: 10
+Média histórica: R$ 21.1M
+Último valor: R$ 27.7M
+CAGR (crescimento anual): 10.6%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 15.9M
+  2018-12: R$ 20.4M
+  2019-12: R$ 11.1M
+  2020-12: R$ 11.6M
+  2021-12: R$ 24.0M
+  2022-12: R$ 38.3M
+  2023-12: R$ 41.1M
+  2024-12: R$ 27.7M
+
+========================================
+
+PATRIMONIO LIQUIDO
+------------------
+Total de períodos: 10
+Média histórica: R$ 609.3M
+Último valor: R$ 26.1M
+CAGR (crescimento anual): -31.9%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 1165.0M
+  2018-12: R$ 1201.1M
+  2019-12: R$ 1220.6M
+  2020-12: R$ 16.9M
+  2021-12: R$ 19.5M
+  2022-12: R$ 22.0M
+  2023-12: R$ 21.8M
+  2024-12: R$ 26.1M
+
+========================================
+
+ATIVO TOTAL
+-----------
+Total de períodos: 10
+Média histórica: R$ 1713.1M
+Último valor: R$ 2398.7M
+CAGR (crescimento anual): 5.6%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 1353.1M
+  2018-12: R$ 1396.5M
+  2019-12: R$ 1452.3M
+  2020-12: R$ 1693.8M
+  2021-12: R$ 1899.3M
+  2022-12: R$ 2007.7M
+  2023-12: R$ 2153.9M
+  2024-12: R$ 2398.7M
+
+========================================
+
+ATIVO CIRCULANTE
+----------------
+Total de períodos: 10
+Média histórica: R$ 82.3M
+Último valor: R$ 83.2M
+CAGR (crescimento anual): -2.1%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 47.2M
+  2018-12: R$ 60.3M
+  2019-12: R$ 71.9M
+  2020-12: R$ 176.2M
+  2021-12: R$ 54.5M
+  2022-12: R$ 68.8M
+  2023-12: R$ 55.0M
+  2024-12: R$ 83.2M
+
+========================================
+
+PASSIVO CIRCULANTE
+------------------
+Total de períodos: 10
+Média histórica: 1965433.20x
+Último valor: 8266681.00x
+
+Evolução (últimos 8 períodos):
+  2017-12: 0.00x
+  2018-12: 0.00x
+  2019-12: 961636.00x
+  2020-12: 3098315.00x
+  2021-12: 2053161.00x
+  2022-12: 2764797.00x
+  2023-12: 2509742.00x
+  2024-12: 8266681.00x
+
+========================================
+
+DIVIDA LIQUIDA
+--------------
+Total de períodos: 10
+Média histórica: -16261400.30x
+Último valor: -20079736.00x
+
+Evolução (últimos 8 períodos):
+  2017-12: -13471112.00x
+  2018-12: -13601194.00x
+  2019-12: -14171188.00x
+  2020-12: -16784560.00x
+  2021-12: -18023001.00x
+  2022-12: -18310546.00x
+  2023-12: -17327745.00x
+  2024-12: -20079736.00x
+
+========================================
+
+EBITDA
+------
+Total de períodos: 10
+Média histórica: R$ 44.3M
+Último valor: R$ 55.7M
+CAGR (crescimento anual): 5.9%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ 36.5M
+  2018-12: R$ 41.5M
+  2019-12: R$ 33.9M
+  2020-12: R$ 34.2M
+  2021-12: R$ 46.7M
+  2022-12: R$ 62.9M
+  2023-12: R$ 66.1M
+  2024-12: R$ 55.7M
+
+========================================
+
+MARGEM BRUTA
+------------
+Total de períodos: 10
+Média histórica: 31.98%
+Último valor: 38.21%
+Variação total: 210.2%
+
+Evolução (últimos 8 períodos):
+  2017-12: 21.73%
+  2018-12: 31.68%
+  2019-12: 27.50%
+  2020-12: 56.18%
+  2021-12: 47.38%
+  2022-12: 31.43%
+  2023-12: 33.43%
+  2024-12: 38.21%
+
+========================================
+
+MARGEM LIQUIDA
+--------------
+Total de períodos: 5
+Média histórica: 12.98%
+Último valor: 10.67%
+Variação total: -20.8%
+
+Evolução (últimos 8 períodos):
+  2020-12: 13.47%
+  2021-12: 15.66%
+  2022-12: 12.62%
+  2023-12: 12.49%
+  2024-12: 10.67%
+
+========================================
+
+MARGEM EBIT
+-----------
+Total de períodos: 10
+Média histórica: 12.21%
+Último valor: 10.13%
+Variação total: 82.3%
+
+Evolução (últimos 8 períodos):
+  2017-12: 11.40%
+  2018-12: 16.98%
+  2019-12: 9.05%
+  2020-12: 11.73%
+  2021-12: 19.05%
+  2022-12: 16.19%
+  2023-12: 15.50%
+  2024-12: 10.13%
+
+========================================
+
+MARGEM EBITDA
+-------------
+Total de períodos: 10
+Média histórica: 26.91%
+Último valor: 20.38%
+Variação total: 18.1%
+
+Evolução (últimos 8 períodos):
+  2017-12: 26.11%
+  2018-12: 34.52%
+  2019-12: 27.57%
+  2020-12: 34.71%
+  2021-12: 37.05%
+  2022-12: 26.61%
+  2023-12: 24.92%
+  2024-12: 20.38%
+
+========================================
+
+ROE
+---
+Total de períodos: 5
+Média histórica: 115.96%
+Último valor: 111.77%
+Variação total: 42.1%
+
+Evolução (últimos 8 períodos):
+  2020-12: 78.68%
+  2021-12: 101.20%
+  2022-12: 135.94%
+  2023-12: 152.23%
+  2024-12: 111.77%
+
+========================================
+
+ROA
+---
+Total de períodos: 5
+Média histórica: 1.21%
+Último valor: 1.22%
+Variação total: 55.0%
+
+Evolução (últimos 8 períodos):
+  2020-12: 0.78%
+  2021-12: 1.04%
+  2022-12: 1.49%
+  2023-12: 1.54%
+  2024-12: 1.22%
+
+========================================
+
+ROI
+---
+Total de períodos: 10
+Média histórica: 1.18x
+Último valor: 1.16x
+
+Evolução (últimos 8 períodos):
+  2017-12: 1.18x
+  2018-12: 1.46x
+  2019-12: 0.77x
+  2020-12: 0.68x
+  2021-12: 1.26x
+  2022-12: 1.91x
+  2023-12: 1.91x
+  2024-12: 1.16x
+
+========================================
+
+ROIC
+----
+Total de períodos: 10
+Média histórica: 1459.45%
+Último valor: 460.36%
+Variação total: 54035.9%
+
+Evolução (últimos 8 períodos):
+  2017-12: 1.38%
+  2018-12: 1.72%
+  2019-12: 0.92%
+  2020-12: 10518.81%
+  2021-12: 1636.61%
+  2022-12: 1050.21%
+  2023-12: 922.73%
+  2024-12: 460.36%
+
+========================================
+
+DIVIDA PL
+---------
+Total de períodos: 10
+Média histórica: -0.44x
+Último valor: -0.77x
+
+Evolução (últimos 8 períodos):
+  2017-12: -0.01x
+  2018-12: -0.01x
+  2019-12: -0.01x
+  2020-12: -0.99x
+  2021-12: -0.92x
+  2022-12: -0.83x
+  2023-12: -0.80x
+  2024-12: -0.77x
+
+========================================
+
+DIVIDA EBITDA
+-------------
+Total de períodos: 10
+Média histórica: R$ -0.0M
+Último valor: R$ -0.0M
+CAGR (crescimento anual): -4.5%
+
+Evolução (últimos 8 períodos):
+  2017-12: R$ -0.0M
+  2018-12: R$ -0.0M
+  2019-12: R$ -0.0M
+  2020-12: R$ -0.0M
+  2021-12: R$ -0.0M
+  2022-12: R$ -0.0M
+  2023-12: R$ -0.0M
+  2024-12: R$ -0.0M
+
+========================================
+
+LIQUIDEZ CORRENTE
+-----------------
+Total de períodos: 6
+Média histórica: 35.85x
+Último valor: 10.06x
+
+Evolução (últimos 8 períodos):
+  2019-12: 74.81x
+  2020-12: 56.87x
+  2021-12: 26.54x
+  2022-12: 24.89x
+  2023-12: 21.91x
+  2024-12: 10.06x
+
+========================================
+
+3. INDICADORES DE PRAZOS TEMPORAIS
+--------------------------------------------------
+
+PMR (dias)
+Média histórica: 76.6 dias
+Último valor: 86.3 dias
+Mínimo: 30.0 | Máximo: 124.9 dias
+Últimos períodos:
+  2016-12: 124.9 dias
+  2017-12: 30.0 dias
+  2018-12: 66.4 dias
+  2019-12: 86.3 dias
+
+PME (dias)
+Média histórica: 0.0 dias
+Último valor: 0.0 dias
+Mínimo: 0.0 | Máximo: 0.0 dias
+Últimos períodos:
+  2016-12: 0.0 dias
+
+CICLO OPERACIONAL (dias)
+Média histórica: 124.9 dias
+Último valor: 124.9 dias
+Mínimo: 124.9 | Máximo: 124.9 dias
+Últimos períodos:
+  2016-12: 124.9 dias
+
+================================================================================
+RELATÓRIO GERADO AUTOMATICAMENTE PELO SISTEMA DE VALUATION CHIMPA INVEST
+================================================================================

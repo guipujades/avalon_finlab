@@ -1,0 +1,532 @@
+2025-02-25 15:14:51,580 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:17:09,699 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:18:49,901 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:26:17,474 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:28:32,148 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:28:32,413 - hooke_strategy - INFO - Dados obtidos: 60208 períodos
+2025-02-25 15:28:32,414 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 15:28:32,421 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 15:28:32,422 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 15:28:32,497 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 15:28:32,501 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 15:28:34,378 - hooke_strategy - INFO - Backtest concluído com 710 trades
+2025-02-25 15:28:34,379 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 15:28:34,396 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_152834.xlsx
+2025-02-25 15:28:34,682 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_152834.xlsx
+2025-02-25 15:28:34,683 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 15:28:35,595 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:28:35,596 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:28:35,612 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:28:35,614 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:28:40,320 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_152834
+2025-02-25 15:28:40,323 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 15:28:58,240 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_152834.png
+2025-02-25 15:29:14,336 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:29:14,394 - hooke_strategy - INFO - Dados obtidos: 12325 períodos
+2025-02-25 15:29:14,395 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 15:29:14,398 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 15:29:14,400 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 15:29:14,421 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 15:29:14,422 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 15:29:15,057 - hooke_strategy - INFO - Backtest concluído com 104 trades
+2025-02-25 15:29:15,058 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 15:29:15,068 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_152915.xlsx
+2025-02-25 15:29:15,202 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_152915.xlsx
+2025-02-25 15:29:15,203 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 15:29:15,987 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:15,990 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:16,009 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:16,013 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:23,547 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_152915
+2025-02-25 15:29:23,550 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 15:29:26,454 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_152915.png
+2025-02-25 15:29:44,487 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 15:29:45,036 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:45,042 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:45,056 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:45,059 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:29:45,207 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 15:48:57,238 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:48:57,239 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 15:48:57,288 - hooke_strategy - INFO - Dados obtidos: 12321 períodos
+2025-02-25 15:48:57,289 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 15:48:57,291 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 15:48:57,292 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 15:48:57,310 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 15:48:57,311 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 15:48:57,311 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 15:48:57,312 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 15:48:57,313 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 15:48:57,769 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 15:48:57,769 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 15:50:20,867 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:50:20,869 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 15:50:20,937 - hooke_strategy - INFO - Dados obtidos: 12320 períodos
+2025-02-25 15:50:20,938 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 15:50:20,939 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 15:50:20,940 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 15:50:20,963 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 15:50:20,966 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 15:50:20,968 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 15:50:20,968 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 15:50:20,969 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 15:50:21,453 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 15:50:21,454 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 15:50:21,465 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_155021.xlsx
+2025-02-25 15:50:21,570 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_155021.xlsx
+2025-02-25 15:52:13,608 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 15:52:13,609 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 15:52:13,674 - hooke_strategy - INFO - Dados obtidos: 12320 períodos
+2025-02-25 15:52:13,675 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 15:52:13,681 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 15:52:13,683 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 15:52:13,720 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 15:52:13,721 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 15:52:13,722 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 15:52:13,726 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 15:52:13,728 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 15:52:14,474 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 15:52:14,475 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 15:52:14,495 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_155214.xlsx
+2025-02-25 15:52:14,605 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_155214.xlsx
+2025-02-25 15:52:14,606 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 15:52:14,867 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:14,870 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:14,885 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:14,888 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:17,840 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_155214
+2025-02-25 15:52:17,842 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 15:52:19,782 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_155214.png
+2025-02-25 15:52:38,732 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 15:52:38,870 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:38,872 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:38,881 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:38,883 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 15:52:38,991 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:12:16,564 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:12:16,566 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:12:16,618 - hooke_strategy - INFO - Dados obtidos: 0 períodos
+2025-02-25 16:12:16,619 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:12:16,620 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:12:16,621 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:12:16,635 - hooke_strategy - INFO - Removidas 0 linhas com valores NaN
+2025-02-25 16:12:16,636 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:12:16,637 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:12:16,638 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:12:16,639 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:12:16,639 - hooke_strategy - INFO - Backtest concluído com 0 trades
+2025-02-25 16:12:16,641 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:12:16,644 - hooke_strategy - WARNING - Sem dados de trades para plotar
+2025-02-25 16:12:16,646 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:12:16,647 - hooke_strategy - WARNING - Sem dados para o intervalo de datas especificado
+2025-02-25 16:12:33,950 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:12:33,950 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:12:33,996 - hooke_strategy - INFO - Dados obtidos: 12316 períodos
+2025-02-25 16:12:33,997 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:12:33,999 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:12:33,999 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:12:34,019 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 16:12:34,020 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:12:34,022 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:12:34,023 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:12:34,024 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:12:34,474 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 16:12:34,475 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:12:34,492 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161234.xlsx
+2025-02-25 16:12:34,571 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161234.xlsx
+2025-02-25 16:12:34,571 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:12:34,730 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:34,733 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:34,740 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:34,744 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:36,823 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_161234
+2025-02-25 16:12:36,825 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:12:38,717 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_161234.png
+2025-02-25 16:12:38,720 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:12:38,872 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:38,874 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:38,887 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:38,889 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:12:38,987 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:15:57,389 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:15:57,389 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:15:57,435 - hooke_strategy - INFO - Dados obtidos: 12315 períodos
+2025-02-25 16:15:57,436 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:15:57,438 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:15:57,439 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:15:57,457 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 16:15:57,457 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:15:57,459 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:15:57,460 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:15:57,460 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:15:57,923 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 16:15:57,924 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:15:57,937 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161557.xlsx
+2025-02-25 16:15:58,017 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161557.xlsx
+2025-02-25 16:15:58,018 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:15:58,180 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:15:58,182 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:15:58,194 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:15:58,196 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:16:00,135 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_161557
+2025-02-25 16:16:00,138 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:16:02,197 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_161557.png
+2025-02-25 16:16:26,650 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:16:26,651 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:16:26,695 - hooke_strategy - INFO - Dados obtidos: 12315 períodos
+2025-02-25 16:16:26,700 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:16:26,701 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:16:26,702 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:16:26,720 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 16:16:26,721 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:16:26,722 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:16:26,723 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:16:26,724 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:16:27,159 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 16:16:27,160 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:16:27,171 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161627.xlsx
+2025-02-25 16:16:27,240 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161627.xlsx
+2025-02-25 16:16:27,241 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:16:27,595 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:16:27,597 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:16:27,604 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:16:27,608 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:16:29,481 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_161627
+2025-02-25 16:16:29,482 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:16:31,329 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_161627.png
+2025-02-25 16:17:30,349 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:17:30,350 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:17:30,401 - hooke_strategy - INFO - Dados obtidos: 27466 períodos
+2025-02-25 16:17:30,402 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:17:30,404 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:17:30,406 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:17:30,433 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 16:17:30,433 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:17:30,434 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:17:30,435 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:17:30,436 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:17:31,420 - hooke_strategy - INFO - Backtest concluído com 201 trades
+2025-02-25 16:17:31,421 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:17:31,437 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161731.xlsx
+2025-02-25 16:17:31,562 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161731.xlsx
+2025-02-25 16:17:31,564 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:17:31,719 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:17:31,720 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:17:31,733 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:17:31,734 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:17:33,690 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_161731
+2025-02-25 16:17:33,691 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:17:37,266 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_161731.png
+2025-02-25 16:18:08,652 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:18:08,653 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:18:08,702 - hooke_strategy - INFO - Dados obtidos: 27244 períodos
+2025-02-25 16:18:08,703 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:18:08,706 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:18:08,706 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:18:08,733 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 16:18:08,734 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:18:08,736 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:18:08,736 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:18:08,737 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:18:09,689 - hooke_strategy - INFO - Backtest concluído com 233 trades
+2025-02-25 16:18:09,690 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:18:09,708 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161809.xlsx
+2025-02-25 16:18:09,836 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161809.xlsx
+2025-02-25 16:18:09,837 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:18:09,984 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:18:09,986 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:18:09,993 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:18:09,995 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:18:12,149 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_161809
+2025-02-25 16:18:12,149 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:18:16,768 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_161809.png
+2025-02-25 16:19:02,130 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-02-25 16:19:02,132 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-02-25 16:19:02,176 - hooke_strategy - INFO - Dados obtidos: 12315 períodos
+2025-02-25 16:19:02,177 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-02-25 16:19:02,180 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-02-25 16:19:02,182 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-02-25 16:19:02,200 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-02-25 16:19:02,201 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-02-25 16:19:02,202 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-02-25 16:19:02,203 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-02-25 16:19:02,205 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-02-25 16:19:02,653 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-02-25 16:19:02,654 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-02-25 16:19:02,669 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161902.xlsx
+2025-02-25 16:19:02,764 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250225_161902.xlsx
+2025-02-25 16:19:02,765 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-02-25 16:19:02,935 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:19:02,937 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:19:02,948 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:19:02,950 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-02-25 16:19:05,088 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250225_161902
+2025-02-25 16:19:05,090 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-02-25 16:19:06,781 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250225_161902.png
+2025-03-03 09:10:39,050 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:10:39,066 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:10:39,465 - hooke_strategy - INFO - Dados obtidos: 12309 períodos
+2025-03-03 09:10:39,468 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:10:39,488 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:10:39,491 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:10:39,707 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:10:39,709 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:10:39,711 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:10:39,712 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:10:39,712 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:10:40,329 - hooke_strategy - INFO - Backtest concluído com 65 trades
+2025-03-03 09:10:40,335 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:10:40,462 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091040.xlsx
+2025-03-03 09:10:40,791 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091040.xlsx
+2025-03-03 09:10:40,792 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:10:41,714 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:10:41,717 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:10:41,751 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:10:41,758 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:10:47,748 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091040
+2025-03-03 09:10:47,752 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:11:05,592 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091040.png
+2025-03-03 09:11:05,615 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:11:06,113 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:11:06,119 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:11:06,141 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:11:06,146 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:11:06,376 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:12:08,698 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:12:08,700 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:12:08,971 - hooke_strategy - INFO - Dados obtidos: 27466 períodos
+2025-03-03 09:12:08,971 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:12:08,977 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:12:08,978 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:12:09,109 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:12:09,110 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:12:09,111 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:12:09,112 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:12:09,113 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:12:10,187 - hooke_strategy - INFO - Backtest concluído com 197 trades
+2025-03-03 09:12:10,187 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:12:10,209 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091210.xlsx
+2025-03-03 09:12:10,344 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091210.xlsx
+2025-03-03 09:12:10,349 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:12:10,531 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:10,533 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:10,545 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:10,551 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:12,697 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091210
+2025-03-03 09:12:12,705 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:12:16,977 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091210.png
+2025-03-03 09:12:16,984 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:12:17,155 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:17,157 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:17,167 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:17,172 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:17,288 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:12:54,417 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:12:54,419 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:12:54,498 - hooke_strategy - INFO - Dados obtidos: 27244 períodos
+2025-03-03 09:12:54,499 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:12:54,504 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:12:54,506 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:12:54,588 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:12:54,589 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:12:54,590 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:12:54,591 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:12:54,592 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:12:55,655 - hooke_strategy - INFO - Backtest concluído com 227 trades
+2025-03-03 09:12:55,656 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:12:55,673 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091255.xlsx
+2025-03-03 09:12:55,803 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091255.xlsx
+2025-03-03 09:12:55,805 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:12:55,973 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:55,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:55,985 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:55,990 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:12:58,153 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091255
+2025-03-03 09:12:58,154 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:13:02,530 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091255.png
+2025-03-03 09:13:02,534 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:13:02,716 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:02,720 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:02,733 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:02,737 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:02,858 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:13:44,595 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:13:44,597 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:13:44,682 - hooke_strategy - INFO - Dados obtidos: 28554 períodos
+2025-03-03 09:13:44,684 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:13:44,691 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:13:44,692 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:13:44,794 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:13:44,796 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:13:44,797 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:13:44,798 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:13:44,800 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:13:46,781 - hooke_strategy - INFO - Backtest concluído com 232 trades
+2025-03-03 09:13:46,782 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:13:46,802 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091346.xlsx
+2025-03-03 09:13:46,996 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091346.xlsx
+2025-03-03 09:13:46,998 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:13:47,290 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:47,295 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:47,307 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:47,312 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:50,139 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091346
+2025-03-03 09:13:50,142 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:13:55,086 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091346.png
+2025-03-03 09:13:55,093 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:13:55,315 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:55,322 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:55,331 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:55,338 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:13:55,485 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:15:30,224 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:15:30,224 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:15:30,297 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 09:15:30,299 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:15:30,305 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:15:30,307 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:15:30,420 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:15:30,420 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:15:30,421 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:15:30,423 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:15:30,424 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:15:34,221 - hooke_strategy - INFO - Backtest concluído com 721 trades
+2025-03-03 09:15:34,221 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:15:34,248 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091534.xlsx
+2025-03-03 09:15:34,551 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091534.xlsx
+2025-03-03 09:15:34,552 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:15:34,744 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:34,747 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:34,762 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:34,765 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:37,073 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091534
+2025-03-03 09:15:37,074 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:15:53,595 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091534.png
+2025-03-03 09:15:53,601 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:15:53,750 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:53,752 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:53,764 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:53,766 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:15:53,881 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:17:48,677 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:17:48,678 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:17:48,737 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 09:17:48,739 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:17:48,744 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:17:48,745 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:17:48,852 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:17:48,853 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:17:48,853 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:17:48,855 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:17:48,855 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:17:52,409 - hooke_strategy - INFO - Backtest concluído com 721 trades
+2025-03-03 09:17:52,410 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:17:52,428 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091752.xlsx
+2025-03-03 09:17:52,702 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091752.xlsx
+2025-03-03 09:17:52,706 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:17:52,871 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:17:52,872 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:17:52,881 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:17:52,884 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:17:55,007 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091752
+2025-03-03 09:17:55,015 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:18:10,005 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091752.png
+2025-03-03 09:18:10,011 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:18:10,218 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:10,221 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:10,230 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:10,232 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:10,356 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:18:52,615 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:18:52,616 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 10:30:00
+2025-03-03 09:18:52,669 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 09:18:52,671 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:18:52,677 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:18:52,678 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:18:52,760 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:18:52,761 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:18:52,763 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:18:52,763 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:18:52,764 - hooke_strategy - INFO - Horário de fechamento de posições: 10:30:00
+2025-03-03 09:18:56,219 - hooke_strategy - INFO - Backtest concluído com 736 trades
+2025-03-03 09:18:56,220 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:18:56,252 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091856.xlsx
+2025-03-03 09:18:56,558 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_091856.xlsx
+2025-03-03 09:18:56,559 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:18:56,732 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:56,737 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:56,744 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:56,747 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:18:58,769 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_091856
+2025-03-03 09:18:58,770 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:19:12,978 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_091856.png
+2025-03-03 09:19:12,990 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:19:13,165 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:19:13,167 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:19:13,181 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:19:13,184 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:19:13,298 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:20:01,992 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 09:20:01,993 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:05:00, Limite Entrada: 09:30:00, Fechamento: 15:30:00
+2025-03-03 09:20:02,063 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 09:20:02,064 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 09:20:02,066 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 09:20:02,067 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 09:20:02,153 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 09:20:02,155 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 09:20:02,156 - hooke_strategy - INFO - Horário mínimo de operação: 09:05:00
+2025-03-03 09:20:02,157 - hooke_strategy - INFO - Horário máximo para abrir posições: 09:30:00
+2025-03-03 09:20:02,157 - hooke_strategy - INFO - Horário de fechamento de posições: 15:30:00
+2025-03-03 09:20:10,832 - hooke_strategy - INFO - Backtest concluído com 736 trades
+2025-03-03 09:20:10,833 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 09:20:10,862 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_092010.xlsx
+2025-03-03 09:20:11,187 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_092010.xlsx
+2025-03-03 09:20:11,189 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:20:11,348 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:11,351 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:11,358 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:11,362 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:13,769 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_092010
+2025-03-03 09:20:13,777 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 09:20:30,157 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_092010.png
+2025-03-03 09:20:30,164 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 09:20:30,379 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:30,381 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:30,392 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:30,394 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 09:20:30,512 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 10:54:40,434 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 10:54:40,435 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 10:54:40,553 - fibonacci_strategy - INFO - Dados obtidos: 27466 períodos
+2025-03-03 10:54:40,555 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 10:54:40,563 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 10:54:40,625 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 10:54:41,734 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2022-01-04: Fib 23% = 6850.72, Fib 76% = 6931.24
+2025-03-03 10:54:41,738 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 10:54:47,649 - fibonacci_strategy - INFO - Backtest concluído com 258 trades
+2025-03-03 10:54:47,650 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 10:54:47,672 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_105447.xlsx
+2025-03-03 10:54:47,847 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_105447.xlsx
+2025-03-03 10:54:47,854 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 10:54:47,957 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:54:47,963 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:54:48,010 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:54:48,014 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:54:51,891 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_105447
+2025-03-03 10:54:51,892 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 10:54:51,921 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2022, 1, 3) datetime.date(2022, 1, 4)
+ datetime.date(2022, 1, 5) datetime.date(2022, 1, 6)
+ datetime.date(2022, 1, 7)]
+2025-03-03 10:54:52,868 - fibonacci_strategy - INFO - Gráfico para 2022-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105447\fib_chart_20220104.png
+2025-03-03 10:54:53,824 - fibonacci_strategy - INFO - Gráfico para 2022-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105447\fib_chart_20220105.png
+2025-03-03 10:54:54,644 - fibonacci_strategy - INFO - Gráfico para 2022-01-06 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105447\fib_chart_20220106.png
+2025-03-03 10:54:55,461 - fibonacci_strategy - INFO - Gráfico para 2022-01-07 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105447\fib_chart_20220107.png
+2025-03-03 10:55:01,194 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 10:55:01,300 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:01,303 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:01,362 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:01,366 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:01,710 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 10:55:01,726 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2022, 1, 3) datetime.date(2022, 1, 4)
+ datetime.date(2022, 1, 5) datetime.date(2022, 1, 6)
+ datetime.date(2022, 1, 7)]

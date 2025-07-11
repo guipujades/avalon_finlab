@@ -1,0 +1,41 @@
+{
+  "processed": {
+    "multi-label-classification-an-overview-3lubavw9dw.pdf": {
+      "status": "success",
+      "file": "documents\\pending\\multi-label-classification-an-overview-3lubavw9dw.pdf",
+      "output_file": "documents\\parsed\\multi-label-classification-an-overview-3lubavw9dw_parsed.txt",
+      "summary_file": "documents\\summaries\\multi-label-classification-an-overview-3lubavw9dw_summary.md",
+      "pages": 0,
+      "characters": 0,
+      "words": 0,
+      "analysis": {
+        "has_equations": false,
+        "has_code": false,
+        "has_tables": false,
+        "sections": [],
+        "keywords": []
+      },
+      "timestamp": "2025-06-17T14:02:14.000431",
+      "moved_to": "documents\\processed\\multi-label-classification-an-overview-3lubavw9dw.pdf"
+    },
+    "A Novel Online Multi-label Classifier for High-Speed.pdf": {
+      "status": "success",
+      "file": "documents\\pending\\A Novel Online Multi-label Classifier for High-Speed.pdf",
+      "output_file": "documents\\parsed\\A Novel Online Multi-label Classifier for High-Speed_parsed.txt",
+      "summary_file": "documents\\summaries\\A Novel Online Multi-label Classifier for High-Speed_summary.md",
+      "pages": 18,
+      "characters": 70564,
+      "words": 8442,
+      "analysis": {
+        "has_equations": true,
+        "has_code": true,
+        "has_tables": true,
+        "sections": [],
+        "keywords": []
+      },
+      "timestamp": "2025-06-17T14:04:59.726160",
+      "moved_to": "documents\\processed\\A Novel Online Multi-label Classifier for High-Speed.pdf"
+    }
+  },
+  "last_check": "2025-06-17T14:04:59.730919"
+}

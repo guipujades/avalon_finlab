@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(pip3 install:*)",
+      "Bash(find:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(curl:*)",
+      "Bash(chmod:*)",
+      "Bash(./test_cvm_urls.sh:*)",
+      "Bash(bash:*)",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(pip3 list:*)",
+      "Bash(awk:*)",
+      "Bash(mv:*)",
+      "Bash(rg:*)",
+      "Bash(cut:*)",
+      "Bash(sed:*)",
+      "Bash(iconv:*)",
+      "Bash(mkdir:*)",
+      "Bash(true)",
+      "Bash(sudo mv:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(echo:*)"
+    ],
+    "deny": []
+  }
+}

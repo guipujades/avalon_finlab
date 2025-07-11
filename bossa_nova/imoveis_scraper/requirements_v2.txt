@@ -1,0 +1,6 @@
+requests
+beautifulsoup4
+selenium
+undetected-chromedriver
+pandas
+lxml

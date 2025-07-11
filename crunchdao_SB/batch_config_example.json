@@ -1,0 +1,30 @@
+{
+    "description": "Configuração exemplo para análise em lote de quebras estruturais",
+    "tickers": [
+        "^BVSP",
+        "PETR4.SA",
+        "VALE3.SA",
+        "ITUB4.SA",
+        "BBDC4.SA",
+        "ABEV3.SA",
+        "B3SA3.SA",
+        "WEGE3.SA",
+        "MGLU3.SA",
+        "PRIO3.SA",
+        "RENT3.SA",
+        "RAIL3.SA",
+        "SUZB3.SA",
+        "VIVT3.SA",
+        "GGBR4.SA",
+        "CSNA3.SA",
+        "CPLE6.SA",
+        "ELET3.SA",
+        "EMBR3.SA",
+        "AZUL4.SA"
+    ],
+    "start_date": "2019-01-01",
+    "end_date": "2024-12-31",
+    "tau": 0.005,
+    "q": 5,
+    "comment": "Principais ações do Ibovespa para análise de quebras estruturais"
+}

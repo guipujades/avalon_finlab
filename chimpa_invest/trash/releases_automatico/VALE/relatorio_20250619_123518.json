@@ -1,0 +1,245 @@
+{
+  "empresa": "VALE",
+  "data_execucao": "2025-06-19T12:35:18.442321",
+  "ano": 2025,
+  "releases_encontrados": 26,
+  "downloads_sucesso": 0,
+  "downloads_erro": 26,
+  "arquivos_existentes": 0,
+  "resultados": [
+    {
+      "data": "2025-06-05",
+      "assunto": "(a) Exame, discussão e votação das demonstrações financeiras relativas ao exercício social encerrado em 31 de dezembro de 2024 (b) Outros assuntos de interesse social",
+      "categoria": "Assembleia",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1387118&numSequencia=911830&numVersao=1",
+      "protocolo": "519146IPE050520250117551622-88",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-05-20",
+      "assunto": "2) EM AGE - Aprovação todos os atos praticados pela administração||Em AGO: a) Aprovação do Relatório da Administração, Balanço Patrimonial, Demonstrações Financeiras e Parecer dos Auditores Independentes ref. ao exercício social encerrado em 31/12/2024||Em AGO: b) distribuição de  dividendos c) não instalação do conselho fiscal durante o exercício de 2025",
+      "categoria": "Assembleia",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1380877&numSequencia=905589&numVersao=1",
+      "protocolo": "516147IPE290420250129489808-82",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-05-14",
+      "assunto": "1. Em AGO: a) Aprovação do Relatório da Administração, do Balanço Patrimonial, Demonstrações Financeiras e Parecer dos Auditores Independentes ref. ao exercício social encerrado em 31/12/2024||1. Em AGO: b) distribuição de  dividendos c) não instalação do conselho fiscal durante o exercício de 2025||2) EM AGE - Aprovação todos os atos praticados pela administração",
+      "categoria": "Assembleia",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1377649&numSequencia=902361&numVersao=1",
+      "protocolo": "516147IPE290420250119411163-39",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-30",
+      "assunto": "Aprovação do Plano Global de Incentivo de Longo Prazo baseado em Ações||Destinação dos Resultados||Eleição de Membros dos Conselhos de Administração e Fiscal||Eleição do Presidente do Conselho de Administração||Eleição do Vice-Presidente do Conselho de Administração||Fixação do número de assentos do Conselho de Administração em 13 membros titulares e 1 (um) membro suplente||Remuneração dos Administradores e Conselheiros||Tomada de Contas-Votação do Relatório da Administração e das Demonstrações Financeiras",
+      "categoria": "Assembleia",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1370056&numSequencia=894768&numVersao=1",
+      "protocolo": "004170IPE300420250197651053-45",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-25",
+      "assunto": "Desempenho da Vale no 1T25 - Apresentação do Conference Call",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365290&numSequencia=890016&numVersao=1",
+      "protocolo": "004170IPE250420250115502012-96",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-24",
+      "assunto": "Demonstrações Financeiras em BRGAAP - Versão em português",
+      "categoria": "Dados Econômico-Financeiros",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365111&numSequencia=889837&numVersao=1",
+      "protocolo": "004170IPE310320250109246008-57",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-24",
+      "assunto": "Desempenho da Vale no 1T25",
+      "categoria": "Dados Econômico-Financeiros",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365095&numSequencia=889821&numVersao=1",
+      "protocolo": "004170IPE310320250155612873-65",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-24",
+      "assunto": "Demonstrações Financeiras IFRS - Versão Inglês",
+      "categoria": "Informação Prestada às Bolsas Estrangeiras",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365105&numSequencia=889831&numVersao=1",
+      "protocolo": "004170IPE310320250158802104-97",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-24",
+      "assunto": "Demonstrações Financeiras IFRS - Versão Português",
+      "categoria": "Informação Prestada às Bolsas Estrangeiras",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365108&numSequencia=889834&numVersao=1",
+      "protocolo": "004170IPE310320250113036254-86",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-23",
+      "assunto": "EXAME, DISCUSSÃO E VOTAÇÃO DAS DEMONSTRAÇÕES FINANCEIRAS RELATIVAS AO EXERCICIO SOCIAL ENCERRADO EM 31/12/2024 OUTROS ASSUNTOS DE INTERESSE DA SOCIEDADE",
+      "categoria": "Assembleia",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1363932&numSequencia=888658&numVersao=1",
+      "protocolo": "519146IPE050520250195533104-10",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-04-04",
+      "assunto": "Datas de divulgação do desempenho no 1T25",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1358096&numSequencia=882822&numVersao=1",
+      "protocolo": "004170IPE040420250104575111-43",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-03-24",
+      "assunto": "Vale anuncia encerramento e resultado final das ofertas de aquisição  de bonds com vencimento em 2034, 2039 e 2036",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1350834&numSequencia=875560&numVersao=1",
+      "protocolo": "004170IPE240320250104574013-42",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-03-17",
+      "assunto": "Aprovação do Plano Global de Incentivo de Longo Prazo baseado em Ações||Destinação dos Resultados||Eleição de Membros dos Conselhos de Administração e Fiscal||Eleição do Presidente do Conselho de Administração||Eleição do Vice-Presidente do Conselho de Administração||Fixação do número de assentos do Conselho de Administração em 13 membros titulares  e 1 (um) membro suplente||Remuneração dos Administradores e Conselheiros||Tomada de Contas-Votação do Relatório da Administração e das Demonstrações Financeiras",
+      "categoria": "Assembleia",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1347891&numSequencia=872617&numVersao=1",
+      "protocolo": "004170IPE300420250104573314-21",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-03-07",
+      "assunto": "Vale anuncia resultados das ofertas de aquisição de bonds com  vencimento em 2034, 2039 e 2036",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1344085&numSequencia=868811&numVersao=1",
+      "protocolo": "004170IPE070320250104572314-53",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-21",
+      "assunto": "Desempenho da Vale no 4T24 e 2024",
+      "categoria": "Dados Econômico-Financeiros",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337860&numSequencia=862586&numVersao=2",
+      "protocolo": "004170IPE311220240204570713-91",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-20",
+      "assunto": "Desempenho da Vale no 4T24 - Apresentação do Conference Call",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337273&numSequencia=861999&numVersao=1",
+      "protocolo": "004170IPE200220250104570806-99",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-19",
+      "assunto": "Desempenho da Vale no 4T24 e 2024",
+      "categoria": "Dados Econômico-Financeiros",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1336983&numSequencia=861709&numVersao=1",
+      "protocolo": "004170IPE311220240104570713-91",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-19",
+      "assunto": "Demonstrações Financeiras IFRS - Versão Inglês",
+      "categoria": "Informação Prestada às Bolsas Estrangeiras",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1336996&numSequencia=861722&numVersao=1",
+      "protocolo": "004170IPE311220240104570714-18",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-19",
+      "assunto": "Demonstrações Financeiras IFRS - Versão Português",
+      "categoria": "Informação Prestada às Bolsas Estrangeiras",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1336999&numSequencia=861725&numVersao=1",
+      "protocolo": "004170IPE311220240104570714-19",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-19",
+      "assunto": "Parecer acerca das Demonstrações Financeiras",
+      "categoria": "Reunião da Administração",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337006&numSequencia=861732&numVersao=1",
+      "protocolo": "004170IPE140220250104570714-00",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-19",
+      "assunto": "Demonstrações Financeiras 2024 / Distribuição de Dividendos / Programa Recompra / Destinação de Resultados",
+      "categoria": "Reunião da Administração",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1336984&numSequencia=861710&numVersao=1",
+      "protocolo": "004170IPE190220250104570713-48",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-02-19",
+      "assunto": "Parecer acerca das Demonstrações Financeiras",
+      "categoria": "Reunião da Administração",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337011&numSequencia=861737&numVersao=1",
+      "protocolo": "004170IPE190220250104570714-29",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-01-29",
+      "assunto": "Relatório de produção e vendas da Vale no 4T24 e 2024",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1328563&numSequencia=853289&numVersao=3",
+      "protocolo": "004170IPE280120250304568510-96",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-01-28",
+      "assunto": "Relatório de produção e vendas da Vale no 4T24 e 2024",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1328085&numSequencia=852811&numVersao=1",
+      "protocolo": "004170IPE280120250104568510-96",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-01-28",
+      "assunto": "Relatório de produção e vendas da Vale no 4T24 e 2024",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1328155&numSequencia=852881&numVersao=2",
+      "protocolo": "004170IPE280120250204568510-96",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    },
+    {
+      "data": "2025-01-08",
+      "assunto": "Datas de divulgação do desempenho no 4T24",
+      "categoria": "Comunicado ao Mercado",
+      "url": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1323106&numSequencia=847832&numVersao=1",
+      "protocolo": "004170IPE080120250104566511-19",
+      "status": "erro",
+      "motivo": "'BrowserContext' object has no attribute 'set_default_download_path'"
+    }
+  ]
+}

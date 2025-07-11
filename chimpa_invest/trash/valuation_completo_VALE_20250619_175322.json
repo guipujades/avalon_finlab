@@ -1,0 +1,45 @@
+{
+  "empresa": "VALE3",
+  "codigo_cvm": 4170,
+  "data_analise": "2025-06-19T17:53:22.153339",
+  "periodo_analisado": {
+    "inicio": "2025",
+    "fim": "2025"
+  },
+  "indicadores": {
+    "estrutura_capital": {
+      "crescimento_ativo": NaN,
+      "liquidez_corrente": 1.1098215695562925,
+      "capital_giro": 8346000.0,
+      "multiplicador_capital": 2.2953185413742054
+    },
+    "rentabilidade": {
+      "margem_bruta": 0.3290375651220181,
+      "margem_operacional": 0.22960916243065954,
+      "margem_liquida": 0.17238615511168295,
+      "roe": 0.03915828610031766,
+      "roa": 0.017060066127847173,
+      "roic": 0.0336975700355982
+    },
+    "fluxo_caixa": {
+      "ebitda": 22925500.0,
+      "margem_ebitda": 0.4835481217438991,
+      "nopat": 7184759.999999999,
+      "fcff": 19224260.0,
+      "taxa_crescimento_sustentavel": 0.023494971660190593
+    },
+    "dados_para_multiplos": {
+      "ebitda": 22925500.0,
+      "lucro_liquido": 8173000.0,
+      "divida_liquida": -18214000.0,
+      "patrimonio_liquido": 208717000.0,
+      "receita_liquida": 47411000.0
+    }
+  },
+  "dados_recentes": {
+    "ativo_total": 479072000.0,
+    "patrimonio_liquido": 208717000.0,
+    "receita_liquida": 47411000.0,
+    "lucro_liquido": 8173000.0
+  }
+}

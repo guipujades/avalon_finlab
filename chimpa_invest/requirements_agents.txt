@@ -1,0 +1,18 @@
+# Requisitos para o sistema de agentes
+# Instale com: pip install -r requirements_agents.txt
+
+# Processamento de PDF
+PyPDF2>=3.0.0
+pdfplumber>=0.9.0
+python-poppler>=0.3.0  # Para pdftotext (opcional)
+
+# OCR (opcional, para PDFs escaneados)
+pytesseract>=0.3.10
+Pillow>=10.0.0
+
+# Análise de dados
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Utilitários
+python-dateutil>=2.8.2

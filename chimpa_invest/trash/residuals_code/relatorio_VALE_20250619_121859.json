@@ -1,0 +1,40 @@
+{
+  "data_geracao": "2025-06-19T12:18:59.058086",
+  "empresas_processadas": 1,
+  "total_releases_identificados": 4,
+  "detalhes_por_empresa": {
+    "VALE": {
+      "releases_encontrados": 4,
+      "releases": [
+        {
+          "data": "2025-04-25",
+          "assunto": "Desempenho da Vale no 1T25 - Apresentação do Conference Call",
+          "periodo": "1t25",
+          "origem": "comunicado",
+          "link": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1365290&numSequencia=890016&numVersao=1"
+        },
+        {
+          "data": "2025-04-04",
+          "assunto": "Datas de divulgação do desempenho no 1T25",
+          "periodo": "1t25",
+          "origem": "comunicado",
+          "link": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1358096&numSequencia=882822&numVersao=1"
+        },
+        {
+          "data": "2025-02-20",
+          "assunto": "Desempenho da Vale no 4T24 - Apresentação do Conference Call",
+          "periodo": "4t24",
+          "origem": "comunicado",
+          "link": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1337273&numSequencia=861999&numVersao=1"
+        },
+        {
+          "data": "2025-01-08",
+          "assunto": "Datas de divulgação do desempenho no 4T24",
+          "periodo": "4t24",
+          "origem": "comunicado",
+          "link": "https://www.rad.cvm.gov.br/ENET/frmDownloadDocumento.aspx?Tela=ext&descTipo=IPE&CodigoInstituicao=1&numProtocolo=1323106&numSequencia=847832&numVersao=1"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,71 @@
+{
+    "portfolios": {
+        "avalon_fia": {
+            "type": "fund",
+            "name": "AVALON FIA",
+            "cnpj": "47952345000109",
+            "enabled": true,
+            "description": "Fundo de Investimento em Ações Avalon"
+        },
+        "conta_digital_1": {
+            "type": "digital",
+            "name": "Conta Digital Principal",
+            "account_id": "12345",
+            "enabled": false,
+            "description": "Conta digital BTG principal"
+        },
+        "conta_digital_2": {
+            "type": "digital", 
+            "name": "Conta Digital Secundária",
+            "account_id": "67890",
+            "enabled": false,
+            "description": "Conta digital BTG secundária"
+        }
+    },
+    "capture_schedule": {
+        "daily_at": "09:00",
+        "on_startup": true,
+        "retry_on_failure": true,
+        "max_retries": 3,
+        "retry_delay_minutes": 5
+    },
+    "storage": {
+        "formats": ["pickle", "json", "excel"],
+        "cleanup_days": 90,
+        "compress_old_files": true,
+        "backup_enabled": true,
+        "backup_path": "/backup/portfolio_data"
+    },
+    "api_settings": {
+        "timeout_seconds": 60,
+        "rate_limit_delay": 2,
+        "verify_ssl": true
+    },
+    "notifications": {
+        "on_error": true,
+        "on_success": false,
+        "email": {
+            "enabled": false,
+            "smtp_server": "smtp.gmail.com",
+            "smtp_port": 587,
+            "from_email": "portfolio@example.com",
+            "to_emails": ["admin@example.com"]
+        },
+        "webhook": {
+            "enabled": false,
+            "url": "https://hooks.slack.com/services/YOUR/WEBHOOK/URL"
+        }
+    },
+    "data_processing": {
+        "calculate_metrics": true,
+        "generate_charts": true,
+        "export_formats": ["csv", "json", "excel"]
+    },
+    "website_integration": {
+        "enabled": true,
+        "update_frequency": "realtime",
+        "api_endpoint": "http://localhost:5000/api/update",
+        "public_data_path": "../website_data",
+        "dashboard_endpoint": "http://localhost:5000/dashboard"
+    }
+}

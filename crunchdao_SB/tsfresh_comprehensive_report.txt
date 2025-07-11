@@ -1,0 +1,138 @@
+============================================================
+RELATÓRIO COMPLETO - TSFRESH ANALYSIS
+============================================================
+
+Total de séries processadas: 2000
+Features extraídas inicialmente: 5483
+Features após limpeza: 5195
+Taxa de quebra estrutural: 28.8%
+
+
+RandomForest:
+ROC AUC: 0.607 (+/- 0.047)
+
+Top 30 features:
+  value__percentage_of_reoccurring_datapoints_to_all_datapoints_pct_change: 0.0025
+  value__ratio_value_number_to_time_series_length_diff: 0.0021
+  value__percentage_of_reoccurring_values_to_all_values_pct_change: 0.0019
+  value__percentage_of_reoccurring_values_to_all_values_log_ratio: 0.0018
+  value__change_quantiles__f_agg_"var"__isabs_True__qh_0.8__ql_0.4_pct_change: 0.0018
+  value__change_quantiles__f_agg_"var"__isabs_False__qh_0.8__ql_0.4_log_ratio: 0.0018
+  value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.2_pct_change: 0.0018
+  value__fft_coefficient__attr_"abs"__coeff_87_log_ratio: 0.0017
+  value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.4_log_ratio: 0.0016
+  value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.0_pct_change: 0.0016
+  value__change_quantiles__f_agg_"var"__isabs_False__qh_1.0__ql_0.2_log_ratio: 0.0015
+  value__change_quantiles__f_agg_"var"__isabs_True__qh_0.8__ql_0.2_log_ratio: 0.0015
+  value__quantile__q_0.8_ratio: 0.0015
+  value__percentage_of_reoccurring_datapoints_to_all_datapoints_log_ratio: 0.0015
+  value__quantile__q_0.2_ratio: 0.0015
+  value__percentage_of_reoccurring_values_to_all_values_ratio: 0.0014
+  value__change_quantiles__f_agg_"var"__isabs_True__qh_0.8__ql_0.4_log_ratio: 0.0013
+  value__change_quantiles__f_agg_"mean"__isabs_True__qh_0.8__ql_0.0_pct_change: 0.0013
+  value__fft_coefficient__attr_"real"__coeff_82_log_ratio: 0.0013
+  value__change_quantiles__f_agg_"var"__isabs_False__qh_0.8__ql_0.4_pct_change: 0.0013
+  value__change_quantiles__f_agg_"mean"__isabs_True__qh_0.8__ql_0.4_log_ratio: 0.0013
+  value__change_quantiles__f_agg_"var"__isabs_False__qh_0.6__ql_0.4_log_ratio: 0.0013
+  value__quantile__q_0.9_ratio: 0.0012
+  value__change_quantiles__f_agg_"var"__isabs_False__qh_0.6__ql_0.4_pct_change: 0.0012
+  value__change_quantiles__f_agg_"mean"__isabs_True__qh_0.8__ql_0.0_log_ratio: 0.0012
+  value__change_quantiles__f_agg_"var"__isabs_True__qh_0.8__ql_0.2_ratio: 0.0012
+  value__quantile__q_0.3_pct_change: 0.0012
+  value__change_quantiles__f_agg_"var"__isabs_True__qh_0.6__ql_0.0_pct_change: 0.0012
+  value__quantile__q_0.8_log_ratio: 0.0012
+  value__fft_coefficient__attr_"real"__coeff_17_ratio: 0.0011
+
+GradientBoosting:
+ROC AUC: 0.600 (+/- 0.034)
+
+Top 30 features:
+  value__change_quantiles__f_agg_"var"__isabs_True__qh_0.8__ql_0.4_log_ratio: 0.0135
+  value__fft_coefficient__attr_"abs"__coeff_87_log_ratio: 0.0082
+  value__agg_linear_trend__attr_"intercept"__chunk_len_10__f_agg_"var"_ratio: 0.0079
+  value__kurtosis_after: 0.0064
+  value__quantile__q_0.2_log_ratio: 0.0062
+  value__percentage_of_reoccurring_values_to_all_values_pct_change: 0.0061
+  value__standard_deviation_abs_diff: 0.0060
+  value__friedrich_coefficients__coeff_2__m_3__r_30_after: 0.0053
+  value__percentage_of_reoccurring_values_to_all_values_ratio: 0.0052
+  value__fft_coefficient__attr_"real"__coeff_82_ratio: 0.0052
+  value__cwt_coefficients__coeff_2__w_2__widths_(2, 5, 10, 20)_abs_diff: 0.0050
+  value__quantile__q_0.4_diff: 0.0050
+  value__fft_coefficient__attr_"real"__coeff_74_pct_change: 0.0049
+  value__cwt_coefficients__coeff_8__w_10__widths_(2, 5, 10, 20)_abs_diff: 0.0048
+  value__change_quantiles__f_agg_"mean"__isabs_False__qh_0.4__ql_0.2_pct_change: 0.0047
+  value__agg_linear_trend__attr_"rvalue"__chunk_len_50__f_agg_"max"_log_ratio: 0.0044
+  value__fft_coefficient__attr_"imag"__coeff_52_pct_change: 0.0043
+  value__fft_coefficient__attr_"real"__coeff_86_log_ratio: 0.0042
+  value__agg_linear_trend__attr_"intercept"__chunk_len_5__f_agg_"min"_before: 0.0040
+  value__fft_coefficient__attr_"abs"__coeff_9_abs_diff: 0.0039
+  value__fft_coefficient__attr_"angle"__coeff_83_pct_change: 0.0038
+  value__fft_coefficient__attr_"angle"__coeff_64_before: 0.0038
+  value__sum_values_before: 0.0037
+  value__fft_coefficient__attr_"abs"__coeff_94_abs_diff: 0.0035
+  value__cwt_coefficients__coeff_9__w_5__widths_(2, 5, 10, 20)_pct_change: 0.0035
+  value__quantile__q_0.6_after: 0.0034
+  value__quantile__q_0.9_log_ratio: 0.0034
+  value__fft_coefficient__attr_"abs"__coeff_39_abs_diff: 0.0033
+  value__time_reversal_asymmetry_statistic__lag_1_ratio: 0.0033
+  value__cwt_coefficients__coeff_6__w_2__widths_(2, 5, 10, 20)_after: 0.0032
+
+
+ANÁLISE POR TIPO DE TRANSFORMAÇÃO:
+----------------------------------------
+
+DIFF:
+  Total features: 1488
+  Importância média: 0.0002
+  Importância máxima: 0.0021
+  Top 5:
+    - value__ratio_value_number_to_time_series_length_diff: 0.0021
+    - value__percentage_of_reoccurring_datapoints_to_all_datapoints_diff: 0.0011
+    - value__percentage_of_reoccurring_values_to_all_values_diff: 0.0009
+    - value__change_quantiles__f_agg_"var"__isabs_True__qh_0.6__ql_0.4_diff: 0.0009
+    - value__count_above__t_0_abs_diff: 0.0008
+
+RATIO:
+  Total features: 1480
+  Importância média: 0.0002
+  Importância máxima: 0.0018
+  Top 5:
+    - value__percentage_of_reoccurring_values_to_all_values_log_ratio: 0.0018
+    - value__change_quantiles__f_agg_"var"__isabs_False__qh_0.8__ql_0.4_log_ratio: 0.0018
+    - value__fft_coefficient__attr_"abs"__coeff_87_log_ratio: 0.0017
+    - value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.4_log_ratio: 0.0016
+    - value__change_quantiles__f_agg_"var"__isabs_False__qh_1.0__ql_0.2_log_ratio: 0.0015
+
+PCT_CHANGE:
+  Total features: 742
+  Importância média: 0.0002
+  Importância máxima: 0.0025
+  Top 5:
+    - value__percentage_of_reoccurring_datapoints_to_all_datapoints_pct_change: 0.0025
+    - value__percentage_of_reoccurring_values_to_all_values_pct_change: 0.0019
+    - value__change_quantiles__f_agg_"var"__isabs_True__qh_0.8__ql_0.4_pct_change: 0.0018
+    - value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.2_pct_change: 0.0018
+    - value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.0_pct_change: 0.0016
+
+LOG_RATIO:
+  Total features: 738
+  Importância média: 0.0002
+  Importância máxima: 0.0018
+  Top 5:
+    - value__percentage_of_reoccurring_values_to_all_values_log_ratio: 0.0018
+    - value__change_quantiles__f_agg_"var"__isabs_False__qh_0.8__ql_0.4_log_ratio: 0.0018
+    - value__fft_coefficient__attr_"abs"__coeff_87_log_ratio: 0.0017
+    - value__change_quantiles__f_agg_"mean"__isabs_True__qh_1.0__ql_0.4_log_ratio: 0.0016
+    - value__change_quantiles__f_agg_"var"__isabs_False__qh_1.0__ql_0.2_log_ratio: 0.0015
+
+ABS_DIFF:
+  Total features: 744
+  Importância média: 0.0002
+  Importância máxima: 0.0008
+  Top 5:
+    - value__count_above__t_0_abs_diff: 0.0008
+    - value__standard_deviation_abs_diff: 0.0008
+    - value__root_mean_square_abs_diff: 0.0007
+    - value__augmented_dickey_fuller__attr_"teststat"__autolag_"AIC"_abs_diff: 0.0007
+    - value__ratio_beyond_r_sigma__r_2_abs_diff: 0.0007

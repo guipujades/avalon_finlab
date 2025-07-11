@@ -1,0 +1,21 @@
+RELATÓRIO FINAL - BENCHMARK STRUCTURAL BREAKS
+================================================================================
+
+RANKING FINAL (ROC AUC):
+----------------------------------------
+1. TSFresh + RandomForest: 0.607
+2. ML-kNN Online: 0.550 (127.9 samples/s)
+3. ECC (Ensemble CC): 0.536 (140.6 samples/s)
+4. RAkEL: 0.535 (144.6 samples/s)
+5. Binary Relevance: 0.535 (586.0 samples/s)
+6. Classifier Chain: 0.535 (607.3 samples/s)
+7. OSML-ELM (Proposed): 0.533 (2273.8 samples/s)
+8. PCT: 0.532 (5506.7 samples/s)
+9. QWML: 0.500 (6793.4 samples/s)
+
+
+CONCLUSÃO:
+----------------------------------------
+TSFresh com RandomForest permanece superior para detecção de quebras estruturais.
+Para aplicações em tempo real, ML-kNN oferece o melhor compromisso.
+OSML-ELM e PCT são alternativas viáveis para alto volume de dados.

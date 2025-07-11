@@ -1,0 +1,489 @@
+{
+  "empresa": {
+    "nome": "BANCO DO BRASIL S.A.",
+    "ticker": "BBAS3",
+    "codigo_cvm": 1023,
+    "cnpj": "00.000.000/0001-91"
+  },
+  "data_analise": "2025-06-27 13:40:21",
+  "periodo_dados": {
+    "inicio": "2015-12-31 00:00:00",
+    "fim": "2024-12-31 00:00:00",
+    "total_periodos": 10
+  },
+  "estatisticas_5anos": {
+    "receita_liquida": {
+      "media": 200019970.2,
+      "mediana": 236549051.0,
+      "desvio_padrao": 81814940.15234926,
+      "minimo": 98659704.0,
+      "maximo": 273505274.0,
+      "ultimo": 273505274.0
+    },
+    "lucro_liquido": {
+      "media": 25040448.8,
+      "mediana": 29171564.0,
+      "desvio_padrao": 8253656.325151065,
+      "minimo": 13292883.0,
+      "maximo": 33165591.0,
+      "ultimo": 29171564.0
+    },
+    "ebit": {
+      "media": 28545258.2,
+      "mediana": 27710589.0,
+      "desvio_padrao": 11867685.507585764,
+      "minimo": 11577003.0,
+      "maximo": 41147191.0,
+      "ultimo": 27710589.0
+    },
+    "ebitda": {
+      "media": 53147993.8,
+      "mediana": 55744119.0,
+      "desvio_padrao": 12954085.927404573,
+      "minimo": 34243344.0,
+      "maximo": 66147464.0,
+      "ultimo": 55744119.0
+    },
+    "lucro_bruto": {
+      "media": 76542281.6,
+      "mediana": 74346567.0,
+      "desvio_padrao": 20412173.57619261,
+      "minimo": 55427584.0,
+      "maximo": 104514447.0,
+      "ultimo": 104514447.0
+    },
+    "custos": {
+      "media": 123477688.6,
+      "mediana": 162202484.0,
+      "desvio_padrao": 63471064.490283005,
+      "minimo": 43232120.0,
+      "maximo": 176689874.0,
+      "ultimo": 168990827.0
+    },
+    "margem_bruta": {
+      "media": 41.32763279243092,
+      "mediana": 38.21295489899767,
+      "desvio_padrao": 10.334557523587334,
+      "minimo": 31.429661918195563,
+      "maximo": 56.180569931570034,
+      "ultimo": 38.21295489899767
+    },
+    "margem_liquida": {
+      "media": 12.98244342282739,
+      "mediana": 12.618666138719787,
+      "desvio_padrao": 1.8128365010978242,
+      "minimo": 10.665814071285514,
+      "maximo": 15.659632241020457,
+      "ultimo": 10.665814071285514
+    },
+    "margem_ebit": {
+      "media": 14.521375183982233,
+      "mediana": 15.501585008706629,
+      "desvio_padrao": 3.580320002552584,
+      "minimo": 10.131647040926897,
+      "maximo": 19.047495904574056,
+      "ultimo": 10.131647040926897
+    },
+    "margem_ebitda": {
+      "media": 28.733288431730113,
+      "mediana": 26.610308404915138,
+      "desvio_padrao": 6.957187175504011,
+      "minimo": 20.38136895305353,
+      "maximo": 37.04616196481737,
+      "ultimo": 20.38136895305353
+    },
+    "roe": {
+      "media": 115.964386868813,
+      "mediana": 111.77267125005838,
+      "desvio_padrao": 28.89443155434138,
+      "minimo": 78.68116003792923,
+      "maximo": 152.22625729235233,
+      "ultimo": 111.77267125005838
+    },
+    "roa": {
+      "media": 1.2131732761731446,
+      "mediana": 1.2161308433468963,
+      "desvio_padrao": 0.3144740353265465,
+      "minimo": 0.7847992717211196,
+      "maximo": 1.5398079204146289,
+      "ultimo": 1.2161308433468963
+    },
+    "roi": {
+      "media": 1.3839739630063113,
+      "mediana": 1.2630589860566608,
+      "desvio_padrao": 0.5265503324434204,
+      "minimo": 0.6834953352943238,
+      "maximo": 1.9103766492390724,
+      "ultimo": 1.1552243811887914
+    },
+    "roic": {
+      "media": 2917.746414339709,
+      "mediana": 1050.214653703815,
+      "desvio_padrao": 4269.776795180504,
+      "minimo": 460.36407694811186,
+      "maximo": 10518.810648737051,
+      "ultimo": 460.36407694811186
+    },
+    "liquidez_corrente": {
+      "media": 28.055387284947592,
+      "mediana": 24.893791117394876,
+      "desvio_padrao": 17.34845981920829,
+      "minimo": 10.060536145038135,
+      "maximo": 56.866234711447994,
+      "ultimo": 10.060536145038135
+    },
+    "divida_pl": {
+      "media": -0.8633737555723829,
+      "mediana": -0.8339053528796863,
+      "desvio_padrao": 0.09359082625923451,
+      "minimo": -0.993485500117789,
+      "maximo": -0.7693676385386681,
+      "ultimo": -0.7693676385386681
+    },
+    "divida_ebitda": {
+      "media": -0.35789782328749564,
+      "mediana": -0.36021263516605223,
+      "desvio_padrao": 0.08943897899487083,
+      "minimo": -0.49015540071086516,
+      "maximo": -0.2619563011516209,
+      "ultimo": -0.36021263516605223
+    },
+    "ativo_total": {
+      "media": 2030692028.0,
+      "mediana": 2007727977.0,
+      "desvio_padrao": 265471156.66560408,
+      "minimo": 1693794003.0,
+      "maximo": 2398719197.0,
+      "ultimo": 2398719197.0
+    },
+    "patrimonio_liquido": {
+      "media": 21245414.6,
+      "mediana": 21787037.0,
+      "desvio_padrao": 3404885.9864451117,
+      "minimo": 16894620.0,
+      "maximo": 26099013.0,
+      "ultimo": 26099013.0
+    },
+    "ativo_circulante": {
+      "media": 87535505.2,
+      "mediana": 68826279.0,
+      "desvio_padrao": 50938483.1750976,
+      "minimo": 54494681.0,
+      "maximo": 176189508.0,
+      "ultimo": 83167243.0
+    },
+    "passivo_circulante": {
+      "media": 3738539.2,
+      "mediana": 2764797.0,
+      "desvio_padrao": 2559910.7062062146,
+      "minimo": 2053161.0,
+      "maximo": 8266681.0,
+      "ultimo": 8266681.0
+    },
+    "divida_liquida": {
+      "media": -18105117.6,
+      "mediana": -18023001.0,
+      "desvio_padrao": 1254615.7104158627,
+      "minimo": -20079736.0,
+      "maximo": -16784560.0,
+      "ultimo": -20079736.0
+    }
+  },
+  "dados_mercado": {},
+  "serie_temporal": {
+    "metricas": {
+      "2015-12-31": {
+        "receita_liquida": 182368871.0,
+        "custos": 159904025.0,
+        "lucro_bruto": 22464846.0,
+        "lucro_liquido": NaN,
+        "ebit": 10137504.0,
+        "patrimonio_liquido": 1210152764.0,
+        "ativo_total": 1388864529.0,
+        "ativo_circulante": 102700113.0,
+        "passivo_circulante": 0.0,
+        "divida_liquida": -18046717.0,
+        "ebitda": 31467097.0,
+        "margem_bruta": 12.318355581638711,
+        "margem_liquida": NaN,
+        "margem_ebit": 5.558790787272023,
+        "margem_ebitda": 17.25464265225396,
+        "roe": NaN,
+        "roa": NaN,
+        "roi": 0.7299130900332756,
+        "roic": 0.850386089854303,
+        "divida_pl": -0.014912759394399896,
+        "divida_ebitda": -0.57351070548389,
+        "liquidez_corrente": NaN
+      },
+      "2016-12-31": {
+        "receita_liquida": 168039236.0,
+        "custos": 134531183.0,
+        "lucro_bruto": 33508053.0,
+        "lucro_liquido": NaN,
+        "ebit": 10890427.0,
+        "patrimonio_liquido": 1189577620.0,
+        "ativo_total": 1387215686.0,
+        "ativo_circulante": 103127771.0,
+        "passivo_circulante": 0.0,
+        "divida_liquida": -12798204.0,
+        "ebitda": 33505936.0,
+        "margem_bruta": 19.94061256027134,
+        "margem_liquida": NaN,
+        "margem_ebit": 6.480883428915376,
+        "margem_ebitda": 19.939352735452808,
+        "roe": NaN,
+        "roa": NaN,
+        "roi": 0.785056506346339,
+        "roic": 0.9254433627856726,
+        "divida_pl": -0.010758611951694249,
+        "divida_ebitda": -0.3819682578036322,
+        "liquidez_corrente": NaN
+      },
+      "2017-12-31": {
+        "receita_liquida": 139763614.0,
+        "custos": 109398266.0,
+        "lucro_bruto": 30365348.0,
+        "lucro_liquido": NaN,
+        "ebit": 15930461.0,
+        "patrimonio_liquido": 1164950712.0,
+        "ativo_total": 1353075042.0,
+        "ativo_circulante": 47239964.0,
+        "passivo_circulante": 0.0,
+        "divida_liquida": -13471112.0,
+        "ebitda": 36490486.0,
+        "margem_bruta": 21.726218384707767,
+        "margem_liquida": NaN,
+        "margem_ebit": 11.398146158412874,
+        "margem_ebitda": 26.10871667929251,
+        "roe": NaN,
+        "roa": NaN,
+        "roi": 1.1773523644670107,
+        "roic": 1.383477484099588,
+        "divida_pl": -0.011563675493937978,
+        "divida_ebitda": -0.3691677880091814,
+        "liquidez_corrente": NaN
+      },
+      "2018-12-31": {
+        "receita_liquida": 120250344.0,
+        "custos": 82160825.0,
+        "lucro_bruto": 38089519.0,
+        "lucro_liquido": NaN,
+        "ebit": 20414199.0,
+        "patrimonio_liquido": 1201107729.0,
+        "ativo_total": 1396507474.0,
+        "ativo_circulante": 60322132.0,
+        "passivo_circulante": 0.0,
+        "divida_liquida": -13601194.0,
+        "ebitda": 41506820.0,
+        "margem_bruta": 31.675185062256457,
+        "margem_liquida": NaN,
+        "margem_ebit": 16.976416300314284,
+        "margem_ebitda": 34.51700728606647,
+        "roe": NaN,
+        "roa": NaN,
+        "roi": 1.4618037769270114,
+        "roic": 1.719080981731187,
+        "divida_pl": -0.011323875179226325,
+        "divida_ebitda": -0.32768576344803096,
+        "liquidez_corrente": NaN
+      },
+      "2019-12-31": {
+        "receita_liquida": 123105325.0,
+        "custos": 89253866.0,
+        "lucro_bruto": 33851459.0,
+        "lucro_liquido": NaN,
+        "ebit": 11139512.0,
+        "patrimonio_liquido": 1220561201.0,
+        "ativo_total": 1452266807.0,
+        "ativo_circulante": 71936023.0,
+        "passivo_circulante": 961636.0,
+        "divida_liquida": -14171188.0,
+        "ebitda": 33937489.0,
+        "margem_bruta": 27.497964852454594,
+        "margem_liquida": NaN,
+        "margem_ebit": 9.048765356007141,
+        "margem_ebitda": 27.56784810080311,
+        "roe": NaN,
+        "roa": NaN,
+        "roi": 0.7670430768166693,
+        "roic": 0.9233756811612466,
+        "divida_pl": -0.01161038708127836,
+        "divida_ebitda": -0.4175673692299392,
+        "liquidez_corrente": 74.80587561197792
+      },
+      "2020-12-31": {
+        "receita_liquida": 98659704.0,
+        "custos": 43232120.0,
+        "lucro_bruto": 55427584.0,
+        "lucro_liquido": 13292883.0,
+        "ebit": 11577003.0,
+        "patrimonio_liquido": 16894620.0,
+        "ativo_total": 1693794003.0,
+        "ativo_circulante": 176189508.0,
+        "passivo_circulante": 3098315.0,
+        "divida_liquida": -16784560.0,
+        "ebitda": 34243344.0,
+        "margem_bruta": 56.180569931570034,
+        "margem_liquida": 13.473467343871212,
+        "margem_ebit": 11.734277045874778,
+        "margem_ebitda": 34.708541189217435,
+        "roe": 78.68116003792923,
+        "roa": 0.7847992717211196,
+        "roi": 0.6834953352943238,
+        "roic": 10518.810648737051,
+        "divida_pl": -0.993485500117789,
+        "divida_ebitda": -0.49015540071086516,
+        "liquidez_corrente": 56.866234711447994
+      },
+      "2021-12-31": {
+        "receita_liquida": 125947217.0,
+        "custos": 66273138.0,
+        "lucro_bruto": 59674079.0,
+        "lucro_liquido": 19722871.0,
+        "ebit": 23989791.0,
+        "patrimonio_liquido": 19488820.0,
+        "ativo_total": 1899340511.0,
+        "ativo_circulante": 54494681.0,
+        "passivo_circulante": 2053161.0,
+        "divida_liquida": -18023001.0,
+        "ebitda": 46658610.0,
+        "margem_bruta": 47.380228338034655,
+        "margem_liquida": 15.659632241020457,
+        "margem_ebit": 19.047495904574056,
+        "margem_ebitda": 37.04616196481737,
+        "roe": 101.20095008317588,
+        "roa": 1.0384062723758751,
+        "roi": 1.2630589860566608,
+        "roic": 1636.613456368078,
+        "divida_pl": -0.9247866725640649,
+        "divida_ebitda": -0.3862738517071126,
+        "liquidez_corrente": 26.5418449892629
+      },
+      "2022-12-31": {
+        "receita_liquida": 236549051.0,
+        "custos": 162202484.0,
+        "lucro_bruto": 74346567.0,
+        "lucro_liquido": 29849335.0,
+        "ebit": 38301717.0,
+        "patrimonio_liquido": 21957583.0,
+        "ativo_total": 2007727977.0,
+        "ativo_circulante": 68826279.0,
+        "passivo_circulante": 2764797.0,
+        "divida_liquida": -18310546.0,
+        "ebitda": 62946432.0,
+        "margem_bruta": 31.429661918195563,
+        "margem_liquida": 12.618666138719787,
+        "margem_ebit": 16.1918709198288,
+        "margem_ebitda": 26.610308404915138,
+        "roe": 135.94089568054918,
+        "roa": 1.486722073007204,
+        "roi": 1.907714463252708,
+        "roic": 1050.214653703815,
+        "divida_pl": -0.8339053528796863,
+        "divida_ebitda": -0.2908909277018275,
+        "liquidez_corrente": 24.893791117394876
+      },
+      "2023-12-31": {
+        "receita_liquida": 265438605.0,
+        "custos": 176689874.0,
+        "lucro_bruto": 88748731.0,
+        "lucro_liquido": 33165591.0,
+        "ebit": 41147191.0,
+        "patrimonio_liquido": 21787037.0,
+        "ativo_total": 2153878452.0,
+        "ativo_circulante": 54999815.0,
+        "passivo_circulante": 2509742.0,
+        "divida_liquida": -17327745.0,
+        "ebitda": 66147464.0,
+        "margem_bruta": 33.434748875356696,
+        "margem_liquida": 12.494637319239981,
+        "margem_ebit": 15.501585008706629,
+        "margem_ebitda": 24.920061646647067,
+        "roe": 152.22625729235233,
+        "roa": 1.5398079204146289,
+        "roi": 1.9103766492390724,
+        "roic": 922.7292359414903,
+        "divida_pl": -0.7953236137617061,
+        "divida_ebitda": -0.2619563011516209,
+        "liquidez_corrente": 21.91452946159406
+      },
+      "2024-12-31": {
+        "receita_liquida": 273505274.0,
+        "custos": 168990827.0,
+        "lucro_bruto": 104514447.0,
+        "lucro_liquido": 29171564.0,
+        "ebit": 27710589.0,
+        "patrimonio_liquido": 26099013.0,
+        "ativo_total": 2398719197.0,
+        "ativo_circulante": 83167243.0,
+        "passivo_circulante": 8266681.0,
+        "divida_liquida": -20079736.0,
+        "ebitda": 55744119.0,
+        "margem_bruta": 38.21295489899767,
+        "margem_liquida": 10.665814071285514,
+        "margem_ebit": 10.131647040926897,
+        "margem_ebitda": 20.38136895305353,
+        "roe": 111.77267125005838,
+        "roa": 1.2161308433468963,
+        "roi": 1.1552243811887914,
+        "roic": 460.36407694811186,
+        "divida_pl": -0.7693676385386681,
+        "divida_ebitda": -0.36021263516605223,
+        "liquidez_corrente": 10.060536145038135
+      }
+    },
+    "indicadores_prazos": {
+      "2015-12-31": {
+        "pmr": 75.39999235944165,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2016-12-31": {
+        "pmr": 124.85977643935492,
+        "pme": 0.029141199182051346,
+        "ciclo_operacional": 124.88891763853697
+      },
+      "2017-12-31": {
+        "pmr": 30.001659230134102,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2018-12-31": {
+        "pmr": 66.39460557385183,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2019-12-31": {
+        "pmr": 86.31702227340693,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2020-12-31": {
+        "pmr": NaN,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2021-12-31": {
+        "pmr": NaN,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2022-12-31": {
+        "pmr": NaN,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2023-12-31": {
+        "pmr": NaN,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      },
+      "2024-12-31": {
+        "pmr": NaN,
+        "pme": NaN,
+        "ciclo_operacional": NaN
+      }
+    }
+  }
+}

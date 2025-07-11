@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "company": "VALE",
+    "document_type": "earnings_release",
+    "original_file": "VALE_20250424_Desempenho da Vale no 1T25_parsed.txt",
+    "period": "1T25",
+    "processed_at": "2025-06-20T10:42:11.723577",
+    "date": "2025-04-24"
+  },
+  "content": {
+    "financial_metrics": {
+      "revenue": {
+        "value": 8119.0,
+        "currency": "USD",
+        "unit": "millions",
+        "yoy_change": -4.0
+      },
+      "ebitda": {
+        "value": 3115.0,
+        "currency": "USD",
+        "unit": "millions",
+        "yoy_change": -9.0,
+        "margin": 40.0
+      },
+      "net_income": {
+        "value": 1394.0,
+        "currency": "USD",
+        "unit": "millions"
+      }
+    },
+    "highlights": [
+      "O desempenho de vendas melhorou em todos os segmentos de negócios. As vendas de minério de ferro aumentaram 4%",
+      "O preço médio realizado de finos de minério de ferro foi de US$ 90,8/t, permanecendo praticamente estável t/t,",
+      "O EBITDA Proforma diminuiu 8% a/a, totalizando US$ 3,2 bilhões. Os maiores volumes de vendas e menores custos",
+      "O custo caixa C1 de finos de minério de ferro, excluindo compras de terceiros, diminuiu 11% a/a, atingindo US$ 21,0/t,",
+      "Os custos all-in do cobre foram 63% menores a/a, atingindo US$ 1.212/t, impulsionados por um desempenho operacional"
+    ],
+    "raw_text_preview": "                                  Rio de Janeiro, 24 de abril de 2025\n                                  Desempenho da Vale                                                                                                                                      VALE\n      VALE                        no 1T25                                                                         VALE                                                                 LiISTED\n                                                                                                                 83 LISTED NM                                                             NYSE\n  \"Tivemos um início de ano consistente, alinhado com nossos objetivos para 2025. Estamos vendo um bom momento na\n  gestão de custos, com nosso C1 atingindo US$ 21/t no 1T, continuando a trajetória de queda ano a ano. Nossos projetos\n  de geração de valor continuam a progredir, sendo elementos essenciais para aumentar a flexibilidade do nosso\n  portfólio e melhorar a eficiência operacional e de custos. Na Vale Base Metals, os benefícios das iniciativas de revisão de\n  ativos estão surgindo e estamos focados na captura dos ganhos. Além disso, temos otimizado consistentemente nosso\n  balanço por meio de soluções asset-light, como a transação que criou a joint venture estratégica na Aliança Energia,\n  que   também    nos   ajudará  a  cumprir   nossas   metas   de  descarbonização    de  longo   prazo.  O  atual   ambiente\n  macroeconômico e de volatilidade do mercado reforçam a importância da nossa estratégia Vale 2030, na qual estamos\n  construindo uma empresa ainda mais competitiva, capaz de prosperar em qualquer condição de mercado. Com essa\n  abordagem, estou confiante de que geraremos valor significativo para todos os nossos              stakeholders\" comentou\n  Gustavo Pimenta, CEO.\n Indicadores financeiros selecionados                                     ~~ ~~  \n US$ milhões                                                         ..."
+  }
+}

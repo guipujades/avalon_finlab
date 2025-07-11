@@ -1,0 +1,172 @@
+{
+  "processed": {
+    "VALE_20250221_Desempenho da Vale no 4T24 e 2024.pdf": {
+      "status": "success",
+      "file": "documents\\pending\\VALE_20250221_Desempenho da Vale no 4T24 e 2024.pdf",
+      "output_file": "documents\\parsed\\VALE_20250221_Desempenho da Vale no 4T24 e 2024_parsed.txt",
+      "summary_file": "documents\\summaries\\VALE_20250221_Desempenho da Vale no 4T24 e 2024_summary.md",
+      "pages": 80,
+      "characters": 359546,
+      "words": 34286,
+      "analysis": {
+        "has_equations": true,
+        "has_code": true,
+        "has_tables": true,
+        "sections": [
+          "JUSTED NK"
+        ],
+        "keywords": [
+          "pricing",
+          "maturity"
+        ]
+      },
+      "timestamp": "2025-06-19T17:58:10.279900",
+      "moved_to": "documents\\processed\\VALE_20250221_Desempenho da Vale no 4T24 e 2024.pdf"
+    },
+    "VALE_20250424_Desempenho da Vale no 1T25.pdf": {
+      "status": "success",
+      "file": "documents\\pending\\VALE_20250424_Desempenho da Vale no 1T25.pdf",
+      "output_file": "documents\\parsed\\VALE_20250424_Desempenho da Vale no 1T25_parsed.txt",
+      "summary_file": "documents\\summaries\\VALE_20250424_Desempenho da Vale no 1T25_summary.md",
+      "pages": 72,
+      "characters": 350491,
+      "words": 28736,
+      "analysis": {
+        "has_equations": true,
+        "has_code": true,
+        "has_tables": true,
+        "sections": [
+          "83 LISTED NM                                                             NYSE",
+          "– 1 –                                                   VALE",
+          "ESG              •"
+        ],
+        "keywords": [
+          "volatility",
+          "option",
+          "pricing",
+          "maturity"
+        ]
+      },
+      "timestamp": "2025-06-19T18:00:01.807080",
+      "moved_to": "documents\\processed\\VALE_20250424_Desempenho da Vale no 1T25.pdf"
+    },
+    "BANCO_DO_BRASIL_SA_20250603_Apresentação_Institucional_1T25.pdf": {
+      "status": "success",
+      "file": "/mnt/c/Users/guilh/documents/github/chimpa_invest/documents/pending/BANCO_DO_BRASIL_SA_20250603_Apresentação_Institucional_1T25.pdf",
+      "output_file": "/mnt/c/Users/guilh/documents/github/chimpa_invest/documents/parsed/BANCO_DO_BRASIL_SA_20250603_Apresentação_Institucional_1T25_parsed.txt",
+      "json_file": "/mnt/c/Users/guilh/documents/github/chimpa_invest/documents/parsed/BANCO_DO_BRASIL_SA_20250603_Apresentação_Institucional_1T25_parsed.json",
+      "summary_file": "/mnt/c/Users/guilh/documents/github/chimpa_invest/documents/summaries/BANCO_DO_BRASIL_SA_20250603_Apresentação_Institucional_1T25_summary.md",
+      "characters": 31597,
+      "words": 4600,
+      "method_used": "PyPDF2",
+      "analysis": {
+        "has_tables": true,
+        "has_numbers": true,
+        "financial_indicators": [
+          "receita",
+          "lucro",
+          "margem",
+          "divida",
+          "investimento",
+          "acao",
+          "trimestre",
+          "crescimento"
+        ],
+        "sections": [],
+        "company_info": {},
+        "period_info": {
+          "periods_mentioned": [
+            "2021",
+            "8317",
+            "1123",
+            "9118",
+            "2023",
+            "9823",
+            "1T258",
+            "6119",
+            "6125",
+            "1T245",
+            "4T240",
+            "0404",
+            "9131",
+            "1T240",
+            "2022",
+            "2029",
+            "2026",
+            "1906",
+            "2003",
+            "2006",
+            "1985",
+            "4T242",
+            "3T24",
+            "2005",
+            "4966",
+            "2537",
+            "1T24",
+            "4T24",
+            "5397",
+            "2025",
+            "2024",
+            "8194",
+            "2414",
+            "2527",
+            "5249",
+            "2000",
+            "1T259",
+            "1808",
+            "0000",
+            "2031",
+            "0331",
+            "2014",
+            "4T244",
+            "9282",
+            "6613",
+            "1T25",
+            "2128",
+            "1T250",
+            "1969",
+            "3130",
+            "2020",
+            "2034",
+            "1987",
+            "2009",
+            "2013",
+            "2412",
+            "6134",
+            "2525",
+            "2017",
+            "1T2525",
+            "2015",
+            "6112",
+            "4T243",
+            "1T246",
+            "2030",
+            "2510",
+            "5438",
+            "8452",
+            "2016",
+            "2714",
+            "2032",
+            "4814",
+            "2T24",
+            "1995",
+            "2513",
+            "1984",
+            "1T242",
+            "8815",
+            "1386",
+            "1996",
+            "2411",
+            "6282",
+            "2019"
+          ]
+        },
+        "metrics": {
+          "monetary_values_found": 58
+        }
+      },
+      "timestamp": "2025-06-27T12:26:35.208611"
+    }
+  },
+  "last_check": "2025-06-27T12:24:41.515108"
+}

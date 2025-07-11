@@ -1,0 +1,51 @@
+{
+  "data_execucao": "2025-06-19T14:30:29.783709",
+  "tipos_documentos": [
+    "ITR",
+    "DFP",
+    "FCA",
+    "FRE",
+    "IPE"
+  ],
+  "anos_solicitados": [
+    2025
+  ],
+  "estatisticas": {
+    "total_baixados": 5,
+    "total_existentes": 0,
+    "total_erros": 0,
+    "por_tipo": {
+      "ITR": {
+        "baixados": 1,
+        "existentes": 0,
+        "erros": 0,
+        "total": 1
+      },
+      "DFP": {
+        "baixados": 1,
+        "existentes": 0,
+        "erros": 0,
+        "total": 1
+      },
+      "FCA": {
+        "baixados": 1,
+        "existentes": 0,
+        "erros": 0,
+        "total": 1
+      },
+      "FRE": {
+        "baixados": 1,
+        "existentes": 0,
+        "erros": 0,
+        "total": 1
+      },
+      "IPE": {
+        "baixados": 1,
+        "existentes": 0,
+        "erros": 0,
+        "total": 1
+      }
+    }
+  },
+  "pasta_destino": "documents\\cvm_estruturados"
+}

@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avalon FIA - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header .subtitle {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .update-time {
+            text-align: right;
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.9em;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .metric-card h3 {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .metric-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #1e3a8a;
+        }
+        
+        .metric-value.positive {
+            color: #10b981;
+        }
+        
+        .metric-value.negative {
+            color: #ef4444;
+        }
+        
+        .section {
+            background: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #1e3a8a;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background-color: #f3f4f6;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            color: #374151;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        tr:hover {
+            background-color: #f9fafb;
+        }
+        
+        .number {
+            text-align: right;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .positive {
+            color: #10b981;
+        }
+        
+        .negative {
+            color: #ef4444;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            font-size: 1.2em;
+            color: #666;
+        }
+        
+        .error {
+            background-color: #fee;
+            color: #c00;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .refresh-btn {
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+        
+        .refresh-btn:hover {
+            background-color: #2563eb;
+        }
+        
+        .refresh-btn:disabled {
+            background-color: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .var-section {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .var-card {
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .var-card h4 {
+            color: #6b7280;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        
+        .var-card .value {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <h1>AVALON FIA</h1>
+            <div class="subtitle">Dashboard de Acompanhamento do Fundo</div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="update-time">
+            <span id="update-time">Carregando...</span>
+            <button class="refresh-btn" onclick="refreshData()">Atualizar Dados</button>
+        </div>
+        
+        <div id="content">
+            <div class="loading">Carregando dados do fundo...</div>
+        </div>
+    </div>
+    
+    <script>
+        let portfolioData = null;
+        
+        function formatCurrency(value) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL'
+            }).format(value);
+        }
+        
+        function formatPercent(value) {
+            return `${value.toFixed(2)}%`;
+        }
+        
+        function formatNumber(value, decimals = 2) {
+            return value.toFixed(decimals).replace('.', ',');
+        }
+        
+        function getColorClass(value) {
+            return value >= 0 ? 'positive' : 'negative';
+        }
+        
+        async function loadData() {
+            try {
+                const response = await fetch('/api/portfolio_data');
+                if (!response.ok) throw new Error('Erro ao carregar dados');
+                
+                portfolioData = await response.json();
+                renderDashboard();
+            } catch (error) {
+                document.getElementById('content').innerHTML = 
+                    `<div class="error">Erro ao carregar dados: ${error.message}</div>`;
+            }
+        }
+        
+        function renderDashboard() {
+            const data = portfolioData;
+            
+            // Atualizar horário
+            document.getElementById('update-time').textContent = 
+                `Última atualização: ${data.current_time} | Data dos dados: ${data.data}`;
+            
+            // Renderizar conteúdo principal
+            let html = `
+                <!-- Métricas principais -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Patrimônio Líquido</h3>
+                        <div class="metric-value">${formatCurrency(data.current_pl)}</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Valor da Cota</h3>
+                        <div class="metric-value">${formatCurrency(data.cota)}</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Enquadramento</h3>
+                        <div class="metric-value">${formatPercent(data.enquadramento * 100)}</div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Limites Derivativos</h3>
+                        <div class="metric-value">${formatPercent(data.limits_der * 100)}</div>
+                    </div>
+                </div>
+                
+                <!-- Performance -->
+                <div class="section">
+                    <h2>Performance do Portfolio</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3>Variação Total</h3>
+                            <div class="metric-value ${getColorClass(data.portfolio_change)}">
+                                ${formatPercent(data.portfolio_change)}
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Variação Diária</h3>
+                            <div class="metric-value ${getColorClass(data.portfolio_daily_change)}">
+                                ${formatPercent(data.portfolio_daily_change)}
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Variação Semanal</h3>
+                            <div class="metric-value ${getColorClass(data.portfolio_weekly_change)}">
+                                ${formatPercent(data.portfolio_weekly_change)}
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Variação Ações</h3>
+                            <div class="metric-value ${getColorClass(data.portfolio_change_stocks)}">
+                                ${formatPercent(data.portfolio_change_stocks)}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Value at Risk -->
+                <div class="section">
+                    <h2>Value at Risk (VaR)</h2>
+                    <div class="var-section">
+                        <div class="var-card">
+                            <h4>VaR 1 Semana - 90%</h4>
+                            <div class="value">${formatPercent(data.portfolio_var_1_week[0])}</div>
+                        </div>
+                        <div class="var-card">
+                            <h4>VaR 1 Semana - 95%</h4>
+                            <div class="value">${formatPercent(data.portfolio_var_1_week[1])}</div>
+                        </div>
+                        <div class="var-card">
+                            <h4>VaR 1 Semana - 99%</h4>
+                            <div class="value">${formatPercent(data.portfolio_var_1_week[2])}</div>
+                        </div>
+                        <div class="var-card">
+                            <h4>VaR 1 Mês - 90%</h4>
+                            <div class="value">${formatPercent(data.portfolio_var_1_month[0])}</div>
+                        </div>
+                        <div class="var-card">
+                            <h4>VaR 1 Mês - 95%</h4>
+                            <div class="value">${formatPercent(data.portfolio_var_1_month[1])}</div>
+                        </div>
+                        <div class="var-card">
+                            <h4>VaR 1 Mês - 99%</h4>
+                            <div class="value">${formatPercent(data.portfolio_var_1_month[2])}</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Posições em Ações -->
+                <div class="section">
+                    <h2>Posições em Ações</h2>
+                    ${renderStocksTable(data.df_stocks)}
+                </div>
+                
+                <!-- Posições em Opções -->
+                ${data.df_options && Object.keys(data.df_options).length > 0 ? `
+                <div class="section">
+                    <h2>Posições em Opções</h2>
+                    ${renderOptionsTable(data.df_options)}
+                </div>
+                ` : ''}
+                
+                <!-- Valores a Receber/Pagar -->
+                <div class="section">
+                    <h2>Valores Pendentes</h2>
+                    <div class="metrics-grid">
+                        <div class="metric-card">
+                            <h3>Valores a Receber</h3>
+                            <div class="metric-value">${formatCurrency(data.receber)}</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Valores a Pagar</h3>
+                            <div class="metric-value negative">${formatCurrency(data.pagar)}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('content').innerHTML = html;
+        }
+        
+        function renderStocksTable(stocks) {
+            if (!stocks || Object.keys(stocks).length === 0) {
+                return '<p>Nenhuma posição em ações encontrada.</p>';
+            }
+            
+            let html = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ticker</th>
+                            <th class="number">Quantidade</th>
+                            <th class="number">Preço Atual</th>
+                            <th class="number">Preço Médio</th>
+                            <th class="number">Valor Atual</th>
+                            <th class="number">P&L</th>
+                            <th class="number">Variação %</th>
+                            <th class="number">Peso %</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            `;
+            
+            for (const [ticker, data] of Object.entries(stocks)) {
+                const plClass = getColorClass(data.profit_loss);
+                const varClass = getColorClass(data.percentage_change);
+                
+                html += `
+                    <tr>
+                        <td><strong>${ticker}</strong></td>
+                        <td class="number">${formatNumber(data.quantity, 0)}</td>
+                        <td class="number">${formatCurrency(data.current_price)}</td>
+                        <td class="number">${formatCurrency(data.average_price)}</td>
+                        <td class="number">${formatCurrency(data.current_value)}</td>
+                        <td class="number ${plClass}">${formatCurrency(data.profit_loss)}</td>
+                        <td class="number ${varClass}">${formatPercent(data.percentage_change)}</td>
+                        <td class="number">${formatPercent(data.pcts_port)}</td>
+                    </tr>
+                `;
+            }
+            
+            html += '</tbody></table>';
+            return html;
+        }
+        
+        function renderOptionsTable(options) {
+            if (!options || Object.keys(options).length === 0) {
+                return '<p>Nenhuma posição em opções encontrada.</p>';
+            }
+            
+            // Implementar tabela de opções similar à de ações
+            return '<p>Tabela de opções em desenvolvimento...</p>';
+        }
+        
+        async function refreshData() {
+            const btn = document.querySelector('.refresh-btn');
+            btn.disabled = true;
+            btn.textContent = 'Atualizando...';
+            
+            try {
+                const response = await fetch('/api/refresh');
+                if (!response.ok) throw new Error('Erro ao atualizar');
+                
+                await loadData();
+            } catch (error) {
+                alert('Erro ao atualizar dados: ' + error.message);
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Atualizar Dados';
+            }
+        }
+        
+        // Carregar dados ao iniciar
+        loadData();
+        
+        // Atualizar a cada 5 minutos
+        setInterval(loadData, 5 * 60 * 1000);
+    </script>
+</body>
+</html>

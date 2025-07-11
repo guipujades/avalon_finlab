@@ -1,0 +1,312 @@
+
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Análise Temporal - Fundo</title>
+            <style>
+                body {
+                    font-family: 'Arial', sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f0f2f5;
+                }
+                .container {
+                    max-width: 1400px;
+                    margin: 0 auto;
+                    background-color: white;
+                    box-shadow: 0 0 30px rgba(0,0,0,0.1);
+                }
+                .header {
+                    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+                    color: white;
+                    padding: 40px;
+                    text-align: center;
+                }
+                .header h1 {
+                    margin: 0;
+                    font-size: 36px;
+                    font-weight: 300;
+                }
+                .header .subtitle {
+                    margin-top: 10px;
+                    font-size: 18px;
+                    opacity: 0.9;
+                }
+                .content {
+                    padding: 40px;
+                }
+                .metric-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                    gap: 20px;
+                    margin-bottom: 40px;
+                }
+                .metric-card {
+                    background: white;
+                    border: 1px solid #e0e0e0;
+                    border-radius: 10px;
+                    padding: 20px;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                    transition: transform 0.2s;
+                }
+                .metric-card:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                }
+                .metric-card h3 {
+                    margin: 0 0 10px 0;
+                    color: #34495e;
+                    font-size: 14px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+                .metric-card .value {
+                    font-size: 28px;
+                    font-weight: bold;
+                    color: #2c3e50;
+                }
+                .metric-card .change {
+                    font-size: 14px;
+                    margin-top: 5px;
+                }
+                .positive {
+                    color: #27ae60;
+                }
+                .negative {
+                    color: #e74c3c;
+                }
+                .neutral {
+                    color: #95a5a6;
+                }
+                section {
+                    margin-bottom: 40px;
+                }
+                h2 {
+                    color: #2c3e50;
+                    border-bottom: 2px solid #3498db;
+                    padding-bottom: 10px;
+                    margin-bottom: 20px;
+                }
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    margin: 20px 0;
+                    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+                }
+                th, td {
+                    padding: 12px;
+                    text-align: left;
+                    border-bottom: 1px solid #e0e0e0;
+                }
+                th {
+                    background-color: #f8f9fa;
+                    font-weight: 600;
+                    color: #2c3e50;
+                }
+                tr:hover {
+                    background-color: #f8f9fa;
+                }
+                .chart-container {
+                    margin: 30px 0;
+                    text-align: center;
+                    padding: 20px;
+                    background: #f8f9fa;
+                    border-radius: 10px;
+                }
+                .chart-container img {
+                    max-width: 100%;
+                    border-radius: 5px;
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                }
+                .insight-box {
+                    background: #e8f4f8;
+                    border-left: 4px solid #3498db;
+                    padding: 20px;
+                    margin: 20px 0;
+                    border-radius: 5px;
+                }
+                .footer {
+                    background: #2c3e50;
+                    color: white;
+                    text-align: center;
+                    padding: 20px;
+                    margin-top: 40px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <div class="header">
+                    <h1>Análise Temporal - Fundo</h1>
+                    <div class="subtitle">CNPJ: 38.351.476/0001-40 | Período: 2020 a 2024-08</div>
+                </div>
+                
+                <div class="content">
+                    <div class="metric-grid">
+                        <div class="metric-card">
+                            <h3>Retorno Total</h3>
+                            <div class="value">999.9%</div>
+                            <div class="change positive">
+                                Período completo
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Retorno Anualizado</h3>
+                            <div class="value">249.4%</div>
+                            <div class="change neutral">Por ano</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Volatilidade Anual</h3>
+                            <div class="value">4347.7%</div>
+                            <div class="change neutral">Desvio padrão</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Sharpe Ratio</h3>
+                            <div class="value">0.06</div>
+                            <div class="change neutral">
+                                Retorno ajustado ao risco
+                            </div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Máximo Drawdown</h3>
+                            <div class="value">-96.0%</div>
+                            <div class="change negative">Maior queda do pico</div>
+                        </div>
+                        <div class="metric-card">
+                            <h3>Patrimônio Atual</h3>
+                            <div class="value">R$ 22.0M</div>
+                            <div class="change neutral">Último período</div>
+                        </div>
+                    </div>
+                    
+                    <section>
+                        <h2>1. Análise Gráfica Temporal</h2>
+                        <div class="chart-container">
+                            <img src="analise_temporal.png" 
+                                 alt="Análise Temporal do Fundo">
+                        </div>
+                    </section>
+                    
+                    <section>
+                        <h2>2. Composição Média da Carteira</h2>
+                        <table>
+                            <tr>
+                                <th>Tipo de Ativo</th>
+                                <th>Alocação Média</th>
+                                <th>Volatilidade</th>
+                                <th>Períodos com Posição</th>
+                                <th>Tendência</th>
+                            </tr>
+        
+                            <tr>
+                                <td>Titulos Publicos</td>
+                                <td>15.7%</td>
+                                <td>18.7%</td>
+                                <td>22</td>
+                                <td>↓ Decrescente</td>
+                            </tr>
+                
+                            <tr>
+                                <td>Titulos Bancarios</td>
+                                <td>12.9%</td>
+                                <td>5.6%</td>
+                                <td>22</td>
+                                <td>↑ Crescente</td>
+                            </tr>
+                
+                            <tr>
+                                <td>Acoes</td>
+                                <td>62.5%</td>
+                                <td>16.5%</td>
+                                <td>22</td>
+                                <td>↑ Crescente</td>
+                            </tr>
+                
+                            <tr>
+                                <td>Outros</td>
+                                <td>8.9%</td>
+                                <td>9.0%</td>
+                                <td>20</td>
+                                <td>↓ Decrescente</td>
+                            </tr>
+                
+                        </table>
+                    </section>
+                    
+                    <section>
+                        <h2>3. Performance por Ano</h2>
+                        <table>
+                            <tr>
+                                <th>Ano</th>
+                                <th>Valor Inicial</th>
+                                <th>Valor Final</th>
+                                <th>Retorno</th>
+                                <th>Períodos</th>
+                            </tr>
+        
+                            <tr>
+                                <td>2024</td>
+                                <td>R$ 23.2M</td>
+                                <td>R$ 22.0M</td>
+                                <td class="negative">-5.3%</td>
+                                <td>8</td>
+                            </tr>
+            
+                            <tr>
+                                <td>2023</td>
+                                <td>R$ 27.3M</td>
+                                <td>R$ 28.1M</td>
+                                <td class="positive">3.0%</td>
+                                <td>12</td>
+                            </tr>
+            
+                            <tr>
+                                <td>2022</td>
+                                <td>R$ 314.6M</td>
+                                <td>R$ 314.6M</td>
+                                <td class="neutral">0.0%</td>
+                                <td>1</td>
+                            </tr>
+            
+                            <tr>
+                                <td>2021</td>
+                                <td>R$ 122.5M</td>
+                                <td>R$ 122.5M</td>
+                                <td class="neutral">0.0%</td>
+                                <td>1</td>
+                            </tr>
+            
+                            <tr>
+                                <td>2020</td>
+                                <td>R$ 2.0M</td>
+                                <td>R$ 2.0M</td>
+                                <td class="neutral">0.0%</td>
+                                <td>1</td>
+                            </tr>
+            
+                        </table>
+                    </section>
+                    
+                    <section>
+                        <h2>4. Insights e Conclusões</h2>
+                        <div class="insight-box">
+                            <strong>Principais Observações:</strong>
+                            <ul>
+                                <li>O fundo apresentou um retorno total de 999.9% no período analisado</li>
+                                <li>A volatilidade anualizada de 4347.7% indica um nível de risco muito alto</li>
+                                <li>O Sharpe Ratio de 0.06 sugere uma relação retorno/risco baixa</li>
+                                <li>O drawdown máximo de -96.0% mostra a maior perda potencial do período</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                
+                <div class="footer">
+                    <p>Relatório gerado em 26/06/2025 às 09:04 | Análise baseada em dados públicos da CVM</p>
+                </div>
+            </div>
+        </body>
+        </html>
+        

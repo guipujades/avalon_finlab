@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir:*)",
+      "Bash(pip install:*)",
+      "Bash(python3:*)",
+      "Bash(source:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(ls:*)",
+      "Bash(unzip:*)",
+      "Bash(chmod:*)",
+      "Bash(sudo apt install:*)",
+      "Bash(./chromedriver --version)",
+      "WebFetch(domain:www.zapimoveis.com.br)",
+      "WebFetch(domain:www.vivareal.com.br)",
+      "WebFetch(domain:www.imovelweb.com.br)",
+      "Bash(python:*)",
+      "Bash(/usr/bin/python3:*)"
+    ],
+    "deny": []
+  }
+}

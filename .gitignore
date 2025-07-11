@@ -20,3 +20,10 @@
 venv/
 .venv/
 .env/
+# Diretórios muito grandes
+database/
+sherpa/
+flab/
+unb/
+poc_InvestmentOrchestrator/
+poc_backup/

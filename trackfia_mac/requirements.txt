@@ -1,0 +1,10 @@
+Flask
+pandas
+numpy
+scipy
+matplotlib
+requests
+flask-login
+Flask-Limiter
+tqdm
+openpyxl

@@ -1,0 +1,29 @@
+{
+  "metadata": {
+    "company": "VALE",
+    "document_type": "earnings_release",
+    "original_file": "VALE_20250221_Desempenho da Vale no 4T24 e 2024_parsed.txt",
+    "period": "4T24",
+    "processed_at": "2025-06-20T10:42:11.703810",
+    "date": "2025-02-19"
+  },
+  "content": {
+    "financial_metrics": {
+      "revenue": {
+        "value": 10124.0,
+        "currency": "USD",
+        "unit": "millions",
+        "yoy_change": -22.0
+      },
+      "ebitda": {
+        "value": 3794.0,
+        "currency": "USD",
+        "unit": "millions",
+        "yoy_change": -41.0,
+        "margin": 41.0
+      }
+    },
+    "highlights": [],
+    "raw_text_preview": "                                  Rio de Janeiro, 19 de fevereiro de 2025\n                                  Desempenho da Vale                                                               VALE\n                                                                                                                JUSTED NK\n                                  no 4T24 e 2024\n    “Estamos satisfeitos com o forte desempenho operacional e financeiro em 2024, ressaltado pela maior produção de minério\n    de ferro desde 2018 e recorde de produção de cobre em Salobo. Nossa abordagem disciplinada em custos e eficiência\n    operacional resultou em melhorias significativas, com nosso C1 atingindo US$ 18,8/t no 4T, o nível mais baixo desde 2022.\n    Em termos de segurança e gestão de barragens, fizemos progressos significativos ao eliminar mais quatro barragens em\n    2024 e completar 57% do nosso programa de descaracterização de barragens. Este ano, esperamos remover a última\n    barragem em nível 3 de emergência. Começamos 2025 altamente otimistas sobre nossa capacidade de atingir nossas metas\n    anuais e avançar com nossas prioridades estratégicas. Nosso portfólio robusto e flexível, abordagem disciplinada de\n    alocação de capital e cultura de desempenho em evolução nos permitirão entregar valor a longo prazo a todos os nossos\n    stakeholders. Estamos aprimorando nossos relacionamentos institucionais e garantindo que deixemos um impacto positivo\n    na sociedade e no meio ambiente.” comentou Gustavo Pimenta, Presidente.\n    Indicadores financeiros selecionados\n    US$ milhões                                                    4T24   4T23    ∆ a/a    3T24    ∆ t/t     2024    2023    ∆ a/a\n    Receita líquida de vendas                                   10.124  13.054     -22%    9.553      6%  38.056   41.784      -9%\n    Custos e despesas totais (ex-Brumadinho e                   (7.263)  (7.278)     0%   (6.802)     7%  (26.936) (26.014)     4%\n    descaracterização de barragens)¹..."
+  }
+}

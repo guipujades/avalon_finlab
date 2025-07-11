@@ -1,0 +1,267 @@
+2025-03-03 10:55:22,705 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 10:55:22,705 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 10:55:22,862 - fibonacci_strategy - INFO - Dados obtidos: 27466 períodos
+2025-03-03 10:55:22,862 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 10:55:22,862 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 10:55:22,893 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 10:55:23,770 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2022-01-04: Fib 23% = 6850.72, Fib 76% = 6931.24
+2025-03-03 10:55:23,770 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 10:55:27,627 - fibonacci_strategy - INFO - Backtest concluído com 258 trades
+2025-03-03 10:55:27,627 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 10:55:27,633 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_105527.xlsx
+2025-03-03 10:55:28,213 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_105527.xlsx
+2025-03-03 10:55:28,213 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 10:55:28,369 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:28,369 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:28,416 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:28,429 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:55:31,649 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_105527
+2025-03-03 10:55:31,649 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 10:55:31,665 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2022, 1, 3) datetime.date(2022, 1, 4)
+ datetime.date(2022, 1, 5) datetime.date(2022, 1, 6)
+ datetime.date(2022, 1, 7)]
+2025-03-03 10:55:32,340 - fibonacci_strategy - INFO - Gráfico para 2022-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105527\fib_chart_20220104.png
+2025-03-03 10:55:33,078 - fibonacci_strategy - INFO - Gráfico para 2022-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105527\fib_chart_20220105.png
+2025-03-03 10:55:33,768 - fibonacci_strategy - INFO - Gráfico para 2022-01-06 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105527\fib_chart_20220106.png
+2025-03-03 10:55:34,490 - fibonacci_strategy - INFO - Gráfico para 2022-01-07 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105527\fib_chart_20220107.png
+2025-03-03 10:56:50,492 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 10:56:50,492 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 10:56:50,539 - fibonacci_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 10:56:50,539 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 10:56:50,539 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 10:56:50,602 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 10:56:59,033 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2021-07-27: Fib 23% = 6490.96, Fib 76% = 6510.76
+2025-03-03 10:56:59,049 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 10:57:26,781 - fibonacci_strategy - INFO - Backtest concluído com 919 trades
+2025-03-03 10:57:26,781 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 10:57:26,781 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_105726.xlsx
+2025-03-03 10:57:27,173 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_105726.xlsx
+2025-03-03 10:57:27,173 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 10:57:27,252 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:57:27,252 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:57:27,315 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:57:27,315 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 10:57:30,862 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_105726
+2025-03-03 10:57:30,862 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 10:57:30,905 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2021, 7, 26) datetime.date(2021, 7, 27)
+ datetime.date(2021, 7, 28) datetime.date(2021, 7, 29)
+ datetime.date(2021, 7, 30)]
+2025-03-03 10:57:31,568 - fibonacci_strategy - INFO - Gráfico para 2021-07-27 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105726\fib_chart_20210727.png
+2025-03-03 10:57:32,258 - fibonacci_strategy - INFO - Gráfico para 2021-07-28 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105726\fib_chart_20210728.png
+2025-03-03 10:57:32,949 - fibonacci_strategy - INFO - Gráfico para 2021-07-29 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105726\fib_chart_20210729.png
+2025-03-03 10:57:33,640 - fibonacci_strategy - INFO - Gráfico para 2021-07-30 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_105726\fib_chart_20210730.png
+2025-03-03 11:05:52,241 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:05:52,241 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:05:59,392 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:05:59,394 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:05:59,423 - fibonacci_strategy - INFO - Dados obtidos: 14088 períodos
+2025-03-03 11:05:59,423 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:05:59,423 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:05:59,439 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 11:05:59,674 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2024-01-03: Fib 23% = 5144.39, Fib 76% = 5186.10
+2025-03-03 11:05:59,674 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 11:06:01,229 - fibonacci_strategy - INFO - Backtest concluído com 136 trades
+2025-03-03 11:06:01,229 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:06:01,245 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_110601.xlsx
+2025-03-03 11:06:01,324 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_110601.xlsx
+2025-03-03 11:06:01,324 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:06:01,418 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:06:01,418 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:06:01,449 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:06:01,449 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:06:04,351 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_110601
+2025-03-03 11:06:04,351 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 11:06:04,351 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2024, 1, 2) datetime.date(2024, 1, 3)
+ datetime.date(2024, 1, 4) datetime.date(2024, 1, 5)
+ datetime.date(2024, 1, 8)]
+2025-03-03 11:06:04,981 - fibonacci_strategy - INFO - Gráfico para 2024-01-03 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110601\fib_chart_20240103.png
+2025-03-03 11:06:05,865 - fibonacci_strategy - INFO - Gráfico para 2024-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110601\fib_chart_20240104.png
+2025-03-03 11:06:06,630 - fibonacci_strategy - INFO - Gráfico para 2024-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110601\fib_chart_20240105.png
+2025-03-03 11:06:07,312 - fibonacci_strategy - INFO - Gráfico para 2024-01-08 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110601\fib_chart_20240108.png
+2025-03-03 11:08:00,731 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:08:00,731 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:08:00,778 - fibonacci_strategy - INFO - Dados obtidos: 14088 períodos
+2025-03-03 11:08:00,778 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:08:00,794 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:08:00,809 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 11:08:01,128 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2024-01-03: Fib 23% = 5144.39, Fib 76% = 5186.10
+2025-03-03 11:08:01,128 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 11:08:01,678 - fibonacci_strategy - INFO - Backtest concluído com 1 trades
+2025-03-03 11:08:01,678 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:08:01,693 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_110801.xlsx
+2025-03-03 11:08:01,756 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_110801.xlsx
+2025-03-03 11:08:01,756 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:08:01,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:08:01,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:08:01,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:08:01,977 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:08:04,177 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_110801
+2025-03-03 11:08:04,177 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 11:08:04,192 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2024, 1, 2) datetime.date(2024, 1, 3)
+ datetime.date(2024, 1, 4) datetime.date(2024, 1, 5)
+ datetime.date(2024, 1, 8)]
+2025-03-03 11:08:04,808 - fibonacci_strategy - INFO - Gráfico para 2024-01-03 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110801\fib_chart_20240103.png
+2025-03-03 11:08:05,639 - fibonacci_strategy - INFO - Gráfico para 2024-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110801\fib_chart_20240104.png
+2025-03-03 11:08:06,346 - fibonacci_strategy - INFO - Gráfico para 2024-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110801\fib_chart_20240105.png
+2025-03-03 11:08:07,004 - fibonacci_strategy - INFO - Gráfico para 2024-01-08 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_110801\fib_chart_20240108.png
+2025-03-03 11:10:23,107 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:10:23,107 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:10:23,154 - fibonacci_strategy - INFO - Dados obtidos: 14088 períodos
+2025-03-03 11:10:23,154 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:10:23,154 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:10:23,170 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 11:10:23,421 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2024-01-03: Fib 23% = 5144.39, Fib 76% = 5186.10
+2025-03-03 11:10:23,421 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 11:10:24,968 - fibonacci_strategy - INFO - Backtest concluído com 136 trades
+2025-03-03 11:10:24,968 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:10:24,968 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111024.xlsx
+2025-03-03 11:10:25,084 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111024.xlsx
+2025-03-03 11:10:25,085 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:10:25,183 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:10:25,188 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:10:25,227 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:10:25,232 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:10:28,232 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_111024
+2025-03-03 11:10:28,232 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 11:10:28,248 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2024, 1, 2) datetime.date(2024, 1, 3)
+ datetime.date(2024, 1, 4) datetime.date(2024, 1, 5)
+ datetime.date(2024, 1, 8)]
+2025-03-03 11:10:28,860 - fibonacci_strategy - INFO - Gráfico para 2024-01-03 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111024\fib_chart_20240103.png
+2025-03-03 11:14:59,105 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:14:59,105 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:14:59,105 - fibonacci_strategy - INFO - Apenas primeira operação do dia: Não
+2025-03-03 11:14:59,153 - fibonacci_strategy - INFO - Dados obtidos: 14088 períodos
+2025-03-03 11:14:59,153 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:14:59,153 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:14:59,168 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 11:14:59,419 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2024-01-03: Fib 23% = 5144.39, Fib 76% = 5186.10
+2025-03-03 11:14:59,419 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 11:15:00,949 - fibonacci_strategy - INFO - Backtest concluído com 136 trades
+2025-03-03 11:15:00,949 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:15:00,949 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111500.xlsx
+2025-03-03 11:15:01,042 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111500.xlsx
+2025-03-03 11:15:01,042 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:15:01,121 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:01,121 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:01,153 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:01,153 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:04,278 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_111500
+2025-03-03 11:15:04,278 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 11:15:04,293 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2024, 1, 2) datetime.date(2024, 1, 3)
+ datetime.date(2024, 1, 4) datetime.date(2024, 1, 5)
+ datetime.date(2024, 1, 8)]
+2025-03-03 11:15:04,921 - fibonacci_strategy - INFO - Gráfico para 2024-01-03 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111500\fib_chart_20240103.png
+2025-03-03 11:15:05,722 - fibonacci_strategy - INFO - Gráfico para 2024-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111500\fib_chart_20240104.png
+2025-03-03 11:15:06,443 - fibonacci_strategy - INFO - Gráfico para 2024-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111500\fib_chart_20240105.png
+2025-03-03 11:15:07,135 - fibonacci_strategy - INFO - Gráfico para 2024-01-08 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111500\fib_chart_20240108.png
+2025-03-03 11:15:36,710 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:15:36,710 - fibonacci_strategy - INFO - Parâmetros - TP: 10 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:15:36,710 - fibonacci_strategy - INFO - Apenas primeira operação do dia: Não
+2025-03-03 11:15:36,757 - fibonacci_strategy - INFO - Dados obtidos: 13523 períodos
+2025-03-03 11:15:36,757 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:15:36,757 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:15:36,773 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 11:15:37,009 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2023-01-03: Fib 23% = 5944.24, Fib 76% = 5987.27
+2025-03-03 11:15:37,009 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 11:15:38,421 - fibonacci_strategy - INFO - Backtest concluído com 134 trades
+2025-03-03 11:15:38,421 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:15:38,437 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111538.xlsx
+2025-03-03 11:15:38,516 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111538.xlsx
+2025-03-03 11:15:38,516 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:15:38,610 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:38,610 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:38,641 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:38,641 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:15:41,560 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_111538
+2025-03-03 11:15:41,560 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 11:15:41,560 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2023, 1, 2) datetime.date(2023, 1, 3)
+ datetime.date(2023, 1, 4) datetime.date(2023, 1, 5)
+ datetime.date(2023, 1, 6)]
+2025-03-03 11:15:42,235 - fibonacci_strategy - INFO - Gráfico para 2023-01-03 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111538\fib_chart_20230103.png
+2025-03-03 11:15:42,929 - fibonacci_strategy - INFO - Gráfico para 2023-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111538\fib_chart_20230104.png
+2025-03-03 11:15:43,652 - fibonacci_strategy - INFO - Gráfico para 2023-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111538\fib_chart_20230105.png
+2025-03-03 11:15:44,390 - fibonacci_strategy - INFO - Gráfico para 2023-01-06 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111538\fib_chart_20230106.png
+2025-03-03 11:16:55,034 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day para WDO@
+2025-03-03 11:16:55,034 - fibonacci_strategy - INFO - Parâmetros - TP: 5 pontos, SL: 10 pontos, Fechamento: 15:30:00
+2025-03-03 11:16:55,034 - fibonacci_strategy - INFO - Apenas primeira operação do dia: Não
+2025-03-03 11:16:55,081 - fibonacci_strategy - INFO - Dados obtidos: 13523 períodos
+2025-03-03 11:16:55,081 - fibonacci_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:16:55,081 - fibonacci_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:16:55,096 - fibonacci_strategy - INFO - Calculando níveis de Fibonacci...
+2025-03-03 11:16:55,332 - fibonacci_strategy - INFO - Exemplo de níveis calculados para 2023-01-03: Fib 23% = 5944.24, Fib 76% = 5987.27
+2025-03-03 11:16:55,332 - fibonacci_strategy - INFO - Iniciando backtest da estratégia Fibonacci Day...
+2025-03-03 11:16:56,745 - fibonacci_strategy - INFO - Backtest concluído com 134 trades
+2025-03-03 11:16:56,745 - fibonacci_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:16:56,745 - fibonacci_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111656.xlsx
+2025-03-03 11:16:56,854 - fibonacci_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\fibonacci_results\fibonacci_WDO_20250303_111656.xlsx
+2025-03-03 11:16:56,854 - fibonacci_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:16:56,933 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:16:56,949 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:16:56,980 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:16:56,996 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:17:00,148 - fibonacci_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\fibonacci_results\figures_20250303_111656
+2025-03-03 11:17:00,148 - fibonacci_strategy - INFO - Gerando gráfico de preço com níveis de Fibonacci...
+2025-03-03 11:17:00,164 - fibonacci_strategy - INFO - Limitando visualização aos primeiros 5 dias: [datetime.date(2023, 1, 2) datetime.date(2023, 1, 3)
+ datetime.date(2023, 1, 4) datetime.date(2023, 1, 5)
+ datetime.date(2023, 1, 6)]
+2025-03-03 11:17:00,917 - fibonacci_strategy - INFO - Gráfico para 2023-01-03 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111656\fib_chart_20230103.png
+2025-03-03 11:17:01,576 - fibonacci_strategy - INFO - Gráfico para 2023-01-04 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111656\fib_chart_20230104.png
+2025-03-03 11:17:02,219 - fibonacci_strategy - INFO - Gráfico para 2023-01-05 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111656\fib_chart_20230105.png
+2025-03-03 11:17:02,847 - fibonacci_strategy - INFO - Gráfico para 2023-01-06 salvo em: C:\Users\guilh\Desktop\fibonacci_results\charts_20250303_111656\fib_chart_20230106.png
+2025-03-03 11:20:44,546 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 11:20:44,546 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:00:00, Limite Entrada: 15:00:00, Fechamento: 17:00:00
+2025-03-03 11:20:44,593 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 11:20:44,593 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:20:44,609 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:20:44,609 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 11:20:44,682 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 11:20:44,687 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 11:20:44,687 - hooke_strategy - INFO - Horário mínimo de operação: 09:00:00
+2025-03-03 11:20:44,687 - hooke_strategy - INFO - Horário máximo para abrir posições: 15:00:00
+2025-03-03 11:20:44,687 - hooke_strategy - INFO - Horário de fechamento de posições: 17:00:00
+2025-03-03 11:20:58,594 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 11:20:58,594 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:00:00, Limite Entrada: 15:00:00, Fechamento: 17:00:00
+2025-03-03 11:20:58,641 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 11:20:58,641 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:20:58,641 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:20:58,641 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 11:20:58,719 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 11:20:58,719 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 11:20:58,719 - hooke_strategy - INFO - Horário mínimo de operação: 09:00:00
+2025-03-03 11:20:58,719 - hooke_strategy - INFO - Horário máximo para abrir posições: 15:00:00
+2025-03-03 11:20:58,719 - hooke_strategy - INFO - Horário de fechamento de posições: 17:00:00
+2025-03-03 11:21:06,738 - hooke_strategy - INFO - Backtest concluído com 1725 trades
+2025-03-03 11:21:06,738 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:21:06,754 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_112106.xlsx
+2025-03-03 11:21:07,328 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_112106.xlsx
+2025-03-03 11:21:07,329 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:21:07,486 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:21:07,486 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:21:07,549 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:21:07,564 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:21:10,169 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_112106
+2025-03-03 11:21:10,169 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 11:21:45,261 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_112106.png
+2025-03-03 11:29:35,936 - hooke_strategy - INFO - Iniciando backtest da estratégia Hooke para WDO@
+2025-03-03 11:29:35,936 - hooke_strategy - INFO - Parâmetros de horário - Início: 09:00:00, Limite Entrada: 14:00:00, Fechamento: 16:30:00
+2025-03-03 11:29:35,983 - hooke_strategy - INFO - Dados obtidos: 95211 períodos
+2025-03-03 11:29:35,983 - hooke_strategy - INFO - Preparando dados para a estratégia...
+2025-03-03 11:29:35,983 - hooke_strategy - INFO - Colunas disponíveis: ['Data', 'Abertura', 'Maxima', 'Minima', 'Fechamento', 'tick_volume', 'spread', 'Volume']
+2025-03-03 11:29:35,983 - hooke_strategy - INFO - Calculando indicadores técnicos...
+2025-03-03 11:29:36,061 - hooke_strategy - INFO - Removidas 20 linhas com valores NaN
+2025-03-03 11:29:36,061 - hooke_strategy - INFO - Iniciando backtest da estratégia...
+2025-03-03 11:29:36,061 - hooke_strategy - INFO - Horário mínimo de operação: 09:00:00
+2025-03-03 11:29:36,061 - hooke_strategy - INFO - Horário máximo para abrir posições: 14:00:00
+2025-03-03 11:29:36,061 - hooke_strategy - INFO - Horário de fechamento de posições: 16:30:00
+2025-03-03 11:29:43,930 - hooke_strategy - INFO - Backtest concluído com 1483 trades
+2025-03-03 11:29:43,930 - hooke_strategy - INFO - Calculando resultados dos trades...
+2025-03-03 11:29:43,962 - hooke_strategy - INFO - Salvando resultados em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_112943.xlsx
+2025-03-03 11:29:44,449 - hooke_strategy - INFO - Resultados salvos com sucesso em: C:\Users\guilh\Desktop\hooke_results\hooke_WDO_20250303_112943.xlsx
+2025-03-03 11:29:44,449 - hooke_strategy - INFO - Gerando visualizações dos resultados...
+2025-03-03 11:29:44,622 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:29:44,622 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:29:44,701 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:29:44,701 - matplotlib.category - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-03-03 11:29:47,472 - hooke_strategy - INFO - Visualizações salvas no diretório: C:\Users\guilh\Desktop\hooke_results\figures_20250303_112943
+2025-03-03 11:29:47,482 - hooke_strategy - INFO - Gerando gráfico de preço com indicadores...
+2025-03-03 11:30:21,377 - hooke_strategy - INFO - Gráfico de preço salvo em: C:\Users\guilh\Desktop\hooke_results\chart_WDO_20250303_112943.png

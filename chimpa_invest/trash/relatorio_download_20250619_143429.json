@@ -1,0 +1,29 @@
+{
+  "data_execucao": "2025-06-19T14:34:29.072591",
+  "empresas_solicitadas": [
+    "VALE"
+  ],
+  "anos_processados": [
+    2025
+  ],
+  "limite_por_empresa": null,
+  "apenas_releases_trimestrais": false,
+  "resumo_geral": {
+    "releases_trimestrais": 7,
+    "outros_documentos": 11,
+    "erros": 5,
+    "pulados": 0,
+    "empresas_processadas": [
+      {
+        "empresa": "VALE",
+        "trimestrais": 7,
+        "outros": 11,
+        "erros": 5,
+        "pulados": 0,
+        "total": 23
+      }
+    ]
+  },
+  "pasta_pending": "documents\\pending",
+  "pasta_residuals": "documents\\residuals"
+}

@@ -1,0 +1,16 @@
+{
+  "timestamp": "2025-07-04T22:01:36.363520",
+  "overview": {
+    "total_portfolios": 0,
+    "total_value": 0,
+    "active_portfolios": 0
+  },
+  "portfolios": [],
+  "aggregated_charts": {
+    "total_allocation": {
+      "type": "pie",
+      "data": [],
+      "title": "Alocação Total Consolidada"
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "empresa": {
+    "nome": "VALE S.A.",
+    "cnpj": "33.592.510/0001-54",
+    "setor": "Extração Mineral"
+  },
+  "periodo": {
+    "inicio": "2022-01-01",
+    "fim": "2025-06-19"
+  },
+  "dados_financeiros": {
+    "2022": {
+      "dfp": {},
+      "itr": {}
+    },
+    "2023": {
+      "dfp": {},
+      "itr": {}
+    },
+    "2024": {
+      "dfp": {},
+      "itr": {}
+    },
+    "2025": {
+      "dfp": {},
+      "itr": {}
+    }
+  },
+  "indicadores": {},
+  "evolucao": {}
+}

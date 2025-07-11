@@ -1,0 +1,29 @@
+{
+  "data_execucao": "2025-06-26T10:01:24.568429",
+  "empresas_solicitadas": [
+    "PETROBRAS"
+  ],
+  "anos_processados": [
+    2025
+  ],
+  "limite_por_empresa": null,
+  "apenas_releases_trimestrais": true,
+  "resumo_geral": {
+    "releases_trimestrais": 6,
+    "outros_documentos": 0,
+    "erros": 0,
+    "pulados": 0,
+    "empresas_processadas": [
+      {
+        "empresa": "PETROBRAS",
+        "trimestrais": 6,
+        "outros": 0,
+        "erros": 0,
+        "pulados": 0,
+        "total": 6
+      }
+    ]
+  },
+  "pasta_pending": "documents\\pending",
+  "pasta_residuals": "documents\\residuals"
+}

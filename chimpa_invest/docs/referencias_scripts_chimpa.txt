@@ -1,0 +1,14 @@
+P1 Análise e resumo de releases de empresas
+1. python baixar_release_cvm.py: dados ITR DRE BAL DFP estruturados (2015/25)
+2. python baixar_release_cvm.py TICKER (procura ticker automaticamente na base)
+3. python document_agent.py (transforma release da empresa em txt)
+4. python valuation_empresa_temporal.py TICKER (métricas e múltiplos da empresa no tempo)
+5. python economist_agent.py (retira dados de txts valuation e release + consulta dados pontuais ppxt e gera análise completa e análise curta, para leitura dos principais tópicos em no máximo 2 minutos de áudio)
+
+P2 Seguidor de fundos
+1. python retornos_fundos_cvm.py Capturar dados de retornos de todos os funds CVM
+2. Script mt5 para dados de ações, bdrs e fiis
+3. Capturar carteiras de fundo específico em período pré-determinado
+4. Benchmark por beta e TE
+
+
