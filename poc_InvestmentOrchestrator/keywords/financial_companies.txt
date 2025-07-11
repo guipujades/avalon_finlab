@@ -1,0 +1,280 @@
+# Formato: NOME|TICKER1,TICKER2
+# Bancos
+itaú unibanco|ITUB3,ITUB4
+bradesco|BBDC3,BBDC4
+banco do brasil|BBAS3
+santander brasil|SANB11,SANB3,SANB4
+banco inter|BIDI11,BIDI3,BIDI4
+banco pan|BPAN4
+btg pactual|BPAC11
+banco pine|PINE4
+banco abc brasil|ABCB4
+banco mercantil|BMEB3,BMEB4
+banco nordeste|BNBR3
+banco amazônia|BAZA3
+banestes|BEES3,BEES4
+banco patagonia|BPAR3
+banrisul|BRSR3,BRSR5,BRSR6
+banco daycoval|DAYC4
+banco indusval|IDVL3,IDVL4
+banco sofisa|SFSA4
+banco alfa|CRIV3,CRIV4
+paraná banco|PRBC4
+# Petróleo e Gás
+petrobras|PETR3,PETR4
+3r petroleum|RRRP3
+petrorio|PRIO3
+enauta|ENAT3
+petroreconcavo|RECV3
+dommo energia|DMMO3
+oceana|OPCT3
+# Mineração
+vale|VALE3
+csn mineração|CMIN3
+bradespar|BRAP3,BRAP4
+mmx mineração|MMXM3
+litel|LTEL3B
+# Siderurgia e Metalurgia
+gerdau|GGBR3,GGBR4
+usiminas|USIM3,USIM5
+csn|CSNA3
+metalúrgica gerdau|GOAU3,GOAU4
+sid nacional|CSNA3
+arcelormittal|ARMT34
+ferbasa|FESA3,FESA4
+mangels|MGEL4
+panatlantica|PATI3,PATI4
+tekno|TKNO4
+# Energia Elétrica
+eletrobras|ELET3,ELET6
+cemig|CMIG3,CMIG4
+copel|CPLE3,CPLE6
+cpfl energia|CPFE3
+energias br|ENBR3
+equatorial|EQTL3
+energisa|ENGI11,ENGI3,ENGI4
+neoenergia|NEOE3
+light|LIGT3
+aes brasil|AESB3
+engie brasil|EGIE3
+omega energia|MEGA3
+alupar|ALUP11,ALUP3,ALUP4
+transmissão paulista|TRPL4
+taesa|TAEE11
+isa cteep|TRPL3,TRPL4
+# Telecomunicações
+tim|TIMS3
+telefônica brasil|VIVT3
+oi|OIBR3,OIBR4
+algar telecom|ALGR3
+telebras|TELB3,TELB4
+# Tecnologia
+totvs|TOTS3
+locaweb|LWSA3
+linx|LINX3
+positivo|POSI3
+bemobi|BMOB3
+sinqia|SQIA3
+meliuz|CASH3
+padtec|PDTC3
+intelbras|INTB3
+wdl|WDLC3
+quality software|QUSW3
+senior solution|SNSL3
+# Varejo
+magazine luiza|MGLU3
+via|VIIA3
+americanas|AMER3
+lojas renner|LREN3
+lojas marisa|AMAR3
+guararapes|GUAR3
+arezzo|ARZZ3
+soma|SOMA3
+grazziotin|CGRA3,CGRA4
+lojas quero-quero|LJQQ3
+grupo sbf|SBFG3
+petz|PETZ3
+vivara|VIVA3
+# Alimentos e Bebidas
+ambev|ABEV3
+jbs|JBSS3
+marfrig|MRFG3
+brf|BRFS3
+minerva|BEEF3
+m.dias branco|MDIA3
+camil|CAML3
+são martinho|SMTO3
+raízen|RAIZ4
+jalles machado|JALL3
+tereos|TERI3
+biosev|BSEV3
+excelsior|BAUH4
+josapar|JOPA3,JOPA4
+oderich|ODER4
+minupar|MNPR3
+# E-commerce e Marketplace
+mercado livre|MELI34
+pag seguro|PAGS34
+stone|STOC31
+cielo|CIEL3
+getnet|GETT11,GETT3,GETT4
+b2w|BTOW3
+cnova|CNVL30
+enjoei|ENJU3
+# Saúde
+hapvida|HAPV3
+notredame intermédica|GNDI3
+fleury|FLRY3
+dasa|DASA3
+hypera|HYPE3
+raia drogasil|RADL3
+pague menos|PGMN3
+qualicorp|QUAL3
+odontoprev|ODPV3
+instituto hermes pardini|PARD3
+alliar|AALR3
+biomm|BIOM3
+nortec química|NRTQ3
+ourofino|OFSA3
+blau farmacêutica|BLAU3
+# Construção Civil
+mrv|MRVE3
+cyrela|CYRE3
+even|EVEN3
+direcional|DIRR3
+tenda|TEND3
+tecnisa|TCSA3
+eztec|EZTC3
+helbor|HBOR3
+pdg realty|PDGR3
+rossi|RSID3
+viver|VIVR3
+rodobens|RDBR3
+jhsf|JHSF3
+trisul|TRIS3
+plano&plano|PLPL3
+lavvi|LAVV3
+moura dubeux|MDNE3
+cury|CURY3
+# Shopping Centers
+multiplan|MULT3
+br malls|BRML3
+iguatemi|IGTI11
+aliansce sonae|ALSO3
+log commercial|LOGG3
+são carlos|SCAR3
+general shopping|GSHP3
+# Educação
+yduqs|YDUQ3
+cogna|COGN3
+ser educacional|SEER3
+ânima|ANIM3
+cruzeiro do sul|CSED3
+bahema|BAHI3
+# Transporte e Logística
+gol|GOLL4
+azul|AZUL4
+cvc|CVCB3
+movida|MOVI3
+localiza|RENT3
+unidas|LCAM3
+rumo|RAIL3
+log-in|LOGN3
+santos brasil|STBP3
+wilson sons|PORT3
+hidrovias do brasil|HBSA3
+eco rodovias|ECOR3
+ccr|CCRO3
+ecorodovias|ECOR3
+arteris|ARTR3
+# Papel e Celulose
+suzano|SUZB3
+klabin|KLBN11,KLBN3,KLBN4
+irani|RANI3
+eucatex|EUCA3,EUCA4
+duratex|DTEX3
+melhor sp|MSPA3,MSPA4
+santher|CTPC3
+celulose irani|RANI3,RANI4
+# Têxtil
+alpargatas|ALPA3,ALPA4
+grendene|GRND3
+vulcabras|VULC3
+cambuci|CAMB3
+springs global|SGPS3
+coteminas|CTNM3,CTNM4
+dohler|DOHL3,DOHL4
+karsten|CTKA3,CTKA4
+cedro|CEDO3,CEDO4
+teka|TEKA3,TEKA4
+santanense|CTSA3,CTSA4
+pettenati|PTNT3,PTNT4
+# Bens de Capital
+weg|WEGE3
+marcopolo|POMO3,POMO4
+randon|RAPT3,RAPT4
+iochpe maxion|MYPK3
+mahle metal leve|LEVE3
+tupy|TUPY3
+schulz|SHUL4
+romi|ROMI3
+bardella|BDLL3,BDLL4
+kepler weber|KEPL3
+metalfrio|FRIO3
+recrusul|RCSL3,RCSL4
+# Químico e Petroquímico
+braskem|BRKM3,BRKM5
+unipar|UNIP3,UNIP5,UNIP6
+cristal|CRPG3,CRPG5,CRPG6
+nutriplant|NUTR3
+fertilizantes heringer|FHER3
+# Agronegócio
+slc agrícola|SLCE3
+brasilagro|AGRO3
+terra santa|LAND3
+boa safra|SOJA3
+três tentos|TTEN3
+# Seguros e Previdência
+porto seguro|PSSA3
+sul américa|SULA11
+bb seguridade|BBSE3
+irb brasil|IRBR3
+caixa seguridade|CXSE3
+# Utilities
+sabesp|SBSP3
+copasa|CSMG3
+sanepar|SAPR11,SAPR3,SAPR4
+aegea|AEGA11
+igua saneamento|IGSN3
+águas do brasil|AESB3
+# Holdings e Investimentos
+itaúsa|ITSA3,ITSA4
+ultrapar|UGPA3
+simpar|SIMH3
+cosan|CSAN3
+vamos|VAMO3
+compass|CPSS3
+orizon|ORVR3
+g2d|G2DI33
+xp inc|XPBR31
+nu holdings|NUBR33
+brasil agro|AGRO3
+gp investments|GPIV33
+# Outros
+natura|NTCO3
+grupo soma|SOMA3
+infracommerce|IFCM3
+desktop|DESK3
+priner|PRNR3
+taurus|TASA3,TASA4
+bombril|BOBR4
+whirlpool|WHRL3,WHRL4
+mundial|MNDL3
+haga|HAGA3,HAGA4
+estrela|ESTR3,ESTR4
+nadir figueiredo|NAFG3,NAFG4
+vitru|VTRU3
+mosaico|MOSI3
+alphaville|AVLL3
+lavvi|LAVV3
+plano & plano|PLPL3

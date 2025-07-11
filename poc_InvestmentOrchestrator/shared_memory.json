@@ -1,0 +1,103 @@
+{
+  "recent_queries": [
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T00:26:23.436048",
+      "interaction_type": "simple_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T00:27:32.393922",
+      "interaction_type": "simple_query"
+    },
+    {
+      "query": "pergunta",
+      "timestamp": "2025-06-04T10:18:58.539433",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "comoe stá o mercdaopip install anthropic",
+      "timestamp": "2025-06-04T10:34:06.277074",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T10:51:45.101276",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T11:00:53.218671",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T11:05:22.908314",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "qual é a taxa de juros atualmente?",
+      "timestamp": "2025-06-04T11:07:07.472283",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado alemão hoje?",
+      "timestamp": "2025-06-04T11:20:52.322981",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado chinês hoje?",
+      "timestamp": "2025-06-04T13:29:59.585459",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "q\u0004\u0003",
+      "timestamp": "2025-06-04T23:08:23.874719",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T23:11:01.859473",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T23:16:41.737114",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T23:32:22.205318",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T23:40:57.050492",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "como está o mercado hoje?",
+      "timestamp": "2025-06-04T23:50:36.185029",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?",
+      "timestamp": "2025-06-04T23:56:16.654649",
+      "interaction_type": "auto_query"
+    },
+    {
+      "query": "stats",
+      "timestamp": "2025-06-04T23:57:01.872691",
+      "interaction_type": "system_command"
+    },
+    {
+      "query": "d",
+      "timestamp": "2025-06-05T00:33:59.857699",
+      "interaction_type": "auto_query"
+    }
+  ],
+  "cached_responses": [],
+  "user_preferences": {},
+  "session_context": {},
+  "last_updated": "never"
+}

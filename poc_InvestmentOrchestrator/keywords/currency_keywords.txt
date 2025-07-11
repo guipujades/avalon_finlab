@@ -1,0 +1,169 @@
+dólares
+dólar americano
+dólar canadense
+dólar australiano
+dólar neozelandês
+dólar de hong kong
+dólar de singapura
+dólar taiwanês
+dólar jamaicano
+dólar das bahamas
+dólar de barbados
+dólar do caribe oriental
+dólar das ilhas cayman
+euro
+euros
+libra
+libra esterlina
+pound
+iene
+yen
+yuan
+renminbi
+rmb
+won
+won sul-coreano
+peso
+peso argentino
+peso mexicano
+peso chileno
+peso colombiano
+peso uruguaio
+peso filipino
+peso cubano
+peso dominicano
+real
+reais
+brl
+usd
+eur
+gbp
+jpy
+cny
+krw
+ars
+mxn
+clp
+cop
+uyu
+php
+cad
+aud
+nzd
+hkd
+sgd
+twd
+chf
+franco suíço
+coroa
+coroa sueca
+coroa norueguesa
+coroa dinamarquesa
+coroa tcheca
+coroa islandesa
+rublo
+rublo russo
+rupia
+rupia indiana
+rupia indonésia
+rupia paquistanesa
+rupia do sri lanka
+baht
+baht tailandês
+ringgit
+ringgit malaio
+dong
+dong vietnamita
+dirham
+dirham dos emirados
+shekel
+shekel israelense
+rand
+rand sul-africano
+naira
+naira nigeriana
+cedi
+cedi ganês
+kwanza
+kwanza angolano
+metical
+metical moçambicano
+câmbio
+cotação
+taxa de câmbio
+conversão
+converter
+conversor
+exchange
+forex
+fx
+mercado de câmbio
+mercado forex
+casa de câmbio
+câmbio turismo
+câmbio comercial
+câmbio paralelo
+câmbio oficial
+spread cambial
+ptax
+ptax800
+dólar ptax
+taxa ptax
+dólar turismo
+dólar comercial
+dólar paralelo
+dólar futuro
+mini dólar
+contrato de dólar
+hedge cambial
+swap cambial
+ndf
+termo de moeda
+cupom cambial
+banda cambial
+flutuação cambial
+variação cambial
+oscilação cambial
+volatilidade cambial
+risco cambial
+exposição cambial
+proteção cambial
+cobertura cambial
+arbitragem cambial
+especulação cambial
+reservas cambiais
+reservas internacionais
+balança de pagamentos
+déficit em conta corrente
+superávit em conta corrente
+fluxo cambial
+contratação de câmbio
+fechamento de câmbio
+liquidação de câmbio
+remessa
+remessa internacional
+wire transfer
+swift
+transferência internacional
+pagamento internacional
+recebimento internacional
+importação
+exportação
+comércio exterior
+carta de crédito
+fatura comercial
+invoice
+moeda forte
+moeda fraca
+apreciação
+depreciação
+valorização
+desvalorização
+paridade
+paridade cambial
+cross currency
+moeda cruzada
+cesta de moedas
+índice dxy
+índice do dólar
+carry trade

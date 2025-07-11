@@ -1,0 +1,1 @@
+- seja conciso e não faça mais do que te pedi. Use como referência o que já foi feito nessa página para produzir algo novo, ok. Devemos manter esse framework elegante

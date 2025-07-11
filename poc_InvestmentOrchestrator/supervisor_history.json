@@ -1,0 +1,172 @@
+[
+  {
+    "timestamp": "2025-06-04T11:20:16.937634",
+    "query": "como está o mercado alemão hoje?",
+    "response_preview": "1. O mercado alemão e a economia do país estão passando por uma mistura de desenvolvimentos significativos e desafios atuais. Here are some key points:\n2. ## Aprovação de Pacote Fiscal\n3. O gabinete a...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 0.8099999999999999,
+    "issues_count": 1,
+    "corrections_count": 1
+  },
+  {
+    "timestamp": "2025-06-04T11:30:15.684705",
+    "query": "como está o mercado hoje?",
+    "response_preview": "O mercado brasileiro apresenta volatilidade hoje. O Ibovespa opera em alta de 1,2%, \n        fechando próximo aos 135.000 pontos. O dólar está em R$ 5,85. As ações da Petrobras sobem 2,1% \n        apó...",
+    "agent_used": "test_research_agent",
+    "approved": true,
+    "confidence_score": 0.91,
+    "issues_count": 1,
+    "corrections_count": 1
+  },
+  {
+    "timestamp": "2025-06-04T11:30:29.224838",
+    "query": "qual o preço do Bitcoin hoje?",
+    "response_preview": "O Bitcoin está cotado a $45.000 hoje, uma alta de 5% em relação a ontem. \n        Esta informação é de dezembro de 2022. O mercado de criptomoedas mostra sinais de recuperação \n        após a crise do...",
+    "agent_used": "test_research_agent",
+    "approved": true,
+    "confidence_score": 0.75,
+    "issues_count": 2,
+    "corrections_count": 1
+  },
+  {
+    "timestamp": "2025-06-04T11:47:28.835763",
+    "query": "como está o mercado hoje?",
+    "response_preview": "O mercado brasileiro apresenta volatilidade hoje. O Ibovespa opera em alta de 1,2%, \n        fechando próximo aos 135.000 pontos. O dólar está em R$ 5,85. As ações da Petrobras sobem 2,1% \n        apó...",
+    "agent_used": "test_research_agent",
+    "approved": true,
+    "confidence_score": 0.91,
+    "issues_count": 1,
+    "corrections_count": 1
+  },
+  {
+    "timestamp": "2025-06-04T11:47:41.478542",
+    "query": "qual o preço do Bitcoin hoje?",
+    "response_preview": "O Bitcoin está cotado a $45.000 hoje, uma alta de 5% em relação a ontem. \n        Esta informação é de dezembro de 2022. O mercado de criptomoedas mostra sinais de recuperação \n        após a crise do...",
+    "agent_used": "test_research_agent",
+    "approved": false,
+    "confidence_score": 0.6900000000000001,
+    "issues_count": 3,
+    "corrections_count": 1
+  },
+  {
+    "timestamp": "2025-06-04T13:28:01.975641",
+    "query": "como está o mercado chinês hoje?",
+    "response_preview": "1. O mercado chinês e sua economia estão atualmente influenciados por várias dinâmicas significativas, tanto internas quanto externas. Here are some key points to consider:\n2. ## Estrutura Econômica e...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 0.7000000000000001,
+    "issues_count": 6,
+    "corrections_count": 1
+  },
+  {
+    "timestamp": "2025-06-04T23:07:58.429120",
+    "query": "q\u0004\u0003",
+    "response_preview": "Comando 'q\u0004\u0003' não reconhecido. Digite 'help' para ver comandos disponíveis.",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-04T23:10:30.591673",
+    "query": "como está o mercado hoje?",
+    "response_preview": "1. Para obter uma visão atualizada do mercado brasileiro até o início de junho de 2025, aqui estão algumas informações relevantes:\n2. ### Taxa de Câmbio (Dólar x Real)\n3. - Nos últimos dias, a taxa de...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-04T23:15:50.943089",
+    "query": "como está o mercado hoje?",
+    "response_preview": "1. Até o dia 4 de junho de 2025, o mercado brasileiro, especialmente o Índice Bovespa (Ibovespa), apresentou alguns movimentos significativos. Here are the key points:\n2. ## Fechamento do Ibovespa\n3. ...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-04T23:23:44.939185",
+    "query": "como está o mercado hoje?",
+    "response_preview": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and other relevant economic and political factors as of June 5, 2025:\n2. -...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-04T23:35:39.410670",
+    "query": "como está o mercado hoje?",
+    "response_preview": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and the dollar exchange rate as of June 4, 2025:\n2. - O Ibovespa fechou co...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-04T23:47:09.510347",
+    "query": "como está o mercado hoje?",
+    "response_preview": "1. Here is an update on the current state of the Brazilian market, specifically focusing on the Ibovespa and related factors as of June 4, 2025:\n2. ## Ibovespa Performance\n3. - O Ibovespa fechou em qu...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-04T23:51:56.317631",
+    "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?",
+    "response_preview": "1. A posição do Banco Central do Brasil (Bacen) em relação à taxa Selic para os próximos 12 meses, baseada nas informações atuais, é a seguinte:\n2. A taxa Selic foi aumentada para 14,75% ao ano na reu...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-05T00:27:50.404064",
+    "query": "d",
+    "response_preview": "Nenhum documento relevante encontrado na base local.",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-05T00:39:42.048292",
+    "query": "como está o mercdao hoje?",
+    "response_preview": "1. Para entender o estado atual do mercado brasileiro, especialmente o Ibovespa, aqui estão algumas informações atualizadas até 4 de junho de 2025:\n2. ## Fechamento do Ibovespa\n3. Na quarta-feira, 4 d...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-05T01:43:18.471187",
+    "query": "me diga quanto está investido em fundos da Artesanal na base de clientes BTG",
+    "response_preview": "Erro na pesquisa de documentos: 'NoneType' object has no attribute 'get'\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  },
+  {
+    "timestamp": "2025-06-05T10:06:56.155263",
+    "query": "me diga quais clientes btg possuem fundo da artesanal em carteira",
+    "response_preview": "1. Baseando-se nas fontes proporcionadas, não há menção específica a clientes do BTG Pactual que possuam fundos da empresa \"Artesanal\" em suas carteiras.\n2. No entanto, aqui estão algumas informações ...",
+    "agent_used": "auto_system",
+    "approved": true,
+    "confidence_score": 1.0,
+    "issues_count": 0,
+    "corrections_count": 0
+  }
+]

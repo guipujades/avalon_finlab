@@ -1,0 +1,267 @@
+ipca
+índice nacional de preços ao consumidor amplo
+igpm
+índice geral de preços do mercado
+igp-di
+índice geral de preços disponibilidade interna
+inpc
+índice nacional de preços ao consumidor
+ipca-15
+prévia da inflação
+deflação
+desinflação
+hiperinflação
+taxa de inflação
+meta de inflação
+núcleo da inflação
+inflação de serviços
+inflação de alimentos
+inflação subjacente
+taxa selic
+selic
+taxa básica de juros
+copom
+comitê de política monetária
+reunião do copom
+ata do copom
+decisão do copom
+taxa de juros
+juros
+juros reais
+juros nominais
+juro neutro
+política monetária
+política fiscal
+política cambial
+política econômica
+pib
+produto interno bruto
+crescimento econômico
+recessão
+expansão econômica
+desaceleração econômica
+estagnação
+estagflação
+ciclo econômico
+atividade econômica
+indicadores econômicos
+fundamentos econômicos
+desemprego
+taxa de desemprego
+pnad
+pnad contínua
+população ocupada
+população desocupada
+força de trabalho
+mercado de trabalho
+emprego formal
+emprego informal
+carteira assinada
+clt
+mei
+microempreendedor individual
+rendimento médio
+massa salarial
+caged
+novo caged
+admissões
+demissões
+saldo de empregos
+geração de empregos
+balança comercial
+exportações
+importações
+saldo comercial
+déficit comercial
+superávit comercial
+corrente de comércio
+termos de troca
+commodities
+minério de ferro
+soja
+milho
+café
+açúcar
+etanol
+carne bovina
+carne suína
+frango
+petróleo
+gás natural
+dívida pública
+déficit público
+superávit primário
+déficit primário
+déficit nominal
+dívida bruta
+dívida líquida
+relação dívida/pib
+teto de gastos
+regra de ouro
+lei de responsabilidade fiscal
+lrf
+orçamento
+loa
+lei orçamentária anual
+ldo
+lei de diretrizes orçamentárias
+ppa
+plano plurianual
+arrecadação
+receita federal
+receita tributária
+carga tributária
+impostos
+tributos
+icms
+iss
+ipi
+ir
+imposto de renda
+cofins
+pis
+csll
+contribuições sociais
+gastos públicos
+despesas públicas
+investimento público
+custeio
+pessoal
+previdência
+transferências
+subsídios
+resultado primário
+resultado nominal
+resultado fiscal
+contas públicas
+tesouro nacional
+banco central
+bacen
+bcb
+caixa econômica
+bndes
+banco nacional de desenvolvimento
+ministério da economia
+ministério da fazenda
+secretaria do tesouro
+receita federal
+fazenda
+fisco
+produção industrial
+pim
+pesquisa industrial mensal
+capacidade instalada
+utilização da capacidade
+ociosidade
+nível de atividade
+confiança
+confiança do consumidor
+confiança empresarial
+expectativas
+índice de confiança
+fgv
+fundação getúlio vargas
+ibge
+instituto brasileiro de geografia e estatística
+ipea
+instituto de pesquisa econômica aplicada
+vendas no varejo
+pmc
+pesquisa mensal do comércio
+volume de vendas
+receita nominal
+comércio varejista
+comércio atacadista
+e-commerce
+vendas online
+serviços
+pms
+pesquisa mensal de serviços
+setor de serviços
+construção civil
+sinduscon
+cbic
+incc
+índice nacional de custo da construção
+custo da construção
+lançamentos imobiliários
+vendas de imóveis
+financiamento imobiliário
+crédito imobiliário
+sbpe
+sistema brasileiro de poupança e empréstimo
+fgts
+fundo de garantia
+minha casa minha vida
+casa verde e amarela
+habitação
+déficit habitacional
+agronegócio
+agro
+safra
+produtividade
+área plantada
+vbp
+valor bruto da produção
+pib do agro
+crédito rural
+plano safra
+pronaf
+seguro rural
+energia
+energia elétrica
+matriz energética
+consumo de energia
+tarifa de energia
+bandeira tarifária
+conta de luz
+petróleo
+gasolina
+diesel
+etanol
+gás
+gnv
+gás natural veicular
+preço dos combustíveis
+transporte
+logística
+infraestrutura
+rodovias
+ferrovias
+portos
+aeroportos
+hidrovias
+mobilidade urbana
+pil
+programa de investimentos em logística
+concessões
+privatizações
+ppps
+parcerias público-privadas
+marco regulatório
+agências reguladoras
+aneel
+anp
+anatel
+antt
+antaq
+anac
+ans
+anvisa
+tecnologia
+inovação
+startups
+fintechs
+indústria 4.0
+transformação digital
+economia digital
+comércio eletrônico
+meios de pagamento
+pix
+open banking
+open finance
+criptomoedas
+bitcoin
+blockchain
+real digital
+cbdc

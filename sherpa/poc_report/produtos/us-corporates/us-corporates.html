@@ -1,0 +1,1886 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renda Fixa – Análise de Títulos e Fundos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <style>
+        .chart-container {
+            position: relative;
+            margin: auto;
+        }
+        
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 800px;
+            border-radius: 8px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: black;
+        }
+        
+        .insight-badge {
+            background: #2563eb;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-left: 8px;
+        }
+        
+        @media print {
+            nav.sidebar, .no-print {
+                display: none;
+            }
+            
+            main {
+                width: 100%;
+            }
+            
+            .page-break {
+                page-break-before: always;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Modal de Gestão Ativa -->
+    <div id="gestaoAtivaModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 class="text-2xl font-bold mb-6">Visão de Gestão Ativa</h2>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Foto Atual da Carteira</h3>
+                <p class="mb-4">Renda Fixa representa 56% do portfólio, entregando yield efetivo de ~6,7%. A estrutura atual apresenta bom "carry" em dólar, mas com alguns pontos de atenção.</p>
+                
+                <div class="bg-gray-50 p-4 rounded mb-4">
+                    <h4 class="font-bold mb-2">Composição Renda Fixa (56% do portfólio)</h4>
+                    <ul class="text-sm space-y-1">
+                        <li>• High Yield/Preferred: 14,7% (¼ da RF)</li>
+                        <li>• Emergentes: 14,3% (boa parcela via CLNs)</li>
+                        <li>• IG/Treasuries: 22,0% (duration 6-7 anos)</li>
+                        <li>• Caixa & CDs: 4,9% (liquidez)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Pontos de Atenção</h3>
+                
+                <div class="bg-gray-50 p-4 rounded mb-4">
+                    <h4 class="font-bold mb-2">Três focos de risco a acompanhar:</h4>
+                    <ul class="text-sm space-y-2">
+                        <li>• <strong>CLNs Latino-americanas:</strong> 6,5% do portfólio (45% dos Emergentes) - concentração em risco de contraparte bancária</li>
+                        <li>• <strong>High Yield com spreads apertados:</strong> 14,7% com spreads em mínimas históricas (~330bp)</li>
+                        <li>• <strong>Duration longa:</strong> Treasuries 2044/2054 criam concentração em vencimentos extremos</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-bold mb-4 text-gray-800">Hipóteses de Otimização</h3>
+                
+                <div class="bg-gray-50 p-4 rounded mb-4">
+                    <h4 class="font-bold mb-2">Movimentos Táticos Possíveis</h4>
+                    <ul class="text-sm space-y-2">
+                        <li>• <strong>Redução de HY:</strong> Realocação em IG corporativo</li>
+                        <li>• <strong>Simplificar CLNs:</strong> Pensar em bonds diretos para reduzir complexidade</li>
+                        <li>• <strong>Hedge inflacionário:</strong> Colocar um pequeno bloco de TIPS 2029 adiciona "seguro-inflação" a um portfólio 100 % nominal, com custo de carry muito menor do que no passado e sem aumentar a complexidade operacional</li>
+                        <li>• <strong>Diversificar EM:</strong> Pequena rotação para China IG (reduz correlação LatAm)</li>
+                    </ul>
+                </div>
+                
+                
+            </div>
+            
+            <div class="bg-gray-100 p-4 rounded">
+                <h3 class="font-bold mb-2">Resumo da Visão</h3>
+                <p class="text-sm">Carteira bem estruturada com yield atrativo. Oportunidades de otimização focam em: (1) reduzir complexidade das CLNs, (2) rebalancear HY vs IG conforme spreads, (3) suavizar perfil de duration. Target: manter yield similar com menor risco de concentração.</p>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <div class="flex justify-between items-start">
+                <div>
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates" selected>Renda Fixa</option>
+                    <option value="hedge-funds">Hedge Funds</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="relative">
+        <button id="gestaoAtivaBtn" class="absolute -top-6 right-4 bg-black hover:bg-gray-800 text-white px-6 py-2 rounded-lg shadow-lg transition-all duration-300 flex items-center no-print">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+            </svg>
+            <span class="font-medium tracking-wide">Gestão Ativa</span>
+        </button>
+    </div>
+
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="sidebar w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#visao-geral" class="block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600">Visão Geral</a></li>
+                    <li><a href="#panorama-juros" class="block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600">Panorama de Juros US</a></li>
+                    <li><a href="#renda-fixa-us" class="block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600">Renda Fixa US</a></li>
+                    <li>
+                        <a href="#bank-of-america" class="block px-3 py-2 pl-6 text-sm rounded hover:bg-blue-50 hover:text-blue-600">Bank of America</a>
+                    </li>
+                    <li>
+                        <a href="#pimco-income" class="block px-3 py-2 pl-6 text-sm rounded hover:bg-blue-50 hover:text-blue-600">PIMCO Income Fund</a>
+                    </li>
+                    <li>
+                        <a href="#itau-us-fixed" class="block px-3 py-2 pl-6 text-sm rounded hover:bg-blue-50 hover:text-blue-600">Itau US Fixed Income</a>
+                    </li>
+                    <li>
+                        <a href="#nordea-corp-bond" class="block px-3 py-2 pl-6 text-sm rounded hover:bg-blue-50 hover:text-blue-600">Nordea US Corp Bond</a>
+                    </li>
+                    <li>
+                        <a href="#jpmorgan-chase" class="block px-3 py-2 pl-6 text-sm rounded hover:bg-blue-50 hover:text-blue-600">JPMorgan Chase</a>
+                    </li>
+                    <li>
+                        <a href="#credit-linked-notes" class="block px-3 py-2 pl-6 text-sm rounded hover:bg-blue-50 hover:text-blue-600">Credit Linked Notes</a>
+                    </li>
+                    <li><a href="#mercados-emergentes" class="block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600">Mercados Emergentes</a></li>
+                    <li><a href="#high-yield" class="block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600">High Yield</a></li>
+                    <li><a href="#conclusao" class="block px-3 py-2 rounded hover:bg-blue-50 hover:text-blue-600">Conclusão</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+            <!-- Visão Geral -->
+            <section id="visao-geral" class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-600 rounded-full p-3 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Renda Fixa Global – Análise de Títulos e Fundos</h2>
+                        <p class="text-gray-600">Última atualização: 20 de maio de 2025</p>
+                    </div>
+                </div>
+                
+                <p class="mb-4">
+                    Este relatório apresenta uma análise detalhada dos principais títulos e fundos de renda fixa na carteira, incluindo crédito corporativo dos EUA, mercados emergentes e high yield. O cenário atual de juros e spreads de crédito proporciona oportunidades diversificadas, mas requer seletividade e monitoramento constante dos riscos.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-blue-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Taxa Básica FED</h3>
+                        <p class="text-3xl font-bold text-blue-800">4,25-4,50%</p>
+                        <p class="text-sm text-gray-600">Desde janeiro de 2025</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Projeção Fed 2025</h3>
+                        <p class="text-3xl font-bold text-green-800">3,75-4,00%</p>
+                        <p class="text-sm text-gray-600">Apenas 2 cortes previstos</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Spread IG</h3>
+                        <p class="text-3xl font-bold text-yellow-800">92bp</p>
+                        <p class="text-sm text-gray-600">ICE BofA US Corporate</p>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Spread HY</h3>
+                        <p class="text-3xl font-bold text-red-800">332bp</p>
+                        <p class="text-sm text-gray-600">ICE BofA US High Yield</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Panorama de Juros US -->
+            <section id="panorama-juros" class="bg-white rounded-lg shadow p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Panorama de Juros dos EUA</h2>
+                
+                <div class="chart-container mb-6" style="height: 300px;">
+                    <canvas id="ratesChart"></canvas>
+                </div>
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-3">Projeções</h3>
+                    <p class="text-gray-700 mb-3">O Federal Reserve mantém sua postura cautelosa com expectativas de apenas dois cortes de 25 pontos-base até o final de 2025, uma redução significativa em relação à previsão anterior de quatro cortes. Esta posição mais restritiva reflete preocupações persistentes com pressões inflacionárias e possíveis impactos de novas políticas comerciais e tarifárias. A taxa efetiva atual está em 4,33%, com o 10-Year Treasury em 4,43% em meados de maio de 2025.</p>
+                   
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-3">Spreads de Crédito</h3>
+                    <p class="text-gray-700 mb-3">Os spreads de crédito permanecem historicamente apertados em 2025, apesar da recente volatilidade do mercado decorrente da implementação de tarifas dos EUA e do rebaixamento da dívida soberana americana pela Moody's de Aaa para Aa1 em maio de 2025. Os títulos investment grade negociam a apenas 92 pontos-base acima dos Treasuries, enquanto os spreads de high yield estão em 332 pontos-base - ambos próximos dos níveis mais apertados da última década.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                       
+                    </div>
+                    
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold mb-3">Projeções das Principais Instituições</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="py-2 px-4 text-left border">Instituição</th>
+                                    <th class="py-2 px-4 text-left border">Taxa Terminal 2025</th>
+                                    <th class="py-2 px-4 text-left border">Crescimento PIB</th>
+                                    <th class="py-2 px-4 text-left border">Prob. Recessão</th>
+                                    <th class="py-2 px-4 text-left border">Visão</th>
+                                    <th class="py-2 px-4 text-left border">Impacto Tarifas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border font-medium">Goldman Sachs</td>
+                                    <td class="py-2 px-4 border">3,50-3,75%</td>
+                                    <td class="py-2 px-4 border">2,5%</td>
+                                    <td class="py-2 px-4 border">45%</td>
+                                    <td class="py-2 px-4 border">Dois cortes de 25bp</td>
+                                    <td class="py-2 px-4 border">-0,4% PIB</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border font-medium">JP Morgan</td>
+                                    <td class="py-2 px-4 border">4,00-4,25%</td>
+                                    <td class="py-2 px-4 border">1,8%</td>
+                                    <td class="py-2 px-4 border">60%</td>
+                                    <td class="py-2 px-4 border">Um corte após junho</td>
+                                    <td class="py-2 px-4 border">-0,7% PIB</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border font-medium">BlackRock</td>
+                                    <td class="py-2 px-4 border">~4,00%</td>
+                                    <td class="py-2 px-4 border">2,0%</td>
+                                    <td class="py-2 px-4 border">25%</td>
+                                    <td class="py-2 px-4 border">"Higher for longer"</td>
+                                    <td class="py-2 px-4 border">-0,5% PIB</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border font-medium">Federal Reserve</td>
+                                    <td class="py-2 px-4 border">3,75-4,00%</td>
+                                    <td class="py-2 px-4 border">1,7%</td>
+                                    <td class="py-2 px-4 border">-</td>
+                                    <td class="py-2 px-4 border">Dois cortes até dez/25</td>
+                                    <td class="py-2 px-4 border">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                   
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">Visão de Mercado</h3>
+                    <p class="text-gray-700">O mercado de renda fixa em 2025 apresenta um cenário misto. O Federal Reserve adotou uma abordagem de "wait-and-see", mantendo as taxas em 4,25-4,50% desde março enquanto monitora de perto a inflação. Os principais bancos de investimento aumentaram suas probabilidades de recessão (Goldman Sachs: 45%, JPMorgan: 60%) devido às tensões comerciais, embora mantenham cenários base de crescimento gradual.</p>
+                    <p class="text-gray-700 mt-2">Os fundamentos de crédito permanecem sólidos, com upgrades de rating corporativo superando downgrades em aproximadamente 3:1 no 1T2025 para títulos investment grade dos EUA. A alta porcentagem de trocas de dívida em vez de defaults de pagamento (59,3% dos defaults em 2024) demonstra a adaptabilidade corporativa no gerenciamento de desafios financeiros.</p>
+                    <p class="text-gray-700 mt-2">O 1T2025 registrou emissão de US$ 552,3 bilhões de títulos investment grade. Analistas do JPMorgan preveem que a emissão de títulos investment grade em janeiro de 2026 estabelecerá um novo recorde entre US$ 195-200 bilhões.</p>
+                    <p class="text-gray-700 mt-2">Os riscos mais significativos para esta perspectiva incluem tensões comerciais em andamento, possíveis ações adicionais de rating soberano (após o rebaixamento da dívida americana pela Moody's de Aaa para Aa1 em 16 de maio de 2025) e a possibilidade de aumento da atividade de M&A financiada por dívida no segundo semestre de 2025.</p>
+                </div>
+            </section>
+
+            <!-- Renda Fixa US -->
+            <section id="renda-fixa-us" class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 bg-blue-100 p-3 rounded-lg">Renda Fixa US</h2>
+
+                <!-- Bank of America -->
+                <section id="bank-of-america" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">Bank of America 5.015% 22.07.33</h2>
+                            <p class="text-sm text-gray-600">Valor: $301.331,88 (1,63% da carteira)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">Título de renda fixa pré-fixado a 5,015% com vencimento em 22/07/2033.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Duration</h3>
+                            <p class="text-xl font-bold text-blue-800">7-8 anos</p>
+                            <p class="text-sm text-gray-600">Sensibilidade moderada a juros</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Ratings</h3>
+                            <p class="text-xl font-bold text-blue-800">A1 / A- / AA-</p>
+                            <p class="text-sm text-gray-600">Moody's / S&P / Fitch</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Yield Atual</h3>
+                            <p class="text-xl font-bold text-blue-800">4,9-5,1%</p>
+                            <p class="text-sm text-gray-600">Spread de ~95bp vs. Treasury</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-700 mb-2">Bank of America – Perfil da Empresa</h3>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-4">
+                                <li>Segundo maior banco dos EUA por ativos totais</li>
+                                <li>Operações em todos os 50 estados americanos</li>
+                                <li>Quatro segmentos principais: Consumer Banking, Global Wealth & Investment Management, Global Banking e Global Markets</li>
+                                <li>Base de ~67 milhões de clientes (consumidores e pequenas empresas)</li>
+                                <li>Ativos totais: $3,18 trilhões (1T2025)</li>
+                            </ul>
+
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-1">Indicadores Financeiros (1T2025)</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Receita: $25,4 bilhões</li>
+                                <li>Lucro líquido: $6,7 bilhões</li>
+                                <li>ROE: 10,7%</li>
+                                <li>Índice de Capital CET1: 11,8%</li>
+                                <li>Índice de Eficiência: 66%</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-1">Perfil da Dívida</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Emissão de $5 bilhões (julho/2023)</li>
+                                <li>Vencimento em 22/07/2033 (10 anos na emissão)</li>
+                                <li>Cupom: 5,015% ao ano</li>
+                                <li>Pagamentos semestrais de juros</li>
+                                <li>Subordinação: sênior, não garantida</li>
+                            </ul>
+
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-1">Riscos e Considerações</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Exposição a riscos do setor bancário americano</li>
+                                <li>Sensibilidade a mudanças no cenário regulatório</li>
+                                <li>Qualidade de crédito: forte, com CDS em 55bp (5 anos)</li>
+                                <li>Liquidez no mercado secundário: boa</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700 mb-1">Conclusão</h4>
+                        <p class="text-sm text-gray-700 mb-3">Título de alta qualidade de crédito com rendimento atrativo dado seu perfil de risco. A Bank of America demonstra solidez financeira consistente e forte posição de capital, resultando em risco de crédito limitado para este título no médio e longo prazo.</p>
+                    </div>
+
+                </section>
+
+                <!-- Pimco Income Fund -->
+                <section id="pimco-income" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">
+                                <a href="https://www.pimco.com/sg/en/investments/gis/income-fund/e-usd-accumulation" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                    Pimco Income Fund FI Fund ACC (USD)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+                            </h2>
+                            <p class="text-sm text-gray-600">Valor: $893.470,79 (4,84% da carteira)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">Fundo de renda fixa global multi-estratégia.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">AUM</h3>
+                            <p class="text-xl font-bold text-blue-800">$180 bilhões</p>
+                            <p class="text-sm text-gray-600">Um dos maiores fundos de renda fixa</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Rating Morningstar</h3>
+                            <p class="text-xl font-bold text-blue-800">★★★★</p>
+                            <p class="text-sm text-gray-600">4 estrelas na categoria</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Yield Atual</h3>
+                            <p class="text-xl font-bold text-blue-800">6,5%</p>
+                            <p class="text-sm text-gray-600">SEC Yield (30 dias)</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-700 mb-2">Perfil do Fundo</h3>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-4">
+                                <li>Criado em 2007, com classe institucional lançada em 2008</li>
+                                <li>Abordagem flexível e oportunista para renda fixa global</li>
+                                <li>Busca maximizar receita corrente com preservação de capital</li>
+                                <li>Estratégia não limitada por benchmark</li>
+                                <li>Duration efetiva: 4-5 anos (ajustável conforme visão de mercado)</li>
+                                <li><strong>Taxa de Gestão:</strong> 1,45% a.a.</li>
+                            </ul>
+
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-1">Equipe de Gestão</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li><strong>Dan Ivascyn</strong> - CIO do Grupo PIMCO e gestor principal</li>
+                                <li><strong>Alfred Murata</strong> - Co-gestor desde 2013</li>
+                                <li><strong>Joshua Anderson</strong> - Co-gestor desde 2018</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-1">Composição da Carteira (1T2025)</h4>
+                            <div class="chart-container mb-3" style="height: 200px;">
+                                <canvas id="pimcoChart"></canvas>
+                            </div>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Hipotecas de Agências: 29,8% (maior alocação)</li>
+                                <li>Investment Grade: 23,1%</li>
+                                <li>Títulos Governamentais: 14,5%</li>
+                                <li>High Yield: 13,7%</li>
+                                <li>Hipotecas Não-Agência: 11,2%</li>
+                                <li>Mercados Emergentes: 6,8%</li>
+                                <li>Outros: 0,1%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700 mb-1">Posicionamento Atual</h4>
+                        <p class="text-sm text-gray-700 mb-3">O fundo está posicionado para um ambiente de taxas "higher for longer", com proteção contra risco de crédito. Está overweight em hipotecas de agências americanas, que oferecem melhor perfil risco/retorno que Treasuries de duration similar. Também está aumentando exposição seletiva a títulos de mercados emergentes, particularmente na América Latina, devido a valuations atrativos.</p>
+                    </div>
+
+                    <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-3">Comparação com Alternativas</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border text-sm">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th class="py-2 px-3 text-left border">Fundo (classe inst.)</th>
+                                        <th class="py-2 px-3 text-center border">SEC Yield (mai-25)</th>
+                                        <th class="py-2 px-3 text-center border">Duration</th>
+                                        <th class="py-2 px-3 text-center border">% HY</th>
+                                        <th class="py-2 px-3 text-center border">% MBS</th>
+                                        <th class="py-2 px-3 text-center border">Morningstar ★</th>
+                                        <th class="py-2 px-3 text-center border">Taxa Gestão</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-blue-50 font-medium">
+                                        <td class="py-2 px-3 border">PIMCO Income (PIMIX)</td>
+                                        <td class="py-2 px-3 border text-center">~6,5%</td>
+                                        <td class="py-2 px-3 border text-center">4,3 a</td>
+                                        <td class="py-2 px-3 border text-center">14%</td>
+                                        <td class="py-2 px-3 border text-center">41%</td>
+                                        <td class="py-2 px-3 border text-center">★★★★</td>
+                                        <td class="py-2 px-3 border text-center">1,45%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">JPM Income (JMSIX)</td>
+                                        <td class="py-2 px-3 border text-center">~5,8%</td>
+                                        <td class="py-2 px-3 border text-center">2,5 a</td>
+                                        <td class="py-2 px-3 border text-center">22%</td>
+                                        <td class="py-2 px-3 border text-center">15%</td>
+                                        <td class="py-2 px-3 border text-center">★★★</td>
+                                        <td class="py-2 px-3 border text-center">0,65%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border">Loomis Sayles Strategic Income (NEFZX)</td>
+                                        <td class="py-2 px-3 border text-center">~6,9%</td>
+                                        <td class="py-2 px-3 border text-center">5,8 a</td>
+                                        <td class="py-2 px-3 border text-center">26%</td>
+                                        <td class="py-2 px-3 border text-center">5%</td>
+                                        <td class="py-2 px-3 border text-center">★★★★</td>
+                                        <td class="py-2 px-3 border text-center">0,75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">PIMCO Active Bond ETF (BOND)</td>
+                                        <td class="py-2 px-3 border text-center">~4,9%</td>
+                                        <td class="py-2 px-3 border text-center">5,1 a</td>
+                                        <td class="py-2 px-3 border text-center">8%</td>
+                                        <td class="py-2 px-3 border text-center">35%</td>
+                                        <td class="py-2 px-3 border text-center">★★★</td>
+                                        <td class="py-2 px-3 border text-center">0,55%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                        <p class="text-sm text-blue-700 mt-3 font-medium">PIMCO entrega yield competitivo (6,5%) com duration balanceada (4,3 anos), oferecendo melhor relação risco/retorno que JPM (menor yield) e Loomis Sayles (duration mais longa). O uso intensivo de securitized credit permite esse equilíbrio atrativo. Comparado ao ETF BOND da mesma gestora, o Income Fund oferece yield superior (6,5% vs 4,9%) com menor duration.</p>
+                    </div>
+
+                  
+                </section>
+
+                <!-- Itau US Fixed Income -->
+                <section id="itau-us-fixed" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">Itau US Fixed Income Fund Class C ACC (USD)</h2>
+                            <p class="text-sm text-gray-600">Valor: $344.389,75 (1,87% da carteira)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">Fundo de renda fixa internacional com foco em bonds americanos.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Duration</h3>
+                            <p class="text-xl font-bold text-blue-800">3-5 anos</p>
+                            <p class="text-sm text-gray-600">Exposição moderada a juros</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Yield</h3>
+                            <p class="text-xl font-bold text-blue-800">4,8-5,0%</p>
+                            <p class="text-sm text-gray-600">Yield to Maturity aproximado</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Quality</h3>
+                            <p class="text-xl font-bold text-blue-800">Média BBB+</p>
+                            <p class="text-sm text-gray-600">Qualidade média da carteira</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-700 mb-2">Perfil do Fundo</h3>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-4">
+                                <li>Gerido pela Itaú USA Asset Management</li>
+                                <li>Mínimo de 80% de alocação em títulos de renda fixa</li>
+                                <li>Foco em instrumentos denominados em dólares americanos</li>
+                                <li>Gestão ativa com abordagem top-down combinada com análise bottom-up de crédito</li>
+                                <li>Seleção entre diversos segmentos do mercado de renda fixa dos EUA</li>
+                                <li><strong>Taxa de Gestão:</strong> 1,20% a.a.</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-1">Estratégia e Exposições</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Títulos corporativos investment grade: ~65-70%</li>
+                                <li>Títulos governamentais e agências: ~15-20%</li>
+                                <li>Títulos securitizados: ~10-15%</li>
+                                <li>Exposição limitada a high yield (máx. 20%)</li>
+                                <li>Sem exposição significativa a mercados emergentes</li>
+                            </ul>
+                            
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-1">Posicionamento Setorial (estimado)</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li><strong>Overweight:</strong> Financeiro, Tecnologia, Serviços Públicos</li>
+                                <li><strong>Neutro:</strong> Industriais, Consumo não-cíclico</li>
+                                <li><strong>Underweight:</strong> Energia, Materiais Básicos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700 mb-1">Conclusão</h4>
+                        <p class="text-sm text-gray-700 mb-3">Fundo com abordagem conservadora focada em renda fixa americana, oferecendo diversificação e rendimento moderado. Exposição limitada a riscos de crédito e posicionamento defensivo dentro do espectro de renda fixa. Complementa bem o portfólio maior ao fornecer exposição a instrumentos de alta qualidade de crédito em USD.</p>
+                    </div>
+
+                    <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-3">Comparação com Benchmarks de Mercado</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border text-sm">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th class="py-2 px-3 text-left border">Métrica</th>
+                                        <th class="py-2 px-3 text-center border">Itaú Fund</th>
+                                        <th class="py-2 px-3 text-center border">Bloomberg US Agg<br><span class="text-xs font-normal">(LBUSTRUU, ETF AGG)</span></th>
+                                        <th class="py-2 px-3 text-center border">Bloomberg US IG Corp<br><span class="text-xs font-normal">(ETF IGIB)</span></th>
+                                        <th class="py-2 px-3 text-center border">iShares IG Corp<br><span class="text-xs font-normal">(ETF LQD)</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">Escopo</td>
+                                        <td class="py-2 px-3 border text-center font-medium">Bonds americanos IG com gestão ativa</td>
+                                        <td class="py-2 px-3 border text-center text-xs">Títulos IG de governo, MBS/ABS, corporates; >12 mil papéis</td>
+                                        <td class="py-2 px-3 border text-center text-xs">Apenas corporates IG com 5-10 anos de prazo</td>
+                                        <td class="py-2 px-3 border text-center text-xs">Corporates IG todos os vencimentos</td>
+                                    </tr>
+                                    <tr class="bg-blue-50">
+                                        <td class="py-2 px-3 border font-medium">Yield to Maturity</td>
+                                        <td class="py-2 px-3 border text-center font-medium">4,8-5,0%</td>
+                                        <td class="py-2 px-3 border text-center">4,84%</td>
+                                        <td class="py-2 px-3 border text-center">5,37%</td>
+                                        <td class="py-2 px-3 border text-center">5,21%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border font-medium">Option-Adjusted Spread (OAS)</td>
+                                        <td class="py-2 px-3 border text-center font-medium">~95-110 bp</td>
+                                        <td class="py-2 px-3 border text-center">≈ 37 bp</td>
+                                        <td class="py-2 px-3 border text-center">≈ 102 bp</td>
+                                        <td class="py-2 px-3 border text-center">≈ 98 bp</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">Duration Efetiva</td>
+                                        <td class="py-2 px-3 border text-center font-medium">3-5 anos</td>
+                                        <td class="py-2 px-3 border text-center">5,72 anos</td>
+                                        <td class="py-2 px-3 border text-center">6,01 anos</td>
+                                        <td class="py-2 px-3 border text-center">8,44 anos</td>
+                                    </tr>
+                                    <tr class="bg-blue-50">
+                                        <td class="py-2 px-3 border font-medium">Qualidade Média</td>
+                                        <td class="py-2 px-3 border text-center font-medium">BBB+</td>
+                                        <td class="py-2 px-3 border text-center">A-/AA- (mistura govies & MBS)</td>
+                                        <td class="py-2 px-3 border text-center">BBB+ (corporates puro IG)</td>
+                                        <td class="py-2 px-3 border text-center">A-/BBB+ (corporates IG)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border font-medium">Corporativos IG</td>
+                                        <td class="py-2 px-3 border text-center font-medium">65-70%</td>
+                                        <td class="py-2 px-3 border text-center">~25%</td>
+                                        <td class="py-2 px-3 border text-center">100%</td>
+                                        <td class="py-2 px-3 border text-center">100%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">Taxa de Gestão</td>
+                                        <td class="py-2 px-3 border text-center font-medium">1,20%</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">0,06%</td>
+                                        <td class="py-2 px-3 border text-center">0,14%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border font-medium">Objetivo de uso</td>
+                                        <td class="py-2 px-3 border text-center font-medium text-xs">Renda fixa core com gestão ativa</td>
+                                        <td class="py-2 px-3 border text-center text-xs">Referência "core" do mercado de renda fixa dos EUA</td>
+                                        <td class="py-2 px-3 border text-center text-xs">Termômetro de crédito IG de prazo intermediário</td>
+                                        <td class="py-2 px-3 border text-center text-xs">Maior ETF de corporates IG (~$37B AUM)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    </div>
+                        <p class="text-sm text-blue-700 mt-3 font-medium">O Itaú Fund oferece yield competitivo com duration significativamente menor que os benchmarks, proporcionando melhor proteção contra risco de taxa de juros. A concentração em corporativos IG (65-70%) oferece equilíbrio entre o US Agg diversificado e o foco exclusivo do US IG Corp, com OAS próximo aos corporates puros mas com menor duration.</p>
+                    </div>
+
+                   
+                </section>
+
+                <!-- Nordea 1 US Corp Bond -->
+                <section id="nordea-corp-bond" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">
+                                <a href="https://markets.ft.com/data/funds/tearsheet/summary?s=lu0458979746:usd" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer"
+                                   class="text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                    Nordea 1 US Corp Bond ACC (USD)
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+                            </h2>
+                            <p class="text-sm text-gray-600">Valor: $709.774,25 (3,85% da carteira)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">Fundo de bonds corporativos americanos com gestão da Nordea.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Duration</h3>
+                            <p class="text-xl font-bold text-blue-800">6-7 anos</p>
+                            <p class="text-sm text-gray-600">Maior sensibilidade a juros</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Rating Médio</h3>
+                            <p class="text-xl font-bold text-blue-800">BBB+</p>
+                            <p class="text-sm text-gray-600">Concentração em BBB (63,9%)</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Yield</h3>
+                            <p class="text-xl font-bold text-blue-800">5,0-5,4%</p>
+                            <p class="text-sm text-gray-600">Yield to Maturity estimado</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-700 mb-2">Perfil do Fundo</h3>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-4">
+                                <li>Foco em títulos corporativos investment grade dos EUA</li>
+                                <li>Gerido pela Nordea Asset Management (NAM)</li>
+                                <li>Estratégia de investimento bottom-up baseada em análise fundamental</li>
+                                <li>Benchmark: Bloomberg US Credit Index</li>
+                                <li>Lançamento: junho de 2015</li>
+                                <li><strong>Taxa de Gestão:</strong> 0,95% a.a.</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-1">Breakdown de Qualidade de Crédito</h4>
+                            <div class="chart-container mb-3" style="height: 200px;">
+                                <canvas id="nordeaChart"></canvas>
+                            </div>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>BBB: 63,9%</li>
+                                <li>BB: 15,1%</li>
+                                <li>A: 14,5%</li>
+                                <li>AA: 4,5%</li>
+                                <li>AAA: 0,9%</li>
+                                <li>B: 0,9%</li>
+                                <li>Não classificado: 0,2%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700 mb-1">Posicionamento Atual</h4>
+                        <p class="text-sm text-gray-700 mb-3">O fundo mantém posicionamento mais defensivo em 2025, com preferência por financeiros, utilitários e consumo não-cíclico. Está suavemente underweight em industriais e comunicações. Mantém alocação tática de ~15% em high yield de maior qualidade (BB) para melhorar o carry da carteira, com gerenciamento ativo de duration dependendo do ambiente de taxas de juros.</p>
+                    </div>
+
+                    <div class="mt-4 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-blue-800 mb-3">Comparação com Benchmarks de Mercado</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full bg-white border text-sm">
+                                <thead class="bg-blue-100">
+                                    <tr>
+                                        <th class="py-2 px-3 text-left border">Fundo (classe inst.)</th>
+                                        <th class="py-2 px-3 text-center border">Yield</th>
+                                        <th class="py-2 px-3 text-center border">Duration</th>
+                                        <th class="py-2 px-3 text-center border">% BBB</th>
+                                        <th class="py-2 px-3 text-center border">% HY</th>
+                                        <th class="py-2 px-3 text-center border">Taxa Gestão</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="bg-blue-50 font-medium">
+                                        <td class="py-2 px-3 border"><strong>Nordea 1 US Corp</strong></td>
+                                        <td class="py-2 px-3 border text-center"><strong>5,68 %</strong></td>
+                                        <td class="py-2 px-3 border text-center">6,5 a</td>
+                                        <td class="py-2 px-3 border text-center">64 %</td>
+                                        <td class="py-2 px-3 border text-center">15 %</td>
+                                        <td class="py-2 px-3 border text-center"><strong>0,95%</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Bloomberg US Credit</td>
+                                        <td class="py-2 px-3 border text-center">5,34 %</td>
+                                        <td class="py-2 px-3 border text-center">7,2 a</td>
+                                        <td class="py-2 px-3 border text-center">52 %</td>
+                                        <td class="py-2 px-3 border text-center">0 %</td>
+                                        <td class="py-2 px-3 border text-center">-</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border">Vanguard Interm. Corp (VCIT)</td>
+                                        <td class="py-2 px-3 border text-center">5,32 %</td>
+                                        <td class="py-2 px-3 border text-center">6,4 a</td>
+                                        <td class="py-2 px-3 border text-center">56 %</td>
+                                        <td class="py-2 px-3 border text-center">0 %</td>
+                                        <td class="py-2 px-3 border text-center">0,10%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                    
+
+                   
+                </section>
+
+                <!-- JPMorgan Chase -->
+                <section id="jpmorgan-chase" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">JPMorgan Chase 5.717% 14.09.33</h2>
+                            <p class="text-sm text-gray-600">Valor: $312.691,38 (1,70% da carteira)</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">Título de renda fixa pré-fixado a 5,717% com vencimento em 14/09/2033.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Duration</h3>
+                            <p class="text-xl font-bold text-blue-800">7-8 anos</p>
+                            <p class="text-sm text-gray-600">Sensibilidade moderada a juros</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Ratings</h3>
+                            <p class="text-xl font-bold text-blue-800">A1 / A / AA-</p>
+                            <p class="text-sm text-gray-600">Moody's / S&P / Fitch</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded">
+                            <h3 class="font-bold text-md mb-1">Yield Atual</h3>
+                            <p class="text-xl font-bold text-blue-800">4,9-5,1%</p>
+                            <p class="text-sm text-gray-600">Spread de ~95bp vs. Treasury</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-700 mb-2">JPMorgan Chase – Perfil da Empresa</h3>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-4">
+                                <li>Maior banco dos EUA por ativos ($4,2 trilhões em 1T2025)</li>
+                                <li>Operações globais em mais de 60 países</li>
+                                <li>Quatro segmentos: Consumer & Community Banking, Corporate & Investment Bank, Commercial Banking e Asset & Wealth Management</li>
+                                <li>Mais de 250.000 funcionários globalmente</li>
+                                <li>Forte posição de capital e liquidez</li>
+                            </ul>
+
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-1">Indicadores Financeiros (1T2025)</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Receita: $45,3 bilhões (+8% YoY)</li>
+                                <li>Lucro líquido: $14,6 bilhões</li>
+                                <li>ROE: 18%</li>
+                                <li>Índice de Capital CET1: 14,9%</li>
+                                <li>Liquidez: $1,5 trilhão (HQLA)</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-1">Detalhes do Título</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>ISIN: US46647PDK93</li>
+                                <li>Emissor: JPMorgan Chase & Co.</li>
+                                <li>Cupom: 5,717% ao ano</li>
+                                <li>Pagamentos semestrais de juros</li>
+                                <li>Tipo: Senior Non-Preferred</li>
+                                <li>Emissão: setembro/2023</li>
+                            </ul>
+
+                            <h4 class="font-semibold text-gray-700 mt-4 mb-1">Riscos e Considerações</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li>Forte posição de capital e gestão de riscos</li>
+                                <li>Diversificação de receitas e recursos substanciais</li>
+                                <li>Exposição a ciclos econômicos e mudanças regulatórias</li>
+                                <li>Liquidez no mercado secundário: excelente</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-gray-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-gray-700 mb-1">Conclusão</h4>
+                        <p class="text-sm text-gray-700 mb-3">Título de alta qualidade de crédito oferecendo yield atrativo considerando o sólido perfil financeiro do JPMorgan Chase. A instituição demonstra consistentemente forte geração de lucros e gestão de riscos disciplinada, resultando em perfil de crédito robusto e resiliente mesmo em cenários econômicos adversos.</p>
+                    </div>
+
+                   
+                </section>
+
+                <!-- Credit Linked Notes -->
+                <section id="credit-linked-notes" class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">Credit Linked Notes (CLNs)</h2>
+                            <p class="text-sm text-gray-600">Exposição a crédito corporativo com estruturação bancária</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">As Credit Linked Notes são instrumentos estruturados que oferecem exposição ao risco de crédito de entidades específicas com potencial de rendimento superior.</p>
+                    
+                    <div class="overflow-x-auto mt-4">
+                        <table class="min-w-full bg-white border">
+                            <thead class="bg-gray-100">
+                                <tr>
+                                    <th class="py-2 px-4 text-left border">Título</th>
+                                    <th class="py-2 px-4 text-center border">Valor</th>
+                                    <th class="py-2 px-4 text-center border">% Carteira</th>
+                                    <th class="py-2 px-4 text-center border">Yield</th>
+                                    <th class="py-2 px-4 text-center border">Vencimento</th>
+                                    <th class="py-2 px-4 text-center border">Ratings Entidade</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border">BNP CCLN ARCMITTAL</td>
+                                    <td class="py-2 px-4 border text-right">$279.990,00</td>
+                                    <td class="py-2 px-4 border text-right">1,52%</td>
+                                    <td class="py-2 px-4 border text-center">10,4%</td>
+                                    <td class="py-2 px-4 border text-center">05.07.34</td>
+                                    <td class="py-2 px-4 border text-center">BBB- / Baa3</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border">JPM CCLN GLENCORE</td>
+                                    <td class="py-2 px-4 border text-right">$354.280,00</td>
+                                    <td class="py-2 px-4 border text-right">1,92%</td>
+                                    <td class="py-2 px-4 border text-center">7,6%</td>
+                                    <td class="py-2 px-4 border text-center">10.01.35</td>
+                                    <td class="py-2 px-4 border text-center">A3 / BBB+</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div>
+                            <h3 class="font-semibold text-gray-700 mb-2">Estrutura Credit Linked Note</h3>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-4">
+                                <li><strong>Emissor:</strong> Grande banco internacional (BNP Paribas, JPMorgan)</li>
+                                <li><strong>Referência de crédito:</strong> Empresa específica (ArcelorMittal, Glencore)</li>
+                                <li><strong>Eventos de crédito:</strong> Default, reestruturação, falência</li>
+                                <li><strong>Impacto:</strong> Em caso de evento de crédito, perda de principal proporcional à perda na dívida de referência</li>
+                                <li><strong>Pagamento de cupom:</strong> Semestral</li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-semibold text-gray-700 mb-1">Vantagens e Riscos das CLNs</h4>
+                            
+                            <div class="mb-2">
+                                <h5 class="text-sm font-medium text-green-700">Vantagens:</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                    <li>Rendimento superior aos títulos tradicionais</li>
+                                    <li>Acesso a empresas que não emitem regularmente no mercado</li>
+                                    <li>Formato padronizado e maior liquidez via banco estruturador</li>
+                                </ul>
+                            </div>
+                            
+                            <div>
+                                <h5 class="text-sm font-medium text-red-700">Riscos:</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                    <li>Risco de crédito da entidade de referência</li>
+                                    <li>Risco de contraparte do emissor (banco estruturador)</li>
+                                    <li>Complexidade na precificação e avaliação</li>
+                                    <li>Baixa liquidez em momentos de stress de mercado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-1">Nota sobre as CLNs na Carteira</h4>
+                        <p class="text-sm text-gray-700 mb-3">As CLNs na carteira oferecem rendimentos significativamente superiores (7,6-10,4%) em comparação com títulos tradicionais de qualidade similar, compensando a complexidade adicional e o risco de contraparte. As entidades de referência (ArcelorMittal e Glencore) possuem métricas de crédito sólidas, com níveis moderados de endividamento e forte geração de caixa operacional.</p>
+                    </div>
+
+                </section>
+            </section>
+
+            <!-- Mercados Emergentes -->
+            <section id="mercados-emergentes" class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 bg-yellow-100 p-3 rounded-lg">Mercados Emergentes</h2>
+
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">Visão Geral Mercados Emergentes</h3>
+                        <div class="text-sm text-gray-500">Atualizado: maio/2025</div>
+                    </div>
+                    
+                    <p class="mb-4 text-gray-700">O segmento de mercados emergentes oferece rendimentos potenciais mais elevados (8-10,25%) mediante exposição controlada a riscos específicos. As Credit Linked Notes permitem acessar esses mercados com estrutura padronizada e maior liquidez que títulos locais, mas adicionam uma camada de complexidade e risco de contraparte.</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="emRatingsChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="emYieldsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="overflow-x-auto mt-4">
+                        <table class="min-w-full bg-white border">
+                            <thead class="bg-yellow-50">
+                                <tr>
+                                    <th class="py-2 px-4 text-left border">Título</th>
+                                    <th class="py-2 px-4 text-center border">Valor</th>
+                                    <th class="py-2 px-4 text-center border">% Carteira</th>
+                                    <th class="py-2 px-4 text-center border">Rend. Atual</th>
+                                    <th class="py-2 px-4 text-center border">Tipo</th>
+                                    <th class="py-2 px-4 text-center border">Foco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border">Raizen Fuels 5.70 17.01.35</td>
+                                    <td class="py-2 px-4 border text-right">$380.814,67</td>
+                                    <td class="py-2 px-4 border text-right">2,06%</td>
+                                    <td class="py-2 px-4 border text-center">5,70%</td>
+                                    <td class="py-2 px-4 border text-center">Bond</td>
+                                    <td class="py-2 px-4 border text-center">Brasil/Energia</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border">GS Em Corp Bond Prt Dls Acc (USD)</td>
+                                    <td class="py-2 px-4 border text-right">$1.051.830,13</td>
+                                    <td class="py-2 px-4 border text-right">5,70%</td>
+                                    <td class="py-2 px-4 border text-center">7,2-7,6%</td>
+                                    <td class="py-2 px-4 border text-center">Fundo</td>
+                                    <td class="py-2 px-4 border text-center">Diversificado</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">BNP CCLN BRAZIL 10.25 05.07.34</td>
+                                    <td class="py-2 px-4 border text-right">$255.540,00</td>
+                                    <td class="py-2 px-4 border text-right">1,39%</td>
+                                    <td class="py-2 px-4 border text-center">10,25%</td>
+                                    <td class="py-2 px-4 border text-center">CLN</td>
+                                    <td class="py-2 px-4 border text-center">Brasil/Soberano</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border">CLN PEMEX 8.80 SN16427 05.02.37</td>
+                                    <td class="py-2 px-4 border text-right">$305.407,86</td>
+                                    <td class="py-2 px-4 border text-right">1,66%</td>
+                                    <td class="py-2 px-4 border text-center">8,80%</td>
+                                    <td class="py-2 px-4 border text-center">CLN</td>
+                                    <td class="py-2 px-4 border text-center">México/Petróleo</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">CLN BRAZIL 8.0 SN15844 07.08.28</td>
+                                    <td class="py-2 px-4 border text-right">$298.693,23</td>
+                                    <td class="py-2 px-4 border text-right">1,62%</td>
+                                    <td class="py-2 px-4 border text-center">8,00%</td>
+                                    <td class="py-2 px-4 border text-center">CLN</td>
+                                    <td class="py-2 px-4 border text-center">Brasil/Soberano</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border">JPM CCLN PETROBRAS 9.25 05.10.43</td>
+                                    <td class="py-2 px-4 border text-right">$345.880,00</td>
+                                    <td class="py-2 px-4 border text-right">1,88%</td>
+                                    <td class="py-2 px-4 border text-center">9,25%</td>
+                                    <td class="py-2 px-4 border text-center">CLN</td>
+                                    <td class="py-2 px-4 border text-center">Brasil/Petróleo</td>
+                                </tr>
+                                <tr class="font-semibold bg-yellow-50">
+                                    <td class="py-2 px-4 border">Total Mercados Emergentes</td>
+                                    <td class="py-2 px-4 border text-right">$2.638.165,89</td>
+                                    <td class="py-2 px-4 border text-right">14,31%</td>
+                                    <td class="py-2 px-4 border text-center">-</td>
+                                    <td class="py-2 px-4 border text-center">-</td>
+                                    <td class="py-2 px-4 border text-center">-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Goldman Sachs EM Fund -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-yellow-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-lg font-bold text-gray-800 mb-1">GS Em Corp Bond Prt Dls Acc (USD)</h2>
+                            <p class="text-sm text-gray-600">$1.051.830,13 (5,70% da carteira)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4">
+                        <h4 class="font-semibold text-gray-700 mb-2">Características-Chave</h4>
+                        <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                            <li><strong>Rating Médio:</strong> BB/BB+ (high yield de qualidade superior)</li>
+                            <li><strong>Duration:</strong> 4,8 anos (exposição moderada a taxas)</li>
+                            <li><strong>Yield:</strong> 7,2-7,6% (atrativo para o nível de risco)</li>
+                            <li><strong>Gestão:</strong> Goldman Sachs Asset Management</li>
+                            <li><strong>Foco:</strong> Títulos corporativos de mercados emergentes em USD</li>
+                            <li><strong>Taxa de Gestão:</strong> 1,35% a.a.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-700 mb-3">Composição por Região</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600">
+                                <li>Ásia: 42,8%</li>
+                                <li>América Latina: 28,4%</li>
+                                <li>Europa Oriental: 14,2%</li>
+                                <li>Oriente Médio e África: 11,6%</li>
+                                <li>Outros/Caixa: 3,0%</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-gray-700 mb-3">Composição por Setor</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600">
+                                <li>Financeiro: 24,7%</li>
+                                <li>Petróleo & Gás: 14,8%</li>
+                                <li>Consumo Básico: 11,2%</li>
+                                <li>Metais & Mineração: 9,3%</li>
+                                <li>Utilities: 8,6%</li>
+                                <li>TMT: 8,1%</li>
+                                <li>Outros setores: 23,3%</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-1">Posicionamento e Perspectivas</h4>
+                        <p class="text-sm text-gray-700 mb-3">O fundo mantém posicionamento mais defensivo em 2025, com preferência por empresas estatais e quase-soberanas com perfil de crédito sólido. Está overweight em Brasil e Índia, com exposição seletiva a créditos chineses de alta qualidade. A gestão mantém visão positiva para fundamentos corporativos em mercados emergentes, com expectativa de taxas de inadimplência abaixo da média histórica para 2025-2026.</p>
+                    </div>
+
+                    
+                </div>
+                
+                <!-- CLNs Emergentes -->
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 bg-yellow-100 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-bold text-gray-800 mb-1">Credit Linked Notes - Emergentes</h2>
+                            <p class="text-sm text-gray-600">Exposição a mercados emergentes via notas estruturadas</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-sm text-gray-700 my-3">As CLNs com exposição a mercados emergentes oferecem rendimentos mais elevados em troca de maior risco de crédito associado a países emergentes.</p>
+                    
+                    <div class="overflow-x-auto mt-4">
+                        <table class="min-w-full bg-white border">
+                            <thead class="bg-yellow-50">
+                                <tr>
+                                    <th class="py-2 px-4 text-left border">CLN</th>
+                                    <th class="py-2 px-4 text-center border">Cupom</th>
+                                    <th class="py-2 px-4 text-center border">Vencimento</th>
+                                    <th class="py-2 px-4 text-center border">Ratings</th>
+                                    <th class="py-2 px-4 text-center border">Emissor CLN</th>
+                                    <th class="py-2 px-4 text-center border">Tipo de Risco</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-4 border">BNP CCLN BRAZIL</td>
+                                    <td class="py-2 px-4 border text-center">10,25%</td>
+                                    <td class="py-2 px-4 border text-center">05.07.34</td>
+                                    <td class="py-2 px-4 border text-center">BB / Ba1 / BB</td>
+                                    <td class="py-2 px-4 border text-center">BNP Paribas</td>
+                                    <td class="py-2 px-4 border text-center">Soberano</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border">CLN PEMEX</td>
+                                    <td class="py-2 px-4 border text-center">8,80%</td>
+                                    <td class="py-2 px-4 border text-center">05.02.37</td>
+                                    <td class="py-2 px-4 border text-center">B1/BB-/B+</td>
+                                    <td class="py-2 px-4 border text-center">N/A</td>
+                                    <td class="py-2 px-4 border text-center">Corporativo/Governo</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-4 border">CLN BRAZIL</td>
+                                    <td class="py-2 px-4 border text-center">8,00%</td>
+                                    <td class="py-2 px-4 border text-center">07.08.28</td>
+                                    <td class="py-2 px-4 border text-center">BB / Ba1 / BB</td>
+                                    <td class="py-2 px-4 border text-center">N/A</td>
+                                    <td class="py-2 px-4 border text-center">Soberano</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="py-2 px-4 border">JPM CCLN PETROBRAS</td>
+                                    <td class="py-2 px-4 border text-center">9,25%</td>
+                                    <td class="py-2 px-4 border text-center">05.10.43</td>
+                                    <td class="py-2 px-4 border text-center">BBB- / BBB / BBB-</td>
+                                    <td class="py-2 px-4 border text-center">JPMorgan Chase</td>
+                                    <td class="py-2 px-4 border text-center">Corporativo/Governo</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+               
+                        
+
+                    <div class="mt-4 bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-semibold text-yellow-800 mb-1">Perspectiva para CLNs Emergentes</h4>
+                        <p class="text-sm text-gray-700 mb-3">As CLNs com exposição a mercados emergentes oferecem prêmios de rendimento significativos (8,0-10,25%), justificados pelos riscos adicionais associados a estas economias.</p>
+                    </div>
+                </div>
+                
+                
+            </section>
+
+            <!-- High Yield -->
+            <section id="high-yield" class="mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 bg-red-100 p-3 rounded-lg">High Yield / Preferred Securities</h2>
+
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold">Visão Geral High Yield</h3>
+                        <div class="text-sm text-gray-500">Atualizado: maio/2025</div>
+                    </div>
+                    
+                    <p class="mb-4 text-gray-700">Visão Geral High Yield (mai-25) — Yields permanecem atrativos (7,2-7,4 %). A taxa de default trailing-12 m para bonds é 4,6 %: S&P projeta 3,5 % para dez-25 (pessimista 6 % / otimista 2,25 %).</p>
+                    
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="hyDefaultsChart"></canvas>
+                        </div>
+                        
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="hySpreadsChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-2">Visão de Mercado</h3>
+                        <p class="text-gray-700">O mercado de renda fixa em 2025 apresenta um cenário misto. O Federal Reserve adotou uma abordagem de "wait-and-see", mantendo as taxas em 4,25-4,50% desde março enquanto monitora de perto a inflação. Os principais bancos de investimento aumentaram suas probabilidades de recessão (Goldman Sachs: 45%, JPMorgan: 60%) devido às tensões comerciais, embora mantenham cenários base de crescimento gradual.</p>
+                        <p class="text-gray-700 mt-2">Os fundamentos de crédito permanecem sólidos, com upgrades de rating corporativo superando downgrades em aproximadamente 3:1 no 1T2025 para títulos investment grade dos EUA. A alta porcentagem de trocas de dívida em vez de defaults de pagamento (59,3% dos defaults em 2024) demonstra a adaptabilidade corporativa no gerenciamento de desafios financeiros.</p>
+                        <p class="text-gray-700 mt-2">O 1T2025 registrou emissão de US$ 552,3 bilhões de títulos investment grade. Analistas do JPMorgan preveem que a emissão de títulos investment grade em janeiro de 2026 estabelecerá um novo recorde entre US$ 195-200 bilhões.</p>
+                        <p class="text-gray-700 mt-2">Os riscos mais significativos para esta perspectiva incluem tensões comerciais em andamento, possíveis ações adicionais de rating soberano (após o rebaixamento da dívida americana pela Moody's de Aaa para Aa1 em 16 de maio de 2025) e a possibilidade de aumento da atividade de M&A financiada por dívida no segundo semestre de 2025.</p>
+                    </div>
+                </div>
+                
+                <!-- Fundos de High Yield -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- AXA HY Fund -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-red-100 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800 mb-1">
+                                    <a href="https://funds.axa-im.com/en/fund/axa-wf-us-dynamic-high-yield-bonds-a-capitalisation-usd/" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                        Axa US HY Bonds Fd ACC (USD)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </h2>
+                                <p class="text-sm text-gray-600">$717.652,68 (3,89% da carteira)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Características-Chave</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li><strong>Estratégia:</strong> Abordagem defensiva focada em títulos de melhor qualidade</li>
+                                <li><strong>Duration:</strong> Curta (< 3 anos), minimizando risco de taxas</li>
+                                <li><strong>Composição:</strong> BB (42%), B (46%), CCC (9%)</li>
+                                <li><strong>Setores:</strong> Overweight em Energia, Transporte, Indústria Básica</li>
+                                <li><strong>Taxa de Gestão:</strong> 1,30% a.a.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3 bg-red-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-700">Posicionamento defensivo com foco em vencimentos curtos e créditos de maior qualidade dentro do high yield. Adequado para proteção em cenários de volatilidade.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- PIMCO HY Fund -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-red-100 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800 mb-1">
+                                    <a href="https://www.pimco.com/lu/en/investments/gis/us-high-yield-bond-fund/invst-usd-accumulation" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                        Pimco US HY Bond Fund ACC (USD)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </h2>
+                                <p class="text-sm text-gray-600">$719.726,37 (3,90% da carteira)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Características-Chave</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li><strong>AUM:</strong> $9,8 bilhões na estratégia (classe institucional)</li>
+                                <li><strong>Duration:</strong> Flexível (0-6 anos), atualmente 3,6 anos (abr-25)</li>
+                                <li><strong>Qualidade:</strong> Rating médio B+/BB-, foco na categoria superior do high yield</li>
+                                <li><strong>Diversificação:</strong> 250-300 emissores no portfólio</li>
+                                <li><strong>Gestão:</strong> Jason Duko e Charles Watford</li>
+                                <li><strong>Taxa de Gestão:</strong> 0,90% a.a.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3 bg-red-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-700">Abordagem flexível quanto à duration, permitindo ajustes táticos de acordo com o ambiente de taxas. Qualidade de crédito superior à média do mercado high yield com diversificação ampla.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <!-- Robeco HY Fund -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-red-100 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800 mb-1">
+                                    <a href="https://www.robeco.com/en-int/products/funds/isin-lu0594695099/robeco-high-yield-bonds-dh-usd" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                        Robeco HY Bonds Fd II ACC (USDHGD)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </h2>
+                                <p class="text-sm text-gray-600">$579.311,72 (3,14% da carteira)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Características-Chave</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li><strong>AUM Global:</strong> €8,7 bilhões (~USD 9,8 bilhões)</li>
+                                <li><strong>Abordagem:</strong> Contrária ao mercado, evitando "mentalidade de manada"</li>
+                                <li><strong>Exposição:</strong> Global, com foco em EUA e Europa</li>
+                                <li><strong>Ratings:</strong> BB (38%), B (44%), CCC (10%)</li>
+                                <li><strong>Equipe:</strong> Liderada por Sander Bus, CIO</li>
+                                <li><strong>Taxa de Gestão:</strong> 1,10% a.a.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3 bg-red-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-700">Fundo global com proteção cambial para USD, oferecendo exposição diversificada ao mercado high yield. Abordagem contrária ao mercado com foco na parte superior do espectro high yield.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Lord Abbett HY Fund -->
+                    <div class="bg-white rounded-lg shadow p-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 bg-red-100 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-lg font-bold text-gray-800 mb-1">
+                                    <a href="https://www.lordabbett.com/en-ie/financial-intermediaries/investments-and-performance/ucits/fixed-income/high-yield-fund.html" 
+                                       target="_blank" 
+                                       rel="noopener noreferrer"
+                                       class="text-gray-800 hover:text-blue-600 transition-colors duration-200">
+                                        LORD ABBETT HIGH YIELD A ACC (USD)
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 inline ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                        </svg>
+                                    </a>
+                                </h2>
+                                <p class="text-sm text-gray-600">$702.053,77 (3,81% da carteira)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700 mb-2">Características-Chave</h4>
+                            <ul class="list-disc pl-5 text-sm text-gray-600 mb-3">
+                                <li><strong>Rating Morningstar:</strong> 4 estrelas entre 585 fundos HY</li>
+                                <li><strong>Duration:</strong> Curta (~2 anos), baixa sensibilidade a taxas</li>
+                                <li><strong>Yield:</strong> YTM 9,5% / SEC 30-day 8,38% (abr-25)</li>
+                                <li><strong>Foco:</strong> Expertise em high yield de curta duração</li>
+                                <li><strong>Classificação:</strong> Top 25% em 3 e 5 anos (Morningstar)</li>
+                                <li><strong>Taxa de Gestão:</strong> 1,47% a.a.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-3 bg-red-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-700">Forte histórico de desempenho com foco em high yield de curta duração. Oferece yield atrativo com volatilidade reduzida comparado a fundos high yield tradicionais.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow p-6 mb-6">
+                    <h3 class="text-xl font-bold mb-3">Perspectivas para High Yield em 2025</h3>
+                    
+                    <p class="text-gray-700 mb-4">O mercado high yield dos EUA evoluiu significativamente nos últimos anos, com <strong>53% de títulos com rating BB</strong> (comparado a 38% antes da crise financeira global). Para 2025, a visão do mercado é positiva, baseada em fundamentos sólidos dos emissores, ambiente macroeconômico favorável, apesar da desaceleração, e expectativa de taxas de default limitadas (faixa de 1-3%). Os rendimentos continuam atrativos se comparados a títulos investment grade e governamentais.</p>
+                    
+                   
+  
+                        </div>
+                
+            </section>
+
+            <!-- Conclusão -->
+            <section id="conclusao" class="bg-white rounded-lg shadow p-6 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4 border-b pb-2">Conclusão e Visão Geral do Mercado</h2>
+                
+                <p class="mb-6">O cenário de renda fixa em 2025 apresenta um ambiente complexo mas com oportunidades diversificadas. Há uma clara divergência entre as projeções de cortes de juros das instituições financeiras e a postura mais cautelosa do Federal Reserve, o que pode criar volatilidade nos próximos meses.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">Renda Fixa US</h4>
+                        <p class="text-sm text-gray-700">Os títulos corporativos investment grade americanos oferecem rendimentos atrativos (4,9-5,7%) com qualidade de crédito elevada. Fundos como o PIMCO Income proporcionam diversificação e gestão ativa em um momento de potencial volatilidade, enquanto as Credit Linked Notes de Glencore e ArcelorMittal apresentam prêmios de rendimento significativos (7,6-10,4%) em troca da exposição a riscos específicos.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">Mercados Emergentes</h4>
+                        <p class="text-sm text-gray-700">O segmento de mercados emergentes oferece rendimentos potenciais mais elevados (8-10,25%) mediante exposição controlada a riscos específicos (Brasil, Petrobras, Pemex, Raizen). As Credit Linked Notes permitem acessar esses mercados com estrutura padronizada e maior liquidez que títulos locais, mas adicionam uma camada de complexidade e risco de contraparte a ser considerada.</p>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-red-50 p-4 rounded-lg">
+                        <h4 class="font-bold mb-2">High Yield / Preferred Securities</h4>
+                        <p class="text-sm text-gray-700">O segmento high yield apresenta fundamentos sólidos em 2025, com expectativas de default moderadas (4,6% trailing-12m, projeção S&P de 3,5% para dez-25) e yields atrativos (7-8%). Os fundos selecionados (AXA, PIMCO, Robeco, Lord Abbett) oferecem abordagens complementares, desde estratégias mais defensivas com duration curta até exposições mais amplas ao mercado, permitindo diversificação dentro da classe de ativos.</p>
+                    </div>
+                <div class="bg-gray-50 p-4 rounded-lg">
+                    <h4 class="font-bold mb-2">Monitoramento e Riscos</h4>
+                    <p class="text-sm text-gray-700 mb-3">Fatores a monitorar atentamente nos próximos meses:</p>
+                    <ul class="list-disc pl-5 text-sm text-gray-600">
+                        <li>Evolução dos dados de inflação nos EUA e impacto na trajetória de juros</li>
+                        <li>Políticas comerciais e tarifárias e seus efeitos nos mercados globais</li>
+                        <li>Condições de liquidez, especialmente em instrumentos de menor qualidade de crédito</li>
+                        <li>Evolução da saúde financeira dos emissores com maior exposição em carteira</li>
+                        <li>Possíveis mudanças regulatórias que possam afetar setores específicos (energia, financeiro)</li>
+                            <li>Spreads de crédito e possível alargamento em cenários de stress</li>
+                            <li>Qualidade dos fundamentos corporativos e métricas de alavancagem</li>
+                    </ul>
+                </div>
+                </div>
+                
+            
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 20 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Topo
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Navegação pelo selector
+            const selector = document.getElementById('productSelector');
+            if (selector) {
+                selector.addEventListener('change', function() {
+                    const value = selector.value;
+                    if (value === 'inicio') {
+                        window.location.href = '../../offshore.html';
+                    } else if (value === 'vuaa') {
+                        window.location.href = '../vuaa/vuaa.html';
+                    } else if (value === 'harris') {
+                        window.location.href = '../harris/harris.html';
+                    } else if (value === 'vontobel') {
+                        window.location.href = '../vontobel/vontobel.html';
+                    } else if (value === 'private-equity') {
+                        window.location.href = '../private-equity/private-equity.html';
+                    } else if (value === 'us-corporates') {
+                        // já está nesta página, não faz nada
+                    } else if (value === 'hedge-funds') {
+                        window.location.href = '../hedge-funds/hedge-funds.html';
+                    }
+                });
+            }
+            
+            // Print functionality
+            const printBtn = document.getElementById('printBtn');
+            if (printBtn) {
+                printBtn.addEventListener('click', function() {
+                    window.print();
+                });
+            }
+            
+            // Inicialização dos gráficos
+            initializeCharts();
+            
+            // Modal functionality
+            const modal = document.getElementById("gestaoAtivaModal");
+            const btn = document.getElementById("gestaoAtivaBtn");
+            const span = document.getElementsByClassName("close")[0];
+
+            if (btn) {
+                btn.onclick = function() {
+                    modal.style.display = "block";
+                }
+            }
+
+            if (span) {
+                span.onclick = function() {
+                    modal.style.display = "none";
+                }
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+        
+        function initializeCharts() {
+            // 1. Gráfico de taxas de juros
+            const ratesCtx = document.getElementById('ratesChart');
+            if (ratesCtx) {
+                new Chart(ratesCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Q1 2023', 'Q2 2023', 'Q3 2023', 'Q4 2023', 'Q1 2024', 'Q2 2024', 'Q3 2024', 'Q4 2024', 'Q1 2025', 'Q2 2025'],
+                        datasets: [
+                            {
+                                label: 'Fed Funds Rate',
+                                data: [4.83, 5.08, 5.33, 5.33, 5.33, 5.33, 5.33, 4.48, 4.33, 4.33],
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                                tension: 0.1
+                            },
+                            {
+                                label: 'US 10-Year Treasury',
+                                data: [3.95, 4.12, 4.28, 4.40, 4.38, 4.42, 4.46, 4.45, 4.37, 4.43],
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                                tension: 0.1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Evolução das Taxas de Juros (2023-2025)'
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                title: {
+                                    display: true,
+                                    text: 'Taxa (%)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+                
+            // 2. Gráfico PIMCO Fund
+            const pimcoCtx = document.getElementById('pimcoChart');
+            if (pimcoCtx) {
+                new Chart(pimcoCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['US agency MBS', 'Corporate bonds', 'Government securities', 'Non-agency MBS', 'Consumer credit', 'Other'],
+                        datasets: [{
+                            data: [43, 22, 18, 9, 7, 1],
+                            backgroundColor: [
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(255, 205, 86, 0.7)',
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(201, 203, 207, 0.7)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'PIMCO Income Fund - Composição (1T2025)'
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // 3. Gráfico Nordea
+            const nordeaCtx = document.getElementById('nordeaChart');
+            if (nordeaCtx) {
+                new Chart(nordeaCtx, {
+                    type: 'pie',
+                    data: {
+                        labels: ['BBB', 'BB', 'A', 'AA', 'AAA', 'B', 'Não classificado'],
+                        datasets: [{
+                            data: [63.9, 15.1, 14.5, 4.5, 0.9, 0.9, 0.2],
+                            backgroundColor: [
+                                'rgba(255, 159, 64, 0.7)',
+                                'rgba(75, 192, 192, 0.7)',
+                                'rgba(54, 162, 235, 0.7)',
+                                'rgba(153, 102, 255, 0.7)',
+                                'rgba(255, 99, 132, 0.7)',
+                                'rgba(255, 205, 86, 0.7)',
+                                'rgba(201, 203, 207, 0.7)'
+                            ]
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'right',
+                                labels: {
+                                    font: {
+                                        size: 11
+                                    }
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Nordea - Qualidade de Crédito'
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // 4. Gráfico EM Ratings
+            const emRatingsCtx = document.getElementById('emRatingsChart');
+            if (emRatingsCtx) {
+                new Chart(emRatingsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Asia Pacific', 'Latin America', 'EMEA'],
+                        datasets: [
+                            {
+                                label: 'Investment Grade',
+                                data: [62, 45, 53],
+                                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                                borderColor: 'rgba(54, 162, 235, 1)',
+                                borderWidth: 1
+                            },
+                            {
+                                label: 'Non-Investment Grade',
+                                data: [38, 55, 47],
+                                backgroundColor: 'rgba(255, 99, 132, 0.7)',
+                                borderColor: 'rgba(255, 99, 132, 1)',
+                                borderWidth: 1
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'EM Ratings Distribution by Region (2025)'
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Percentage (%)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 5. Gráfico EM Yields
+            const emYieldsCtx = document.getElementById('emYieldsChart');
+            if (emYieldsCtx) {
+                new Chart(emYieldsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['EMBI Global', 'Corporate EM', 'Local Currency'],
+                        datasets: [{
+                            label: 'Yield (%)',
+                            data: [7.85, 6.76, 6.19],
+                            backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'Emerging Market Bond Yields (May 2025)'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Yield (%)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 6. Gráfico HY Defaults
+            const hyDefaultsCtx = document.getElementById('hyDefaultsChart');
+            if (hyDefaultsCtx) {
+                new Chart(hyDefaultsCtx, {
+                    type: 'line',
+                    data: {
+                        labels: ['2023', '2024 Mid', '2024 End', '2025 (Nov)'],
+                        datasets: [{
+                            label: 'Default Rate (%)',
+                            data: [5.1, 4.8, 2.2, 3.0],
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                            tension: 0.1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'High Yield Default Rates (2023-2025)'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Default Rate (%)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+
+            // 7. Gráfico HY Spreads
+            const hySpreadsCtx = document.getElementById('hySpreadsChart');
+            if (hySpreadsCtx) {
+                new Chart(hySpreadsCtx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Overall HY', 'BB', 'B', 'CCC & Lower'],
+                        datasets: [
+                            {
+                                label: 'Current (May 2025)',
+                                data: [321, 254, 329, 976],
+                                backgroundColor: 'rgba(54, 162, 235, 0.7)'
+                            },
+                            {
+                                label: 'April 2025 Peak',
+                                data: [461, 280, 350, 1000],
+                                backgroundColor: 'rgba(255, 99, 132, 0.7)'
+                            },
+                            {
+                                label: '2023 Average',
+                                data: [425, 265, 375, 1050],
+                                backgroundColor: 'rgba(75, 192, 192, 0.7)'
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: 'High Yield Spreads (bps)'
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Spread (bps)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>

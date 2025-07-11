@@ -1,0 +1,63 @@
+=== TAXAS DE ADMINISTRAÇÃO DOS FUNDOS ANINHADOS NO ALPAMAYO (MAIO/2025) ===
+Dados extraídos do cadastro CVM (cda_fi_202505)
+
+FUNDOS COM TAXAS CONFIRMADAS:
+
+1. SPX RAPTOR FEEDER (CNPJ: 12.809.201/0001-13) - 18.5% da carteira
+   Taxa de Administração: 2.0% a.a.
+
+2. ATIT VÉRTICE FOF (CNPJ: 43.551.227/0001-38) - 10.3% da carteira
+   Taxa de Administração: 1.35% a.a.
+
+3. SQUADRA LONG-ONLY (CNPJ: 16.478.741/0001-12) - 9.2% da carteira
+   Taxa de Administração: 2.8% a.a.
+
+4. VÉRTICE DYN COU (CNPJ: 42.317.906/0001-84) - 9.2% da carteira
+   Taxa de Administração: 1.9% a.a.
+
+5. ABSOLUTO PARTNERS I.2 (CNPJ: 33.019.558/0001-78)
+   Taxa de Administração: 1.91% a.a.
+
+6. ITAÚ AÇÕES FUND OF FUNDS MULTIGESTOR X (CNPJ: 14.096.710/0001-71)
+   Taxa de Administração: 1.0% a.a.
+
+7. NAVI CRUISE A (CNPJ: 34.793.093/0001-70)
+   Taxa de Administração: 2.3% a.a.
+
+8. PHANTOM (CNPJ: 19.294.718/0001-66)
+   Taxa de Administração: 2.0% a.a.
+
+9. SHARP LONG BIASED A (CNPJ: 37.887.733/0001-08)
+   Taxa de Administração: 0.0% a.a. (isento)
+
+10. ITAÚ VÉRTICE RISING STARS (CNPJ: 41.287.689/0001-64)
+    Taxa de Administração: 2.5% a.a.
+
+11. OCEANA LONG BIASED FEEDER I (CNPJ: 19.781.902/0001-30)
+    Taxa de Administração: 2.0% a.a.
+
+
+FUNDOS SEM INFORMAÇÃO NO CADASTRO CVM:
+
+1. ITAÚ VÉRTICE IBOVESPA EQUITIES (CNPJ: 24.546.223/0001-17) - 9.0% da carteira
+2. PROWLER 2 (CNPJ: 42.827.012/0001-34)
+3. ITAÚ CAIXA AÇÕES (CNPJ: 07.096.546/0001-37)
+4. ITAÚ VÉRTICE RENDA FIXA (CNPJ: 21.407.105/0001-30)
+5. ITAÚ VÉRTICE FUNDAMENTA LATAM (CNPJ: 28.140.793/0001-63)
+6. ABSOLUTE PACE A (CNPJ: 46.098.790/0001-90)
+7. OCEANA VALOR A3 (CNPJ: 50.324.325/0001-06)
+
+
+OBSERVAÇÕES:
+- Os fundos Itaú Vértice podem ser classes específicas de fundos maiores ou fundos exclusivos
+- Fundos com taxa 0.0% geralmente são fundos exclusivos ou têm estrutura de cobrança especial
+- Para os fundos não encontrados, seria necessário verificar:
+  1. Regulamentos específicos dos fundos
+  2. Informes mensais mais recentes
+  3. Possível cadastro em outras bases de dados da CVM
+
+RESUMO ESTATÍSTICO:
+- Taxa média dos fundos encontrados: 1.85% a.a.
+- Taxa máxima: 2.8% a.a. (Squadra Long-Only)
+- Taxa mínima: 0.0% a.a. (Sharp Long Biased A)
+- Fundos sem taxa ou com taxa zero: 1

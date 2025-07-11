@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Trabalho - Análise de Ativos</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="common-styles.css">
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Cronograma de Trabalho</h1>
+            <p class="mt-2 opacity-80">Análise e Acompanhamento de Ativos Offshore</p>
+            <!-- Botão de navegação para voltar -->
+            <div class="mt-4">
+                <a href="offshore.html" class="inline-flex items-center text-sm text-gray-300 hover:text-white">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                    Voltar para Visão Geral
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <!-- Card principal do cronograma -->
+        <div class="bg-white rounded-lg shadow-lg p-8">
+            <!-- Seção de Análise de Ativos -->
+            <div class="mb-12">
+                <h2 class="text-2xl font-bold text-gray-800 mb-8">Análise ativos offshore</h2>
+                
+                <div class="relative">
+                    <!-- Linha do tempo vertical -->
+                    <div class="absolute left-0 top-0 h-full w-px bg-gray-200"></div>
+
+                    <!-- Up Note -->
+                    <div class="relative pl-8 mb-12">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gray-300 -translate-x-1/2"></div>
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-gray-400 mb-2">Up Note (esclarecimentos)</h3>
+                            <a href="upnote.html" class="inline-flex items-center text-gray-400 hover:text-blue-600 group">
+                                <span>Ver detalhes</span>
+                                <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Renda Fixa -->
+                    <div class="relative pl-8 mb-12">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-blue-500 -translate-x-1/2"></div>
+                        <div class="bg-blue-50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-blue-800 mb-2">Renda Fixa</h3>
+                            <p class="text-blue-700 mb-4">Em análise</p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 rounded-full bg-blue-300 mr-3"></span>
+                                        <span class="text-blue-700">Treasury</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 rounded-full bg-blue-300 mr-3"></span>
+                                        <span class="text-blue-700">US Corporates</span>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 rounded-full bg-blue-300 mr-3"></span>
+                                        <span class="text-blue-700">Emerging</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 rounded-full bg-blue-300 mr-3"></span>
+                                        <span class="text-blue-700">International Bonds</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 rounded-full bg-blue-300 mr-3"></span>
+                                        <span class="text-blue-700">High Yield</span>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stocks -->
+                    <div class="relative pl-8 mb-12">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gray-300 -translate-x-1/2"></div>
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-gray-400 mb-2">Stocks</h3>
+                        </div>
+                    </div>
+
+                    <!-- Alternatives -->
+                    <div class="relative pl-8">
+                        <div class="absolute left-0 w-4 h-4 rounded-full bg-gray-300 -translate-x-1/2"></div>
+                        <div class="bg-gray-50 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-gray-400 mb-2">Alternatives</h3>
+                            <p class="text-gray-400">Pendente</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legenda -->
+            <div class="border-t pt-6">
+                <h4 class="text-sm font-medium text-gray-500 mb-3">Legenda</h4>
+                <div class="flex space-x-6">
+                    <div class="flex items-center">
+                        <span class="w-3 h-3 rounded-full bg-blue-500 mr-2"></span>
+                        <span class="text-sm text-gray-600">Em andamento</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="w-3 h-3 rounded-full bg-gray-300 mr-2"></span>
+                        <span class="text-sm text-gray-600">Pendente</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Análise desenvolvida por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html> 

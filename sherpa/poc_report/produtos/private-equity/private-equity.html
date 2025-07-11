@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Private Equity</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="../../common-styles.css">
+    <script src="../../common-scripts.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates">US Corporates</option>
+                    <option value="hedge-funds">Hedge Funds</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <!-- Botões de navegação -->
+    <div class="container mx-auto px-4">
+        <div class="transform -translate-y-1/4 flex justify-end space-x-4">
+            <a href="pe-characteristics.html" 
+               class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                      hover:bg-gray-800 transition-all duration-300 
+                      border border-gray-700 hover:border-gray-600
+                      shadow-lg hover:shadow-xl
+                      backdrop-filter backdrop-blur-sm">
+                <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="1.5" 
+                          d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                </svg>
+                <span class="font-medium tracking-wide">Estudos PE</span>
+                <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="1.5" 
+                          d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#estrutura" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Estrutura do Ativo</a></li>
+                    <li><a href="#consideracoes" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Considerações sobre o produto</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+
+            <!-- Botões de seleção de fundos -->
+            <div class="mb-6">
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showFund('galaxy-coller')" class="px-6 py-3 bg-blue-900 text-white rounded-lg hover:bg-blue-800 transition-colors">
+                        Galaxy Coller International Partners IX CI A
+                    </button>
+                    <button onclick="showFund('galaxy-silver-lake')" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Galaxy Silver Lake Alpine II Cl A
+                    </button>
+                    <button onclick="showFund('galaxy-jaguar')" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Galaxy Jaguar 14 Class A
+                    </button>
+                    <button onclick="showFund('galaxy-general-atlantic')" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Galaxy General Atlantic 2022 Cl A
+                    </button>
+                    <button onclick="showFund('galaxy-cdr')" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Galaxy CDR XI Class A
+                    </button>
+                    <button onclick="showFund('galaxy-msd-pcof')" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Galaxy MSD PCOF 2 Class B
+                    </button>
+                    <button onclick="showFund('galaxy-msd-sif')" class="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Galaxy MSD SIF II Class A
+                    </button>
+                    <!-- Adicionar mais fundos aqui quando necessário -->
+                </div>
+            </div>
+                
+            <!-- Seção de Fundos -->
+            <div id="funds-container">
+                <!-- Galaxy Coller Fund -->
+                <div id="galaxy-coller" class="fund-section bg-white rounded-lg shadow p-6 mb-8">
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.collercapital.com/" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy Coller International Partners IX CI A</strong></a> é um fundo de private equity focado em operações de secondaries, gerido pela Coller Capital em parceria com a Value Global. O fundo visa adquirir portfólios de participações em outros fundos de private equity ou ativos diretos de investidores que buscam liquidez antes do final da vida útil de seus investimentos originais.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1-1.5%</p>
+                            <p class="text-sm text-slate-600">Sobre capital comprometido</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Tamanho</h3>
+                            <p class="text-3xl font-bold text-stone-800">$12.5B</p>
+                            <p class="text-sm text-stone-600">Hard cap</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Lançamento</h3>
+                            <p class="text-3xl font-bold text-zinc-800">2024</p>
+                            <p class="text-sm text-zinc-600">Primeiro fechamento</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy Coller International Partners IX CI A</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">Coller Capital (em parceria com Value Global)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Private Equity - Secondaries</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Jurisdição</th>
+                                        <td class="py-3 px-4">Guernsey</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Data de Lançamento</th>
+                                        <td class="py-3 px-4">2024 (Primeiro fechamento)</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Tamanho do Fundo</th>
+                                        <td class="py-3 px-4">Hard cap de US$ 12,5 bilhões</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Investimento Atual</th>
+                                        <td class="py-3 px-4">Aproximadamente US$ 3 bilhões (meados de 2024)</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                        <td class="py-3 px-4">Aquisição de participações em fundos existentes e ativos diretos</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipos de Transações</th>
+                                        <td class="py-3 px-4">LP-led e GP-led</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Performance Histórica</th>
+                                        <td class="py-3 px-4">Fundos anteriores: 1.5x-2.0x MoIC, TIRs líquidas de 15-20%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Coller Capital</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            A Coller Capital é uma das principais gestoras globais de private equity secundário, com mais de 30 anos de experiência no mercado. A empresa é reconhecida por sua expertise em transações complexas e capacidade de originar oportunidades exclusivas.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            Com sede em Londres e escritórios em Nova York, Hong Kong e Seul, a Coller Capital mantém uma presença global que permite acesso a oportunidades em diferentes mercados e setores. A Value Global parece ser uma parceira local ou regional, possivelmente para distribuição ou originação em mercados específicos.                                           
+                                        </p>
+
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Equipe de Gestão</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Jeremy Coller</strong> (CIO & Managing Partner)<br>
+                                            - Fundador da Coller Capital<br>
+                                            - Mais de 30 anos de experiência em private equity<br>
+                                            - Lidera a estratégia de investimento global
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Co-Heads de Investimentos:</strong><br>
+                                            - François Aguerre<br>
+                                            - Steven Stolk
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Investment Partners:</strong><br>
+                                            - David Jolly<br>
+                                            - Paul Lanna<br>
+                                            - Joe Mahon<br>
+                                            - Ed Goldstein
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A equipe possui vasta experiência em transações secundárias, com histórico de execução de operações complexas e geração de retornos consistentes para os investidores.
+                                            
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A Coller Capital segue uma abordagem disciplinada de investimento, focando em transações secundárias que ofereçam valorização significativa e proteção de capital. A equipe combina análise fundamental profunda com expertise em estruturas complexas para identificar oportunidades únicas no mercado secundário.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="">
+                            O Coller International Partners IX (CIP IX) é um fundo relativamente recente (vintage 2023/2024). Dados de performance consolidados ainda estão em formação. Seu antecessor, CIP VIII (vintage 2021, $9.01 bilhões), e fundos anteriores da Coller têm, historicamente, entregado retornos sólidos, frequentemente na faixa de 1.5x a 2.0x MoIC (Multiple on Invested Capital) e TIRs (Taxas Internas de Retorno) líquidas na casa de 15 a 20% ao ano.
+                        </div>
+
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            O cenário em 2025, com potencial volatilidade nos mercados e um ambiente de taxas de juros possivelmente mais estabilizado (mas ainda acima dos níveis pré-pandemia), pode ser favorável para o mercado de secondaries. LPs podem buscar liquidez para rebalancear portfólios ou atender a necessidades de caixa, criando oportunidades de compra para fundos como o CIP IX. A dispersão de performance entre gestores de private equity também pode gerar oportunidades. No entanto, uma desaceleração econômica global mais profunda poderia impactar negativamente as valorizações das empresas nos portfólios adquiridos.
+                        </div>
+
+                        <!-- Posicionamento Competitivo -->
+                        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Posicionamento Competitivo</h3>
+                            <div class="space-y-4">
+                                <p class="text-gray-700">
+                                    <strong>Comparação com Pares:</strong> Em relação a fundos similares (Ardian IX, Lexington X, AlpInvest VIII), o Coller IX se destaca por:
+                                </p>
+                                <ul class="list-disc pl-5 space-y-2">
+                                    <li>Carry mais competitivo (10% vs. 15-20% dos pares): mais retorno fluindo para investidores</li>
+                                    <li>Maior foco em GP-led (55% vs. 30-40% dos pares): melhor qualidade média teórica dos ativos</li>
+                                    <li>Equipe mais enxuta e coesa</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Gestão e Equipe -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Gestão e Equipe</h3>
+                            <div class="space-y-4">
+                                <p class="text-gray-700">
+                                    <strong>Liderança:</strong> Jeremy Coller, nascido em 1958, é unanimemente reconhecido como o "Padrinho do Mercado Secundário". Sua visão revolucionou o setor financeiro, criando uma nova categoria de investimento que hoje movimenta centenas de bilhões de dólares anualmente.
+                                </p>
+                                <p class="text-gray-700">
+                                    <strong>Equipe:</strong> Co-Heads de Investimentos (François Aguerre e Steven Stolk) e Investment Partners com vasta experiência em transações secundárias.
+                                </p>
+                                <p class="text-gray-700">
+                                    <strong>Alinhamento:</strong> Forte compromisso da gestora (>5% do fundo) e estrutura de taxas que privilegia o retorno do investidor.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Cases Interessantes -->
+                        <div class="mt-8">
+                            <h3 class="font-bold mb-4 text-xl">Cases Interessantes</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Abry Partners -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-abry')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Crédito</button>
+                                        <span class="text-gray-500 text-xs">2024</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">GP-Led de Crédito com Abry Partners</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Maior veículo de continuação de crédito já criado (US$ 1,6 bi), fornecendo liquidez total aos LPs e ancorando nova estratégia de crédito da Abry.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Inovação em secundários</span>
+                                    <div id="case-abry" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> A Coller Capital liderou uma transação GP-led de US$ 1,6 bi para criar um veículo de continuação para o Abry Advanced Securities Fund III (ASF III), fornecendo liquidez total aos investidores existentes e permitindo à Abry lançar uma nova estratégia de crédito privado.</p>
+                                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                                            <li><strong>Solução de Liquidez em Larga Escala:</strong> Opção de saída completa para LPs em um ambiente de liquidez restrita.</li>
+                                            <li><strong>Pioneirismo:</strong> Estrutura inédita para crédito privado, abrindo precedente para o setor.</li>
+                                            <li><strong>Alinhamento Estratégico:</strong> Abry manteve a gestão do portfólio e ancorou sua nova iniciativa de crédito.</li>
+                                            <li><strong>Validação do Mercado:</strong> Transação validou o mercado secundário de crédito privado em larga escala.</li>
+                                            <li><strong>Oportunidade para Novos Investidores:</strong> Exposição a portfólio diversificado e gestão experiente.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Hahn & Company -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-hahn')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Ásia</button>
+                                        <span class="text-gray-500 text-xs">2022</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">GP-Led com Hahn & Company</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Maior transação GP-led da Ásia (US$ 1,5 bi), com foco na Ssangyong C&E e transformação do setor de gestão de resíduos.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Marco regional</span>
+                                    <div id="case-hahn" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Co-liderança da maior transação GP-led na Ásia, com a Ssangyong C&E como ativo central e forte alinhamento entre as partes.</p>
+                                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                                            <li><strong>Marco no Mercado Asiático:</strong> Demonstrou a maturidade da região para soluções de liquidez complexas.</li>
+                                            <li><strong>Transformação e Continuidade:</strong> Permitiu à Hahn & Co. apoiar a expansão e transformação da Ssangyong no setor de gestão de resíduos.</li>
+                                            <li><strong>Liquidez e Alinhamento:</strong> Solução de liquidez para LPs antigos e participação de novos investidores.</li>
+                                            <li><strong>Expertise Regional:</strong> Destacou a experiência da Coller no mercado coreano e relacionamento com gestores locais.</li>
+                                            <li><strong>Validação de Estratégias de Longo Prazo:</strong> Evidenciou o papel do private equity em transformações empresariais de longo prazo.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nota de Rodapé -->
+                        <div class="mt-8 pt-4 border-t border-gray-200">
+                            <p class="text-sm text-gray-600 italic">
+                                Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Galaxy Silver Lake Fund -->
+                <div id="galaxy-silver-lake" class="fund-section bg-white rounded-lg shadow p-6 mb-8 hidden">
+                    <!-- Visão Geral -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.silverlake.com/" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy Silver Lake Alpine II Cl A</strong></a> é um fundo de private equity gerido pela Silver Lake, uma das mais proeminentes firmas de investimento em tecnologia do mundo. O fundo Alpine adota uma estratégia focada em investimentos de capital de crescimento estruturado e dívida privada em empresas de tecnologia.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1.5-2%</p>
+                            <p class="text-sm text-slate-600">Sobre capital comprometido</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Tamanho</h3>
+                            <p class="text-3xl font-bold text-stone-800">$4.5B</p>
+                            <p class="text-sm text-stone-600">Vintage 2020</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Hurdle Rate</h3>
+                            <p class="text-3xl font-bold text-zinc-800">6-8%</p>
+                            <p class="text-sm text-zinc-600">Ao ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy Silver Lake Alpine II Cl A</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">Silver Lake Partners</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Private Equity - Crescimento Estruturado</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                        <td class="py-3 px-4">Capital de crescimento estruturado e dívida privada em tecnologia</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Foco Setorial</th>
+                                        <td class="py-3 px-4">Tecnologia (software, hardware, serviços de internet, fintech)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Silver Lake Partners</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            A Silver Lake, fundada em 1999, é uma líder global em investimentos em tecnologia. A equipe da Silver Lake Alpine é especializada em fornecer soluções de capital flexíveis para empresas de tecnologia estabelecidas e em crescimento.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A gestora é conhecida por sua capacidade de estruturar transações complexas e por seu envolvimento ativo com as empresas do portfólio, combinando expertise operacional com visão estratégica.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Liderança</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Egon Durban</strong><br>
+                                            - Co-CEO<br>
+                                            - Lidera a estratégia de investimento global
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Greg Mondre</strong><br>
+                                            - Co-CEO<br>
+                                            - Expertise em tecnologia e private equity
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A equipe combina experiência profunda em tecnologia com expertise em private equity, mantendo um histórico de sucesso em investimentos em empresas de tecnologia maduras e em crescimento.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A Silver Lake segue uma abordagem de investimento focada em empresas de tecnologia maduras e em crescimento, combinando expertise operacional com visão estratégica. A gestora busca oportunidades em setores de tecnologia que apresentam potencial de transformação e crescimento sustentável, com ênfase em parcerias de longo prazo com as empresas investidas.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="">
+                            O Silver Lake Alpine II (vintage 2020, com $4.5 bilhões levantados) é um fundo que já passou por um ciclo de investimento significativo. O fundo antecessor, Silver Lake Alpine (vintage 2013, $2 bilhões), teve um bom desempenho. A performance específica do Alpine II dependerá dos investimentos realizados e dos exits. A Silver Lake, como um todo, tem um forte histórico de retornos em seus diversos fundos de tecnologia. 
+                        </div>
+
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            <p class="text-gray-700">
+                                A carteira do Silver Lake Alpine II provavelmente inclui uma mistura de investimentos em dívida e equity em empresas de software, hardware, serviços de internet, fintech e outras áreas do setor de tecnologia. A perspectiva para este tipo de carteira é geralmente positiva a longo prazo, dada a importância da tecnologia. No entanto, a curto e médio prazo, a performance pode ser influenciada por ciclos de mercado, taxas de juros e o ambiente competitivo. A capacidade da Silver Lake de identificar empresas resilientes e com forte potencial de crescimento é fundamental.                            </p>
+                        </div>
+
+                        <!-- Gestão e Equipe -->
+                        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Gestão e Equipe</h3>
+                            <div class="space-y-4">
+                                <p class="text-gray-700">
+                                    <strong>Liderança:</strong> Sob a co-liderança de Egon Durban e Greg Mondre desde 2019, a Silver Lake transformou-se em uma potência global com $104 bilhões em ativos sob gestão. A dupla quase triplicou os ativos sob gestão enquanto mantinha a taxa de retorno líquido de 21% nos fundos principais.
+                                </p>
+                                <p class="text-gray-700">
+                                    <strong>Equipe:</strong> A equipe de liderança demonstra notável estabilidade, com muitos executivos trabalhando juntos por mais de 20 anos. A média de permanência dos profissionais seniores na Silver Lake excede 15 anos, contribuindo para um julgamento de investimento consistente e cultura organizacional sólida.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Cases Interessantes -->
+                        <div class="mt-8">
+                            <h3 class="font-bold mb-4 text-xl">Cases Interessantes</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Dell-EMC -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-dell-emc')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Tecnologia</button>
+                                        <span class="text-gray-500 text-xs">2016</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Dell-EMC</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Financiamento de $4.25 bi para aquisição da EMC Corp por $67 bi.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Deal recorde em tech M&A</span>
+                                    <div id="case-dell-emc" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> A Silver Lake participou do maior financiamento de M&A do setor de tecnologia, viabilizando a aquisição da EMC pela Dell. O deal envolveu estruturação financeira sofisticada e integração de múltiplos parceiros.</p>
+                                        <p><strong>Impacto:</strong> Transformou a Dell em uma das maiores empresas privadas de tecnologia do mundo, com sinergias operacionais e expansão global.</p>
+                                    </div>
+                                </div>
+                                <!-- VMware/Broadcom -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-vmware')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Tecnologia</button>
+                                        <span class="text-gray-500 text-xs">2022</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">VMware/Broadcom</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Participação de 10% na VMware na aquisição por $61 bi.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Transformação setorial</span>
+                                    <div id="case-vmware" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Silver Lake investiu na VMware, participando da transação de aquisição pela Broadcom. O deal envolveu análise estratégica do setor de software corporativo e integração de grandes players globais.</p>
+                                        <p><strong>Impacto:</strong> Reforçou a posição da Silver Lake em tecnologia e consolidou a VMware como referência em soluções de virtualização e cloud.</p>
+                                    </div>
+                                </div>
+                                <!-- Altera -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-altera')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Semicondutores</button>
+                                        <span class="text-gray-500 text-xs">2025</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Altera</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição de 51% do negócio FPGA da Intel por $8.75 bi. Foco em IA e edge computing.</p>
+                                    <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded">Aposta em IA</span>
+                                    <div id="case-altera" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Silver Lake enxergou o potencial dos FPGAs para IA e edge computing, liderando a aquisição de parte do negócio da Intel.</p>
+                                        <p><strong>Impacto:</strong> Posicionamento estratégico em semicondutores para IA, antecipando tendências tecnológicas globais.</p>
+                                    </div>
+                                </div>
+                                <!-- Qualtrics -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-qualtrics')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Software</button>
+                                        <span class="text-gray-500 text-xs">2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Qualtrics</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição de $12.5 bi em parceria com Canada Pension Plan Investment Board.</p>
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">Cloud enterprise</span>
+                                    <div id="case-qualtrics" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Silver Lake e CPPIB adquiriram a Qualtrics, apostando no crescimento do software empresarial em nuvem.</p>
+                                        <p><strong>Impacto:</strong> Expansão do portfólio em cloud, reforçando a presença em tecnologia corporativa global.</p>
+                                    </div>
+                                </div>
+                                <!-- Motorola Solutions -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-motorola')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Telecom</button>
+                                        <span class="text-gray-500 text-xs">2015-2024</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Motorola Solutions</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Investimento inicial de $1 bi, seguido por $1 bi em notas conversíveis. Retorno combinado de ~91% em 9 anos.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Retorno expressivo</span>
+                                    <div id="case-motorola" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Silver Lake investiu em duas rodadas, combinando equity e dívida conversível, apoiando a transformação digital da Motorola Solutions.</p>
+                                        <p><strong>Impacto:</strong> Retornos expressivos e fortalecimento da Motorola como referência em soluções de comunicação crítica.</p>
+                                    </div>
+                                </div>
+                                <!-- Endeavor Group -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-endeavor')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Mídia/Entretenimento</button>
+                                        <span class="text-gray-500 text-xs">2025</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Endeavor Group</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Maior investimento private-to-private em mídia e entretenimento ($25 bi).</p>
+                                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded">Liderança global</span>
+                                    <div id="case-endeavor" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Silver Lake liderou o maior deal do setor, consolidando a Endeavor como potência global em mídia e esportes.</p>
+                                        <p><strong>Impacto:</strong> Expansão internacional e liderança em entretenimento, esportes e eventos ao vivo.</p>
+                                    </div>
+                                </div>
+                                <!-- City Football Group -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-city')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Esportes</button>
+                                        <span class="text-gray-500 text-xs">2019-2025</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">City Football Group</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Investimento estratégico de $500 mi no grupo dono do Manchester City. Valorização recorde no setor esportivo.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Valorização recorde</span>
+                                    <div id="case-city" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Como foi feito:</strong> Silver Lake adquiriu participação relevante no CFG, apostando na convergência entre esporte, entretenimento e tecnologia.</p>
+                                        <p><strong>Impacto:</strong> Valorização recorde do grupo e referência global em gestão esportiva e inovação.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Padrão Estratégico -->
+                        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Padrão Estratégico</h3>
+                            <div class="space-y-4">
+                                <p><strong>Horizonte de longo prazo:</strong> Parcerias duradouras, como a relação de nove anos com a Motorola Solutions e mais de uma década com a Endeavor, demonstram paciência excepcional para capital privado.</p>
+                               
+                                <p><strong>Relacionamentos estratégicos com líderes visionários:</strong> Parcerias com CEOs e fundadores de destaque, como Michael Dell, Hock Tan e Ari Emanuel, são fundamentais para grandes transações.</p>
+                                <p><strong>Foco em transformação digital:</strong> Aplicação de expertise digital mesmo em setores tradicionalmente não tecnológicos, como esportes e entretenimento.</p>
+                                <p><strong>Visão de convergência:</strong> Aposta na convergência entre tecnologia, entretenimento, esportes e mídia, posicionando-se na interseção desses setores.</p>
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                    <!-- Nota de Rodapé -->
+                    <div class="mt-8 pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 italic">
+                            Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Galaxy Jaguar Fund -->
+                <div id="galaxy-jaguar" class="fund-section bg-white rounded-lg shadow p-6 mb-8 hidden">
+                    <!-- Visão Geral -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.jaguargrowth.com/" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy Jaguar 14 Class A</strong></a> é um fundo de private equity da Jaguar Growth Partners, especializado em investimentos em empresas de crescimento em mercados emergentes globais. O fundo foca em setores ligados ao consumo e à tecnologia, buscando identificar e apoiar empresas com potencial de crescimento significativo em regiões como América Latina e Ásia.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1.75-2.25%</p>
+                            <p class="text-sm text-slate-600">Ao ano</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Hurdle Rate</h3>
+                            <p class="text-3xl font-bold text-stone-800">8-10%</p>
+                            <p class="text-sm text-stone-600">Ao ano</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Carried Interest</h3>
+                            <p class="text-3xl font-bold text-zinc-800">20%</p>
+                            <p class="text-sm text-zinc-600">Sobre lucros</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy Jaguar 14 Class A</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">Jaguar Growth Partners</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Private Equity - Growth</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                        <td class="py-3 px-4">Investimentos em empresas de crescimento em mercados emergentes</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Foco Setorial</th>
+                                        <td class="py-3 px-4">Consumo, Tecnologia, Fintech, Saúde, Educação, Logística</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Regiões</th>
+                                        <td class="py-3 px-4">América Latina, Ásia, Outros Mercados Emergentes</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Jaguar Growth Partners</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            A Jaguar Growth Partners emergiu como uma força dominante no private equity imobiliário na América Latina, adotando uma abordagem centrada em parcerias para construir um portfólio de investimentos estratégicos no Brasil, Colômbia, Peru e México. Foi fundada por Gary Garrabrant e Thomas McDonald, ambos com extensa experiência em investimentos imobiliários e em mercados emergentes. A firma combina expertise em investimento com conhecimento operacional e uma rede de contatos nos mercados onde atua.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A gestora mantém um foco em identificar e apoiar empresas com potencial de crescimento significativo em regiões emergentes, com ênfase em setores ligados ao consumidor e à tecnologia.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Liderança</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Gary Garrabrant</strong><br>
+                                            - Co-fundador e CEO<br>
+                                            - Experiência em investimentos imobiliários e mercados emergentes
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Thomas McDonald</strong><br>
+                                            - Co-fundador<br>
+                                            - Expertise em mercados emergentes e growth equity
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A Jaguar Growth Partners segue uma abordagem de investimento focada em empresas de médio porte com modelos de negócios escaláveis e potencial de liderança em seus nichos. A gestora busca oportunidades em setores que se beneficiam do crescimento da classe média e da adoção de tecnologia em mercados emergentes.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="space-y-4">
+                            <p class="text-gray-700">
+                                A carteira do Jaguar 14 provavelmente incluirá empresas de médio porte em setores como serviços financeiros habilitados por tecnologia (fintech), plataformas de consumo digital, saúde, educação e possivelmente logística e infraestrutura leve em mercados emergentes selecionados. O foco em "growth" sugere investimentos em empresas com modelos de negócios escaláveis e potencial de liderança em seus nichos.
+                            </p>
+                            </div>
+                            
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            <p class="text-gray-700">
+                                Os mercados emergentes apresentam um quadro misto. Alguns podem se beneficiar do crescimento demográfico, urbanização e avanços tecnológicos, enquanto outros podem enfrentar desafios devido à inflação, dívida elevada ou instabilidades políticas. O fundo precisa de uma seleção cuidadosa de países e setores:
+                            </p>
+                            <ul class="list-disc pl-5 mt-4 space-y-2">
+ 
+                                <li>Potencial para retornos descorrelacionados dos mercados desenvolvidos</li>
+                                <li>Riscos idiossincráticos de cada mercado</li>
+                                <li>Desafios macroeconômicos e políticos</li>
+                                </ul>
+                        </div>
+
+                        <!-- Investidos -->
+                        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Investidos Atuais Relevantes na América Latina</h3>
+                            <div class="space-y-6">
+ 
+                                <div>
+ 
+                                    <ul class="list-disc pl-5 space-y-1">
+                                        <li>Bresco Investimentos (Brasil) – Imóveis industriais/logísticos</li>
+                                        <li>LatAm Logistic Properties (Colômbia, Peru, Costa Rica, Panamá) – Imóveis logísticos</li>
+                                        <li>Opea (ex-RB Capital, Brasil) – Securitização imobiliária</li>
+                                        <li>Aliansce Sonae (Brasil) – Shopping centers</li>
+                                        <li>Tenda (Brasil) – Imóveis residenciais</li>
+                                        <li>Colombian Healthcare Properties (Colômbia) – Imóveis de saúde</li>
+                                        <li>Vesta (México) – Imóveis industriais</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Cases Interessantes para Galaxy Jaguar 14 Class A -->
+                        <div class="mt-8">
+                            <h3 class="font-bold mb-4 text-xl">Cases Interessantes</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- LatAm Logistic Properties -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-latam')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Logística</button>
+                                        <span class="text-gray-500 text-xs">2015-2024</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">LatAm Logistic Properties</h4>
+                                    <p class="text-gray-700 text-sm mb-2">De startup a empresa listada na NYSE American (LPA), portfólio de 28 instalações e 100% de ocupação operacional.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">IPO e expansão regional</span>
+                                    <div id="case-latam" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2015, aproveitando tendências de e-commerce e crescimento da classe média na América Latina, em um cenário de escassez de galpões Classe A.</p>
+                                        <p><strong>Estratégia:</strong> Expansão regional, desenvolvimento de armazéns Classe A, contratos de longo prazo com multinacionais, melhores práticas internacionais e foco em locatários de alto crédito.</p>
+                                        <p><strong>Resultados:</strong> Portfólio cresceu para 28 instalações, 100% de ocupação, e listagem na NYSE American via SPAC em 2024 (valuation de US$ 578 mi). Sócio da Jaguar tornou-se Chairman da LPA.</p>
+                                    </div>
+                                </div>
+                                <!-- Bresco Investimentos -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-bresco')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Industrial</button>
+                                        <span class="text-gray-500 text-xs">2018-2021</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Bresco Investimentos</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Portfólio cresceu para 594 mil m², criação do FII Bresco Logística e captação de R$ 1 bi em ofertas públicas.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Liderança logística</span>
+                                    <div id="case-bresco" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2018, Brasil saindo de recessão, demanda crescente por imóveis industriais/logísticos de alta qualidade.</p>
+                                        <p><strong>Estratégia:</strong> Expansão do portfólio, atração de capital, institucionalização do setor, criação de veículos públicos e foco em edifícios "verdes".</p>
+                                        <p><strong>Resultados:</strong> Portfólio de R$ 2,3 bi, 594 mil m², criação do FII Bresco Logística, captação de R$ 1 bi e atração de multinacionais como locatários.</p>
+                                    </div>
+                                </div>
+                                <!-- Aliansce Shopping Centers -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-aliansce')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Varejo</button>
+                                        <span class="text-gray-500 text-xs">2016-2019</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Aliansce Shopping Centers</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Fusão com Sonae Sierra Brasil, criando a maior empresa de shoppings do país (40 shoppings, 1,4 mi m² ABL).</p>
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">Consolidação setorial</span>
+                                    <div id="case-aliansce" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2016, economia brasileira desafiadora, mas setor de shoppings resiliente devido ao crescimento da classe média.</p>
+                                        <p><strong>Estratégia:</strong> Consolidação do setor, melhores práticas de gestão, aquisições estratégicas e influência no conselho.</p>
+                                        <p><strong>Resultados:</strong> Fusão com Sonae Sierra Brasil, criação da maior empresa de shoppings do Brasil, sinergias e economias de custo relevantes.</p>
+                                    </div>
+                                </div>
+                                <!-- Hoteles City Express -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-hcity')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Hospitalidade</button>
+                                        <span class="text-gray-500 text-xs">2017-2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Hoteles City Express</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Criação do REIT Fibra STAY e venda da marca para Marriott, tornando-a líder regional.</p>
+                                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded">Saída estratégica</span>
+                                    <div id="case-hcity" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2017, economia mexicana estável, crescimento do segmento de viagens e negócios.</p>
+                                        <p><strong>Estratégia:</strong> Otimização de ativos, expansão de franquias, apoio à internacionalização e expertise em mercados de capital.</p>
+                                        <p><strong>Resultados:</strong> Criação do REIT Fibra STAY, venda da marca para Marriott em 2023, tornando-se líder em hospitalidade na América Latina.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Nota de Rodapé -->
+                        <div class="mt-8 pt-4 border-t border-gray-200">
+                            <p class="text-sm text-gray-600 italic">
+                                Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                            </p>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Galaxy General Atlantic Fund -->
+                <div id="galaxy-general-atlantic" class="fund-section bg-white rounded-lg shadow p-6 mb-8 hidden">
+                    <!-- Visão Geral -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.generalatlantic.com/" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy General Atlantic 2022 Cl A</strong></a> é um fundo de growth equity global gerido pela General Atlantic, uma das pioneiras e líderes em investimento de growth equity desde 1980. O fundo foca em cinco setores principais: Consumo, Serviços Financeiros, Saúde, Ciências da Vida e Tecnologia, buscando parcerias de longo prazo com empresas que apresentam forte potencial de crescimento.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1.75-2.25%</p>
+                            <p class="text-sm text-slate-600">Ao ano</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Carried Interest</h3>
+                            <p class="text-3xl font-bold text-stone-800">20%</p>
+                            <p class="text-sm text-stone-600">Sobre lucros</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Hurdle Rate</h3>
+                            <p class="text-3xl font-bold text-zinc-800">7-8%</p>
+                            <p class="text-sm text-zinc-600">Ao ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy General Atlantic 2022 Cl A</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">General Atlantic</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Growth Equity</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Foco Setorial</th>
+                                        <td class="py-3 px-4">Consumo, Serviços Financeiros, Saúde, Ciências da Vida e Tecnologia</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Vintage</th>
+                                        <td class="py-3 px-4">2022</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">General Atlantic</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            Fundada em 1980, a General Atlantic é uma das pioneiras e líderes em investimento de growth equity global. A firma possui uma vasta rede de contatos e uma equipe de investimento experiente distribuída em escritórios ao redor do mundo.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A gestora é conhecida por sua abordagem de parceria de longo prazo com as empresas em que investe, fornecendo capital e apoio estratégico para acelerar o crescimento.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Liderança</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Bill Ford</strong><br>
+                                            - CEO<br>
+                                            - Mais de 30 anos de experiência em growth equity
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Martín Escobari</strong><br>
+                                            - Co-Presidente<br>
+                                            - Lidera operações na América Latina
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Rodrigo Catunda</strong><br>
+                                            - Managing Director<br>
+                                            - Responsável por investimentos no Brasil
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A General Atlantic segue uma abordagem de investimento focada em empresas com receita estabelecida, forte potencial de crescimento e vantagens competitivas. A gestora busca parcerias de longo prazo, combinando capital com expertise operacional e acesso a uma rede global de relacionamentos.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="">
+                            A General Atlantic tem um longo e forte histórico de performance em seus diversos fundos de growth equity ao longo de várias décadas. Fundos com vintage 2022 ainda estariam em fase de investimento ou maturação inicial, então a performance consolidada levaria alguns anos para se materializar. A performance de fundos anteriores da General Atlantic é geralmente bem conceituada na indústria. 
+                        </div>
+
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            <p class="text-gray-700">
+                                O ambiente atual para growth equity apresenta um cenário misto. Por um lado, a inovação contínua e a disrupção em vários setores 
+                                criam oportunidades para empresas de crescimento. Por outro, um ambiente de taxas de juros potencialmente mais altas e 
+                                maior escrutínio sobre valuations tornam o cenário mais desafiador.
+                            </p>
+                          
+                        </div>
+
+                        <!-- Cases Interessantes -->
+                        <div class="mt-8 bg-gray-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4 text-xl">Cases Interessantes</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Authentic Brands Group -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-abg')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Varejo</button>
+                                        <span class="text-gray-500 text-xs">2017-2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Authentic Brands Group</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Portfólio de 40+ marcas, US$ 25 bi em vendas anuais, presença em 150 países.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Expansão global</span>
+                                    <div id="case-abg" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2017, setor de marcas e licenciamento em transformação.</p>
+                                        <p><strong>Estratégia:</strong> Expansão acelerada via aquisições, diversificação para novas verticais (mídia, eventos, experiências), modelo asset-light e parcerias estratégicas.</p>
+                                        <p><strong>Resultados:</strong> Portfólio de 40+ marcas (Reebok, Ted Baker, Vince, Hunter, Boardriders), US$ 25 bi em vendas anuais, presença em 150 países.</p>
+                                    </div>
+                                </div>
+                               
+                               
+                                <!-- Slack -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-slack')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">SaaS</button>
+                                        <span class="text-gray-500 text-xs">2018-2021</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Slack</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição pela Salesforce por US$ 27.7 bi, transformação da comunicação corporativa.</p>
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">Saída estratégica</span>
+                                    <div id="case-slack" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2018, setor de colaboração corporativa em transformação.</p>
+                                        <p><strong>Estratégia:</strong> Expansão de funcionalidades, integrações com outras ferramentas, foco em grandes empresas.</p>
+                                        <p><strong>Resultados:</strong> Aquisição pela Salesforce por US$ 27.7 bi em 2021, base de 12+ milhões de usuários diários.</p>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                        </div>
+
+                        
+                    </section>
+
+                    <!-- Nota de Rodapé -->
+                    <div class="mt-8 pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 italic">
+                            Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Galaxy CDR Fund -->
+                <div id="galaxy-cdr" class="fund-section bg-white rounded-lg shadow p-6 mb-8 hidden">
+                    <!-- Visão Geral -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.cdr.com" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy CDR XI Class A</strong></a> é um fundo de private equity do tipo buyout gerido pela Clayton, Dubilier & Rice (CD&R), uma das mais antigas e respeitadas firmas de private equity do mundo. Fundada em 1978, a CD&R é pioneira na integração de executivos operacionais experientes em seu processo de investimento, focando em construir negócios mais fortes e lucrativos através de melhorias operacionais e iniciativas estratégicas.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1.5-2%</p>
+                            <p class="text-sm text-slate-600">Ao ano</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Carried Interest</h3>
+                            <p class="text-3xl font-bold text-stone-800">20%</p>
+                            <p class="text-sm text-stone-600">Sobre lucros</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Hurdle Rate</h3>
+                            <p class="text-3xl font-bold text-zinc-800">7-8%</p>
+                            <p class="text-sm text-zinc-600">Ao ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy CDR XI Class A</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">Clayton, Dubilier & Rice</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Private Equity - Buyout</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                        <td class="py-3 px-4">Investimentos em empresas de médio a grande porte com foco em melhorias operacionais</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Foco Setorial</th>
+                                        <td class="py-3 px-4">Industrial, Consumo/Varejo, Saúde, Serviços Empresariais</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Regiões</th>
+                                        <td class="py-3 px-4">América do Norte e Europa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Clayton, Dubilier & Rice</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            Fundada em 1978, a CD&R é pioneira na integração de executivos operacionais experientes em seu processo de investimento. A firma mantém uma equipe diversificada que inclui tanto profissionais de investimento quanto parceiros operacionais que são ex-CEOs e altos executivos de grandes corporações globais.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A gestora é conhecida por sua abordagem única de combinar expertise financeira com experiência operacional para criar valor nas empresas do portfólio.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Liderança</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Donald Gogel</strong><br>
+                                            - Chairman e CEO<br>
+                                            - Mais de 30 anos de experiência em private equity
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Nate Sleeper</strong><br>
+                                            - CEO<br>
+                                            - Lidera a estratégia de investimento
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>David Novak</strong><br>
+                                            - Operating Partner<br>
+                                            - Expertise em operações e transformação
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A CD&R segue uma abordagem única de investimento que combina expertise financeira com experiência operacional. A gestora busca oportunidades em empresas com potencial de melhoria operacional e crescimento de lucros, aplicando sua metodologia comprovada de criação de valor através de melhorias operacionais e iniciativas estratégicas.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="">
+                            O CD&R Fund XI, com $16 bilhões levantados em 2020, representa o décimo primeiro fundo principal da firma. Fundos anteriores da CD&R têm um longo e consistente histórico de forte performance, caracterizado pela criação de valor através de melhorias operacionais. Dado o vintage, o fundo estaria em plena fase de maturação ou começando a realizar exits.
+                        </div>
+
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            <p class="text-gray-700">
+                                A abordagem da CD&R focada em valor e melhoria operacional pode ser particularmente relevante. Em um ambiente econômico potencialmente mais desafiador, com crescimento mais lento e taxas de juros mais altas, a capacidade de gerar alfa através de eficiências operacionais, em vez de depender apenas de expansão de múltiplos ou alavancagem barata, torna-se crucial.
+                            </p>
+                            <ul class="list-disc pl-5 mt-4 space-y-2">
+                                <li>Oportunidades em carve-outs corporativos e empresas familiares em transição</li>
+                                <li>Potencial de valorização através de melhorias operacionais</li>
+                                <li>Importância da disciplina de valuation e capacidade de navegar ciclos econômicos</li>
+                            </ul>
+                        </div>
+
+                        <!-- Cases Interessantes -->
+                        <div class="mt-8">
+                            <h3 class="font-bold mb-4 text-xl">Cases Interessantes</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Epicor Software -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-epicor')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Tecnologia</button>
+                                        <span class="text-gray-500 text-xs">2020-2024</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Epicor Software</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Transformação em empresa SaaS-first, com ARR superando US$ 1 bi e crescimento de 45% ao ano.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Transformação digital</span>
+                                    <div id="case-epicor" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2020, setor de software empresarial em transição para SaaS.</p>
+                                        <p><strong>Estratégia:</strong> Transformação completa do modelo de negócio para SaaS-first, modernização da plataforma e expansão internacional.</p>
+                                        <p><strong>Resultados:</strong> ARR superou US$ 1 bi, crescimento de 45% ao ano em SaaS, valuation estimado entre US$ 7-9 bi em 2024.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Morrisons -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-morrisons')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Varejo</button>
+                                        <span class="text-gray-500 text-xs">2021</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Morrisons</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição competitiva por £7 bi, fortalecendo posição no varejo alimentar britânico.</p>
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">Consolidação setorial</span>
+                                    <div id="case-morrisons" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição competitiva em 2021, setor de varejo alimentar em consolidação.</p>
+                                        <p><strong>Estratégia:</strong> Manutenção da equipe e sede, liderança de ex-CEO da Tesco, foco em eficiência operacional.</p>
+                                        <p><strong>Resultados:</strong> Aquisição por £7 bi, fortalecimento da posição no varejo alimentar britânico.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Opella -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-opella')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Saúde</button>
+                                        <span class="text-gray-500 text-xs">2025</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Opella</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição de 50% da unidade de consumer health da Sanofi, tornando-se a 3ª maior empresa global de OTC.</p>
+                                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded">Parceria estratégica</span>
+                                    <div id="case-opella" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição em 2025, setor de consumer health em crescimento.</p>
+                                        <p><strong>Estratégia:</strong> Parceria estratégica com Sanofi e Bpifrance, foco em expansão global.</p>
+                                        <p><strong>Resultados:</strong> Opella tornou-se a 3ª maior empresa global de OTC e suplementos.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Belron -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-belron')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Serviços</button>
+                                        <span class="text-gray-500 text-xs">2018-2021</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Belron</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Valor de mercado saltou de €3 bi para €21 bi em três anos, com foco em eficiência operacional.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Valorização expressiva</span>
+                                    <div id="case-belron" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em 2018, líder global em serviços automotivos.</p>
+                                        <p><strong>Estratégia:</strong> Foco em eficiência operacional, expansão internacional e digitalização.</p>
+                                        <p><strong>Resultados:</strong> Valor de mercado saltou de €3 bi para €21 bi em três anos.</p>
+                                    </div>
+                                </div>
+
+                                <!-- White Cap -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-whitecap')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Construção</button>
+                                        <span class="text-gray-500 text-xs">2020</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">White Cap</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Carve-out da HD Supply, consolidando posição como distribuidor líder nos EUA.</p>
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">Carve-out</span>
+                                    <div id="case-whitecap" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Carve-out em 2020, setor de materiais de construção em consolidação.</p>
+                                        <p><strong>Estratégia:</strong> Foco em liderança de mercado, expansão geográfica e eficiência operacional.</p>
+                                        <p><strong>Resultados:</strong> Consolidação como distribuidor líder nos EUA.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Focus Financial -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-focus')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Financeiro</button>
+                                        <span class="text-gray-500 text-xs">2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Focus Financial Partners</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição total com premium de 36%, fortalecendo portfólio em wealth management.</p>
+                                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded">Aquisição estratégica</span>
+                                    <div id="case-focus" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição em 2023, setor de wealth management em crescimento.</p>
+                                        <p><strong>Estratégia:</strong> Aquisição total, premium de 36% sobre o preço médio.</p>
+                                        <p><strong>Resultados:</strong> Fortalecimento do portfólio em wealth management.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </section>
+
+                    <!-- Nota de Rodapé -->
+                    <div class="mt-8 pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 italic">
+                            Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Galaxy MSD PCOF Fund -->
+                <div id="galaxy-msd-pcof" class="fund-section bg-white rounded-lg shadow p-6 mb-8 hidden">
+                    <!-- Visão Geral -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.bdtmsd.com/" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy MSD PCOF 2 Class B</strong></a> é um fundo de crédito privado associado à MSD Partners (agora parte da BDT & MSD Partners após fusão em 2023). O fundo, com vintage 2019 e $1.1 bilhões, foca em fornecer soluções de capital flexíveis para empresas, incluindo dívida sênior, dívida subordinada e, por vezes, participações minoritárias em equity, com uma abordagem baseada em análise fundamentalista e perspectiva de longo prazo.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1-1.75%</p>
+                            <p class="text-sm text-slate-600">Ao ano</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Performance Fee</h3>
+                            <p class="text-3xl font-bold text-stone-800">10-20%</p>
+                            <p class="text-sm text-stone-600">Sobre excedente</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Hurdle Rate</h3>
+                            <p class="text-3xl font-bold text-zinc-800">6-8%</p>
+                            <p class="text-sm text-zinc-600">Ao ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy MSD PCOF 2 Class B</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">BDT & MSD Partners</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Private Credit</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                        <td class="py-3 px-4">Soluções de capital flexíveis (dívida sênior, subordinada e equity minoritária)</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Foco</th>
+                                        <td class="py-3 px-4">Empresas de médio porte com fluxos de caixa estáveis</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Regiões</th>
+                                        <td class="py-3 px-4">América do Norte e Europa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">BDT & MSD Partners</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            Formada pela fusão da MSD Partners com a BDT & Company em 2023, a firma combina a experiência em crédito privado da MSD com a rede de relacionamentos da BDT. A associação histórica com o capital de Michael Dell proporcionou uma base de capital estável e uma rede de contatos valiosa.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A gestora é conhecida por sua abordagem fundamentalista e perspectiva de longo prazo em investimentos de crédito privado.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Liderança</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Byron Trott</strong><br>
+                                            - Fundador e CEO<br>
+                                            - Mais de 30 anos de experiência em investimentos
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Gregg Lemkau</strong><br>
+                                            - Co-CEO<br>
+                                            - Expertise em private equity e crédito
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Greg Olafson</strong><br>
+                                            - CIO<br>
+                                            - Responsável pela estratégia de investimento
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A BDT & MSD Partners segue uma abordagem de investimento focada em análise fundamentalista e perspectiva de longo prazo. A gestora busca oportunidades em empresas com fluxos de caixa estáveis e posições de mercado defensáveis, fornecendo soluções de capital flexíveis que atendam às necessidades específicas de cada empresa.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="">
+                            O MSD Private Credit Opportunities Fund II (vintage 2019, $1.1 bilhões) já estaria em fase de maturação ou desinvestimento. A performance de fundos de crédito privado da MSD Partners/BDT & MSD Partners é geralmente bem conceituada, focando em retornos ajustados ao risco e preservação de capital. A performance específica do PCOF 2 dependerá da qualidade dos créditos originados e da taxa de inadimplência.
+                        </div>
+
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            <p class="text-gray-700">
+                                O crédito privado continua a ser uma classe de ativos atraente para investidores em busca de rendimento e diversificação, especialmente se as taxas de juros permanecerem em níveis mais elevados. A capacidade de originar empréstimos com covenants robustos e termos favoráveis é crucial.
+                            </p>
+                            <ul class="list-disc pl-5 mt-4 space-y-2">
+                                <li>Oportunidades em financiar empresas de médio porte com acesso limitado aos mercados tradicionais</li>
+                                <li>Importância da seleção de crédito e gestão de portfólio em ambiente econômico mais lento</li>
+                                <li>Potencial de geração de rendimentos consistentes através de empréstimos diretos e dívida mezanino</li>
+                            </ul>
+                        </div>
+
+                        <!-- Cases Interessantes -->
+                        <div class="mt-8">
+                            <h3 class="font-bold mb-4 text-xl">Cases Interessantes</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Ring Container Technologies -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-ring')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Manufatura</button>
+                                        <span class="text-gray-500 text-xs">2017-2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Ring Container Technologies</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Líder na fabricação de recipientes plásticos na América do Norte, com 17 unidades e vendas de $350 milhões.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">ESG & Sustentabilidade</span>
+                                    <div id="case-ring" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição em 2017 de empresa líder em recipientes plásticos, com 700 funcionários e presença global.</p>
+                                        <p><strong>Estratégia:</strong> Aquisição de participação majoritária da família Ring, mantendo CEO e equipe executiva. Investimento de $650 milhões em capital próprio.</p>
+                                        <p><strong>Resultados:</strong> Classificação Platinum de Sustentabilidade da EcoVadis e prêmio de Inovação em Embalagens Sustentáveis do U.S. Plastics Pact em 2023.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Endries International -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-endries')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Distribuição</button>
+                                        <span class="text-gray-500 text-xs">2018-2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Endries International</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Distribuidora líder de fixadores industriais, com crescimento de $325M para $486M em 5 anos.</p>
+                                    <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded">Consolidação setorial</span>
+                                    <div id="case-endries" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição em 2018 de distribuidora líder com mais de 500.000 SKUs.</p>
+                                        <p><strong>Estratégia:</strong> Consolidação setorial através de aquisições estratégicas, incluindo Branam Fastening, Legacy Fastener & Supply, Industrial Products Company e Viscan.</p>
+                                        <p><strong>Resultados:</strong> Crescimento de receitas de $325 milhões para $486 milhões em 2023, com pelo menos 8 aquisições completadas.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Lightstone Moxy Hotel -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-moxy')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Hospitalidade</button>
+                                        <span class="text-gray-500 text-xs">2021-2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Lightstone Moxy Hotel</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Empréstimo sênior de $90M para desenvolvimento do Moxy Hotel na Lower East Side de Manhattan.</p>
+                                    <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded">Aposta contraintuitiva</span>
+                                    <div id="case-moxy" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Investimento em julho de 2021, durante incerteza pandêmica no setor hoteleiro.</p>
+                                        <p><strong>Estratégia:</strong> Empréstimo sênior de $90 milhões como parte de financiamento total de $130 milhões, apostando na recuperação do turismo.</p>
+                                        <p><strong>Resultados:</strong> Hotel concluído com sucesso e operacional, validando a aposta na recuperação do mercado.</p>
+                                    </div>
+                                </div>
+
+                                <!-- One Thousand Museum -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-museum')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Imobiliário</button>
+                                        <span class="text-gray-500 text-xs">2021</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">One Thousand Museum</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Arranha-céu residencial de 62 andares em Miami, último projeto residencial de Zaha Hadid nas Américas.</p>
+                                    <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-2 py-1 rounded">Recuperação estratégica</span>
+                                    <div id="case-museum" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Projeto enfrentou dificuldades financeiras com hipoteca de $82,7 milhões em 2021.</p>
+                                        <p><strong>Estratégia:</strong> Navegação em mercado de luxo em boom, mas com desafios de absorção.</p>
+                                        <p><strong>Resultados:</strong> 90% das unidades vendidas até dezembro de 2021, totalizando $526 milhões, incluindo compradores como David Beckham e Anthony Hsieh.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Four Seasons Resort Maui -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-maui')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Hospitalidade</button>
+                                        <span class="text-gray-500 text-xs">2004-2011</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Four Seasons Resort Maui</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição por $280M em 2004, reestruturação bem-sucedida após crise financeira.</p>
+                                    <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded">Resiliência</span>
+                                    <div id="case-maui" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição em 2004, refinanciamento em 2006 com $425 milhões em empréstimos.</p>
+                                        <p><strong>Desafios:</strong> Ocupação caiu para 60%, diárias médias reduziram 13,2%, dificuldades com serviço de dívida de $23,6 milhões.</p>
+                                        <p><strong>Resultados:</strong> Refinanciamento bem-sucedido em 2011, mantendo controle do ativo durante período turbulento.</p>
+                                    </div>
+                                </div>
+
+                                <!-- Boca Raton Resort & Club -->
+                                <div class="bg-white border border-blue-200 rounded-lg shadow p-4 flex flex-col h-full relative">
+                                    <div class="flex items-center mb-2">
+                                        <button onclick="toggleCase('case-boca')" class="inline-block bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded mr-2 focus:outline-none">Hospitalidade</button>
+                                        <span class="text-gray-500 text-xs">2019-2023</span>
+                                    </div>
+                                    <h4 class="font-bold text-lg mb-1">Boca Raton Resort & Club</h4>
+                                    <p class="text-gray-700 text-sm mb-2">Aquisição por $875M, transformação pós-pandemia com investimento de $278M.</p>
+                                    <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2 py-1 rounded">Reinvenção</span>
+                                    <div id="case-boca" class="hidden mt-3 text-gray-600 text-sm">
+                                        <p><strong>Contexto:</strong> Aquisição em 2019, impacto severo da pandemia com demissão de 995 funcionários.</p>
+                                        <p><strong>Estratégia:</strong> Investimento de $278 milhões em revitalização, transformação estrutural em cinco hotéis distintos.</p>
+                                        <p><strong>Resultados:</strong> Refinanciamento com empréstimo CMBS de $1 bilhão em 2023, proposta de desenvolvimento de condomínio de 60 unidades.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </section>
+
+                    <!-- Nota de Rodapé -->
+                    <div class="mt-8 pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 italic">
+                            Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Galaxy MSD SIF II Fund -->
+                <div id="galaxy-msd-sif" class="fund-section bg-white rounded-lg shadow p-6 mb-8 hidden">
+                    <!-- Visão Geral -->
+                    <div class="flex items-center mb-6">
+                        <div class="bg-blue-600 rounded-full p-3 mr-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h2 class="text-2xl font-bold">Visão Geral</h2>
+                            <p class="text-gray-600">Última atualização: 23 de abril de 2025</p>
+                        </div>
+                    </div>
+
+                    <p class="mb-4">
+                        O <strong><a href="https://www.bdtmsd.com/" target="_blank" class="text-black-600 hover:text-blue-800 underline">Galaxy MSD SIF II Class A</strong></a> é um fundo de investimentos especiais (Special Investments Fund) gerido pela BDT & MSD Partners, com um mandato flexível para buscar oportunidades em diferentes classes de ativos e estruturas de capital. O fundo, com vintage 2021 e $825 milhões, foca em situações especiais, incluindo dívida distressed, capital de resgate e investimentos minoritários em equity com características de crédito.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                        <div class="bg-slate-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                            <p class="text-3xl font-bold text-slate-800">1.5-2%</p>
+                            <p class="text-sm text-slate-600">Ao ano</p>
+                        </div>
+                        <div class="bg-stone-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Carried Interest</h3>
+                            <p class="text-3xl font-bold text-stone-800">20%</p>
+                            <p class="text-sm text-stone-600">Sobre lucros</p>
+                        </div>
+                        <div class="bg-zinc-50 p-4 rounded">
+                            <h3 class="font-bold text-lg mb-2">Hurdle Rate</h3>
+                            <p class="text-3xl font-bold text-zinc-800">7-9%</p>
+                            <p class="text-sm text-zinc-600">Ao ano</p>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Galaxy MSD SIF II Class A</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                        <td class="py-3 px-4">BDT & MSD Partners</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo de Fundo</th>
+                                        <td class="py-3 px-4">Special Investments</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                        <td class="py-3 px-4">Investimentos em situações especiais e oportunidades complexas</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Foco</th>
+                                        <td class="py-3 px-4">Dívida distressed, capital de resgate, equity minoritário</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Vintage</th>
+                                        <td class="py-3 px-4">2021</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Gestora -->
+                                <div class="bg-slate-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">BDT & MSD Partners</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            Formada pela fusão da MSD Partners com a BDT & Company em 2023, a firma combina a experiência em investimentos especiais da MSD com a rede de relacionamentos da BDT. A associação histórica com o capital de Michael Dell proporcionou uma base de capital estável e uma rede de contatos valiosa.
+                                        </p>
+                                        <p class="text-gray-700">
+                                            A gestora é conhecida por sua capacidade de analisar e estruturar transações complexas e idiossincráticas, com expertise em diferentes classes de ativos.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <!-- Gestão do Fundo -->
+                                <div class="bg-stone-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-3">Liderança</h4>
+                                    <div class="space-y-3">
+                                        <p class="text-gray-700">
+                                            <strong>Byron Trott</strong><br>
+                                            - Fundador e CEO<br>
+                                            - Mais de 30 anos de experiência em investimentos
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Gregg Lemkau</strong><br>
+                                            - Co-CEO<br>
+                                            - Expertise em private equity e investimentos especiais
+                                        </p>
+                                        <p class="text-gray-700">
+                                            <strong>Greg Olafson</strong><br>
+                                            - CIO<br>
+                                            - Responsável pela estratégia de investimento
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                                <p class="text-gray-700 text-sm">
+                                    A BDT & MSD Partners segue uma abordagem de investimento focada em identificar e executar oportunidades únicas e frequentemente contrárias ao consenso. A gestora busca situações onde pode aplicar sua expertise para desbloquear valor, combinando análise fundamental profunda com capacidade de estruturar transações complexas.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Considerações sobre o Produto -->
+                    <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                        
+                        <div class="">
+                            O MSD Special Investments Fund II (vintage 2021, $825 milhões) está em fase de investimento ou maturação inicial. A performance de fundos de investimentos especiais pode ser mais volátil que estratégias tradicionais, mas oferece potencial para retornos mais elevados se as teses de investimento se concretizarem.
+                        </div>
+                            
+                        <!-- Mercado e Oportunidade -->
+                        <div class="mt-8 bg-blue-50 p-6 rounded-lg">
+                            <h3 class="font-bold mb-4">Mercado: Riscos e Oportunidades</h3>
+                            <p class="text-gray-700">
+                                O ambiente atual pode criar oportunidades para fundos de investimentos especiais. Períodos de estresse econômico ou transições setoriais podem gerar ativos distressed ou empresas que necessitam de soluções de capital complexas. A capacidade de fornecer capital flexível e customizado pode ser particularmente valiosa neste cenário.
+                                <p class="text-gray-700">A pesquisa para o MSD SIF não retornou dados interessantes, mas a carteira do Fundo provavelmente incluiria uma mistura de investimentos em dívida (stressed/distressed), equity minoritário, e outras estruturas híbridas em empresas de diversos setores. O foco seria em situações onde a MSD pode aplicar sua expertise para desbloquear valor. As perspectivas para este tipo de carteira são dependentes da habilidade da gestora em identificar e executar em oportunidades únicas e muitas vezes contrárias ao consenso.</p>
+                            </p>
+                         
+                        </div>
+
+                    </section>
+
+                    <!-- Nota de Rodapé -->
+                    <div class="mt-8 pt-4 border-t border-gray-200">
+                        <p class="text-sm text-gray-600 italic">
+                            Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar ao Topo
+        </button>
+    </div>
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 23 de abril de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    // Product Navigation
+    document.getElementById('productSelector').addEventListener('change', function() {
+        const value = this.value;
+        if (value === 'inicio') {
+            window.location.href = '../../index.html';
+        } else if (value === 'vuaa') {
+            window.location.href = '../vuaa/vuaa.html';
+        } else if (value === 'harris') {
+            window.location.href = '../harris/harris.html';
+        } else if (value === 'vontobel') {
+            window.location.href = '../vontobel/vontobel.html';
+        } else if (value === 'private-equity') {
+            // já está nesta página, não faz nada
+        } else if (value === 'us-corporates') {
+            window.location.href = '../us-corporates/us-corporates.html';
+        } else if (value === 'hedge-funds') {
+            window.location.href = '../hedge-funds/hedge-funds.html';
+        }
+    });
+
+    function showFund(fundId) {
+        // Hide all fund sections first
+        document.querySelectorAll('.fund-section').forEach(section => {
+            section.classList.add('hidden');
+        });
+        
+        // Show selected fund
+        document.getElementById(fundId).classList.remove('hidden');
+        
+        // Update button styles
+        const buttons = document.querySelectorAll('button[onclick^="showFund"]');
+        buttons.forEach(button => {
+            if (button.getAttribute('onclick').includes(fundId)) {
+                button.classList.remove('bg-gray-200', 'text-gray-700');
+                button.classList.add('bg-blue-900', 'text-white');
+            } else {
+                button.classList.remove('bg-blue-900', 'text-white');
+                button.classList.add('bg-gray-200', 'text-gray-700');
+            }
+        });
+
+        // Reset scroll position and update navigation
+        window.scrollTo(0, 0);
+        updateActiveNav();
+    }
+
+    // Show first fund by default when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        showFund('galaxy-coller');
+        updateActiveNav();
+        window.addEventListener('scroll', updateActiveNav);
+    });
+
+    function toggleCase(id) {
+        var el = document.getElementById(id);
+        el.classList.toggle('hidden');
+    }
+
+    // Corrigir navegação do índice para todos os fundos
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Descobrir qual fundo está visível
+            const visibleFund = Array.from(document.querySelectorAll('.fund-section')).find(f => !f.classList.contains('hidden'));
+            if (!visibleFund) return;
+            
+            // Pega o id da seção desejada
+            const sectionId = this.getAttribute('href').replace('#', '');
+            
+            // Busca a seção dentro do fundo visível
+            const section = visibleFund.querySelector('section#' + sectionId);
+            if (section) {
+                section.scrollIntoView({behavior: 'smooth', block: 'start'});
+            }
+            
+            // Atualiza o destaque do índice
+            setActiveNav(sectionId);
+        });
+    });
+
+    // Função para atualizar o destaque do índice conforme o scroll
+    function updateActiveNav() {
+        const visibleFund = Array.from(document.querySelectorAll('.fund-section')).find(f => !f.classList.contains('hidden'));
+        if (!visibleFund) return;
+
+        const sections = visibleFund.querySelectorAll('section[id]');
+        const scrollY = window.scrollY || window.pageYOffset;
+        let active = 'estrutura';
+
+        sections.forEach(section => {
+            const sectionTop = section.getBoundingClientRect().top + window.scrollY - 120;
+            if (scrollY >= sectionTop - 10) {
+                active = section.id;
+            }
+        });
+
+        setActiveNav(active);
+    }
+
+    function setActiveNav(sectionId) {
+        document.querySelectorAll('.nav-link').forEach(link => {
+            if (link.getAttribute('href') === '#' + sectionId) {
+                link.classList.add('bg-gray-100', 'text-blue-800');
+                link.classList.remove('bg-white', 'text-gray-700');
+            } else {
+                link.classList.remove('bg-gray-100', 'text-blue-800');
+                link.classList.add('bg-white', 'text-gray-700');
+            }
+        });
+    }
+</script>
+</html> 

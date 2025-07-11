@@ -1,0 +1,1694 @@
+[
+  {
+    "timestamp": "2025-06-04T23:07:37.854983",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "q\u0004\u0003"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "command",
+        "action_required": "system_info",
+        "complexity": "simple",
+        "requires_web": false,
+        "requires_documents": false,
+        "can_answer_from_memory": true,
+        "confidence": 0.9,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta parece ser um comando simples, possivelmente relacionado a informações do sistema, mas não contém texto legível ou compreensível. Portanto, a análise é baseada na suposição de que é um comando que não requer informações externas ou documentos.",
+        "skip_maestro": true
+      }
+    },
+    "execution_time": 5.526033,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": false
+    },
+    "process_id": "proc_1749089252.328663",
+    "user_query": "q\u0004\u0003"
+  },
+  {
+    "timestamp": "2025-06-04T23:07:37.855023",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "q\u0004\u0003",
+      "intent": {
+        "intent_type": "command",
+        "action_required": "system_info",
+        "complexity": "simple",
+        "requires_web": false,
+        "requires_documents": false,
+        "can_answer_from_memory": true,
+        "confidence": 0.9,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta parece ser um comando simples, possivelmente relacionado a informações do sistema, mas não contém texto legível ou compreensível. Portanto, a análise é baseada na suposição de que é um comando que não requer informações externas ou documentos.",
+        "skip_maestro": true
+      }
+    },
+    "output_data": {
+      "response": "Comando 'q\u0004\u0003' não reconhecido. Digite 'help' para ver comandos disponíveis."
+    },
+    "execution_time": 1.3e-05,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749089252.328663",
+    "user_query": "q\u0004\u0003"
+  },
+  {
+    "timestamp": "2025-06-04T23:07:58.430752",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "q\u0004\u0003",
+      "response": "Comando 'q\u0004\u0003' não reconhecido. Digite 'help' para ver comandos disponíveis.",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "command",
+          "action_required": "system_info",
+          "complexity": "simple",
+          "requires_web": false,
+          "requires_documents": false,
+          "can_answer_from_memory": true,
+          "confidence": 0.9,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta parece ser um comando simples, possivelmente relacionado a informações do sistema, mas não contém texto legível ou compreensível. Portanto, a análise é baseada na suposição de que é um comando que não requer informações externas ou documentos.",
+          "skip_maestro": true
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "Comando 'q\u0004\u0003' não reconhecido. Digite 'help' para ver comandos disponíveis.",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 20.575707,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749089252.328663",
+    "user_query": "q\u0004\u0003"
+  },
+  {
+    "timestamp": "2025-06-04T23:08:23.870039",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "q\u0004\u0003",
+      "response": "Comando 'q\u0004\u0003' não reconhecido. Digite 'help' para ver comandos disponíveis.",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:07:37.855002"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:07:37.855029"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:07:37.855032"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:07:58.430768"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:07:58.430781"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:08:23.870057"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 0.6,
+        "bottlenecks_found": 1,
+        "suggestions_count": 2,
+        "system_health": "Auditoria com erro - verificar sistema"
+      }
+    },
+    "execution_time": 25.43924,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749089252.328663",
+    "user_query": "q\u0004\u0003"
+  },
+  {
+    "timestamp": "2025-06-04T23:08:23.870227",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "q\u0004\u0003",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "command",
+          "action_required": "system_info",
+          "complexity": "simple",
+          "requires_web": false,
+          "requires_documents": false,
+          "can_answer_from_memory": true,
+          "confidence": 0.9,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta parece ser um comando simples, possivelmente relacionado a informações do sistema, mas não contém texto legível ou compreensível. Portanto, a análise é baseada na suposição de que é um comando que não requer informações externas ou documentos.",
+          "skip_maestro": true
+        }
+      }
+    },
+    "output_data": {
+      "response": "Comando 'q\u0004\u0003' não reconhecido. Digite 'help' para ver comandos disponíveis.",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:07:37.855002"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:07:37.855029"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:07:37.855032"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:07:58.430768"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:07:58.430781"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:08:23.870057"
+        }
+      ]
+    },
+    "execution_time": 3e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749089252.328663",
+    "user_query": "q\u0004\u0003"
+  },
+  {
+    "timestamp": "2025-06-04T23:09:52.805433",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. Não envolve documentos locais e não pode ser respondida apenas da memória, pois depende de dados em tempo real.",
+        "skip_maestro": false
+      }
+    },
+    "execution_time": 3.938062,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": false
+    },
+    "process_id": "proc_1749089388.866488",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:10:07.672194",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. Não envolve documentos locais e não pode ser respondida apenas da memória, pois depende de dados em tempo real.",
+        "skip_maestro": false
+      }
+    },
+    "output_data": {
+      "response": "1. Para obter uma visão atualizada do mercado brasileiro até o início de junho de 2025, aqui estão algumas informações relevantes:\n2. ### Taxa de Câmbio (Dólar x Real)\n3. - Nos últimos dias, a taxa de câmbio tem flutuado dentro de uma faixa estreita. No dia 2 de junho de 2025, a taxa de câmbio comercial para compra foi de aproximadamente R$ 5,6931 por dólar americano[2].\n4. - No final de maio de 2025, as taxas variaram entre R$ 5,6533 e R$ 5,7081[1][4].\n5. ### Expectativas de Câmbio\n6. - De acordo com o relatório Focus, a mediana das expectativas para a cotação do dólar no fim de 2025 caiu de R$ 5,90 para R$ 5,86[5].\n7. ### Ibovespa e Mercado de Ações\n8. - Embora as fontes fornecidas não incluem dados específicos sobre o desempenho do Ibovespa em junho de 2025, é importante verificar fontes financeiras atualizadas para obter os últimos índices e tendências do mercado de ações brasileiro.\n9. ### Setores Econômicos\n10. - **Tecnologia**: Não há informações específicas nas fontes fornecidas sobre o desempenho do setor de tecnologia no mercado brasileiro em junho de 2025. Geralmente, o desempenho desse setor é influenciado por fatores globais e locais, incluindo inovações, demanda por serviços tecnológicos e condições econômicas gerais.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]"
+    },
+    "execution_time": 14.86673,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749089388.866488",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:10:30.593450",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Para obter uma visão atualizada do mercado brasileiro até o início de junho de 2025, aqui estão algumas informações relevantes:\n2. ### Taxa de Câmbio (Dólar x Real)\n3. - Nos últimos dias, a taxa de câmbio tem flutuado dentro de uma faixa estreita. No dia 2 de junho de 2025, a taxa de câmbio comercial para compra foi de aproximadamente R$ 5,6931 por dólar americano[2].\n4. - No final de maio de 2025, as taxas variaram entre R$ 5,6533 e R$ 5,7081[1][4].\n5. ### Expectativas de Câmbio\n6. - De acordo com o relatório Focus, a mediana das expectativas para a cotação do dólar no fim de 2025 caiu de R$ 5,90 para R$ 5,86[5].\n7. ### Ibovespa e Mercado de Ações\n8. - Embora as fontes fornecidas não incluem dados específicos sobre o desempenho do Ibovespa em junho de 2025, é importante verificar fontes financeiras atualizadas para obter os últimos índices e tendências do mercado de ações brasileiro.\n9. ### Setores Econômicos\n10. - **Tecnologia**: Não há informações específicas nas fontes fornecidas sobre o desempenho do setor de tecnologia no mercado brasileiro em junho de 2025. Geralmente, o desempenho desse setor é influenciado por fatores globais e locais, incluindo inovações, demanda por serviços tecnológicos e condições econômicas gerais.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. Não envolve documentos locais e não pode ser respondida apenas da memória, pois depende de dados em tempo real.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "1. Para obter uma visão atualizada do mercado brasileiro até o início de junho de 2025, aqui estão algumas informações relevantes:\n2. ### Taxa de Câmbio (Dólar x Real)\n3. - Nos últimos dias, a taxa de câmbio tem flutuado dentro de uma faixa estreita. No dia 2 de junho de 2025, a taxa de câmbio comercial para compra foi de aproximadamente R$ 5,6931 por dólar americano[2].\n4. - No final de maio de 2025, as taxas variaram entre R$ 5,6533 e R$ 5,7081[1][4].\n5. ### Expectativas de Câmbio\n6. - De acordo com o relatório Focus, a mediana das expectativas para a cotação do dólar no fim de 2025 caiu de R$ 5,90 para R$ 5,86[5].\n7. ### Ibovespa e Mercado de Ações\n8. - Embora as fontes fornecidas não incluem dados específicos sobre o desempenho do Ibovespa em junho de 2025, é importante verificar fontes financeiras atualizadas para obter os últimos índices e tendências do mercado de ações brasileiro.\n9. ### Setores Econômicos\n10. - **Tecnologia**: Não há informações específicas nas fontes fornecidas sobre o desempenho do setor de tecnologia no mercado brasileiro em junho de 2025. Geralmente, o desempenho desse setor é influenciado por fatores globais e locais, incluindo inovações, demanda por serviços tecnológicos e condições econômicas gerais.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 22.921211,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749089388.866488",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:11:01.850039",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Para obter uma visão atualizada do mercado brasileiro até o início de junho de 2025, aqui estão algumas informações relevantes:\n2. ### Taxa de Câmbio (Dólar x Real)\n3. - Nos últimos dias, a taxa de câmbio tem flutuado dentro de uma faixa estreita. No dia 2 de junho de 2025, a taxa de câmbio comercial para compra foi de aproximadamente R$ 5,6931 por dólar americano[2].\n4. - No final de maio de 2025, as taxas variaram entre R$ 5,6533 e R$ 5,7081[1][4].\n5. ### Expectativas de Câmbio\n6. - De acordo com o relatório Focus, a mediana das expectativas para a cotação do dólar no fim de 2025 caiu de R$ 5,90 para R$ 5,86[5].\n7. ### Ibovespa e Mercado de Ações\n8. - Embora as fontes fornecidas não incluem dados específicos sobre o desempenho do Ibovespa em junho de 2025, é importante verificar fontes financeiras atualizadas para obter os últimos índices e tendências do mercado de ações brasileiro.\n9. ### Setores Econômicos\n10. - **Tecnologia**: Não há informações específicas nas fontes fornecidas sobre o desempenho do setor de tecnologia no mercado brasileiro em junho de 2025. Geralmente, o desempenho desse setor é influenciado por fatores globais e locais, incluindo inovações, demanda por serviços tecnológicos e condições econômicas gerais.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:09:52.805449"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:10:07.672205"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:10:07.672208"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:10:30.593472"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:10:30.593488"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:11:01.850138"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 1.0,
+        "bottlenecks_found": 1,
+        "suggestions_count": 2,
+        "system_health": "Auditoria com erro - verificar sistema"
+      }
+    },
+    "execution_time": 31.256449,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749089388.866488",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:11:01.850392",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. Não envolve documentos locais e não pode ser respondida apenas da memória, pois depende de dados em tempo real.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "response": "1. Para obter uma visão atualizada do mercado brasileiro até o início de junho de 2025, aqui estão algumas informações relevantes:\n2. ### Taxa de Câmbio (Dólar x Real)\n3. - Nos últimos dias, a taxa de câmbio tem flutuado dentro de uma faixa estreita. No dia 2 de junho de 2025, a taxa de câmbio comercial para compra foi de aproximadamente R$ 5,6931 por dólar americano[2].\n4. - No final de maio de 2025, as taxas variaram entre R$ 5,6533 e R$ 5,7081[1][4].\n5. ### Expectativas de Câmbio\n6. - De acordo com o relatório Focus, a mediana das expectativas para a cotação do dólar no fim de 2025 caiu de R$ 5,90 para R$ 5,86[5].\n7. ### Ibovespa e Mercado de Ações\n8. - Embora as fontes fornecidas não incluem dados específicos sobre o desempenho do Ibovespa em junho de 2025, é importante verificar fontes financeiras atualizadas para obter os últimos índices e tendências do mercado de ações brasileiro.\n9. ### Setores Econômicos\n10. - **Tecnologia**: Não há informações específicas nas fontes fornecidas sobre o desempenho do setor de tecnologia no mercado brasileiro em junho de 2025. Geralmente, o desempenho desse setor é influenciado por fatores globais e locais, incluindo inovações, demanda por serviços tecnológicos e condições econômicas gerais.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:09:52.805449"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:10:07.672205"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:10:07.672208"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:10:30.593472"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:10:30.593488"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:11:01.850138"
+        }
+      ]
+    },
+    "execution_time": 1.1e-05,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749089388.866488",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:15:12.274350",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta do usuário é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não há necessidade de consultar documentos locais ou informações da memória, pois a resposta depende de dados externos.",
+        "skip_maestro": false
+      }
+    },
+    "execution_time": 7.285983,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": true
+    },
+    "process_id": "proc_1749089704.985057",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:15:26.531781",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta do usuário é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não há necessidade de consultar documentos locais ou informações da memória, pois a resposta depende de dados externos.",
+        "skip_maestro": false
+      }
+    },
+    "output_data": {
+      "response": "1. Até o dia 4 de junho de 2025, o mercado brasileiro, especialmente o Índice Bovespa (Ibovespa), apresentou alguns movimentos significativos. Here are the key points:\n2. ## Fechamento do Ibovespa\n3. No dia 4 de junho de 2025, o Ibovespa fechou com uma retração de 0,4%, alcançando aproximadamente 137.001 pontos. Este movimento foi influenciado por vários fatores[2][3][4].\n4. ## Fatores de Influência\n5. - **Petrobras e Preços do Petróleo**: A queda de mais de 1% nos preços do barril do petróleo Brent afetou negativamente as ações das petrolíferas, incluindo a Petrobras, o que contribuiu para a retração do Ibovespa[3].\n6. - **Saída de Capital Estrangeiro**: Houve um movimento generalizado de queda na carteira teórica do Ibovespa, sugerindo uma provável saída de capital estrangeiro do mercado de ações domésticas[3].\n7. - **Desempenho das Ações**: Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n8. - **Início de Junho**: Nos primeiros pregões de junho, a carteira do Ibovespa está empatada, sem ganhos ou perdas significativas. No entanto, a valorização acumulada pelo índice desde o início do ano ainda é de 13,9%[3].\n9. - **Expectativas e Medidas Fiscais**: As expectativas dos investidores estão sendo influenciadas pelas sinalizações de novas medidas fiscais do Governo Federal, embora as expectativas tenham sido parcialmente frustradas com a falta de anúncios concretos por parte do Ministério da Fazenda[5].\n10. Em resumo, o mercado brasileiro, representado pelo Ibovespa, enfrentou uma retração modesta no dia 4 de junho, influenciada por fatores como a queda nos preços do petróleo e a saída de capital estrangeiro, enquanto as expectativas em torno de medidas fiscais governamentais continuam a influenciar o comportamento dos investidores.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]"
+    },
+    "execution_time": 14.257403,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749089704.985057",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:15:50.946250",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Até o dia 4 de junho de 2025, o mercado brasileiro, especialmente o Índice Bovespa (Ibovespa), apresentou alguns movimentos significativos. Here are the key points:\n2. ## Fechamento do Ibovespa\n3. No dia 4 de junho de 2025, o Ibovespa fechou com uma retração de 0,4%, alcançando aproximadamente 137.001 pontos. Este movimento foi influenciado por vários fatores[2][3][4].\n4. ## Fatores de Influência\n5. - **Petrobras e Preços do Petróleo**: A queda de mais de 1% nos preços do barril do petróleo Brent afetou negativamente as ações das petrolíferas, incluindo a Petrobras, o que contribuiu para a retração do Ibovespa[3].\n6. - **Saída de Capital Estrangeiro**: Houve um movimento generalizado de queda na carteira teórica do Ibovespa, sugerindo uma provável saída de capital estrangeiro do mercado de ações domésticas[3].\n7. - **Desempenho das Ações**: Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n8. - **Início de Junho**: Nos primeiros pregões de junho, a carteira do Ibovespa está empatada, sem ganhos ou perdas significativas. No entanto, a valorização acumulada pelo índice desde o início do ano ainda é de 13,9%[3].\n9. - **Expectativas e Medidas Fiscais**: As expectativas dos investidores estão sendo influenciadas pelas sinalizações de novas medidas fiscais do Governo Federal, embora as expectativas tenham sido parcialmente frustradas com a falta de anúncios concretos por parte do Ministério da Fazenda[5].\n10. Em resumo, o mercado brasileiro, representado pelo Ibovespa, enfrentou uma retração modesta no dia 4 de junho, influenciada por fatores como a queda nos preços do petróleo e a saída de capital estrangeiro, enquanto as expectativas em torno de medidas fiscais governamentais continuam a influenciar o comportamento dos investidores.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta do usuário é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não há necessidade de consultar documentos locais ou informações da memória, pois a resposta depende de dados externos.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "1. Até o dia 4 de junho de 2025, o mercado brasileiro, especialmente o Índice Bovespa (Ibovespa), apresentou alguns movimentos significativos. Here are the key points:\n2. ## Fechamento do Ibovespa\n3. No dia 4 de junho de 2025, o Ibovespa fechou com uma retração de 0,4%, alcançando aproximadamente 137.001 pontos. Este movimento foi influenciado por vários fatores[2][3][4].\n4. ## Fatores de Influência\n5. - **Petrobras e Preços do Petróleo**: A queda de mais de 1% nos preços do barril do petróleo Brent afetou negativamente as ações das petrolíferas, incluindo a Petrobras, o que contribuiu para a retração do Ibovespa[3].\n6. - **Saída de Capital Estrangeiro**: Houve um movimento generalizado de queda na carteira teórica do Ibovespa, sugerindo uma provável saída de capital estrangeiro do mercado de ações domésticas[3].\n7. - **Desempenho das Ações**: Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n8. - **Início de Junho**: Nos primeiros pregões de junho, a carteira do Ibovespa está empatada, sem ganhos ou perdas significativas. No entanto, a valorização acumulada pelo índice desde o início do ano ainda é de 13,9%[3].\n9. - **Expectativas e Medidas Fiscais**: As expectativas dos investidores estão sendo influenciadas pelas sinalizações de novas medidas fiscais do Governo Federal, embora as expectativas tenham sido parcialmente frustradas com a falta de anúncios concretos por parte do Ministério da Fazenda[5].\n10. Em resumo, o mercado brasileiro, representado pelo Ibovespa, enfrentou uma retração modesta no dia 4 de junho, influenciada por fatores como a queda nos preços do petróleo e a saída de capital estrangeiro, enquanto as expectativas em torno de medidas fiscais governamentais continuam a influenciar o comportamento dos investidores.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 24.41443,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749089704.985057",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:16:21.583572",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Até o dia 4 de junho de 2025, o mercado brasileiro, especialmente o Índice Bovespa (Ibovespa), apresentou alguns movimentos significativos. Here are the key points:\n2. ## Fechamento do Ibovespa\n3. No dia 4 de junho de 2025, o Ibovespa fechou com uma retração de 0,4%, alcançando aproximadamente 137.001 pontos. Este movimento foi influenciado por vários fatores[2][3][4].\n4. ## Fatores de Influência\n5. - **Petrobras e Preços do Petróleo**: A queda de mais de 1% nos preços do barril do petróleo Brent afetou negativamente as ações das petrolíferas, incluindo a Petrobras, o que contribuiu para a retração do Ibovespa[3].\n6. - **Saída de Capital Estrangeiro**: Houve um movimento generalizado de queda na carteira teórica do Ibovespa, sugerindo uma provável saída de capital estrangeiro do mercado de ações domésticas[3].\n7. - **Desempenho das Ações**: Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n8. - **Início de Junho**: Nos primeiros pregões de junho, a carteira do Ibovespa está empatada, sem ganhos ou perdas significativas. No entanto, a valorização acumulada pelo índice desde o início do ano ainda é de 13,9%[3].\n9. - **Expectativas e Medidas Fiscais**: As expectativas dos investidores estão sendo influenciadas pelas sinalizações de novas medidas fiscais do Governo Federal, embora as expectativas tenham sido parcialmente frustradas com a falta de anúncios concretos por parte do Ministério da Fazenda[5].\n10. Em resumo, o mercado brasileiro, representado pelo Ibovespa, enfrentou uma retração modesta no dia 4 de junho, influenciada por fatores como a queda nos preços do petróleo e a saída de capital estrangeiro, enquanto as expectativas em torno de medidas fiscais governamentais continuam a influenciar o comportamento dos investidores.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:15:12.274363"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:15:26.531796"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:15:26.531799"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:15:50.946271"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:15:50.946283"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:16:21.583584"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 1.0,
+        "bottlenecks_found": 1,
+        "suggestions_count": 2,
+        "system_health": "Auditoria com erro - verificar sistema"
+      }
+    },
+    "execution_time": 30.637276,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749089704.985057",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:16:21.583888",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta do usuário é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não há necessidade de consultar documentos locais ou informações da memória, pois a resposta depende de dados externos.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "response": "1. Até o dia 4 de junho de 2025, o mercado brasileiro, especialmente o Índice Bovespa (Ibovespa), apresentou alguns movimentos significativos. Here are the key points:\n2. ## Fechamento do Ibovespa\n3. No dia 4 de junho de 2025, o Ibovespa fechou com uma retração de 0,4%, alcançando aproximadamente 137.001 pontos. Este movimento foi influenciado por vários fatores[2][3][4].\n4. ## Fatores de Influência\n5. - **Petrobras e Preços do Petróleo**: A queda de mais de 1% nos preços do barril do petróleo Brent afetou negativamente as ações das petrolíferas, incluindo a Petrobras, o que contribuiu para a retração do Ibovespa[3].\n6. - **Saída de Capital Estrangeiro**: Houve um movimento generalizado de queda na carteira teórica do Ibovespa, sugerindo uma provável saída de capital estrangeiro do mercado de ações domésticas[3].\n7. - **Desempenho das Ações**: Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n8. - **Início de Junho**: Nos primeiros pregões de junho, a carteira do Ibovespa está empatada, sem ganhos ou perdas significativas. No entanto, a valorização acumulada pelo índice desde o início do ano ainda é de 13,9%[3].\n9. - **Expectativas e Medidas Fiscais**: As expectativas dos investidores estão sendo influenciadas pelas sinalizações de novas medidas fiscais do Governo Federal, embora as expectativas tenham sido parcialmente frustradas com a falta de anúncios concretos por parte do Ministério da Fazenda[5].\n10. Em resumo, o mercado brasileiro, representado pelo Ibovespa, enfrentou uma retração modesta no dia 4 de junho, influenciada por fatores como a queda nos preços do petróleo e a saída de capital estrangeiro, enquanto as expectativas em torno de medidas fiscais governamentais continuam a influenciar o comportamento dos investidores.\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:15:12.274363"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:15:26.531796"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:15:26.531799"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:15:50.946271"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:15:50.946283"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:16:21.583584"
+        }
+      ]
+    },
+    "execution_time": 3e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749089704.985057",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:22:52.621048",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [
+          "mercado"
+        ],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+        "skip_maestro": false
+      }
+    },
+    "execution_time": 4.267337,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": true
+    },
+    "process_id": "proc_1749090168.353412",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:23:21.553819",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [
+          "mercado"
+        ],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+        "skip_maestro": false
+      }
+    },
+    "output_data": {
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and other relevant economic and political factors as of June 5, 2025:\n2. - No dia 4 de junho de 2025, o Ibovespa fechou em queda de 0.4%, encerrando perto dos 137 mil pontos. Este movimento deixou a carteira no zero a zero nos primeiros pregões de junho[5].\n3. - Desde o início do ano, o índice acumula uma valorização de 13.9%, apesar da volatilidade recente[5].\n4. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram na sessão de 4 de junho[5].\n5. ## Influências do Mercado\n6. - A queda do Ibovespa foi influenciada pela provável saída de capital estrangeiro do mercado de ações domésticas, refletindo a desconfiança dos investidores estrangeiros[5].\n7. - As ações das petrolíferas, como a Petrobras, foram afetadas pela queda de mais de 1% nos preços do petróleo Brent, o que impactou negativamente o índice[5].\n8. - O dólar americano tem flutuado em resposta a tensões comerciais e declarações políticas. No dia 4 de junho, o dólar caiu para cerca de R$ 5.67 devido a essas tensões[2].\n9. - Em outras sessões recentes, o dólar variou entre R$ 5.64 e R$ 5.72, refletindo a volatilidade do mercado cambial[2].\n10. ## Fatores Econômicos e Políticos\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]"
+    },
+    "execution_time": 28.93273,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749090168.353412",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:23:44.941518",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and other relevant economic and political factors as of June 5, 2025:\n2. - No dia 4 de junho de 2025, o Ibovespa fechou em queda de 0.4%, encerrando perto dos 137 mil pontos. Este movimento deixou a carteira no zero a zero nos primeiros pregões de junho[5].\n3. - Desde o início do ano, o índice acumula uma valorização de 13.9%, apesar da volatilidade recente[5].\n4. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram na sessão de 4 de junho[5].\n5. ## Influências do Mercado\n6. - A queda do Ibovespa foi influenciada pela provável saída de capital estrangeiro do mercado de ações domésticas, refletindo a desconfiança dos investidores estrangeiros[5].\n7. - As ações das petrolíferas, como a Petrobras, foram afetadas pela queda de mais de 1% nos preços do petróleo Brent, o que impactou negativamente o índice[5].\n8. - O dólar americano tem flutuado em resposta a tensões comerciais e declarações políticas. No dia 4 de junho, o dólar caiu para cerca de R$ 5.67 devido a essas tensões[2].\n9. - Em outras sessões recentes, o dólar variou entre R$ 5.64 e R$ 5.72, refletindo a volatilidade do mercado cambial[2].\n10. ## Fatores Econômicos e Políticos\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [
+            "mercado"
+          ],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and other relevant economic and political factors as of June 5, 2025:\n2. - No dia 4 de junho de 2025, o Ibovespa fechou em queda de 0.4%, encerrando perto dos 137 mil pontos. Este movimento deixou a carteira no zero a zero nos primeiros pregões de junho[5].\n3. - Desde o início do ano, o índice acumula uma valorização de 13.9%, apesar da volatilidade recente[5].\n4. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram na sessão de 4 de junho[5].\n5. ## Influências do Mercado\n6. - A queda do Ibovespa foi influenciada pela provável saída de capital estrangeiro do mercado de ações domésticas, refletindo a desconfiança dos investidores estrangeiros[5].\n7. - As ações das petrolíferas, como a Petrobras, foram afetadas pela queda de mais de 1% nos preços do petróleo Brent, o que impactou negativamente o índice[5].\n8. - O dólar americano tem flutuado em resposta a tensões comerciais e declarações políticas. No dia 4 de junho, o dólar caiu para cerca de R$ 5.67 devido a essas tensões[2].\n9. - Em outras sessões recentes, o dólar variou entre R$ 5.64 e R$ 5.72, refletindo a volatilidade do mercado cambial[2].\n10. ## Fatores Econômicos e Políticos\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 23.387655,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749090168.353412",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:24:15.555669",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and other relevant economic and political factors as of June 5, 2025:\n2. - No dia 4 de junho de 2025, o Ibovespa fechou em queda de 0.4%, encerrando perto dos 137 mil pontos. Este movimento deixou a carteira no zero a zero nos primeiros pregões de junho[5].\n3. - Desde o início do ano, o índice acumula uma valorização de 13.9%, apesar da volatilidade recente[5].\n4. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram na sessão de 4 de junho[5].\n5. ## Influências do Mercado\n6. - A queda do Ibovespa foi influenciada pela provável saída de capital estrangeiro do mercado de ações domésticas, refletindo a desconfiança dos investidores estrangeiros[5].\n7. - As ações das petrolíferas, como a Petrobras, foram afetadas pela queda de mais de 1% nos preços do petróleo Brent, o que impactou negativamente o índice[5].\n8. - O dólar americano tem flutuado em resposta a tensões comerciais e declarações políticas. No dia 4 de junho, o dólar caiu para cerca de R$ 5.67 devido a essas tensões[2].\n9. - Em outras sessões recentes, o dólar variou entre R$ 5.64 e R$ 5.72, refletindo a volatilidade do mercado cambial[2].\n10. ## Fatores Econômicos e Políticos\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:22:52.621066"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:23:21.553847"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:23:21.553850"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:23:44.941535"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:23:44.941548"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:24:15.555684"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 0,
+        "bottlenecks_found": 1,
+        "suggestions_count": 2,
+        "system_health": "Auditoria com erro - verificar sistema"
+      }
+    },
+    "execution_time": 30.614099,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749090168.353412",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:24:15.555855",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [
+            "mercado"
+          ],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and other relevant economic and political factors as of June 5, 2025:\n2. - No dia 4 de junho de 2025, o Ibovespa fechou em queda de 0.4%, encerrando perto dos 137 mil pontos. Este movimento deixou a carteira no zero a zero nos primeiros pregões de junho[5].\n3. - Desde o início do ano, o índice acumula uma valorização de 13.9%, apesar da volatilidade recente[5].\n4. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram na sessão de 4 de junho[5].\n5. ## Influências do Mercado\n6. - A queda do Ibovespa foi influenciada pela provável saída de capital estrangeiro do mercado de ações domésticas, refletindo a desconfiança dos investidores estrangeiros[5].\n7. - As ações das petrolíferas, como a Petrobras, foram afetadas pela queda de mais de 1% nos preços do petróleo Brent, o que impactou negativamente o índice[5].\n8. - O dólar americano tem flutuado em resposta a tensões comerciais e declarações políticas. No dia 4 de junho, o dólar caiu para cerca de R$ 5.67 devido a essas tensões[2].\n9. - Em outras sessões recentes, o dólar variou entre R$ 5.64 e R$ 5.72, refletindo a volatilidade do mercado cambial[2].\n10. ## Fatores Econômicos e Políticos\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:22:52.621066"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:23:21.553847"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:23:21.553850"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:23:44.941535"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:23:44.941548"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:24:15.555684"
+        }
+      ]
+    },
+    "execution_time": 4e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749090168.353412",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:34:50.700250",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [
+          "mercado"
+        ],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não é necessário consultar documentos locais, e a resposta não pode ser dada apenas da memória, pois depende de dados atuais.",
+        "skip_maestro": false
+      }
+    },
+    "execution_time": 4.389877,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": true
+    },
+    "process_id": "proc_1749090886.309966",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:35:18.961185",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [
+          "mercado"
+        ],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não é necessário consultar documentos locais, e a resposta não pode ser dada apenas da memória, pois depende de dados atuais.",
+        "skip_maestro": false
+      }
+    },
+    "output_data": {
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and the dollar exchange rate as of June 4, 2025:\n2. - O Ibovespa fechou com uma retração de 0.4% na sessão de 4 de junho de 2025, encerrando o dia perto dos 137,000 pontos[2][3][5].\n3. - Das 85 ações que compõem o índice, 48 desvalorizaram naquela sessão[3].\n4. - A valorização acumulada pelo índice desde o início do ano está em 13.9%[3].\n5. ## Petrobras e Setor de Petróleo\n6. - As ações da Petrobras e outras petrolíferas foram afetadas pela queda de mais de 1% nos preços do barril do petróleo Brent, contribuindo para a retração do Ibovespa[3].\n7. - O dólar americano fechou em uma cotação mais baixa, chegando a R$ 5.63, com uma queda de 1.45% em junho e de 8.77% no ano até o momento[4][5].\n8. - A moeda americana perdeu força globalmente devido a expectativas de corte na taxa de juros dos EUA após uma inflação abaixo do esperado[5].\n9. - O mercado brasileiro enfrentou pressão devido à provável saída de capital estrangeiro, influenciado pelo cenário de commodities e a dependência das ações ligadas à exploração e exportação de matérias-primas[3].\n10. - Apesar da retração no dia 4 de junho, o mercado ainda está em uma posição relativamente estável no início de junho, com a carteira do Ibovespa no zero a zero nos primeiros pregões do mês[3].\n\n[Fontes: Informações baseadas em pesquisa web atual]"
+    },
+    "execution_time": 28.26091,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749090886.309966",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:35:39.412453",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and the dollar exchange rate as of June 4, 2025:\n2. - O Ibovespa fechou com uma retração de 0.4% na sessão de 4 de junho de 2025, encerrando o dia perto dos 137,000 pontos[2][3][5].\n3. - Das 85 ações que compõem o índice, 48 desvalorizaram naquela sessão[3].\n4. - A valorização acumulada pelo índice desde o início do ano está em 13.9%[3].\n5. ## Petrobras e Setor de Petróleo\n6. - As ações da Petrobras e outras petrolíferas foram afetadas pela queda de mais de 1% nos preços do barril do petróleo Brent, contribuindo para a retração do Ibovespa[3].\n7. - O dólar americano fechou em uma cotação mais baixa, chegando a R$ 5.63, com uma queda de 1.45% em junho e de 8.77% no ano até o momento[4][5].\n8. - A moeda americana perdeu força globalmente devido a expectativas de corte na taxa de juros dos EUA após uma inflação abaixo do esperado[5].\n9. - O mercado brasileiro enfrentou pressão devido à provável saída de capital estrangeiro, influenciado pelo cenário de commodities e a dependência das ações ligadas à exploração e exportação de matérias-primas[3].\n10. - Apesar da retração no dia 4 de junho, o mercado ainda está em uma posição relativamente estável no início de junho, com a carteira do Ibovespa no zero a zero nos primeiros pregões do mês[3].\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [
+            "mercado"
+          ],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não é necessário consultar documentos locais, e a resposta não pode ser dada apenas da memória, pois depende de dados atuais.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and the dollar exchange rate as of June 4, 2025:\n2. - O Ibovespa fechou com uma retração de 0.4% na sessão de 4 de junho de 2025, encerrando o dia perto dos 137,000 pontos[2][3][5].\n3. - Das 85 ações que compõem o índice, 48 desvalorizaram naquela sessão[3].\n4. - A valorização acumulada pelo índice desde o início do ano está em 13.9%[3].\n5. ## Petrobras e Setor de Petróleo\n6. - As ações da Petrobras e outras petrolíferas foram afetadas pela queda de mais de 1% nos preços do barril do petróleo Brent, contribuindo para a retração do Ibovespa[3].\n7. - O dólar americano fechou em uma cotação mais baixa, chegando a R$ 5.63, com uma queda de 1.45% em junho e de 8.77% no ano até o momento[4][5].\n8. - A moeda americana perdeu força globalmente devido a expectativas de corte na taxa de juros dos EUA após uma inflação abaixo do esperado[5].\n9. - O mercado brasileiro enfrentou pressão devido à provável saída de capital estrangeiro, influenciado pelo cenário de commodities e a dependência das ações ligadas à exploração e exportação de matérias-primas[3].\n10. - Apesar da retração no dia 4 de junho, o mercado ainda está em uma posição relativamente estável no início de junho, com a carteira do Ibovespa no zero a zero nos primeiros pregões do mês[3].\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 20.451239,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749090886.309966",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:37:39.942777",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and the dollar exchange rate as of June 4, 2025:\n2. - O Ibovespa fechou com uma retração de 0.4% na sessão de 4 de junho de 2025, encerrando o dia perto dos 137,000 pontos[2][3][5].\n3. - Das 85 ações que compõem o índice, 48 desvalorizaram naquela sessão[3].\n4. - A valorização acumulada pelo índice desde o início do ano está em 13.9%[3].\n5. ## Petrobras e Setor de Petróleo\n6. - As ações da Petrobras e outras petrolíferas foram afetadas pela queda de mais de 1% nos preços do barril do petróleo Brent, contribuindo para a retração do Ibovespa[3].\n7. - O dólar americano fechou em uma cotação mais baixa, chegando a R$ 5.63, com uma queda de 1.45% em junho e de 8.77% no ano até o momento[4][5].\n8. - A moeda americana perdeu força globalmente devido a expectativas de corte na taxa de juros dos EUA após uma inflação abaixo do esperado[5].\n9. - O mercado brasileiro enfrentou pressão devido à provável saída de capital estrangeiro, influenciado pelo cenário de commodities e a dependência das ações ligadas à exploração e exportação de matérias-primas[3].\n10. - Apesar da retração no dia 4 de junho, o mercado ainda está em uma posição relativamente estável no início de junho, com a carteira do Ibovespa no zero a zero nos primeiros pregões do mês[3].\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:34:50.700261"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:35:18.961196"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:35:18.961199"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:35:39.412468"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:35:39.412480"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:37:39.942804"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 0.77,
+        "bottlenecks_found": 0,
+        "suggestions_count": 0,
+        "system_health": 0.8
+      }
+    },
+    "execution_time": 120.530277,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749090886.309966",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:37:39.942991",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [
+            "mercado"
+          ],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, possivelmente da web. A complexidade é considerada simples, pois é uma pergunta direta. Não é necessário consultar documentos locais, e a resposta não pode ser dada apenas da memória, pois depende de dados atuais.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "response": "1. Here is a summary of the current state of the Brazilian market, particularly focusing on the Ibovespa, the Brazilian real, and the dollar exchange rate as of June 4, 2025:\n2. - O Ibovespa fechou com uma retração de 0.4% na sessão de 4 de junho de 2025, encerrando o dia perto dos 137,000 pontos[2][3][5].\n3. - Das 85 ações que compõem o índice, 48 desvalorizaram naquela sessão[3].\n4. - A valorização acumulada pelo índice desde o início do ano está em 13.9%[3].\n5. ## Petrobras e Setor de Petróleo\n6. - As ações da Petrobras e outras petrolíferas foram afetadas pela queda de mais de 1% nos preços do barril do petróleo Brent, contribuindo para a retração do Ibovespa[3].\n7. - O dólar americano fechou em uma cotação mais baixa, chegando a R$ 5.63, com uma queda de 1.45% em junho e de 8.77% no ano até o momento[4][5].\n8. - A moeda americana perdeu força globalmente devido a expectativas de corte na taxa de juros dos EUA após uma inflação abaixo do esperado[5].\n9. - O mercado brasileiro enfrentou pressão devido à provável saída de capital estrangeiro, influenciado pelo cenário de commodities e a dependência das ações ligadas à exploração e exportação de matérias-primas[3].\n10. - Apesar da retração no dia 4 de junho, o mercado ainda está em uma posição relativamente estável no início de junho, com a carteira do Ibovespa no zero a zero nos primeiros pregões do mês[3].\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:34:50.700261"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:35:18.961196"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:35:18.961199"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:35:39.412468"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:35:39.412480"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:37:39.942804"
+        }
+      ]
+    },
+    "execution_time": 3e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749090886.309966",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:46:10.837840",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [
+          "mercado"
+        ],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+        "skip_maestro": false
+      }
+    },
+    "execution_time": 4.056632,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": true
+    },
+    "process_id": "proc_1749091566.780763",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:46:42.584808",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "simple",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "direct",
+        "key_entities": [
+          "mercado"
+        ],
+        "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+        "skip_maestro": false
+      }
+    },
+    "output_data": {
+      "response": "1. Here is an update on the current state of the Brazilian market, specifically focusing on the Ibovespa and related factors as of June 4, 2025:\n2. ## Ibovespa Performance\n3. - O Ibovespa fechou em queda na quarta-feira, 4 de junho de 2025, com uma retração de 0,4% e fechou perto dos 137.001 pontos[2][3][4].\n4. ## Volume de Negociação\n5. - O volume de negociação naquela quarta-feira foi de R$ 16,8 bilhões, levemente abaixo da média móvel[2].\n6. ## Fatores de Influência\n7. - A queda do Ibovespa foi influenciada pela desvalorização das ações da Petrobras, que acompanharam a queda de mais de 1% nos preços do barril do petróleo Brent. Isso afetou negativamente o apetite dos investidores estrangeiros pelo mercado de ações brasileiro[3].\n8. ## Composição do Índice\n9. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n10. ## Desempenho Acumulado\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]"
+    },
+    "execution_time": 31.746901,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749091566.780763",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:47:09.515287",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Here is an update on the current state of the Brazilian market, specifically focusing on the Ibovespa and related factors as of June 4, 2025:\n2. ## Ibovespa Performance\n3. - O Ibovespa fechou em queda na quarta-feira, 4 de junho de 2025, com uma retração de 0,4% e fechou perto dos 137.001 pontos[2][3][4].\n4. ## Volume de Negociação\n5. - O volume de negociação naquela quarta-feira foi de R$ 16,8 bilhões, levemente abaixo da média móvel[2].\n6. ## Fatores de Influência\n7. - A queda do Ibovespa foi influenciada pela desvalorização das ações da Petrobras, que acompanharam a queda de mais de 1% nos preços do barril do petróleo Brent. Isso afetou negativamente o apetite dos investidores estrangeiros pelo mercado de ações brasileiro[3].\n8. ## Composição do Índice\n9. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n10. ## Desempenho Acumulado\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [
+            "mercado"
+          ],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "1. Here is an update on the current state of the Brazilian market, specifically focusing on the Ibovespa and related factors as of June 4, 2025:\n2. ## Ibovespa Performance\n3. - O Ibovespa fechou em queda na quarta-feira, 4 de junho de 2025, com uma retração de 0,4% e fechou perto dos 137.001 pontos[2][3][4].\n4. ## Volume de Negociação\n5. - O volume de negociação naquela quarta-feira foi de R$ 16,8 bilhões, levemente abaixo da média móvel[2].\n6. ## Fatores de Influência\n7. - A queda do Ibovespa foi influenciada pela desvalorização das ações da Petrobras, que acompanharam a queda de mais de 1% nos preços do barril do petróleo Brent. Isso afetou negativamente o apetite dos investidores estrangeiros pelo mercado de ações brasileiro[3].\n8. ## Composição do Índice\n9. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n10. ## Desempenho Acumulado\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 26.930386,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749091566.780763",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:49:10.909979",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "response": "1. Here is an update on the current state of the Brazilian market, specifically focusing on the Ibovespa and related factors as of June 4, 2025:\n2. ## Ibovespa Performance\n3. - O Ibovespa fechou em queda na quarta-feira, 4 de junho de 2025, com uma retração de 0,4% e fechou perto dos 137.001 pontos[2][3][4].\n4. ## Volume de Negociação\n5. - O volume de negociação naquela quarta-feira foi de R$ 16,8 bilhões, levemente abaixo da média móvel[2].\n6. ## Fatores de Influência\n7. - A queda do Ibovespa foi influenciada pela desvalorização das ações da Petrobras, que acompanharam a queda de mais de 1% nos preços do barril do petróleo Brent. Isso afetou negativamente o apetite dos investidores estrangeiros pelo mercado de ações brasileiro[3].\n8. ## Composição do Índice\n9. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n10. ## Desempenho Acumulado\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:46:10.837867"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:46:42.584851"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:46:42.584863"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:47:09.515325"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:47:09.515349"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:49:10.909996"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 0.77,
+        "bottlenecks_found": 0,
+        "suggestions_count": 0,
+        "system_health": 0.8
+      }
+    },
+    "execution_time": 121.394612,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749091566.780763",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:49:10.910098",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "como está o mercado hoje?",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "simple",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "direct",
+          "key_entities": [
+            "mercado"
+          ],
+          "reasoning": "A consulta é uma pergunta sobre o estado atual do mercado, o que requer pesquisa de informações atualizadas, geralmente disponíveis na web. A complexidade é considerada simples, pois é uma pergunta direta. Não requer documentos locais e não pode ser respondida apenas da memória.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "response": "1. Here is an update on the current state of the Brazilian market, specifically focusing on the Ibovespa and related factors as of June 4, 2025:\n2. ## Ibovespa Performance\n3. - O Ibovespa fechou em queda na quarta-feira, 4 de junho de 2025, com uma retração de 0,4% e fechou perto dos 137.001 pontos[2][3][4].\n4. ## Volume de Negociação\n5. - O volume de negociação naquela quarta-feira foi de R$ 16,8 bilhões, levemente abaixo da média móvel[2].\n6. ## Fatores de Influência\n7. - A queda do Ibovespa foi influenciada pela desvalorização das ações da Petrobras, que acompanharam a queda de mais de 1% nos preços do barril do petróleo Brent. Isso afetou negativamente o apetite dos investidores estrangeiros pelo mercado de ações brasileiro[3].\n8. ## Composição do Índice\n9. - Das 85 ações que compõem o Ibovespa, 48 desvalorizaram naquela sessão[3].\n10. ## Desempenho Acumulado\n\n[AVISO: Para uma análise mais completa, consulte também mercados internacionais como S&P 500, Nasdaq e Dow Jones]\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:46:10.837867"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:46:42.584851"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:46:42.584863"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:47:09.515325"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:47:09.515349"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:49:10.909996"
+        }
+      ]
+    },
+    "execution_time": 3e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749091566.780763",
+    "user_query": "como está o mercado hoje?"
+  },
+  {
+    "timestamp": "2025-06-04T23:51:11.417795",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "moderate",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "delegated",
+        "key_entities": [
+          "Bacen",
+          "Selic"
+        ],
+        "reasoning": "A consulta envolve uma pergunta sobre a posição do Banco Central do Brasil em relação à taxa Selic, o que requer pesquisa atualizada sobre política monetária e dados financeiros. A complexidade é moderada, pois envolve conhecimento específico e atualizações frequentes.",
+        "skip_maestro": false
+      }
+    },
+    "execution_time": 3.101631,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": true
+    },
+    "process_id": "proc_1749091868.315642",
+    "user_query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?"
+  },
+  {
+    "timestamp": "2025-06-04T23:51:34.621704",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?",
+      "intent": {
+        "intent_type": "question",
+        "action_required": "research",
+        "complexity": "moderate",
+        "requires_web": true,
+        "requires_documents": false,
+        "can_answer_from_memory": false,
+        "confidence": 0.85,
+        "suggested_response_type": "delegated",
+        "key_entities": [
+          "Bacen",
+          "Selic"
+        ],
+        "reasoning": "A consulta envolve uma pergunta sobre a posição do Banco Central do Brasil em relação à taxa Selic, o que requer pesquisa atualizada sobre política monetária e dados financeiros. A complexidade é moderada, pois envolve conhecimento específico e atualizações frequentes.",
+        "skip_maestro": false
+      }
+    },
+    "output_data": {
+      "response": "1. A posição do Banco Central do Brasil (Bacen) em relação à taxa Selic para os próximos 12 meses, baseada nas informações atuais, é a seguinte:\n2. A taxa Selic foi aumentada para 14,75% ao ano na reunião do Comitê de Política Monetária (Copom) em 7 de maio de 2025. Esta é a maior taxa em quase 20 anos[1][3][5].\n3. ## Projeções para o Fim de 2025\n4. As projeções de mercado e do relatório Focus indicam que a taxa Selic provavelmente permanecerá em 14,75% ao ano até o fim de 2025. Essa mediana tem se mantido encontra-sevel por várias semanas consecutivas[3][5].\n5. ## Impacto na Economia e Mercado\n6. A alta taxa Selic tem um impacto significativo na economia brasileira, afetando as taxas de juros de empréstimos e financiamentos, bem como o rendimento de investimentos. O Copom mencionou que a taxa básica de juros encontra-se em um nível \"significativamente contracionista\" e já encontra-se contribuindo para controlar a inflação, que ainda segue em alta[1][5].\n7. ## Perspectivas Futuras\n8. Para o fim de 2026, as estimativas sugerem que a taxa Selic pode cair para cerca de 12,5% ao ano, indicando uma possível redução no ciclo de alta de juros[3][4].\n9. Em resumo, a posição do Bacen é de manter a taxa Selic em um nível elevado (14,75% ao ano) para o restante de 2025, com expectativas de ajustes descendentes nos anos subsequentes, dependendo do controle da inflação e outras variáveis econômicas.\n\n[Fontes: Informações baseadas em pesquisa web atual]"
+    },
+    "execution_time": 23.203869,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749091868.315642",
+    "user_query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?"
+  },
+  {
+    "timestamp": "2025-06-04T23:51:56.321824",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?",
+      "response": "1. A posição do Banco Central do Brasil (Bacen) em relação à taxa Selic para os próximos 12 meses, baseada nas informações atuais, é a seguinte:\n2. A taxa Selic foi aumentada para 14,75% ao ano na reunião do Comitê de Política Monetária (Copom) em 7 de maio de 2025. Esta é a maior taxa em quase 20 anos[1][3][5].\n3. ## Projeções para o Fim de 2025\n4. As projeções de mercado e do relatório Focus indicam que a taxa Selic provavelmente permanecerá em 14,75% ao ano até o fim de 2025. Essa mediana tem se mantido encontra-sevel por várias semanas consecutivas[3][5].\n5. ## Impacto na Economia e Mercado\n6. A alta taxa Selic tem um impacto significativo na economia brasileira, afetando as taxas de juros de empréstimos e financiamentos, bem como o rendimento de investimentos. O Copom mencionou que a taxa básica de juros encontra-se em um nível \"significativamente contracionista\" e já encontra-se contribuindo para controlar a inflação, que ainda segue em alta[1][5].\n7. ## Perspectivas Futuras\n8. Para o fim de 2026, as estimativas sugerem que a taxa Selic pode cair para cerca de 12,5% ao ano, indicando uma possível redução no ciclo de alta de juros[3][4].\n9. Em resumo, a posição do Bacen é de manter a taxa Selic em um nível elevado (14,75% ao ano) para o restante de 2025, com expectativas de ajustes descendentes nos anos subsequentes, dependendo do controle da inflação e outras variáveis econômicas.\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "moderate",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "delegated",
+          "key_entities": [
+            "Bacen",
+            "Selic"
+          ],
+          "reasoning": "A consulta envolve uma pergunta sobre a posição do Banco Central do Brasil em relação à taxa Selic, o que requer pesquisa atualizada sobre política monetária e dados financeiros. A complexidade é moderada, pois envolve conhecimento específico e atualizações frequentes.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "1. A posição do Banco Central do Brasil (Bacen) em relação à taxa Selic para os próximos 12 meses, baseada nas informações atuais, é a seguinte:\n2. A taxa Selic foi aumentada para 14,75% ao ano na reunião do Comitê de Política Monetária (Copom) em 7 de maio de 2025. Esta é a maior taxa em quase 20 anos[1][3][5].\n3. ## Projeções para o Fim de 2025\n4. As projeções de mercado e do relatório Focus indicam que a taxa Selic provavelmente permanecerá em 14,75% ao ano até o fim de 2025. Essa mediana tem se mantido encontra-sevel por várias semanas consecutivas[3][5].\n5. ## Impacto na Economia e Mercado\n6. A alta taxa Selic tem um impacto significativo na economia brasileira, afetando as taxas de juros de empréstimos e financiamentos, bem como o rendimento de investimentos. O Copom mencionou que a taxa básica de juros encontra-se em um nível \"significativamente contracionista\" e já encontra-se contribuindo para controlar a inflação, que ainda segue em alta[1][5].\n7. ## Perspectivas Futuras\n8. Para o fim de 2026, as estimativas sugerem que a taxa Selic pode cair para cerca de 12,5% ao ano, indicando uma possível redução no ciclo de alta de juros[3][4].\n9. Em resumo, a posição do Bacen é de manter a taxa Selic em um nível elevado (14,75% ao ano) para o restante de 2025, com expectativas de ajustes descendentes nos anos subsequentes, dependendo do controle da inflação e outras variáveis econômicas.\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 21.700032,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749091868.315642",
+    "user_query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?"
+  },
+  {
+    "timestamp": "2025-06-04T23:54:04.002646",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?",
+      "response": "1. A posição do Banco Central do Brasil (Bacen) em relação à taxa Selic para os próximos 12 meses, baseada nas informações atuais, é a seguinte:\n2. A taxa Selic foi aumentada para 14,75% ao ano na reunião do Comitê de Política Monetária (Copom) em 7 de maio de 2025. Esta é a maior taxa em quase 20 anos[1][3][5].\n3. ## Projeções para o Fim de 2025\n4. As projeções de mercado e do relatório Focus indicam que a taxa Selic provavelmente permanecerá em 14,75% ao ano até o fim de 2025. Essa mediana tem se mantido encontra-sevel por várias semanas consecutivas[3][5].\n5. ## Impacto na Economia e Mercado\n6. A alta taxa Selic tem um impacto significativo na economia brasileira, afetando as taxas de juros de empréstimos e financiamentos, bem como o rendimento de investimentos. O Copom mencionou que a taxa básica de juros encontra-se em um nível \"significativamente contracionista\" e já encontra-se contribuindo para controlar a inflação, que ainda segue em alta[1][5].\n7. ## Perspectivas Futuras\n8. Para o fim de 2026, as estimativas sugerem que a taxa Selic pode cair para cerca de 12,5% ao ano, indicando uma possível redução no ciclo de alta de juros[3][4].\n9. Em resumo, a posição do Bacen é de manter a taxa Selic em um nível elevado (14,75% ao ano) para o restante de 2025, com expectativas de ajustes descendentes nos anos subsequentes, dependendo do controle da inflação e outras variáveis econômicas.\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:51:11.417817"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:51:34.621728"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:51:34.621730"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:51:56.321885"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:51:56.321939"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:54:04.002663"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 0.77,
+        "bottlenecks_found": 0,
+        "suggestions_count": 0,
+        "system_health": 0.8
+      }
+    },
+    "execution_time": 127.680684,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749091868.315642",
+    "user_query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?"
+  },
+  {
+    "timestamp": "2025-06-04T23:54:04.002760",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "question",
+          "action_required": "research",
+          "complexity": "moderate",
+          "requires_web": true,
+          "requires_documents": false,
+          "can_answer_from_memory": false,
+          "confidence": 0.85,
+          "suggested_response_type": "delegated",
+          "key_entities": [
+            "Bacen",
+            "Selic"
+          ],
+          "reasoning": "A consulta envolve uma pergunta sobre a posição do Banco Central do Brasil em relação à taxa Selic, o que requer pesquisa atualizada sobre política monetária e dados financeiros. A complexidade é moderada, pois envolve conhecimento específico e atualizações frequentes.",
+          "skip_maestro": false
+        }
+      }
+    },
+    "output_data": {
+      "response": "1. A posição do Banco Central do Brasil (Bacen) em relação à taxa Selic para os próximos 12 meses, baseada nas informações atuais, é a seguinte:\n2. A taxa Selic foi aumentada para 14,75% ao ano na reunião do Comitê de Política Monetária (Copom) em 7 de maio de 2025. Esta é a maior taxa em quase 20 anos[1][3][5].\n3. ## Projeções para o Fim de 2025\n4. As projeções de mercado e do relatório Focus indicam que a taxa Selic provavelmente permanecerá em 14,75% ao ano até o fim de 2025. Essa mediana tem se mantido encontra-sevel por várias semanas consecutivas[3][5].\n5. ## Impacto na Economia e Mercado\n6. A alta taxa Selic tem um impacto significativo na economia brasileira, afetando as taxas de juros de empréstimos e financiamentos, bem como o rendimento de investimentos. O Copom mencionou que a taxa básica de juros encontra-se em um nível \"significativamente contracionista\" e já encontra-se contribuindo para controlar a inflação, que ainda segue em alta[1][5].\n7. ## Perspectivas Futuras\n8. Para o fim de 2026, as estimativas sugerem que a taxa Selic pode cair para cerca de 12,5% ao ano, indicando uma possível redução no ciclo de alta de juros[3][4].\n9. Em resumo, a posição do Bacen é de manter a taxa Selic em um nível elevado (14,75% ao ano) para o restante de 2025, com expectativas de ajustes descendentes nos anos subsequentes, dependendo do controle da inflação e outras variáveis econômicas.\n\n[Fontes: Informações baseadas em pesquisa web atual]",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-04T23:51:11.417817"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-04T23:51:34.621728"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-04T23:51:34.621730"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-04T23:51:56.321885"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-04T23:51:56.321939"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-04T23:54:04.002663"
+        }
+      ]
+    },
+    "execution_time": 4e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749091868.315642",
+    "user_query": "qual a posição do bacen brasileiro em relação à selic para 12 meses?"
+  },
+  {
+    "timestamp": "2025-06-05T00:27:16.075904",
+    "step_type": "intent_analysis",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "d"
+    },
+    "output_data": {
+      "intent": {
+        "intent_type": "command",
+        "action_required": "document_management",
+        "complexity": "simple",
+        "requires_web": false,
+        "requires_documents": false,
+        "can_answer_from_memory": true,
+        "confidence": 0.8,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta 'd' é uma entrada muito curta e ambígua, mas pode ser interpretada como um comando simples. Não requer pesquisa na web ou consulta a documentos locais, e pode ser respondida a partir da memória. A confiança é moderada devido à ambiguidade da consulta.",
+        "skip_maestro": true
+      }
+    },
+    "execution_time": 4.408071,
+    "cost_data": null,
+    "metadata": {
+      "admin_mode": true
+    },
+    "process_id": "proc_1749094031.667628",
+    "user_query": "d"
+  },
+  {
+    "timestamp": "2025-06-05T00:27:31.790513",
+    "step_type": "research",
+    "agent": "research_agent",
+    "input_data": {
+      "query": "d",
+      "intent": {
+        "intent_type": "command",
+        "action_required": "document_management",
+        "complexity": "simple",
+        "requires_web": false,
+        "requires_documents": false,
+        "can_answer_from_memory": true,
+        "confidence": 0.8,
+        "suggested_response_type": "direct",
+        "key_entities": [],
+        "reasoning": "A consulta 'd' é uma entrada muito curta e ambígua, mas pode ser interpretada como um comando simples. Não requer pesquisa na web ou consulta a documentos locais, e pode ser respondida a partir da memória. A confiança é moderada devido à ambiguidade da consulta.",
+        "skip_maestro": true
+      }
+    },
+    "output_data": {
+      "response": "Nenhum documento relevante encontrado na base local."
+    },
+    "execution_time": 15.714583,
+    "cost_data": {
+      "estimated_cost": 0.001
+    },
+    "metadata": null,
+    "process_id": "proc_1749094031.667628",
+    "user_query": "d"
+  },
+  {
+    "timestamp": "2025-06-05T00:27:50.405790",
+    "step_type": "supervision",
+    "agent": "supervisor_agent",
+    "input_data": {
+      "query": "d",
+      "response": "Nenhum documento relevante encontrado na base local.",
+      "context": {
+        "intent_analysis": {
+          "intent_type": "command",
+          "action_required": "document_management",
+          "complexity": "simple",
+          "requires_web": false,
+          "requires_documents": false,
+          "can_answer_from_memory": true,
+          "confidence": 0.8,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta 'd' é uma entrada muito curta e ambígua, mas pode ser interpretada como um comando simples. Não requer pesquisa na web ou consulta a documentos locais, e pode ser respondida a partir da memória. A confiança é moderada devido à ambiguidade da consulta.",
+          "skip_maestro": true
+        }
+      }
+    },
+    "output_data": {
+      "supervised_response": "Nenhum documento relevante encontrado na base local.",
+      "supervision_result": {
+        "supervised": true,
+        "approved": true,
+        "supervision_score": 1.0,
+        "supervision_notes": "Verificação completa - 0 problemas encontrados"
+      }
+    },
+    "execution_time": 18.61525,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749094031.667628",
+    "user_query": "d"
+  },
+  {
+    "timestamp": "2025-06-05T00:29:58.511521",
+    "step_type": "meta_audit",
+    "agent": "meta_auditor_agent",
+    "input_data": {
+      "query": "d",
+      "response": "Nenhum documento relevante encontrado na base local.",
+      "execution_log": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-05T00:27:16.075914"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-05T00:27:31.790524"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-05T00:27:31.790526"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-05T00:27:50.405801"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-05T00:27:50.405809"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-05T00:29:58.511533"
+        }
+      ]
+    },
+    "output_data": {
+      "audit_result": {
+        "audit_completed": true,
+        "overall_efficiency": 0.77,
+        "bottlenecks_found": 0,
+        "suggestions_count": 0,
+        "system_health": 0.8
+      }
+    },
+    "execution_time": 128.1057,
+    "cost_data": null,
+    "metadata": null,
+    "process_id": "proc_1749094031.667628",
+    "user_query": "d"
+  },
+  {
+    "timestamp": "2025-06-05T00:29:58.511764",
+    "step_type": "response",
+    "agent": "orchestrator",
+    "input_data": {
+      "query": "d",
+      "pipeline_context": {
+        "intent_analysis": {
+          "intent_type": "command",
+          "action_required": "document_management",
+          "complexity": "simple",
+          "requires_web": false,
+          "requires_documents": false,
+          "can_answer_from_memory": true,
+          "confidence": 0.8,
+          "suggested_response_type": "direct",
+          "key_entities": [],
+          "reasoning": "A consulta 'd' é uma entrada muito curta e ambígua, mas pode ser interpretada como um comando simples. Não requer pesquisa na web ou consulta a documentos locais, e pode ser respondida a partir da memória. A confiança é moderada devido à ambiguidade da consulta.",
+          "skip_maestro": true
+        }
+      }
+    },
+    "output_data": {
+      "response": "Nenhum documento relevante encontrado na base local.",
+      "full_context": [
+        {
+          "step": "research_start",
+          "timestamp": "2025-06-05T00:27:16.075914"
+        },
+        {
+          "step": "research_complete",
+          "timestamp": "2025-06-05T00:27:31.790524"
+        },
+        {
+          "step": "supervision_start",
+          "timestamp": "2025-06-05T00:27:31.790526"
+        },
+        {
+          "step": "supervision_complete",
+          "timestamp": "2025-06-05T00:27:50.405801"
+        },
+        {
+          "step": "audit_start",
+          "timestamp": "2025-06-05T00:27:50.405809"
+        },
+        {
+          "step": "audit_complete",
+          "timestamp": "2025-06-05T00:29:58.511533"
+        }
+      ]
+    },
+    "execution_time": 3e-06,
+    "cost_data": null,
+    "metadata": {
+      "pipeline_complete": true
+    },
+    "process_id": "proc_1749094031.667628",
+    "user_query": "d"
+  }
+]

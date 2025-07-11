@@ -1,0 +1,76 @@
+/* Estilos comuns para todas as páginas de análise */
+.section-title {
+    border-bottom: 2px solid #1a365d;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(26, 54, 93, 0.1);
+}
+
+.nav-link.active {
+    border-left: 4px solid #1a365d;
+    background-color: rgba(26, 54, 93, 0.1);
+    font-weight: 600;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.data-table {
+    font-size: 0.9rem;
+}
+
+.data-table th {
+    background-color: #f8fafc;
+}
+
+.highlight-row {
+    background-color: rgba(26, 54, 93, 0.05);
+}
+
+.analysis-section {
+    margin-top: 2rem;
+    clear: both;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.legend-color {
+    width: 15px;
+    height: 15px;
+    margin-right: 8px;
+    border-radius: 3px;
+}
+
+@media print {
+    .no-print {
+        display: none;
+    }
+    
+    .page-break {
+        page-break-after: always;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: #000;
+    }
+    
+    .print-section {
+        break-inside: avoid;
+    }
+}

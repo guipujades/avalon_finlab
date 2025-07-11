@@ -1,0 +1,764 @@
+{
+  "analysis_date": "2025-07-09T16:40:48.278228",
+  "account_number": "004300296",
+  "holder": "Vera Lucia De Oliveira Pla Pujades",
+  "total_amount": 411435.23,
+  "position_data": {
+    "ContractVersion": "2",
+    "AccountNumber": "004300296",
+    "Agency": "1",
+    "PositionDate": "2025-07-09T00:00:00",
+    "TotalAmmount": "411435.23",
+    "SummaryAccounts": [
+      {
+        "MarketName": "Conta Corrente",
+        "MarketAbbreviation": "CC",
+        "PositionDate": "2025-07-07T00:00:00",
+        "EndPositionValue": "146.72",
+        "StartPositionValue": "0.0"
+      },
+      {
+        "MarketName": "Renda Fixa",
+        "MarketAbbreviation": "RF",
+        "PositionDate": "2025-07-09T00:00:00",
+        "EndPositionValue": "89393.88",
+        "StartPositionValue": "0.0"
+      },
+      {
+        "MarketName": "Fundos de Investimento",
+        "MarketAbbreviation": "FN",
+        "PositionDate": "2025-07-09T00:00:00Z",
+        "EndPositionValue": "321894.63",
+        "StartPositionValue": "0.0"
+      }
+    ],
+    "InvestmentFund": [
+      {
+        "ShareValue": "2.210296925",
+        "Fund": {
+          "FundName": "Artesanal Renda Fixa FIRF",
+          "SecurityCode": "3270493",
+          "FundCGECode": "1101672",
+          "FundCNPJCode": "24773832000109",
+          "DatePortfolio": "2025-07-08T00:00:00Z",
+          "ManagerName": "ARTESANAL INVESTIMENTOS LTDA.",
+          "ManagerCGECode": "61393",
+          "FundLiquidity": "0",
+          "BenchMark": "CDI",
+          "EsTipoPortfolio": "0",
+          "TipoCvm": "2",
+          "EntityType": null,
+          "RelatedSecurityCodeClass": null,
+          "RelatedSecurityCodeFund": null,
+          "RelatedClassCGECode": null,
+          "RelatedFundCGECode": null
+        },
+        "Acquisition": [
+          {
+            "CostPrice": "1.90078703",
+            "IncomeTax": "106.62",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "18225.81",
+            "GrossAssetValue": "18332.43",
+            "AcquisitionDate": "2024-03-18T00:00:00Z",
+            "NumberOfShares": "8294.10471367",
+            "AcquisitionNumber": "6",
+            "OrigemAmortizacao": "false",
+            "CostValue": "15765.33",
+            "CotaCetipada": "false"
+          },
+          {
+            "CostPrice": "1.90625892",
+            "IncomeTax": "26.61",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "4599.14",
+            "GrossAssetValue": "4625.75",
+            "AcquisitionDate": "2024-03-27T00:00:00Z",
+            "NumberOfShares": "2092.81702794",
+            "AcquisitionNumber": "7",
+            "OrigemAmortizacao": "false",
+            "CostValue": "3989.45",
+            "CotaCetipada": "false"
+          },
+          {
+            "CostPrice": "1.999414657",
+            "IncomeTax": "1539.41",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "215798.44",
+            "GrossAssetValue": "217337.85",
+            "AcquisitionDate": "2024-09-12T00:00:00Z",
+            "NumberOfShares": "98329.70701352",
+            "AcquisitionNumber": "18",
+            "OrigemAmortizacao": "false",
+            "CostValue": "196601.86",
+            "CotaCetipada": "false"
+          },
+          {
+            "CostPrice": "2.0018875488",
+            "IncomeTax": "39.01",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "5513.23",
+            "GrossAssetValue": "5552.24",
+            "AcquisitionDate": "2024-09-17T00:00:00Z",
+            "NumberOfShares": "2511.98938203",
+            "AcquisitionNumber": "19",
+            "OrigemAmortizacao": "false",
+            "CostValue": "5028.72",
+            "CotaCetipada": "false"
+          },
+          {
+            "CostPrice": "2.0463588106",
+            "IncomeTax": "1.48",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "244.24",
+            "GrossAssetValue": "245.72",
+            "AcquisitionDate": "2024-11-29T00:00:00Z",
+            "NumberOfShares": "111.1696424",
+            "AcquisitionNumber": "20",
+            "OrigemAmortizacao": "false",
+            "CostValue": "227.49",
+            "CotaCetipada": "false"
+          },
+          {
+            "CostPrice": "2.0857497241",
+            "IncomeTax": "7.38",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "1124.68",
+            "GrossAssetValue": "1132.06",
+            "AcquisitionDate": "2025-01-29T00:00:00Z",
+            "NumberOfShares": "512.17468275",
+            "AcquisitionNumber": "21",
+            "OrigemAmortizacao": "false",
+            "CostValue": "1068.27",
+            "CotaCetipada": "false"
+          },
+          {
+            "CostPrice": "2.1682562344",
+            "IncomeTax": "1.34",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "325.13",
+            "GrossAssetValue": "326.47",
+            "AcquisitionDate": "2025-05-20T00:00:00Z",
+            "NumberOfShares": "147.70406906",
+            "AcquisitionNumber": "22",
+            "OrigemAmortizacao": "false",
+            "CostValue": "320.26",
+            "CotaCetipada": "false"
+          }
+        ],
+        "CotaCetipadaFundoExterno": "false",
+        "PositionDate": "2025-07-09T00:00:00Z",
+        "ProcessingDateTime": "2025-07-08T16:00:26.268Z"
+      },
+      {
+        "ShareValue": "3.191107496376",
+        "Fund": {
+          "FundName": "BTG CDB I FICFIRF CrPr",
+          "SecurityCode": "3842214",
+          "FundCGECode": "1173364",
+          "FundCNPJCode": "16565016000181",
+          "DatePortfolio": "2025-07-09T00:00:00Z",
+          "ManagerName": "BTG PACTUAL ASSET MANAGEMENT S.A. DISTRIBUIDORA DE",
+          "ManagerCGECode": "3",
+          "FundLiquidity": "0",
+          "BenchMark": "CDI",
+          "EsTipoPortfolio": "0",
+          "TipoCvm": "2",
+          "EntityType": null,
+          "RelatedSecurityCodeClass": null,
+          "RelatedSecurityCodeFund": null,
+          "RelatedClassCGECode": null,
+          "RelatedFundCGECode": null
+        },
+        "Acquisition": [
+          {
+            "CostPrice": "3.023089706724",
+            "IncomeTax": "56.26",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "8947.55",
+            "GrossAssetValue": "9003.81",
+            "AcquisitionDate": "2025-02-06T00:00:00Z",
+            "NumberOfShares": "2821.532194",
+            "AcquisitionNumber": "1",
+            "OrigemAmortizacao": "false",
+            "CostValue": "8529.74",
+            "CotaCetipada": "false"
+          }
+        ],
+        "CotaCetipadaFundoExterno": "false",
+        "PositionDate": "2025-07-09T00:00:00Z",
+        "ProcessingDateTime": "2025-07-09T01:47:22.535Z"
+      },
+      {
+        "ShareValue": "4.84431829262",
+        "Fund": {
+          "FundName": "BTG Tesouro Selic FIRFRefDI",
+          "SecurityCode": "3842212",
+          "FundCGECode": "1173358",
+          "FundCNPJCode": "09215250000113",
+          "DatePortfolio": "2025-07-09T00:00:00Z",
+          "ManagerName": "BTG PACTUAL ASSET MANAGEMENT S.A. DISTRIBUIDORA DE",
+          "ManagerCGECode": "3",
+          "FundLiquidity": "0",
+          "BenchMark": "CDI",
+          "EsTipoPortfolio": "0",
+          "TipoCvm": "2",
+          "EntityType": null,
+          "RelatedSecurityCodeClass": null,
+          "RelatedSecurityCodeFund": null,
+          "RelatedClassCGECode": null,
+          "RelatedFundCGECode": null
+        },
+        "Acquisition": [
+          {
+            "CostPrice": "4.753605705903",
+            "IncomeTax": "16.81",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "4136.34",
+            "GrossAssetValue": "4153.15",
+            "AcquisitionDate": "2025-05-20T00:00:00Z",
+            "NumberOfShares": "857.324567",
+            "AcquisitionNumber": "1",
+            "OrigemAmortizacao": "false",
+            "CostValue": "4075.38",
+            "CotaCetipada": "false"
+          }
+        ],
+        "CotaCetipadaFundoExterno": "false",
+        "PositionDate": "2025-07-09T00:00:00Z",
+        "ProcessingDateTime": "2025-07-09T10:25:02.572Z"
+      },
+      {
+        "ShareValue": "3.8694626369",
+        "Fund": {
+          "FundName": "Artesanal Credito Privado FICFIM",
+          "SecurityCode": "1656410",
+          "FundCGECode": "535221",
+          "FundCNPJCode": "20441301000168",
+          "DatePortfolio": "2025-07-08T00:00:00Z",
+          "ManagerName": "ARTESANAL INVESTIMENTOS LTDA.",
+          "ManagerCGECode": "61393",
+          "FundLiquidity": "91",
+          "BenchMark": "CDI",
+          "EsTipoPortfolio": "0",
+          "TipoCvm": "4",
+          "EntityType": null,
+          "RelatedSecurityCodeClass": null,
+          "RelatedSecurityCodeFund": null,
+          "RelatedClassCGECode": null,
+          "RelatedFundCGECode": null
+        },
+        "Acquisition": [
+          {
+            "CostPrice": "3.17077157",
+            "IncomeTax": "1657.19",
+            "VirtualIOF": "0.0",
+            "NetAssetValue": "59527.96",
+            "GrossAssetValue": "61185.15",
+            "AcquisitionDate": "2024-01-24T00:00:00Z",
+            "NumberOfShares": "15812.31220639",
+            "AcquisitionNumber": "1",
+            "OrigemAmortizacao": "false",
+            "CostValue": "50137.23",
+            "CotaCetipada": "false"
+          }
+        ],
+        "CotaCetipadaFundoExterno": "false",
+        "PositionDate": "2025-07-09T00:00:00Z",
+        "ProcessingDateTime": "2025-07-09T13:57:36.789Z"
+      }
+    ],
+    "FixedIncome": [
+      {
+        "AccountingGroupCode": "CRI",
+        "Issuer": "BANCO PAN",
+        "IssueDate": "2023-07-28T00:00:00-03:00",
+        "SecurityCode": "8259259",
+        "IssuerCGECode": "66021",
+        "PriceType": "9",
+        "ValueType": "Mercado Fechamento",
+        "Yield": "0.0",
+        "Ticker": "CRI-23G0008401",
+        "ReferenceIndexName": "CDI",
+        "ReferenceIndexValue": "100% CDI",
+        "IndexYieldRate": "CDI",
+        "MaturityDate": "2028-07-28T00:00:00-03:00",
+        "Quantity": "19.0",
+        "Price": "1081.30712161",
+        "GrossValue": "20544.83",
+        "IncomeTax": "0.0",
+        "IOFTax": "0.0",
+        "NetValue": "20544.83",
+        "IsLiquidity": "false",
+        "Acquisitions": [
+          {
+            "AcquisitionQuantity": "19.0",
+            "SecurityCode": "8259259",
+            "YieldToMaturity": "100.0",
+            "AcquisitionDate": "2024-04-03T00:00:00-03:00",
+            "CostPrice": "1030.16062301",
+            "InitialInvestmentValue": "19573.05",
+            "InitialInvestmentQuantity": "19.0",
+            "NetValue": "20544.83",
+            "GrossValue": "20544.83",
+            "IncomeTax": "0.0",
+            "IOFTax": "0.0",
+            "Yield": "100.0",
+            "ComplementYield": "0.0",
+            "IndexYieldRate": "CDI",
+            "TransferId": "1024710367",
+            "FTSId": "10556988",
+            "InterfaceDate": "2025-07-08T00:00:00-03:00",
+            "PriceIncomeTax": "0.0",
+            "PriceVirtualIOF": "0.0",
+            "DateTimeUpdate": "2025-07-09T04:06:53",
+            "PriceType": "9",
+            "Price": "1081.30712161",
+            "Prices": [
+              {
+                "PriceType": "200",
+                "Price": "1067.9880102154918",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              },
+              {
+                "PriceType": "9",
+                "Price": "1081.30712161",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              }
+            ],
+            "IsVirtual": "true"
+          }
+        ],
+        "FTSId": "0",
+        "IsRepo": "false",
+        "CetipCode": "23G0008401",
+        "SelicCode": null,
+        "ISIN": "BRAPCSCRIIY3",
+        "TaxFree": "false",
+        "IssuerType": "Titulo Privado",
+        "Projection": null,
+        "Lag": null,
+        "Default": "false",
+        "YieldAvg": "0.0",
+        "DebtEarlyTerminationSchedules": [
+          {
+            "IndexRateMultiplier": "103.0",
+            "Rate": "0.0",
+            "Type": "NO",
+            "EarlyTerminationPeriod": {
+              "FromDateTime": "2023-07-28T00:00:00-03:00",
+              "ToDateTime": "2028-07-28T00:00:00-03:00"
+            }
+          }
+        ]
+      },
+      {
+        "AccountingGroupCode": "NTNB",
+        "Issuer": "BACEN-BANCO CENTRAL DO BRASIL - RJ",
+        "IssueDate": "2006-03-07T00:00:00-03:00",
+        "SecurityCode": "151844",
+        "IssuerCGECode": "4449",
+        "PriceType": "9",
+        "ValueType": "Mercado Fechamento",
+        "Yield": "6.3",
+        "Ticker": "NTNB",
+        "ReferenceIndexName": "IPCA",
+        "ReferenceIndexValue": "100% IPCA",
+        "IndexYieldRate": "IPCA + 6,30%",
+        "MaturityDate": "2035-05-15T00:00:00-03:00",
+        "Quantity": "2.0",
+        "Price": "4178.854844",
+        "GrossValue": "8357.7",
+        "IncomeTax": "74.87",
+        "IOFTax": "0.0",
+        "NetValue": "8282.83",
+        "IsLiquidity": "false",
+        "Acquisitions": [
+          {
+            "AcquisitionQuantity": "2.0",
+            "SecurityCode": "151844",
+            "YieldToMaturity": "6.3",
+            "AcquisitionDate": "2023-02-01T00:00:00-03:00",
+            "CostPrice": "3981.697162",
+            "InitialInvestmentValue": "7963.39",
+            "InitialInvestmentQuantity": "2.0",
+            "NetValue": "8282.83",
+            "GrossValue": "8357.7",
+            "IncomeTax": "74.87",
+            "IOFTax": "0.0",
+            "Yield": "100.0",
+            "ComplementYield": "6.3",
+            "IndexYieldRate": "IPCA + 6,30%",
+            "TransferId": "25976826",
+            "FTSId": "0",
+            "InterfaceDate": "2025-07-08T00:00:00-03:00",
+            "PriceIncomeTax": "37.4361693",
+            "PriceVirtualIOF": "0.0",
+            "DateTimeUpdate": "2025-07-09T04:06:53",
+            "PriceType": "9",
+            "Price": "4178.854844",
+            "Prices": [
+              {
+                "PriceType": "200",
+                "Price": "4474.017446",
+                "IncomeTax": "81.7105596",
+                "IOFTax": "0.0"
+              },
+              {
+                "PriceType": "9",
+                "Price": "4178.854844",
+                "IncomeTax": "37.4361693",
+                "IOFTax": "0.0"
+              }
+            ],
+            "IsVirtual": "true"
+          }
+        ],
+        "FTSId": "0",
+        "IsRepo": "false",
+        "CetipCode": "NTNB",
+        "SelicCode": "760199",
+        "ISIN": "BRSTNCNTB0O7",
+        "TaxFree": "false",
+        "IssuerType": "Titulo Publico",
+        "Projection": null,
+        "Lag": "M-1",
+        "Default": "false",
+        "YieldAvg": "6.3",
+        "DebtEarlyTerminationSchedules": [
+          {
+            "IndexRateMultiplier": "100.0",
+            "Rate": "6.0",
+            "Type": "NO",
+            "EarlyTerminationPeriod": {
+              "FromDateTime": "2006-03-07T00:00:00-03:00",
+              "ToDateTime": "2035-05-15T00:00:00-03:00"
+            }
+          }
+        ]
+      },
+      {
+        "AccountingGroupCode": "CRA",
+        "Issuer": "CARAMURU ALIMENTOS II",
+        "IssueDate": "2021-09-14T00:00:00-03:00",
+        "SecurityCode": "5117644",
+        "IssuerCGECode": "294796",
+        "PriceType": "9",
+        "ValueType": "Mercado Fechamento",
+        "Yield": "6.79",
+        "Ticker": "CRA-CRA021002YA",
+        "ReferenceIndexName": "IPCA",
+        "ReferenceIndexValue": "100% IPCA",
+        "IndexYieldRate": "IPCA + 6,79%",
+        "MaturityDate": "2027-09-15T00:00:00-03:00",
+        "Quantity": "10.0",
+        "Price": "692.31669105",
+        "GrossValue": "6923.16",
+        "IncomeTax": "0.0",
+        "IOFTax": "0.0",
+        "NetValue": "6923.16",
+        "IsLiquidity": "false",
+        "Acquisitions": [
+          {
+            "AcquisitionQuantity": "10.0",
+            "SecurityCode": "5117644",
+            "YieldToMaturity": "6.79",
+            "AcquisitionDate": "2024-02-05T00:00:00-03:00",
+            "CostPrice": "910.815518",
+            "InitialInvestmentValue": "9108.15",
+            "InitialInvestmentQuantity": "10.0",
+            "NetValue": "6923.16",
+            "GrossValue": "6923.16",
+            "IncomeTax": "0.0",
+            "IOFTax": "0.0",
+            "Yield": "100.0",
+            "ComplementYield": "6.79",
+            "IndexYieldRate": "IPCA + 6,79%",
+            "TransferId": "1021677090",
+            "FTSId": "9800298",
+            "InterfaceDate": "2025-07-08T00:00:00-03:00",
+            "PriceIncomeTax": "0.0",
+            "PriceVirtualIOF": "0.0",
+            "DateTimeUpdate": "2025-07-09T04:06:53",
+            "PriceType": "9",
+            "Price": "692.31669105",
+            "Prices": [
+              {
+                "PriceType": "200",
+                "Price": "737.1866201213626",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              },
+              {
+                "PriceType": "9",
+                "Price": "692.31669105",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              }
+            ],
+            "IsVirtual": "true"
+          }
+        ],
+        "FTSId": "0",
+        "IsRepo": "false",
+        "CetipCode": "CRA021002YA",
+        "SelicCode": null,
+        "ISIN": "BRECOACRA7T3",
+        "TaxFree": "false",
+        "IssuerType": "Titulo Privado",
+        "Projection": "Projeção Anbima",
+        "Lag": "M0",
+        "Default": "false",
+        "YieldAvg": "6.79",
+        "DebtEarlyTerminationSchedules": [
+          {
+            "IndexRateMultiplier": "100.0",
+            "Rate": "5.7641",
+            "Type": "NO",
+            "EarlyTerminationPeriod": {
+              "FromDateTime": "2021-10-29T00:00:00-03:00",
+              "ToDateTime": "2027-09-15T00:00:00-03:00"
+            }
+          }
+        ]
+      },
+      {
+        "AccountingGroupCode": "CRA",
+        "Issuer": "BTG COMMODITIES",
+        "IssueDate": "2023-03-15T00:00:00-03:00",
+        "SecurityCode": "7522450",
+        "IssuerCGECode": "66021",
+        "PriceType": "9",
+        "ValueType": "Mercado Fechamento",
+        "Yield": "0.0",
+        "Ticker": "CRA-CRA023003UX",
+        "ReferenceIndexName": "CDI",
+        "ReferenceIndexValue": "99% CDI",
+        "IndexYieldRate": "99,00% do CDI",
+        "MaturityDate": "2027-03-15T00:00:00-03:00",
+        "Quantity": "47.0",
+        "Price": "1056.22119412",
+        "GrossValue": "49642.39",
+        "IncomeTax": "0.0",
+        "IOFTax": "0.0",
+        "NetValue": "49642.39",
+        "IsLiquidity": "false",
+        "Acquisitions": [
+          {
+            "AcquisitionQuantity": "47.0",
+            "SecurityCode": "7522450",
+            "YieldToMaturity": "99.0",
+            "AcquisitionDate": "2024-08-27T00:00:00-03:00",
+            "CostPrice": "1054.519045",
+            "InitialInvestmentValue": "49562.39",
+            "InitialInvestmentQuantity": "47.0",
+            "NetValue": "49642.39",
+            "GrossValue": "49642.39",
+            "IncomeTax": "0.0",
+            "IOFTax": "0.0",
+            "Yield": "99.0",
+            "ComplementYield": "0.0",
+            "IndexYieldRate": "99,00% do CDI",
+            "TransferId": "1034229920",
+            "FTSId": "12884529",
+            "InterfaceDate": "2025-07-08T00:00:00-03:00",
+            "PriceIncomeTax": "0.0",
+            "PriceVirtualIOF": "0.0",
+            "DateTimeUpdate": "2025-07-09T04:06:53",
+            "PriceType": "9",
+            "Price": "1056.22119412",
+            "Prices": [
+              {
+                "PriceType": "200",
+                "Price": "1047.7548101377547",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              },
+              {
+                "PriceType": "9",
+                "Price": "1056.22119412",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              }
+            ],
+            "IsVirtual": "true"
+          }
+        ],
+        "FTSId": "0",
+        "IsRepo": "false",
+        "CetipCode": "CRA023003UX",
+        "SelicCode": null,
+        "ISIN": "BRRBRACRA322",
+        "TaxFree": "false",
+        "IssuerType": "Titulo Privado",
+        "Projection": null,
+        "Lag": null,
+        "Default": "false",
+        "YieldAvg": "0.0",
+        "DebtEarlyTerminationSchedules": [
+          {
+            "IndexRateMultiplier": "102.0",
+            "Rate": "0.0",
+            "Type": "NO",
+            "EarlyTerminationPeriod": {
+              "FromDateTime": "2023-03-30T00:00:00-03:00",
+              "ToDateTime": "2027-03-15T00:00:00-03:00"
+            }
+          }
+        ]
+      },
+      {
+        "AccountingGroupCode": "Debênture",
+        "Issuer": "USINA CAETE S A",
+        "IssueDate": "2024-06-12T00:00:00-03:00",
+        "SecurityCode": "10405478",
+        "IssuerCGECode": "79009",
+        "PriceType": "9",
+        "ValueType": "Mercado Fechamento",
+        "Yield": "9.89",
+        "Ticker": "DEB-USCA12",
+        "ReferenceIndexName": "IPCA",
+        "ReferenceIndexValue": "100% IPCA",
+        "IndexYieldRate": "IPCA + 9,89%",
+        "MaturityDate": "2031-06-16T00:00:00-03:00",
+        "Quantity": "4.0",
+        "Price": "981.451813",
+        "GrossValue": "3925.8",
+        "IncomeTax": "0.0",
+        "IOFTax": "0.0",
+        "NetValue": "3925.8",
+        "IsLiquidity": "false",
+        "Acquisitions": [
+          {
+            "AcquisitionQuantity": "4.0",
+            "SecurityCode": "10405478",
+            "YieldToMaturity": "9.89",
+            "AcquisitionDate": "2025-07-03T00:00:00-03:00",
+            "CostPrice": "996.955008",
+            "InitialInvestmentValue": "3987.82",
+            "InitialInvestmentQuantity": "4.0",
+            "NetValue": "3925.8",
+            "GrossValue": "3925.8",
+            "IncomeTax": "0.0",
+            "IOFTax": "0.0",
+            "Yield": "100.0",
+            "ComplementYield": "9.89",
+            "IndexYieldRate": "IPCA + 9,89%",
+            "TransferId": "1050595831",
+            "FTSId": "21255855",
+            "InterfaceDate": "2025-07-08T00:00:00-03:00",
+            "PriceIncomeTax": "0.0",
+            "PriceVirtualIOF": "0.0",
+            "DateTimeUpdate": "2025-07-09T04:06:53",
+            "PriceType": "9",
+            "Price": "981.451813",
+            "Prices": [
+              {
+                "PriceType": "200",
+                "Price": "998.3132756690233",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              },
+              {
+                "PriceType": "9",
+                "Price": "981.451813",
+                "IncomeTax": "0.0",
+                "IOFTax": "0.0"
+              }
+            ],
+            "IsVirtual": "true"
+          }
+        ],
+        "FTSId": "0",
+        "IsRepo": "false",
+        "CetipCode": "USCA12",
+        "SelicCode": null,
+        "ISIN": "BRUSCADBS029",
+        "TaxFree": "true",
+        "IssuerType": "Titulo Privado",
+        "Projection": "Projeção Anbima",
+        "Lag": "M-1",
+        "Default": "false",
+        "YieldAvg": "9.89",
+        "DebtEarlyTerminationSchedules": [
+          {
+            "IndexRateMultiplier": "100.0",
+            "Rate": "8.287",
+            "Type": "NO",
+            "EarlyTerminationPeriod": {
+              "FromDateTime": "2024-06-13T00:00:00-03:00",
+              "ToDateTime": "2031-06-16T00:00:00-03:00"
+            }
+          }
+        ]
+      }
+    ],
+    "InvestmentFundCotaCetipada": [],
+    "Credits": null,
+    "PensionInformations": null,
+    "Commodity": null,
+    "Equities": null,
+    "Derivative": [
+      {
+        "NDFPosition": null,
+        "BMFFuturePosition": null,
+        "BMFOptionPosition": null,
+        "CetipOptionPosition": null,
+        "SwapPosition": null
+      }
+    ],
+    "FixedIncomeStructuredNote": null,
+    "PayableReceivables": [
+      {
+        "Credit": []
+      }
+    ],
+    "PendingSettlements": [
+      {
+        "FixedIncome": [],
+        "InvestmentFund": [],
+        "Equities": null,
+        "Derivative": null,
+        "Pension": null,
+        "Others": null
+      }
+    ],
+    "CryptoCoin": null,
+    "Cash": [
+      {
+        "CashCollateral": [],
+        "CurrentAccount": {
+          "Value": "146.72",
+          "PositionDate": "2025-07-07T00:00:00"
+        },
+        "CashInvested": []
+      }
+    ],
+    "Precatories": null,
+    "EventCreateDate": "2025-07-09T16:40:48.91"
+  },
+  "account_info": {
+    "accountNumber": "004300296",
+    "holder": {
+      "taxIdentification": "18504469115",
+      "name": "Vera Lucia De Oliveira Pla Pujades"
+    },
+    "coHolders": [],
+    "users": [
+      {
+        "name": "Guilherme Bezerra Pujades Magalhães",
+        "userEmail": "guilherme.gcml@gmail.com",
+        "phoneNumber": "5561999846265",
+        "isOwner": false
+      },
+      {
+        "name": "Vera Lúcia De Oliveira Pla Pujades",
+        "userEmail": "VERA.PLA.PUJADES@HOTMAIL.COM",
+        "phoneNumber": "5561999683252",
+        "isOwner": true
+      }
+    ]
+  }
+}

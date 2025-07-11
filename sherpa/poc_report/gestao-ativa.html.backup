@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carteira Avalon - Gestão Ativa Estratégica</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Carteira Avalon - Gestão Ativa Estratégica</h1>
+            <div class="mt-2">
+                <a href="offshore.html" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    ← Voltar à Visão Geral
+                </a>
+            </div>
+            <p class="mt-2 opacity-80">Estratégia de preservação de capital com diversificação funcional</p>
+        </div>
+    </header>
+
+    <!-- Premissas Macro para Alocação -->
+    <section class="container mx-auto px-4 py-6">
+        <div class="bg-gradient-to-r from-gray-50 to-blue-50 p-6 rounded-lg mb-4 border-l-4 border-black">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Premissas Macro para Alocação</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <!-- Estados Unidos -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                    <div class="mb-3">
+                                    <h4 class="font-semibold text-gray-800">Estados Unidos</h4>
+                                </div>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="text-blue-500 mr-2">•</span>
+                                        <span>Juros nominais elevados por mais tempo devido a mudanças estruturais pós-COVID</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-blue-500 mr-2">•</span>
+                                        <span>Inflação persistente com pressões salariais e fiscais recorrentes</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-blue-500 mr-2">•</span>
+                                        <span>Ambiente político polarizado e deterioração fiscal ampliando riscos</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Cenário Global -->
+                            <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-200">
+                    <div class="mb-3">
+                                    <h4 class="font-semibold text-gray-800">Cenário Global</h4>
+                                </div>
+                                <ul class="text-sm text-gray-600 space-y-2">
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">•</span>
+                                        <span>Fragmentação geopolítica aumenta riscos de choques de oferta</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">•</span>
+                                        <span>Reprecificação das moedas fortalece o ouro como reserva de valor</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <span class="text-green-500 mr-2">•</span>
+                                        <span>Volatilidade amplificada por ciclos monetários desalinhados</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                            </div>
+    </section>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Composição Detalhada -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Composição Estratégica da Carteira</h2>
+
+            <!-- Camada de Preservação -->
+            <div class="bg-blue-50 p-6 rounded-lg mb-8 border border-blue-200">
+                <h3 class="text-xl font-bold mb-4 text-blue-800">Camada de Preservação (20% da carteira total)</h3>
+                <p class="text-sm text-blue-700 mb-6">Proteção do capital nominal em dólares com liquidez e segurança</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Gráfico de alocação da preservação -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold mb-4 text-center">Distribuição da Camada</h4>
+                        <div class="w-full" style="height: 400px;">
+                            <canvas id="preservationChart"></canvas>
+                    </div>
+                </div>
+
+                    <!-- Detalhamento da preservação -->
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-900">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">U03A - T-Bills 0-3 meses</h5>
+                                    <p class="text-sm text-gray-600">Liquidez imediata</p>
+                                </div>
+                                <span class="text-lg font-bold text-blue-900">60%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-800">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">IBTA - Treasuries 1-3 anos</h5>
+                                    <p class="text-sm text-gray-600">Núcleo defensivo estável</p>
+                                </div>
+                                <span class="text-lg font-bold text-blue-800">20%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-blue-700">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">TFRN - Floating Rate Notes</h5>
+                                    <p class="text-sm text-gray-600">Proteção "higher-for-longer"</p>
+                                </div>
+                                <span class="text-lg font-bold text-blue-700">20%</span>
+                            </div>
+                        </div>
+                                </div>
+                            </div>
+
+                <!-- Análise Detalhada dos ETFs -->
+                <div class="mt-8">
+                    <div class="bg-gradient-to-r from-blue-50 via-indigo-50 to-purple-50 rounded-xl p-8 border border-blue-200 shadow-lg">
+                        <div class="text-center mb-8">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-3">Análise dos ETFs selecionados</h4>
+                        </div>
+
+                        <!-- Cards dos ETFs -->
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <!-- Card U03A -->
+                            <div class="etf-card bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="u03a">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                        </svg>
+                                    </div>
+                                <div>
+                                        <h5 class="font-bold text-gray-800">U03A</h5>
+                                        <p class="text-sm text-gray-600">T-Bills 0-3M</p>
+                            </div>
+                        </div>
+
+                                <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">TER</span>
+                                        <span class="font-semibold text-blue-600">0,07%</span>
+                                </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">AUM</span>
+                                        <span class="font-semibold text-blue-600">$1,2B</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Duration</span>
+                                        <span class="font-semibold text-blue-600">0,08</span>
+                            </div>
+                        </div>
+
+                                <div class="mt-4 pt-4 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-2">Papel na Carteira:</p>
+                                    <p class="text-sm text-gray-700">Liquidez imediata e proteção de capital com yield próximo ao Fed Funds Rate.</p>
+                                </div>
+
+                                <div class="mt-4">
+                                    <div class="w-full bg-blue-100 rounded-full h-2">
+                                        <div class="bg-blue-600 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                                    <p class="text-xs text-gray-500 mt-1">60% da camada de preservação</p>
+                        </div>
+                            </div>
+
+                            <!-- Card IBTA.L -->
+                            <div class="etf-card bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="ibta">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800">IBTA</h5>
+                                        <p class="text-sm text-gray-600">Treasury 1-3Y</p>
+                    </div>
+                </div>
+
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">TER</span>
+                                        <span class="font-semibold text-indigo-600">0,07%</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">AUM</span>
+                                        <span class="font-semibold text-indigo-600">$12,3B</span>
+                                </div>
+                                <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Duration</span>
+                                        <span class="font-semibold text-indigo-600">1,9</span>
+                                </div>
+                                </div>
+
+                                <div class="mt-4 pt-4 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-2">Papel na Carteira:</p>
+                                    <p class="text-sm text-gray-700">Núcleo defensivo estável com benefícios fiscais UCITS e correlação negativa com risk assets.</p>
+                            </div>
+                            
+                                <div class="mt-4">
+                                    <div class="w-full bg-indigo-100 rounded-full h-2">
+                                        <div class="bg-indigo-600 h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">20% da camada de preservação</p>
+                            </div>
+                        </div>
+
+                            <!-- Card TFRN.L -->
+                            <div class="etf-card bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="tfrn">
+                                <div class="flex items-center mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                        </svg>
+                                </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800">TFRN</h5>
+                                        <p class="text-sm text-gray-600">Floating Rate</p>
+                                </div>
+                                </div>
+                                
+                                <div class="space-y-3">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">TER</span>
+                                        <span class="font-semibold text-purple-600">0,15%</span>
+                                </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">AUM</span>
+                                        <span class="font-semibold text-purple-600">$300M</span>
+                            </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Duration</span>
+                                        <span class="font-semibold text-purple-600">0,1</span>
+                        </div>
+                    </div>
+
+                                <div class="mt-4 pt-4 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-2">Papel na Carteira:</p>
+                                    <p class="text-sm text-gray-700">Proteção "higher-for-longer" com yield que acompanha Fed Funds e hedge contra alta de juros.</p>
+                            </div>
+
+                                <div class="mt-4">
+                                    <div class="w-full bg-purple-100 rounded-full h-2">
+                                        <div class="bg-purple-600 h-2 rounded-full" style="width: 20%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">20% da camada de preservação</p>
+                        </div>
+                    </div>
+                </div>
+               
+               
+            </div>
+        </div>
+
+                    <!-- Botão para Análise Avançada -->
+                <div class="text-center mt-6">
+                        <button id="runStressTest" class="group inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                            <svg class="w-4 h-4 mr-2 text-blue-200 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                            </svg>
+                            <span class="font-medium">Análise Detalhada</span>
+                            <svg class="w-4 h-4 ml-2 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                            </svg>
+                        </button>
+            </div>
+
+                    <!-- Loading e Results -->
+                    <div id="pythonLoading" class="hidden mt-6 text-center">
+                        <div class="inline-flex items-center px-4 py-2 border border-blue-300 rounded-full bg-blue-50">
+                            <svg class="animate-spin -ml-1 mr-3 h-4 w-4 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            <span class="text-blue-700 font-medium text-sm">Processando análise...</span>
+            </div>
+        </div>
+
+                    <div id="pythonResults" class="hidden mt-6">
+                        <div class="bg-gradient-to-r from-blue-50 to-slate-50 p-6 rounded-lg border border-blue-200">
+                            <h5 class="text-lg font-bold mb-4 text-blue-800">Resultados da Análise Quantitativa</h5>
+                            <div id="stressTestOutput" class="space-y-4">
+                                <!-- Os resultados aparecerão aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Camada de Manutenção -->
+            <div class="bg-orange-50 p-6 rounded-lg mb-8 border border-orange-200">
+                <h3 class="text-xl font-bold mb-4 text-orange-800">Camada de Manutenção (45% da carteira total)</h3>
+                <p class="text-sm text-orange-700 mb-6">Proposta "equilibrada" com meta 7% a.a. - Carry ~7,3% | Vol ~4,6% | Max-DD simulado ~-8%</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Gráfico de alocação da manutenção -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold mb-4 text-center">Distribuição da Camada</h4>
+                        <div class="w-full" style="height: 400px;">
+                            <canvas id="maintenanceChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Detalhamento da manutenção -->
+            <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-900">
+                    <div class="flex justify-between items-center">
+                        <div>
+                                    <h5 class="font-semibold text-gray-800">IHYG - High Yield USD</h5>
+                                    <p class="text-sm text-gray-600">Núcleo de spread de crédito</p>
+                        </div>
+                                <span class="text-lg font-bold text-orange-900">25%</span>
+                        </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-800">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">SHYU - High Yield EUR</h5>
+                                    <p class="text-sm text-gray-600">Diversificação regional</p>
+                                </div>
+                                <span class="text-lg font-bold text-orange-800">15%</span>
+                    </div>
+                </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-700">
+                    <div class="flex justify-between items-center">
+                        <div>
+                                    <h5 class="font-semibold text-gray-800">EMHG - EM Bonds</h5>
+                                    <p class="text-sm text-gray-600">Spread soberano emergente</p>
+                        </div>
+                                <span class="text-lg font-bold text-orange-700">15%</span>
+                        </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-600">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">IHYA - Structured Credit</h5>
+                                    <p class="text-sm text-gray-600">Carrego alternativo</p>
+                                </div>
+                                <span class="text-lg font-bold text-orange-600">15%</span>
+                    </div>
+                </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-500">
+                    <div class="flex justify-between items-center">
+                        <div>
+                                    <h5 class="font-semibold text-gray-800">PIMCO Income</h5>
+                                    <p class="text-sm text-gray-600">Suavização de drawdown</p>
+                                </div>
+                                <span class="text-lg font-bold text-orange-500">10%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-400">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">IB01/LQDH - Liquidez</h5>
+                                    <p class="text-sm text-gray-600">Reserva de liquidez</p>
+                        </div>
+                                <span class="text-lg font-bold text-orange-400">10%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-300">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">CLOA - CLO AAA</h5>
+                                    <p class="text-sm text-gray-600">Proteção de cauda</p>
+                                </div>
+                                <span class="text-lg font-bold text-orange-300">5%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-orange-200">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">SGLN - Ouro</h5>
+                                    <p class="text-sm text-gray-600">Hedge de correlação negativa</p>
+                                </div>
+                                <span class="text-lg font-bold text-orange-200">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Análise Detalhada dos Produtos -->
+                <div class="mt-8">
+                    <div class="bg-gradient-to-r from-orange-50 via-amber-50 to-yellow-50 rounded-xl p-8 border border-orange-200 shadow-lg">
+                        <div class="text-center mb-8">
+                            <h4 class="text-2xl font-bold text-gray-800 mb-3">Análise dos Produtos Selecionados</h4>
+                            <p class="text-sm text-orange-700">Proposta equilibrada com foco em redução de drawdown mantendo target de 7% a.a.</p>
+                        </div>
+
+                        <!-- Cards dos Produtos -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <!-- Card IHYG -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="ihyg">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-orange-600 to-orange-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">IHYG</h5>
+                                        <p class="text-xs text-gray-600">HY USD</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-orange-600 text-sm">0,50%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-orange-600 text-sm">7,8%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Duration</span>
+                                        <span class="font-semibold text-orange-600 text-sm">3,2</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Núcleo de spread de crédito americano</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-orange-100 rounded-full h-1.5">
+                                        <div class="bg-orange-600 h-1.5 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">25% da camada</p>
+                                </div>
+                            </div>
+
+                            <!-- Card SHYU -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="shyu">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-amber-600 to-amber-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">SHYU</h5>
+                                        <p class="text-xs text-gray-600">HY EUR</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-amber-600 text-sm">0,50%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-amber-600 text-sm">6,9%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Duration</span>
+                                        <span class="font-semibold text-amber-600 text-sm">3,1</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Diversificação regional europeia</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-amber-100 rounded-full h-1.5">
+                                        <div class="bg-amber-600 h-1.5 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">15% da camada</p>
+                                </div>
+                            </div>
+
+                            <!-- Card EMHG -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="emhg">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-600 to-yellow-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">EMHG</h5>
+                                        <p class="text-xs text-gray-600">EM Bonds</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-yellow-600 text-sm">0,50%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-yellow-600 text-sm">8,2%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Duration</span>
+                                        <span class="font-semibold text-yellow-600 text-sm">4,8</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Spread soberano emergente</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-yellow-100 rounded-full h-1.5">
+                                        <div class="bg-yellow-600 h-1.5 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">15% da camada</p>
+                                </div>
+                            </div>
+
+                            <!-- Card IHYA -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="ihya">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">IHYA</h5>
+                                        <p class="text-xs text-gray-600">Structured</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-red-600 text-sm">0,50%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-red-600 text-sm">7,5%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Duration</span>
+                                        <span class="font-semibold text-red-600 text-sm">2,1</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Carrego alternativo estruturado</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-red-100 rounded-full h-1.5">
+                                        <div class="bg-red-600 h-1.5 rounded-full" style="width: 15%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">15% da camada</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Segunda linha de cards -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
+                            <!-- Card PIMCO Income -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="pimco">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-green-600 to-green-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">PIMCO</h5>
+                                        <p class="text-xs text-gray-600">Income</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-green-600 text-sm">0,51%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-green-600 text-sm">6,8%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Duration</span>
+                                        <span class="font-semibold text-green-600 text-sm">2,8</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Suavização de drawdown</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-green-100 rounded-full h-1.5">
+                                        <div class="bg-green-600 h-1.5 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">10% da camada</p>
+                                </div>
+                            </div>
+
+                            <!-- Card IB01/LQDH -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="ib01">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">IB01</h5>
+                                        <p class="text-xs text-gray-600">Liquidez</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-blue-600 text-sm">0,07%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-blue-600 text-sm">4,2%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Duration</span>
+                                        <span class="font-semibold text-blue-600 text-sm">0,9</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Reserva de liquidez diária</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-blue-100 rounded-full h-1.5">
+                                        <div class="bg-blue-600 h-1.5 rounded-full" style="width: 10%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">10% da camada</p>
+                                </div>
+                            </div>
+
+                            <!-- Card CLOA -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="cloa">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-purple-600 to-purple-700 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">CLOA</h5>
+                                        <p class="text-xs text-gray-600">CLO AAA</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-purple-600 text-sm">0,45%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Yield</span>
+                                        <span class="font-semibold text-purple-600 text-sm">5,8%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Rating</span>
+                                        <span class="font-semibold text-purple-600 text-sm">AAA</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Proteção de cauda negativa</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-purple-100 rounded-full h-1.5">
+                                        <div class="bg-purple-600 h-1.5 rounded-full" style="width: 5%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">5% da camada</p>
+                                </div>
+                            </div>
+
+                            <!-- Card SGLN -->
+                            <div class="etf-card bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 cursor-pointer" data-etf="sgln">
+                                <div class="flex items-center mb-3">
+                                    <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mr-3">
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-gray-800 text-sm">SGLN</h5>
+                                        <p class="text-xs text-gray-600">Ouro</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">TER</span>
+                                        <span class="font-semibold text-yellow-600 text-sm">0,17%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Correlação</span>
+                                        <span class="font-semibold text-yellow-600 text-sm">-0,2</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-xs text-gray-600">Vol</span>
+                                        <span class="font-semibold text-yellow-600 text-sm">16%</span>
+                                    </div>
+                                </div>
+
+                                <div class="mt-3 pt-3 border-t border-gray-100">
+                                    <p class="text-xs text-gray-500 mb-1">Papel:</p>
+                                    <p class="text-xs text-gray-700">Hedge de correlação negativa</p>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="w-full bg-yellow-100 rounded-full h-1.5">
+                                        <div class="bg-yellow-600 h-1.5 rounded-full" style="width: 5%"></div>
+                                    </div>
+                                    <p class="text-xs text-gray-500 mt-1">5% da camada</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resumo Estratégico -->
+                        <div class="mt-8 bg-gradient-to-r from-orange-100 to-amber-100 p-6 rounded-lg border border-orange-200">
+                            <h5 class="font-bold text-orange-800 mb-4 text-center">Resumo da Estratégia Equilibrada</h5>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                <div class="text-center">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h6 class="font-semibold text-orange-700 mb-2">Carry Esperado</h6>
+                                        <p class="text-2xl font-bold text-orange-800">~7,3%</p>
+                                        <p class="text-xs text-gray-600 mt-1">Target mantido</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h6 class="font-semibold text-orange-700 mb-2">Volatilidade</h6>
+                                        <p class="text-2xl font-bold text-orange-800">~4,6%</p>
+                                        <p class="text-xs text-gray-600 mt-1">Reduzida vs. original</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center">
+                                    <div class="bg-white p-4 rounded-lg shadow-sm">
+                                        <h6 class="font-semibold text-orange-700 mb-2">Max Drawdown</h6>
+                                        <p class="text-2xl font-bold text-orange-800">~-8%</p>
+                                        <p class="text-xs text-gray-600 mt-1">vs. -12% original</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-6 bg-white p-4 rounded-lg">
+                                <h6 class="font-semibold text-orange-700 mb-3">Principais Melhorias</h6>
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• <strong>Ouro (5%):</strong> Hedge mais barato de correlação negativa</li>
+                                        <li>• <strong>CLO AAA (5%):</strong> Corta cauda negativa mantendo yield</li>
+                                        <li>• <strong>PIMCO Income (10%):</strong> Suaviza drawdown do IHYA</li>
+                                    </ul>
+                                    <ul class="text-sm text-gray-700 space-y-1">
+                                        <li>• <strong>Diversificação regional:</strong> USD + EUR exposure</li>
+                                        <li>• <strong>Liquidez preservada:</strong> 10% em IB01/LQDH</li>
+                                        <li>• <strong>Espaço psicológico:</strong> Para rebalancear em stress</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+            <!-- Camada de Ganho -->
+            <div class="bg-red-50 p-6 rounded-lg mb-8 border border-red-200">
+                <h3 class="text-xl font-bold mb-4 text-red-800">Camada de Ganho (25% da carteira total)</h3>
+                <p class="text-sm text-red-700 mb-6">Megatendências globais 2025-2035 com alto potencial de crescimento estrutural</p>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Gráfico de alocação do ganho -->
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h4 class="text-lg font-semibold mb-4 text-center">Distribuição da Camada</h4>
+                        <div class="w-full" style="height: 400px;">
+                            <canvas id="growthChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Detalhamento do ganho -->
+                    <div class="space-y-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-900">
+                    <div class="flex justify-between items-center">
+                        <div>
+                                    <h5 class="font-semibold text-gray-800">Automação e Robótica</h5>
+                                    <p class="text-sm text-gray-600">Base industrial da nova economia</p>
+                        </div>
+                                <span class="text-lg font-bold text-red-900">25%</span>
+                        </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-700">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">Data Centers & Infraestrutura</h5>
+                                    <p class="text-sm text-gray-600">Infraestrutura digital pós-IA</p>
+                                </div>
+                                <span class="text-lg font-bold text-red-700">20%</span>
+                    </div>
+                </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-600">
+                    <div class="flex justify-between items-center">
+                        <div>
+                                    <h5 class="font-semibold text-gray-800">IA & Computação Avançada</h5>
+                                    <p class="text-sm text-gray-600">Transformação digital</p>
+                        </div>
+                                <span class="text-lg font-bold text-red-600">15%</span>
+                        </div>
+                    </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-500">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">Semicondutores</h5>
+                                    <p class="text-sm text-gray-600">Insumo crítico das inovações</p>
+                                </div>
+                                <span class="text-lg font-bold text-red-500">15%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-400">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">Cibersegurança</h5>
+                                    <p class="text-sm text-gray-600">Proteção digital</p>
+                                </div>
+                                <span class="text-lg font-bold text-red-400">10%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-300">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">Transição Energética</h5>
+                                    <p class="text-sm text-gray-600">Sustentabilidade energética</p>
+                                </div>
+                                <span class="text-lg font-bold text-red-300">10%</span>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-lg shadow-sm border-l-4 border-red-200">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5 class="font-semibold text-gray-800">Saúde Tech</h5>
+                                    <p class="text-sm text-gray-600">Medicina personalizada</p>
+                                </div>
+                                <span class="text-lg font-bold text-red-200">5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ETFs Opcionais -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">ETFs Opcionais para Uso Tático</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                    <h4 class="text-lg font-semibold text-gray-800">iShares 20+ Year Treasury Bond ETF (TLT)</h4>
+                    <p class="text-sm text-gray-600 mt-2">Alta convexidade para cenários de queda acentuada de juros</p>
+                    <div class="mt-4">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">AUM:</span>
+                            <span class="font-semibold">$48,58 bi</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Duration:</span>
+                            <span class="font-semibold">15,75 anos</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">YTD 2025:</span>
+                            <span class="font-semibold text-red-600">-1,07%</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Uso tático em expectativa de reversão do ciclo monetário</p>
+                </div>
+
+                <div class="bg-purple-50 p-6 rounded-lg border border-purple-200">
+                    <h4 class="text-lg font-semibold text-gray-800">Cambria Tail Risk ETF (TAIL)</h4>
+                    <p class="text-sm text-gray-600 mt-2">Proteção contra tail risk via put options no S&P 500</p>
+                    <div class="mt-4">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">AUM:</span>
+                            <span class="font-semibold">$109,47 mi</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">TER:</span>
+                            <span class="font-semibold">0,59%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Função:</span>
+                            <span class="font-semibold">Seguro crash</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Alocação 1-3% como seguro adicional</p>
+                </div>
+
+                <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+                    <h4 class="text-lg font-semibold text-gray-800">Invesco DB US Dollar Index Bullish Fund (UUP)</h4>
+                    <p class="text-sm text-gray-600 mt-2">Exposição long USD vs. cesta de moedas principais</p>
+                    <div class="mt-4">
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">AUM:</span>
+                            <span class="font-semibold">$267,6 mi</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Estratégia:</span>
+                            <span class="font-semibold">USD futures</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-sm text-gray-600">Uso:</span>
+                            <span class="font-semibold">Flight-to-quality</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-gray-500 mt-2">Hedge cambial em cenários específicos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Análise de Stress -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Análise de Stress Test Interativa</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                    <h3 class="text-xl font-bold text-red-800 mb-3">COVID-19 (2020)</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-red-700">Drawdown Máximo:</span>
+                            <span class="font-bold">-1,56%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-red-700">Tempo de Recuperação:</span>
+                            <span class="font-bold">66 dias úteis</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-red-700">vs Benchmark:</span>
+                            <span class="font-bold">-2,1% (95 dias)</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-red-600 mt-3">Resiliência excepcional demonstrou eficácia da diversificação</p>
+                </div>
+
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                    <h3 class="text-xl font-bold text-blue-800 mb-3">Eleição Trump (2024)</h3>
+                    <div class="space-y-2">
+                        <div class="flex justify-between">
+                            <span class="text-blue-700">Drawdown:</span>
+                            <span class="font-bold">-0,9%</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-blue-700">Tempo de Recuperação:</span>
+                            <span class="font-bold">20 dias úteis</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-blue-700">Estabilidade:</span>
+                            <span class="font-bold">Estrutural</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-blue-600 mt-3">Capacidade de navegar eventos políticos significativos</p>
+                </div>
+            </div>
+
+            <!-- Botão para Análise Avançada -->
+            <div class="mt-8 text-center">
+                <button id="runStressTestGlobal" class="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white rounded-lg hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    <svg class="w-5 h-5 mr-3 text-blue-200 group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                    </svg>
+                    <span class="font-semibold tracking-wide">Executar Análise Avançada</span>
+                    <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+                    </svg>
+                </button>
+                <p class="text-sm text-gray-500 mt-2">Análise completa dos dados da carteira</p>
+            </div>
+
+            <!-- Loading e Results -->
+            <div id="pythonLoadingGlobal" class="hidden mt-6 text-center">
+                <div class="inline-flex items-center px-4 py-2 border border-blue-300 rounded-full bg-blue-50">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span class="text-blue-700 font-medium">Carregando e executando análise...</span>
+                </div>
+            </div>
+
+            <div id="pythonResultsGlobal" class="hidden mt-6">
+                <div class="bg-gray-50 p-6 rounded-lg border">
+                    <h4 class="text-lg font-bold mb-4">Resultados da Análise</h4>
+                    <div id="stressTestOutputGlobal" class="space-y-4">
+                        <!-- Os resultados aparecerão aqui -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk-Return Analysis -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Eficiência Risk-Return vs Benchmarks</h2>
+            <div class="w-full" style="height: 400px;">
+                <canvas id="riskReturnChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>* Carteira Avalon demonstra eficiência superior com Sharpe Ratio de 3,06</p>
+                <p>* Benchmark: ICE BofA 1-3Y Treasury (Sharpe: 1,76)</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Gráfico da Camada de Preservação - Degradê de Azul
+            const ctxPreservation = document.getElementById('preservationChart').getContext('2d');
+            new Chart(ctxPreservation, {
+                type: 'doughnut',
+                data: {
+                    labels: ['U03A (0-3M T-Bills)', 'IBTA.L (1-3Y Treasury)', 'TFRN.L (Floating Rate)'],
+                    datasets: [{
+                        data: [60, 20, 20],
+                        backgroundColor: [
+                            'rgba(30, 58, 138, 0.9)',     // blue-900 - U03A
+                            'rgba(30, 64, 175, 0.9)',     // blue-800 - IBTA.L
+                            'rgba(29, 78, 216, 0.9)'      // blue-700 - TFRN.L
+                        ],
+                        borderWidth: 0,
+                        hoverBorderWidth: 3,
+                        hoverBorderColor: 'rgba(255, 255, 255, 0.8)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 12,
+                                    weight: '500'
+                                },
+                                color: '#1e3a8a'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            },
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white'
+                        }
+                    }
+                }
+            });
+
+            // Gráfico da Camada de Manutenção - Degradê de Laranja
+            const ctxMaintenance = document.getElementById('maintenanceChart').getContext('2d');
+            new Chart(ctxMaintenance, {
+                type: 'doughnut',
+                data: {
+                    labels: ['IHYG - High Yield USD', 'SHYU - High Yield EUR', 'EMHG - EM Bonds', 'IHYA - Structured Credit', 'PIMCO Income', 'IB01/LQDH - Liquidez', 'CLOA - CLO AAA', 'SGLN - Ouro'],
+                    datasets: [{
+                        data: [25, 15, 15, 15, 10, 10, 5, 5],
+                        backgroundColor: [
+                            'rgba(154, 52, 18, 0.9)',     // orange-900
+                            'rgba(194, 65, 12, 0.9)',     // orange-800
+                            'rgba(234, 88, 12, 0.9)',     // orange-700
+                            'rgba(251, 146, 60, 0.9)',    // orange-600
+                            'rgba(253, 186, 116, 0.9)',    // orange-500
+                            'rgba(254, 202, 202, 0.9)',    // orange-400
+                            'rgba(255, 219, 199, 0.9)',    // orange-300
+                            'rgba(255, 232, 222, 0.9)'     // orange-200
+                        ],
+                        borderWidth: 0,
+                        hoverBorderWidth: 3,
+                        hoverBorderColor: 'rgba(255, 255, 255, 0.8)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 12,
+                                    weight: '500'
+                                },
+                                color: '#9a3412'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            },
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white'
+                        }
+                    }
+                }
+            });
+
+            // Gráfico da Camada de Ganho - Degradê de Vermelho
+            const ctxGrowth = document.getElementById('growthChart').getContext('2d');
+            new Chart(ctxGrowth, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Automação & Robótica', 'Data Centers', 'IA & Computação', 'Semicondutores', 'Cibersegurança', 'Transição Energética', 'Saúde Tech'],
+                    datasets: [{
+                        data: [25, 20, 15, 15, 10, 10, 5],
+                        backgroundColor: [
+                            'rgba(127, 29, 29, 0.9)',     // red-900
+                            'rgba(185, 28, 28, 0.9)',     // red-700
+                            'rgba(220, 38, 38, 0.9)',     // red-600
+                            'rgba(239, 68, 68, 0.9)',     // red-500
+                            'rgba(248, 113, 113, 0.9)',   // red-400
+                            'rgba(252, 165, 165, 0.9)',   // red-300
+                            'rgba(254, 202, 202, 0.9)'    // red-200
+                        ],
+                        borderWidth: 0,
+                        hoverBorderWidth: 3,
+                        hoverBorderColor: 'rgba(255, 255, 255, 0.8)'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                font: {
+                                    size: 12,
+                                    weight: '500'
+                                },
+                                color: '#7f1d1d'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.parsed + '%';
+                                }
+                            },
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: 'white',
+                            bodyColor: 'white'
+                        }
+                    }
+                }
+            });
+
+            // Risk-Return Scatter Plot (dados reais)
+            const ctxRiskReturn = document.getElementById('riskReturnChart').getContext('2d');
+            new Chart(ctxRiskReturn, {
+                type: 'scatter',
+                data: {
+                    datasets: [
+                        {
+                            label: 'Carteira Avalon',
+                            data: [{x: 0.52, y: 1.65}],
+                            backgroundColor: 'rgba(34, 197, 94, 0.7)',
+                            borderColor: 'rgb(34, 197, 94)',
+                            pointRadius: 20
+                        },
+                        {
+                            label: 'ICE BofA 1-3Y Treasury',
+                            data: [{x: 0.68, y: 1.20}],
+                            backgroundColor: 'rgba(156, 163, 175, 0.7)',
+                            borderColor: 'rgb(156, 163, 175)',
+                            pointRadius: 15
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + 
+                                           'Vol: ' + context.parsed.x + '% | ' +
+                                           'CAGR: ' + context.parsed.y + '% | ' +
+                                           'Sharpe: ' + (context.dataset.label.includes('Avalon') ? '3.06' : '1.76');
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Volatilidade Anualizada (%)',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            min: 0,
+                            max: 1
+                        },
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'CAGR (%)',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            min: 0,
+                            max: 2
+                        }
+                    }
+                }
+            });
+
+            // Funcionalidade das Abas dos ETFs
+            const tabButtons = document.querySelectorAll('.etf-tab-btn');
+            const tabContents = document.querySelectorAll('.etf-tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const targetTab = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'border-blue-600', 'text-blue-600');
+                        btn.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active', 'border-blue-600', 'text-blue-600');
+                    this.classList.remove('border-transparent', 'text-gray-500');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show target tab content
+                    const targetContent = document.getElementById(`tab-${targetTab}`);
+                    if (targetContent) {
+                        targetContent.classList.remove('hidden');
+                    }
+                });
+            });
+
+            // Adicionar funcionalidade de clique nos cards dos ETFs
+            const etfCards = document.querySelectorAll('.etf-card');
+            
+            etfCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const etfType = this.getAttribute('data-etf');
+                    let url = '';
+                    
+                    switch(etfType) {
+                        // ETFs da Camada de Preservação
+                        case 'u03a':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=U03A:LSE:USD';
+                            break;
+                        case 'ibta':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=IBTA:LSE:USD';
+                            break;
+                        case 'tfrn':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=TFRN:LSE:USD';
+                            break;
+                        
+                        // ETFs da Camada de Manutenção
+                        case 'ihyg':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=IHYG:LSE:USD';
+                            break;
+                        case 'shyu':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=SHYU:LSE:EUR';
+                            break;
+                        case 'emhg':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=EMHG:LSE:USD';
+                            break;
+                        case 'ihya':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=IHYA:LSE:USD';
+                            break;
+                        case 'pimco':
+                            url = 'https://www.pimco.com/en-us/investments/mutual-funds/income-fund';
+                            break;
+                        case 'ib01':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=IB01:LSE:GBP';
+                            break;
+                        case 'cloa':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=CLOA:NASDAQ:USD';
+                            break;
+                        case 'sgln':
+                            url = 'https://markets.ft.com/data/etfs/tearsheet/summary?s=SGLN:LSE:USD';
+                            break;
+                        
+                        default:
+                            console.log('ETF não encontrado:', etfType);
+                            return;
+                    }
+                    
+                    // Abrir a página oficial do ETF
+                    window.open(url, '_blank');
+                });
+                
+                // Adicionar efeito visual de hover
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.15)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '';
+                });
+            });
+        });
+    </script>
+
+    <!-- Script Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+    <script>
+        let pyodideInstance = null;
+
+        async function initPyodide() {
+            if (pyodideInstance) return pyodideInstance;
+            
+            pyodideInstance = await loadPyodide();
+            
+            // Instalar pacotes necessários
+            await pyodideInstance.loadPackage(['numpy', 'pandas', 'matplotlib']);
+            
+            return pyodideInstance;
+        }
+
+        document.getElementById('runStressTest').addEventListener('click', async function() {
+            const button = this;
+            const loading = document.getElementById('pythonLoading');
+            const results = document.getElementById('pythonResults');
+            const output = document.getElementById('stressTestOutput');
+            
+            // UI feedback
+            button.disabled = true;
+            button.classList.add('opacity-50');
+            loading.classList.remove('hidden');
+            results.classList.add('hidden');
+            
+            try {
+                // Inicializar Pyodide
+                const pyodide = await initPyodide();
+                
+                // Código Python com dados reais - versão baseada no código de referência
+                const pythonCode = `
+import numpy as np
+import pandas as pd
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+from io import BytesIO
+import base64
+import js
+import json
+
+# Configurar matplotlib para gráficos interativos
+plt.style.use('default')
+plt.rcParams['figure.facecolor'] = '#ffffff'
+plt.rcParams['axes.facecolor'] = '#fafafa'
+plt.rcParams['axes.spines.top'] = False
+plt.rcParams['axes.spines.right'] = False
+plt.rcParams['axes.grid'] = True
+plt.rcParams['grid.alpha'] = 0.3
+plt.rcParams['grid.color'] = '#e5e7eb'
+plt.rcParams['grid.linestyle'] = '-'
+plt.rcParams['grid.linewidth'] = 0.8
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.size'] = 11
+plt.rcParams['axes.linewidth'] = 1.2
+plt.rcParams['lines.linewidth'] = 2.5
+plt.rcParams['axes.edgecolor'] = '#64748b'
+plt.rcParams['axes.labelcolor'] = '#374151'
+plt.rcParams['text.color'] = '#374151'
+plt.rcParams['xtick.color'] = '#6b7280'
+plt.rcParams['ytick.color'] = '#6b7280'
+
+# Paleta de cores profissional
+PRIMARY_BLUE = '#1e40af'
+SECONDARY_BLUE = '#3b82f6'
+ACCENT_BLUE = '#60a5fa'
+DARK_BLUE = '#1e3a8a'
+LIGHT_BLUE = '#93c5fd'
+GRAY_BLUE = '#64748b'
+
+# ── parâmetros seguindo o código de referência ─────────────────────────────────────────────── #
+START_DATE = "2020-01-01"
+WEIGHTS    = {"SGOV": 0.60, "IBTA.L": 0.20, "TFRN.L": 0.20}
+BENCH_TKR  = "SHY"
+STRESS     = {"COVID 2020": ("2020-02-19", "2020-03-23")}
+
+def fetch_etf_data(symbol, base_url, api_key):
+    """Busca dados reais via API"""
+    url = f"{base_url}/rest/v1/json_data?id=eq.{symbol}"
+    
+    xhr_code = f"""
+    (() => {{
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', '{url}', false);
+        xhr.setRequestHeader('apikey', '{api_key}');
+        xhr.setRequestHeader('Authorization', 'Bearer {api_key}');
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        
+        try {{
+            xhr.send();
+            return {{
+                success: xhr.status >= 200 && xhr.status < 300,
+                responseText: xhr.responseText
+            }};
+        }} catch (error) {{
+            return {{ success: false, error: error.message }};
+        }}
+    }})()
+    """
+    
+    result = js.eval(xhr_code)
+    
+    if not result.success:
+        raise Exception(f"Erro ao buscar dados para {symbol}")
+    
+    data = json.loads(str(result.responseText))
+    if not data or len(data) == 0:
+        raise Exception(f"Dados não encontrados para {symbol}")
+    
+    raw_data = data[0]['data']
+    
+    # Extrair preços
+    prices = {}
+    for date_str, val in raw_data.items():
+        try:
+            if isinstance(val, dict):
+                price = val.get('close', val.get('value', 0))
+                if price == 0:
+                    for k, v in val.items():
+                        if isinstance(v, (int, float)) and v > 0:
+                            price = v
+                            break
+            else:
+                price = float(val)
+            
+            if price > 0:
+                prices[date_str] = price
+        except:
+            continue
+    
+    if len(prices) < 50:
+        raise Exception(f"Dados insuficientes para {symbol}")
+    
+    # Converter para Series
+    price_series = pd.Series(prices)
+    price_series.index = pd.to_datetime(price_series.index)
+    price_series = price_series.sort_index()
+    price_series = price_series[price_series > 0].dropna()
+    
+    return price_series
+
+def portfolio_series(prices, w, rebalance=False):
+    """Calcula série da carteira seguindo o código de referência"""
+    returns = prices.pct_change().dropna()
+    if rebalance:
+        idx = prices/prices.iloc[0]
+        return (idx * pd.Series(w)).sum(axis=1)
+    port_ret = returns.mul(pd.Series(w), axis=1).sum(axis=1)
+    return (1+port_ret).cumprod()
+
+def scenario_metrics(series, start, end):
+    """Calcula métricas de cenário seguindo o código de referência"""
+    sub = series.loc[start:end]
+    peak_before = series.loc[:start].max()
+    dd = (sub/peak_before-1).min()
+    # recuperação
+    after = series.loc[end:]
+    try:
+        rec_day = after[after>=peak_before].index[0]
+        rec_days = (rec_day - pd.to_datetime(end)).days
+    except IndexError:
+        rec_days = np.nan
+    return dd, rec_days
+
+def calc_cagr(series):
+    """Calcula CAGR de uma série de preços"""
+    years = (series.index[-1] - series.index[0]).days / 365.25
+    return (series.iloc[-1] / series.iloc[0]) ** (1/years) - 1
+
+def calc_volatility(series):
+    """Calcula volatilidade anualizada"""
+    returns = series.pct_change().dropna()
+    return returns.std() * np.sqrt(252)
+
+def calc_max_drawdown(series):
+    """Calcula drawdown máximo"""
+    cummax = series.expanding().max()
+    drawdown = (series - cummax) / cummax
+    return drawdown.min()
+
+def create_interactive_plot(fig):
+    """Converte plot para base64 com estilo profissional"""
+    buffer = BytesIO()
+    fig.savefig(buffer, format='png', dpi=150, bbox_inches='tight', 
+                facecolor='white', edgecolor='none', pad_inches=0.2)
+    buffer.seek(0)
+    image_base64 = base64.b64encode(buffer.getvalue()).decode('utf-8')
+    buffer.close()
+    plt.close(fig)
+    return f"data:image/png;base64,{image_base64}"
+
+# Configuração da API
+API_URL = "https://zpfjprlbvkvwvobijznt.supabase.co"
+API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InpwZmpwcmxidmt2d3ZvYmlqem50Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk2MDI5OTIsImV4cCI6MjA2NTE3ODk5Mn0.oK0k1cMerMUkvwLyggu-vJfdixPhZLvWW39MbQLFDyI"
+
+print("Carregando dados históricos...")
+
+# ── download seguindo o código de referência ───────────────────────────────────────────────── #
+tickers = list(WEIGHTS.keys()) + [BENCH_TKR]
+prices_data = {}
+
+for symbol in tickers:
+    try:
+        print(f"Processando {symbol}...")
+        prices_data[symbol] = fetch_etf_data(symbol, API_URL, API_KEY)
+    except Exception as e:
+        print(f"Erro {symbol}: {str(e)}")
+        if symbol == BENCH_TKR:
+            # Se não conseguir o benchmark, usar um dos ETFs como proxy
+            print(f"Usando SGOV como proxy para {BENCH_TKR}")
+            prices_data[symbol] = prices_data.get("SGOV", pd.Series())
+        else:
+            raise Exception(f"Dados indisponíveis para {symbol}")
+
+# Criar DataFrame de preços
+prices = pd.DataFrame(prices_data).ffill()
+
+# Separar benchmark e carteira
+bench = prices[BENCH_TKR].ffill()
+portfolio_prices = prices[list(WEIGHTS.keys())]
+
+# ── série da carteira seguindo o código de referência ─────────────────────────────────────── #
+ret = portfolio_prices.pct_change().dropna()
+port = (1 + (ret * pd.Series(WEIGHTS)).sum(axis=1)).cumprod()
+bench = bench / bench.iloc[0]
+
+# ── rebase para plot seguindo o código de referência ──────────────────────────────────────── #
+common = port.index.intersection(bench.index)
+port100 = port.loc[common] / port.loc[common[0]] * 100
+bench100 = bench.loc[common] / bench.loc[common[0]] * 100
+
+print(f"Dados processados: {len(port100)} observações")
+print(f"Período: {common[0].strftime('%Y-%m-%d')} até {common[-1].strftime('%Y-%m-%d')}")
+
+# GRÁFICO 1: Performance vs Benchmark seguindo o código de referência
+fig1, ax1 = plt.subplots(figsize=(16, 9))
+fig1.patch.set_facecolor('#ffffff')
+
+# Linhas principais
+ax1.plot(port100.index, port100.values, linewidth=3.5, color=PRIMARY_BLUE, 
+         alpha=0.9, label='Carteira de Preservação', zorder=3)
+ax1.plot(bench100.index, bench100.values, linewidth=2.5, color=GRAY_BLUE, 
+         alpha=0.8, label='Benchmark 1-3Y (SHY)', zorder=2)
+
+# Destacar períodos de stress
+stress_colors = [DARK_BLUE]
+stress_alphas = [0.15]
+
+for i, (lbl, (ini, fim)) in enumerate(STRESS.items()):
+    ini_ts, fim_ts = pd.Timestamp(ini), pd.Timestamp(fim)
+    if ini_ts <= common[-1] and fim_ts >= common[0]:
+        ax1.axvspan(max(ini_ts, common[0]), min(fim_ts, common[-1]),
+                    alpha=stress_alphas[i], color=stress_colors[i], 
+                    label=f'{lbl} window', edgecolor='none', zorder=1)
+        
+        # Calcular drawdown para o período
+        period_mask = (port100.index >= ini_ts) & (port100.index <= fim_ts)
+        if period_mask.any():
+            period_data = port100[period_mask]
+            pre_period = port100[port100.index < ini_ts]
+            if len(pre_period) > 0:
+                peak = pre_period.max()
+                min_val = period_data.min()
+                dd = (min_val / peak - 1) * 100
+                
+                mid_date = ini_ts + (fim_ts - ini_ts) / 2
+                y_pos = period_data.mean()
+                ax1.annotate(f'DD: {dd:.1f}%', 
+                            xy=(mid_date, y_pos),
+                            xytext=(0, 30), textcoords='offset points',
+                            ha='center', fontsize=10, fontweight='bold',
+                            color=DARK_BLUE, 
+                            bbox=dict(boxstyle='round,pad=0.4', facecolor='white', 
+                                     edgecolor=stress_colors[i], alpha=0.9, linewidth=1.5))
+
+
+ax1.set_ylabel('Índice (base 100)', fontsize=14, fontweight='600')
+ax1.set_xlabel('Período', fontsize=14, fontweight='600')
+
+# Melhorar legenda
+ax1.legend(loc='upper left', frameon=True, fancybox=True, shadow=True, 
+           fontsize=11, framealpha=0.95, edgecolor=GRAY_BLUE)
+
+# Grid e styling
+ax1.grid(True, alpha=0.3, linestyle='-', linewidth=0.8)
+ax1.set_axisbelow(True)
+
+# Formatação de datas
+ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y'))
+ax1.xaxis.set_major_locator(mdates.YearLocator())
+ax1.xaxis.set_minor_locator(mdates.MonthLocator([1, 7]))
+
+for spine in ax1.spines.values():
+    spine.set_color(GRAY_BLUE)
+    spine.set_linewidth(1.2)
+
+chart1_b64 = create_interactive_plot(fig1)
+
+# Calcular métricas finais
+portfolio_cagr = calc_cagr(port100)
+portfolio_vol = calc_volatility(port100)
+portfolio_dd = calc_max_drawdown(port100)
+benchmark_cagr = calc_cagr(bench100)
+benchmark_vol = calc_volatility(bench100)
+benchmark_dd = calc_max_drawdown(bench100)
+
+# Resultado final seguindo a estrutura
+# Substituir SGOV por U03A na exibição
+etfs_display = [ticker.replace('SGOV', 'U03A') for ticker in list(WEIGHTS.keys())]
+
+result = {
+    'data_source': 'API de Dados Financeiros',
+    'charts': {
+        'performance': chart1_b64
+    },
+    'stats': {
+        'portfolio': {
+            'cagr': round(portfolio_cagr * 100, 2),
+            'volatility': round(portfolio_vol * 100, 2),
+            'max_drawdown': round(portfolio_dd * 100, 2)
+        },
+        'benchmark': {
+            'cagr': round(benchmark_cagr * 100, 2),
+            'volatility': round(benchmark_vol * 100, 2),
+            'max_drawdown': round(benchmark_dd * 100, 2)
+        }
+    },
+    'period': f"{common[0].strftime('%Y-%m-%d')} até {common[-1].strftime('%Y-%m-%d')}",
+    'total_days': len(port100),
+    'etfs_included': etfs_display,
+    'benchmark': BENCH_TKR
+}
+
+json.dumps(result)
+`;
+
+                // Executar Python
+                const result = pyodide.runPython(pythonCode);
+                const data = JSON.parse(result);
+                
+                // Mostrar resultados da análise
+                output.innerHTML = `
+                    <div class="space-y-6">
+                        <!-- Header com Informações da Análise -->
+                        <div class="bg-gradient-to-r from-green-50 to-blue-50 p-5 rounded-lg border-2 border-green-200 shadow-sm">
+                            <div class="flex items-center space-x-3">
+                                <svg class="w-6 h-6 text-green-600 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                                <div>
+                                    <h5 class="font-bold text-green-800 text-lg">Análise Quantitativa</h5>
+                                    <p class="text-xs text-green-600 mt-1">ETFs analisados: ${data.etfs_included.join(', ')}</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Principal -->
+                        <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm">
+                            <h5 class="font-bold text-gray-800 mb-4 text-center text-lg">Performance da Carteira de Preservação</h5>
+                            <div class="text-center">
+                                <img src="${data.charts.performance}" alt="Performance Chart" class="w-full max-w-5xl mx-auto rounded-lg shadow-md border border-gray-100">
+                        </div>
+
+                        </div>
+
+                        <!-- Métricas de Performance -->
+                        <div class="bg-gradient-to-r from-blue-50 to-slate-50 p-6 rounded-lg border border-blue-200 shadow-sm">
+                            <h5 class="font-bold text-blue-800 mb-6 text-center text-lg">Métricas de Performance</h5>
+                            
+                            <!-- Métricas Principais -->
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                                <div class="text-center bg-white p-4 rounded-lg border border-blue-100">
+                                    <div class="text-2xl font-bold text-blue-900">${data.stats.portfolio.cagr}%</div>
+                                    <div class="text-sm text-blue-700 font-medium">CAGR</div>
+                                </div>
+                                <div class="text-center bg-white p-4 rounded-lg border border-blue-100">
+                                    <div class="text-2xl font-bold text-blue-900">${data.stats.portfolio.volatility}%</div>
+                                    <div class="text-sm text-blue-700 font-medium">Volatilidade</div>
+                                </div>
+                                <div class="text-center bg-white p-4 rounded-lg border border-blue-100">
+                                    <div class="text-2xl font-bold text-blue-900">${data.stats.portfolio.max_drawdown}%</div>
+                                    <div class="text-sm text-blue-700 font-medium">Drawdown Máximo</div>
+                                </div>
+                            </div>
+
+                            <!-- Métricas Comparativas -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="text-center bg-white p-4 rounded-lg border border-blue-100">
+                                    <div class="text-xl font-bold text-blue-900">${(data.stats.portfolio.cagr / data.stats.portfolio.volatility).toFixed(2)}</div>
+                                    <div class="text-sm text-blue-700 font-medium">Sharpe Ratio</div>
+                                    <div class="text-xs text-gray-500 mt-1">Retorno por unidade de risco</div>
+                                </div>
+                                <div class="text-center bg-white p-4 rounded-lg border border-blue-100">
+                                    <div class="text-xl font-bold text-blue-900">vs ${data.benchmark}</div>
+                                    <div class="text-sm text-blue-700 font-medium">Benchmark</div>
+                                    <div class="text-xs text-gray-500 mt-1">CAGR: ${data.stats.benchmark.cagr}% | Vol: ${data.stats.benchmark.volatility}%</div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                `;
+                
+                results.classList.remove('hidden');
+                
+            } catch (error) {
+                output.innerHTML = `
+                    <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                        <div class="flex items-start space-x-3">
+                            <svg class="w-6 h-6 text-red-600 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <div>
+                                <h5 class="font-bold text-red-800 mb-2">Erro na Análise</h5>
+                                <p class="text-red-700 text-sm font-mono bg-red-100 p-3 rounded">${error.message}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                results.classList.remove('hidden');
+            } finally {
+                // Reset UI
+                button.disabled = false;
+                button.classList.remove('opacity-50');
+                loading.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html> 

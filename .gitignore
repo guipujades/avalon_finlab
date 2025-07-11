@@ -20,10 +20,50 @@
 venv/
 .venv/
 .env/
-# Diretórios muito grandes
-database/
-sherpa/
-flab/
-unb/
-poc_InvestmentOrchestrator/
-poc_backup/
+# Mais arquivos de dados
+*.bin
+*.npy
+*.npz
+*.mat
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+*.model
+*.weights
+*.pth
+*.pt
+*.onnx
+*.joblib
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.pdf
+*.pyc
+__pycache__/
+*.log
+*.sample
+# Arquivos grandes específicos
+database/historico_precos/*.txt
+database/historico_b3/*.TXT
+database/historico_b3/*.txt
+# Arquivos de cotação histórica
+COTAHIST_*.TXT
+data_stocks.txt
+# Excluir TODOS os arquivos da pasta historico_b3
+database/historico_b3/*
+# Excluir TODOS os arquivos da pasta historico_precos
+database/historico_precos/*
+# Excluir pasta arquivo
+arquivo/
+# Arquivos compilados e executáveis
+*.pyc
+*.pyd
+*.pyo
+*.exe
+*.dll
+*.so
+*.lib
+__pycache__/

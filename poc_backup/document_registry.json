@@ -1,0 +1,164 @@
+{
+  "documents": {
+    "README.md": {
+      "path": "README.md",
+      "name": "README.md",
+      "size": 1251,
+      "modified": "2025-06-02T21:41:43.521811",
+      "extension": ".md",
+      "categories": [
+        "general"
+      ],
+      "topics": [],
+      "entities": [
+        "Base",
+        "Local",
+        "Estrutura",
+        "Arquivos",
+        "DOCX",
+        "TXT",
+        "Relatórios",
+        "Documentos",
+        "Notas",
+        "WAV",
+        "M4A",
+        "Gravações",
+        "Podcasts",
+        "AVI",
+        "MOV",
+        "Vídeos",
+        "Imagens",
+        "Gráficos",
+        "Diagramas",
+        "Formatos"
+      ],
+      "summary_preview": "# Base de Conhecimento Local\n\n## Estrutura de Pastas\n\n- **documentos/**: Arquivos de texto (PDF, DOCX, TXT, MD)\n  - relatorios/: Relatórios formais\n  - pesquisas/: Documentos de pesquisa\n  - notas/: N...",
+      "processed_at": "2025-06-02T21:41:43.528157"
+    },
+    "novos_docs\\relatorio_petrobras_petr3_1T25.pdf": {
+      "path": "novos_docs\\relatorio_petrobras_petr3_1T25.pdf",
+      "name": "relatorio_petrobras_petr3_1T25.pdf",
+      "size": 1136360,
+      "modified": "2025-06-02T18:13:48.262021",
+      "extension": ".pdf",
+      "categories": [
+        "general"
+      ],
+      "topics": [],
+      "entities": [],
+      "summary_preview": "",
+      "processed_at": "2025-06-02T21:41:43.529557"
+    },
+    "novos_docs\\relatorio_vale_vale3_1T25.pdf": {
+      "path": "novos_docs\\relatorio_vale_vale3_1T25.pdf",
+      "name": "relatorio_vale_vale3_1T25.pdf",
+      "size": 2418712,
+      "modified": "2025-06-02T21:36:33.090664",
+      "extension": ".pdf",
+      "categories": [
+        "general"
+      ],
+      "topics": [],
+      "entities": [],
+      "summary_preview": "",
+      "processed_at": "2025-06-02T21:41:43.529801"
+    }
+  },
+  "last_scan": "2025-06-02T21:41:43.532418",
+  "resumos": {
+    "Desempenho Financeiro Petrobras 1T25": "### RESUMO DETALHADO PARA INVESTIDORES - DESSEMPENHO FINANCEIRO PETROBRAS 1T25\n\n#### 1. VISÃO GERAL\nO documento analisado é o relatório de desempenho financeiro da Petrobras referente ao primeiro trimestre de 2025 (1T25). A Petrobras é uma das maiores empresas de petróleo e gás do mundo, atuando no setor de energia. O relatório destaca um contexto de resultados positivos, impulsionados por um aumento na produção e na geração de caixa.\n\n#### 2. PONTOS PRINCIPAIS PARA INVESTIMENTO\n- **Métricas Fin..."
+  },
+  "categories": {
+    "general": [
+      "README.md",
+      "novos_docs\\relatorio_petrobras_petr3_1T25.pdf",
+      "novos_docs\\relatorio_vale_vale3_1T25.pdf",
+      "README.md",
+      "novos_docs\\relatorio_petrobras_petr3_1T25.pdf",
+      "novos_docs\\relatorio_vale_vale3_1T25.pdf"
+    ]
+  },
+  "topics_index": {},
+  "entities_index": {
+    "Base": [
+      "README.md",
+      "README.md"
+    ],
+    "Local": [
+      "README.md",
+      "README.md"
+    ],
+    "Estrutura": [
+      "README.md",
+      "README.md"
+    ],
+    "Arquivos": [
+      "README.md",
+      "README.md"
+    ],
+    "DOCX": [
+      "README.md",
+      "README.md"
+    ],
+    "TXT": [
+      "README.md",
+      "README.md"
+    ],
+    "Relatórios": [
+      "README.md",
+      "README.md"
+    ],
+    "Documentos": [
+      "README.md",
+      "README.md"
+    ],
+    "Notas": [
+      "README.md",
+      "README.md"
+    ],
+    "WAV": [
+      "README.md",
+      "README.md"
+    ],
+    "M4A": [
+      "README.md",
+      "README.md"
+    ],
+    "Gravações": [
+      "README.md",
+      "README.md"
+    ],
+    "Podcasts": [
+      "README.md",
+      "README.md"
+    ],
+    "AVI": [
+      "README.md",
+      "README.md"
+    ],
+    "MOV": [
+      "README.md",
+      "README.md"
+    ],
+    "Vídeos": [
+      "README.md",
+      "README.md"
+    ],
+    "Imagens": [
+      "README.md",
+      "README.md"
+    ],
+    "Gráficos": [
+      "README.md",
+      "README.md"
+    ],
+    "Diagramas": [
+      "README.md",
+      "README.md"
+    ],
+    "Formatos": [
+      "README.md",
+      "README.md"
+    ]
+  }
+}

@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório de Alocação - Análises e Perspectivas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="common-styles.css">
+    <script src="common-scripts.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div>
+        <header class="bg-gray-900 text-white shadow-lg">
+            <div class="container mx-auto py-6 px-4">
+                <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+                <div class="mt-2">
+                    <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                        <option value="inicio">← Voltar ao Início</option>
+                        <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                        <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                        <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                        <option value="private-equity">Private Equity</option>
+                        <option value="us-corporates">Renda Fixa</option>
+                        <option value="hedge-funds">Hedge Funds</option>
+                    </select>
+                </div>
+                <p class="mt-4 opacity-80">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+            </div>
+        </header>
+
+        <!-- Botões de navegação -->
+        <div class="container mx-auto px-4">
+            <div class="transform -translate-y-1/4 flex justify-end space-x-4">
+                <a href="onshore.html" 
+                   class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                          hover:bg-gray-800 transition-all duration-300 
+                          border border-gray-700 hover:border-gray-600
+                          shadow-lg hover:shadow-xl
+                          backdrop-filter backdrop-blur-sm">
+                    <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M3 17l6-6 4 4 8-8"/>
+                        <path d="M2 20l10-10 10 10" stroke="#cbd5e1" stroke-width="1.2" fill="none"/>
+                    </svg>
+                    <span class="font-medium tracking-wide">Onshore</span>
+                    <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+                <a href="acompanhamento.html" 
+                   class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                          hover:bg-gray-800 transition-all duration-300 
+                          border border-gray-700 hover:border-gray-600
+                          shadow-lg hover:shadow-xl
+                          backdrop-filter backdrop-blur-sm">
+                    <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                    <span class="font-medium tracking-wide">Acompanhamento</span>
+                    <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+                <a href="cronograma.html" 
+                   class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                          hover:bg-gray-800 transition-all duration-300 
+                          border border-gray-700 hover:border-gray-600
+                          shadow-lg hover:shadow-xl
+                          backdrop-filter backdrop-blur-sm">
+                    <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    <span class="font-medium tracking-wide">Cronograma de Trabalho</span>
+                    <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+
+                <a href="gestao-ativa.html" 
+                   class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                          hover:bg-gray-800 transition-all duration-300 
+                          border border-gray-700 hover:border-gray-600
+                          shadow-lg hover:shadow-xl
+                          backdrop-filter backdrop-blur-sm">
+                    <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                    </svg>
+                    <span class="font-medium tracking-wide">Gestão Ativa</span>
+                    <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
+                         fill="none" 
+                         stroke="currentColor" 
+                         viewBox="0 0 24 24">
+                        <path stroke-linecap="round" 
+                              stroke-linejoin="round" 
+                              stroke-width="1.5" 
+                              d="M9 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <div class="container mx-auto px-4 py-8">
+            <!-- Seção de visão geral do patrimônio offshore -->
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="border-b border-gray-200 pb-6 mb-6">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-2">Visão Geral - Patrimônio Internacional</h2>
+                    <p class="text-gray-600">Distribuição estratégica dos investimentos offshore por categoria</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Gráfico de alocação -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Alocação por Categoria</h3>
+                        <div class="w-full" style="height: 300px;">
+                            <canvas id="portfolioChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Resumo e detalhes -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h3 class="text-xl font-semibold mb-4">Resumo do Portfólio</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center border-b border-gray-200 pb-3">
+                                <span class="text-gray-600">Patrimônio Total Offshore:</span>
+                                <span class="text-2xl font-bold text-gray-800">$18.442.530,48</span>
+                            </div>
+                            
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span>Ganho</span>
+                                    <div class="text-right">
+                                        <div class="font-semibold">$8.114M</div>
+                                        <div class="text-sm text-gray-500">44,00%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between items-center">
+                                    <span>Manutenção</span>
+                                    <div class="text-right">
+                                        <div class="font-semibold">$9.415M</div>
+                                        <div class="text-sm text-gray-500">51,05%</div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex justify-between items-center">
+                                    <span>Preservação</span>
+                                    <div class="text-right">
+                                        <div class="font-semibold">$913k</div>
+                                        <div class="text-sm text-gray-500">4,95%</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nova seção de detalhamento dos produtos -->
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <h2 class="text-2xl font-bold mb-6">Detalhamento da Carteira</h2>
+                
+                <!-- Tab Navigation -->
+                <div class="border-b border-gray-200 mb-6">
+                    <nav class="-mb-px flex space-x-8">
+                        <button class="tab-button active py-2 px-1 border-b-2 border-blue-500 font-medium text-sm text-blue-600" data-tab="stocks">
+                            Stocks ($3.85M ~ 20,8%)
+                        </button>
+                        <button class="tab-button py-2 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="fixed-income">
+                            Renda Fixa ($10.33M ~ 56,0%)
+                        </button>
+                        <button class="tab-button py-2 px-1 border-b-2 border-transparent font-medium text-sm text-gray-500 hover:text-gray-700 hover:border-gray-300" data-tab="alternatives">
+                            Alternativos ($4.26M ~ 22,6%)
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="stocks" class="tab-content">
+                <div class="space-y-6">
+                    <!-- Fundos de Investimento -->
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                            <div class="mb-4 lg:mb-0">
+                                <h3 class="text-lg font-semibold text-gray-800">Harris Associates U.S. Value Equity Fund R/A (USD)</h3>
+                                <p class="text-sm text-gray-600 mt-1">Natixis Investment Managers</p>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-right">
+                                    <span class="block text-xl font-bold text-gray-900">$563k</span>
+                                    <span class="text-sm text-gray-500">3,0% do portfólio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                            <div class="mb-4 lg:mb-0">
+                                <h3 class="text-lg font-semibold text-gray-800">Vontobel Fund - Emerging Markets Equity B USD</h3>
+                                <p class="text-sm text-gray-600 mt-1">Vontobel Asset Management</p>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-right">
+                                    <span class="block text-xl font-bold text-gray-900">$424k</span>
+                                    <span class="text-sm text-gray-500">2,3% do portfólio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                            <div class="mb-4 lg:mb-0">
+                                <h3 class="text-lg font-semibold text-gray-800">Vanguard S&P 500 UCITS ETF (VUAA LN)</h3>
+                                <p class="text-sm text-gray-600 mt-1">Vanguard Group</p>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-right">
+                                    <span class="block text-xl font-bold text-gray-900">$1M</span>
+                                    <span class="text-sm text-gray-500">5,5% do portfólio</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notas Estruturadas -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-bold mb-4">Notas Estruturadas</h3>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                    <div class="mb-4 lg:mb-0">
+                                        <h3 class="text-lg font-semibold text-gray-800">UP NT SPD-SPY 30.12.25</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Nota Estruturada</p>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="text-right">
+                                            <span class="block text-xl font-bold text-gray-900">$874k</span>
+                                            <span class="text-sm text-gray-500">4,7% do portfólio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                    <div class="mb-4 lg:mb-0">
+                                        <h3 class="text-lg font-semibold text-gray-800">BNP Phoenix SPY 05.01.26</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Nota Estruturada</p>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="text-right">
+                                            <span class="block text-xl font-bold text-gray-900">$672k</span>
+                                            <span class="text-sm text-gray-500">3,6% do portfólio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-gray-50 p-6 rounded-lg">
+                                <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                    <div class="mb-4 lg:mb-0">
+                                        <h3 class="text-lg font-semibold text-gray-800">UP NT SPY 04.04.30</h3>
+                                        <p class="text-sm text-gray-600 mt-1">Nota Estruturada</p>
+                                    </div>
+                                    <div class="flex items-center space-x-4">
+                                        <div class="text-right">
+                                            <span class="block text-xl font-bold text-gray-900">$300k</span>
+                                            <span class="text-sm text-gray-500">1,63% do portfólio</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <div id="fixed-income" class="tab-content hidden">
+                    <div class="space-y-8">
+                        
+                        <!-- Caixa / CD -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Caixa / CD</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Cash Accounts-USD-DDA</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Conta Corrente</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$449.952,36</span>
+                                                <span class="text-sm text-gray-500">2,44% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Cash Accounts-USD-MMA</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Money Market Account</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$2.663,16</span>
+                                                <span class="text-sm text-gray-500">0,01% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Itau Aba Cash Enhanced Fd C2 (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo de Caixa</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$460.076,26</span>
+                                                <span class="text-sm text-gray-500">2,49% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Treasury -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Treasury</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">USA T-Note 4.625 15.05.44</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Treasury Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$584.086,24</span>
+                                                <span class="text-sm text-gray-500">3,17% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">USA T-Bonds 4.25 15.08.54</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Treasury Bond</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$278.531,25</span>
+                                                <span class="text-sm text-gray-500">1,51% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- US Corporates -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">US Corporates</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Bank of America 5.015 22.07.33</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Corporate Bond</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$301.331,88</span>
+                                                <span class="text-sm text-gray-500">1,63% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Pimco Income Fund FI Fund ACC (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo de Renda Fixa</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$893.470,79</span>
+                                                <span class="text-sm text-gray-500">4,84% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Itau Us Fixed Income Fund Class C ACC (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo de Renda Fixa</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$344.389,75</span>
+                                                <span class="text-sm text-gray-500">1,87% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Nordea 1 US Corp Bond ACC (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo de Renda Fixa</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$709.774,25</span>
+                                                <span class="text-sm text-gray-500">3,85% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">JPMorgan Chase 5.717 14.09.33</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Corporate Bond</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$312.691,38</span>
+                                                <span class="text-sm text-gray-500">1,70% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">BNP CCLN ARCMITTAL 10.4 05.07.34</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Credit Linked Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$279.990,00</span>
+                                                <span class="text-sm text-gray-500">1,52% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">JPM CCLN GLENCORE 7.60 10.01.35</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Credit Linked Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$354.280,00</span>
+                                                <span class="text-sm text-gray-500">1,92% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Mercados Emergentes -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Mercados Emergentes</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Raizen Fuels 5.70 17.01.35</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Corporate Bond</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$380.814,67</span>
+                                                <span class="text-sm text-gray-500">2,06% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Gs Em Corp Bond Prt Dls Acc (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo de Mercados Emergentes</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$1.051.830,13</span>
+                                                <span class="text-sm text-gray-500">5,70% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">BNP CCLN BRAZIL 10.25 05.07.34</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Credit Linked Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$255.540,00</span>
+                                                <span class="text-sm text-gray-500">1,39% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">CLN PEMEX 8.80 SN16427 05.02.37</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Credit Linked Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$305.407,86</span>
+                                                <span class="text-sm text-gray-500">1,66% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">CLN BRAZIL 8.0 SN15844 07.08.28</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Credit Linked Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$298.693,23</span>
+                                                <span class="text-sm text-gray-500">1,62% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">JPM CCLN PETROBRAS 9.25 05.10.43</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Credit Linked Note</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$345.880,00</span>
+                                                <span class="text-sm text-gray-500">1,88% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- High Yield / Preferred Securities -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">High Yield / Preferred Securities</h3>
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Axa Us Hy Bonds Fd ACC (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo High Yield</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$717.652,68</span>
+                                                <span class="text-sm text-gray-500">3,89% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Pimco Us Hy Bond Fund ACC (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo High Yield</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$719.726,37</span>
+                                                <span class="text-sm text-gray-500">3,90% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">Robeco Hy Bonds Fd II ACC (USDHGD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo High Yield</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$579.311,72</span>
+                                                <span class="text-sm text-gray-500">3,14% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                                        <div class="mb-4 lg:mb-0">
+                                            <h4 class="text-lg font-semibold text-gray-800">LORD ABBETT HIGH YIELD A ACC (USD)</h4>
+                                            <p class="text-sm text-gray-600 mt-1">Fundo High Yield</p>
+                                        </div>
+                                        <div class="flex items-center space-x-4">
+                                            <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$702.053,77</span>
+                                                <span class="text-sm text-gray-500">3,81% do portfólio</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="alternatives" class="tab-content hidden">
+                <div class="space-y-8">
+                  <!-- Hedge Funds -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Hedge Funds</h3>
+                  <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Itaú Orion Global Fund Class B</h4>
+                        <p class="text-sm text-gray-600 mt-1">Hedge Fund</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$599.034,55</span>
+                          <span class="text-sm text-gray-500">3,25% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Tudor BVI Global Fund Ltd Subclass B G Institutional Series 01</h4>
+                        <p class="text-sm text-gray-600 mt-1">Hedge Fund</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$542.526,82</span>
+                          <span class="text-sm text-gray-500">2,94% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">VG Equities Fund Segregated Portfolio - Classe A - Series 1</h4>
+                        <p class="text-sm text-gray-600 mt-1">Hedge Fund</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$576.850,00</span>
+                          <span class="text-sm text-gray-500">3,13% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Blue Owl SP2 Class C-A-ACC (iCapital)</h4>
+                        <p class="text-sm text-gray-600 mt-1">Hedge Fund</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$306.593,19</span>
+                          <span class="text-sm text-gray-500">1,66% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Brevan Howard Master F (USD) Series 4</h4>
+                        <p class="text-sm text-gray-600 mt-1">Hedge Fund</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$519.165,54</span>
+                          <span class="text-sm text-gray-500">2,82% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                        </div>
+                      </div>
+                    </div>
+                        
+                  <!-- Private Equity -->
+                        <div>
+                            <h3 class="text-xl font-bold mb-4">Private Equity</h3>
+                  <div class="space-y-4">
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy Jaguar 14 Class A</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$294.342,95</span>
+                          <span class="text-sm text-gray-500">1,60% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy CDR XI Class A</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$406.620,51</span>
+                          <span class="text-sm text-gray-500">2,20% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy MSD PCOF 2 Class B</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$353.901,63</span>
+                          <span class="text-sm text-gray-500">1,92% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy Silver Lake Alpine II Cl A</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$273.576,56</span>
+                          <span class="text-sm text-gray-500">1,48% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy General Atlantic 2022 Cl A</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$164.090,70</span>
+                          <span class="text-sm text-gray-500">0,89% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy MSD SIF II Class A</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$121.551,30</span>
+                          <span class="text-sm text-gray-500">0,66% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-6 rounded-lg">
+                                    <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between">
+                      <div class="mb-4 lg:mb-0">
+                        <h4 class="text-lg font-semibold text-gray-800">Galaxy Coller</h4>
+                        <p class="text-sm text-gray-600 mt-1">Private Equity</p>
+                      </div>
+                      <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                                                <span class="block text-xl font-bold text-gray-900">$105.500,00</span>
+                          <span class="text-sm text-gray-500">0,57% do portfólio</span>
+                        </div>
+                      </div>
+                    </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="bg-gray-900 text-white py-8 mt-12">
+            <div class="container mx-auto px-4">
+                <div class="text-center">
+                    <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                    <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                    <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+    <!-- Botão flutuante de voltar ao topo -->
+    <button id="scrollToTop" class="fixed bottom-8 right-8 bg-gray-900 text-white p-3 rounded-full shadow-lg hover:bg-gray-800 transition-colors hidden">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Ganho', 'Manutenção', 'Preservação'],
+                    datasets: [{
+                        data: [8114, 9415, 913],
+                        backgroundColor: [
+                            'rgba(252, 165, 165, 0.9)', // red-300 (mais avermelhado mas ainda claro)
+                            'rgba(251, 146, 60, 0.9)',  // orange-300 (voltando para o laranja anterior)
+                            'rgba(59, 130, 246, 0.9)'   // blue-500
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.raw;
+                                    const total = 18442.53;
+                                    const percentage = ((value / total) * 100).toFixed(2);
+                                    return `$${value}M (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            grid: {
+                                color: 'rgba(0, 0, 0, 0.05)'
+                            },
+                            ticks: {
+                                callback: function(value) {
+                                    return '$' + value + 'M';
+                                }
+                            }
+                        },
+                        y: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    maintainAspectRatio: false,
+                    responsive: true
+                }
+            });
+
+            document.getElementById('productSelector').addEventListener('change', function() {
+                const value = this.value;
+                if (value === 'inicio') {
+                    window.location.href = 'offshore.html';
+                } else if (value === 'vuaa') {
+                    window.location.href = 'produtos/vuaa/vuaa.html';
+                } else if (value === 'harris') {
+                    window.location.href = 'produtos/harris/harris.html';
+                } else if (value === 'vontobel') {
+                    window.location.href = 'produtos/vontobel/vontobel.html';
+                } else if (value === 'private-equity') {
+                    window.location.href = 'produtos/private-equity/private-equity.html';
+                } else if (value === 'us-corporates') {
+                    window.location.href = 'produtos/us-corporates/us-corporates.html';
+                } else if (value === 'hedge-funds') {
+                    window.location.href = 'produtos/hedge-funds/hedge-funds.html';
+                }
+            });
+
+            // Tab functionality
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetTab = button.getAttribute('data-tab');
+                    
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('active', 'border-blue-500', 'text-blue-600');
+                        btn.classList.add('border-transparent', 'text-gray-500');
+                    });
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active', 'border-blue-500', 'text-blue-600');
+                    button.classList.remove('border-transparent', 'text-gray-500');
+                    
+                    // Hide all tab contents
+                    tabContents.forEach(content => {
+                        content.classList.add('hidden');
+                    });
+                    
+                    // Show target tab content
+                    document.getElementById(targetTab).classList.remove('hidden');
+                });
+            });
+
+            // Scroll to top functionality
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollToTopBtn.classList.remove('hidden');
+                } else {
+                    scrollToTopBtn.classList.add('hidden');
+                }
+            });
+
+            scrollToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

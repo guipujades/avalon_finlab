@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep:*)",
+      "Bash(chmod:*)",
+      "Bash(for fund in vinci kinea itau-dolomitas itau-vertice-ibovespa itau-vertice-rf itau-caixa)",
+      "Bash(do echo:*)",
+      "Bash(done)",
+      "Bash(find:*)",
+      "Bash(ls:*)"
+    ],
+    "deny": []
+  }
+}

@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise do Vontobel Fund - Emerging Markets Equity B USD</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="../../common-styles.css">
+    <script src="../../common-scripts.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel" selected>Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates">Renda Fixa</option>
+                    <option value="hedge-funds">Hedge Funds</option>
+                </select>
+            </div>
+
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#estrutura" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Estrutura do Ativo</a></li>
+                    <li><a href="#taxas" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Análise de Taxas</a></li>
+                    <li><a href="#comparativo" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Comparativo com Pares</a></li>
+                    <li><a href="#composicao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Composição da Carteira</a></li>
+                    <li><a href="#desempenho" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Desempenho Histórico</a></li>
+                    <li><a href="#consideracoes" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Considerações sobre o produto</a></li>
+                    <li><a href="#radar-mercado" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Radar de Mercado</a></li>
+                    <li><a href="#recomendacao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Recomendação Final</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-600 rounded-full p-3 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Visão Geral</h2>
+                        <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                    </div>
+                </div>
+                
+                <p class="mb-4">
+                    O <strong><a href="https://am.vontobel.com/en/view/LU0040507039/vontobel-fund-emerging-markets-equity" target="_blank" class="text-black-600 hover:text-blue-800 underline">Vontobel Emerging Markets Equity B Acc (USD)</strong></a> é um fundo de gestão ativa com mais de 30 anos de histórico (desde 1992), que busca crescimento de capital investindo em ações de empresas de mercados emergentes. A estratégia Quality Growth é baseada em pesquisa profunda e seleção de empresas com crescimento estável, alta qualidade empresarial e integração total de critérios ESG. O portfólio é diversificado, com forte presença na Ásia, concentrado (45-60 ações): visa ao menor risco empresarial que o mercado emergente geral. Benchmark: <strong>MSCI Emerging Markets Net Total Return (USD)</strong>.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">TER</h3>
+                        <p class="text-3xl font-bold text-slate-800">2,08%</p>
+                        <p class="text-sm text-slate-600">Taxa de Despesa Total</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">AUM</h3>
+                        <p class="text-3xl font-bold text-stone-800">$418M</p>
+                        <p class="text-sm text-stone-600">Ativos sob Gestão</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Lançamento</h3>
+                        <p class="text-3xl font-bold text-zinc-800">1992</p>
+                        <p class="text-sm text-zinc-600">03/11/1992</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção: Estrutura do Fundo -->
+            <section id="estrutura" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full data-table">
+                        <tbody>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                <td class="py-3 px-4">Vontobel Fund - Emerging Markets Equity B Acc (USD)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">ISIN</th>
+                                <td class="py-3 px-4">LU0040507039</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Domicílio</th>
+                                <td class="py-3 px-4">Luxemburgo</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Data de Lançamento</th>
+                                <td class="py-3 px-4">03 de novembro de 1992</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Estrutura Regulatória</th>
+                                <td class="py-3 px-4">UCITS (Undertakings for Collective Investment in Transferable Securities)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Taxa de Administração</th>
+                                <td class="py-3 px-4">2,08% a.a.</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Política de Dividendos</th>
+                                <td class="py-3 px-4">Acumulação (reinveste dividendos)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Ativos sob Gestão</th>
+                                <td class="py-3 px-4">US$ 418 milhões (classe B USD) / US$ 3,2 bilhões (estratégia)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Investimento Mínimo Inicial</th>
+                                <td class="py-3 px-4">USD 0 (institucional)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Benchmark</th>
+                                <td class="py-3 px-4">MSCI Emerging Markets Net Total Return (USD)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Moeda Base</th>
+                                <td class="py-3 px-4">USD</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Gestora</th>
+                                <td class="py-3 px-4">Vontobel Asset Management S.A.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">Pontos-chave da Estrutura</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Estrutura UCITS luxemburguesa garante proteção regulatória e diversificação</li>
+                        <li>Política de acumulação favorece o crescimento de longo prazo</li>
+                        <li>Gestão ativa com histórico de +30 anos e equipe global dedicada</li>
+                        <li>Benchmark MSCI EM permite comparação transparente com o universo emergente</li>
+                        <li>Foco em empresas de alta qualidade, crescimento sustentável e ESG integrado</li>
+                    </ul>
+                </div>
+
+                <!-- Gestão do Fundo -->
+                <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-xl mb-4">Equipe de Gestão</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Gestora -->
+                        <div class="bg-slate-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Vontobel Asset Management</h4>
+                            <div class="space-y-3">
+                                <p class="text-gray-700">
+                                    A Vontobel Asset Management é uma gestora global com sede na Suíça e mais de 100 anos de história. Com expertise reconhecida em mercados emergentes, a Vontobel gerencia ativos globais com foco em investimentos de alta convicção.
+                                </p>
+                                <p class="text-gray-700">
+                                    A gestora é conhecida por sua abordagem de Quality Growth, combinando pesquisa fundamental profunda com critérios ESG integrados.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="bg-stone-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Equipe de Gestão</h4>
+                            <div class="space-y-3">
+                                <p class="text-gray-700">
+                                    <strong>Matthew Benkendorf</strong> (CIO Quality Growth Boutique)<br>
+                                    - Lidera o fundo há mais de 30 anos<br>
+                                    - Com a Vontobel desde 1999<br>
+                                    - MBA pela Columbia Business School
+                                </p>
+                                <p class="text-gray-700">
+                                    <strong>Equipe de 23 especialistas</strong><br>
+                                    - Ramiz Chelat, CFA – Gestor e Analista Sênior<br>
+                                    - David Souccar – Gestor e Analista Sênior<br>
+                                    - Donny Kranson, CFA – Gestor e Analista Sênior
+                                </p>
+                                <p class="text-gray-700">
+                                    O time possui diversidade global com 10 idiomas falados e extensiva experiência em mercados emergentes. A equipe utiliza uma abordagem bottom-up com foco em pesquisa profunda de empresas, buscando companhias de qualidade com vantagens competitivas sustentáveis.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                        <p class="text-gray-700 text-sm">
+                            A filosofia de investimento da Vontobel para mercados emergentes é baseada em identificar empresas de alta qualidade com crescimento sustentável e menor risco empresarial. O fundo promove características ambientais e sociais através de um processo de exclusão e avaliação de sustentabilidade, além de engajamento ativo com as empresas investidas.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+            
+            <!-- Seção: Análise de Taxas -->
+            <section id="taxas" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Análise de Taxas</h2>
+                
+                <p class="mb-4">
+                    A TER do Vontobel EM Equity é de 2,08% a.a., superior aos ETFs passivos (0,11–0,22%) e similar a outros fundos ativos (1,50–1,75%).
+                </p>
+                
+                <div class="chart-container my-6">
+                    <canvas id="terChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Comparação de Taxas com Concorrentes</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">Fundo</th>
+                                        <th class="py-2 px-3 border text-center">Taxa (%)</th>
+                                        <th class="py-2 px-3 border text-center">Custo por $1M/ano</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td class="py-2 px-3 border">iShares Core MSCI EM IMI UCITS ETF (EIMI)</td><td class="py-2 px-3 border text-center">0,18%</td><td class="py-2 px-3 border text-center">$1.800</td></tr>
+                                    <tr><td class="py-2 px-3 border">Vanguard FTSE Emerging Markets UCITS ETF (VFEM)</td><td class="py-2 px-3 border text-center">0,22%</td><td class="py-2 px-3 border text-center">$2.200</td></tr>
+                                    <tr><td class="py-2 px-3 border">Abrdn Emerging Markets Equity Fund (I Inc GBP)</td><td class="py-2 px-3 border text-center">0,87%</td><td class="py-2 px-3 border text-center">$8.700</td></tr>
+                                    <tr><td class="py-2 px-3 border">Templeton Global Emerging Markets Fund (W acc)</td><td class="py-2 px-3 border text-center">1,00%</td><td class="py-2 px-3 border text-center">$10.000</td></tr>
+                                    <tr><td class="py-2 px-3 border">JPM Emerging Markets Opportunities Fund (A acc EUR)</td><td class="py-2 px-3 border text-center">1,75%</td><td class="py-2 px-3 border text-center">$17.500</td></tr>
+                                    <tr class="bg-blue-50 font-semibold"><td class="py-2 px-3 border">Vontobel Fund – Emerging Markets Equity B USD</td><td class="py-2 px-3 border text-center">2,08%</td><td class="py-2 px-3 border text-center">$20.800</td></tr>
+                                    <tr class="bg-gray-100">
+                                        <td class="py-2 px-3 border font-semibold">Média dos Fundos</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">0,80%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">$8.040</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-3">Análise Comparativa de Custos</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">1</span>
+                                    <div>
+                                        <span class="font-semibold">Posicionamento:</span> O Vontobel está 1,28% acima da média dos fundos comparáveis (0,80%)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">2</span>
+                                    <div>
+                                        <span class="font-semibold">Diferença vs. ETF mais barato:</span> +1,90% (ou +$19.000 por ano para cada $1.000.000 investidos) comparado ao EIMI
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">3</span>
+                                    <div>
+                                        <span class="font-semibold">Diferença vs. média dos fundos ativos:</span> +1,01% (ou +$10.100 por ano para cada $1.000.000 investidos)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">4</span>
+                                    <div>
+                                        <span class="font-semibold">Impacto real dos custos:</span> O custo acumulado ao longo de 10 anos pode superar $200.000 para cada $1.000.000 investidos, caso o fundo não entregue alpha consistente acima dos pares.
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Comparativo com Pares -->
+            <section id="comparativo" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Comparativo com Pares</h2>
+                
+                <p class="mb-4">
+                    Ao comparar o Vontobel Emerging Markets Equity Fund com outros fundos de mercados emergentes, é fundamental analisar fatores que vão além das taxas, incluindo a abordagem de investimento e o perfil de risco.
+                </p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Métrica</th>
+                                <th class="py-2 px-3 border text-center">EIMI</th>
+                                <th class="py-2 px-3 border text-center">VFEM</th>
+                                <th class="py-2 px-3 border text-center">Abrdn EM Eq</th>
+                                <th class="py-2 px-3 border text-center">Templeton GEM</th>
+                                <th class="py-2 px-3 border text-center">JPM EM Opp</th>
+                                <th class="py-2 px-3 border text-center">Vontobel EM Eq</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">Taxa de administração</td>
+                                <td class="py-2 px-3 border text-center">0,18%</td>
+                                <td class="py-2 px-3 border text-center">0,22%</td>
+                                <td class="py-2 px-3 border text-center">0,87%</td>
+                                <td class="py-2 px-3 border text-center">1,00%</td>
+                                <td class="py-2 px-3 border text-center">1,75%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">2,08%</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Estilo de gestão</td>
+                                <td class="py-2 px-3 border text-center">Passivo (IMI)</td>
+                                <td class="py-2 px-3 border text-center">Passivo (FTSE EM)</td>
+                                <td class="py-2 px-3 border text-center">Ativo (Core)</td>
+                                <td class="py-2 px-3 border text-center">Ativo (Value)</td>
+                                <td class="py-2 px-3 border text-center">Ativo (Opportunistic)</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Ativo (Quality Growth)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Número de holdings</td>
+                                <td class="py-2 px-3 border text-center">3.200+</td>
+                                <td class="py-2 px-3 border text-center">1.800+</td>
+                                <td class="py-2 px-3 border text-center">60-80</td>
+                                <td class="py-2 px-3 border text-center">80-100</td>
+                                <td class="py-2 px-3 border text-center">50-80</td>
+                                <td class="py-2 px-3 border text-center font-semibold">45-60</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Tracking error típico</td>
+                                <td class="py-2 px-3 border text-center">Mínimo (&lt;0,10%)</td>
+                                <td class="py-2 px-3 border text-center">Mínimo (&lt;0,10%)</td>
+                                <td class="py-2 px-3 border text-center">4-7%</td>
+                                <td class="py-2 px-3 border text-center">6-9%</td>
+                                <td class="py-2 px-3 border text-center">6-9%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">6-9%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">ESG Integration</td>
+                                <td class="py-2 px-3 border text-center">Parcial</td>
+                                <td class="py-2 px-3 border text-center">Parcial</td>
+                                <td class="py-2 px-3 border text-center">Total</td>
+                                <td class="py-2 px-3 border text-center">Parcial</td>
+                                <td class="py-2 px-3 border text-center">Parcial</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Total</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div>
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Características Distintivas</h3>
+                        <p class="mb-3">
+                            O fundo Vontobel se diferencia por sua abordagem de Quality Growth em mercados emergentes:
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Foco em qualidade:</span> Seleção rigorosa de empresas com balanços sólidos e vantagens competitivas sustentáveis</li>
+                            <li><span class="font-semibold">Menor risco:</span> Estratégia busca retornos com menos risco do que o índice de mercados emergentes</li>
+                            <li><span class="font-semibold">ESG integrado:</span> Critérios ambientais e sociais totalmente incorporados no processo de investimento</li>
+                            <li><span class="font-semibold">Concentração moderada:</span> Portfólio com 45-60 ações permite convicção sem concentração excessiva</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Composição da Carteira -->
+            <section id="composicao" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Composição da Carteira</h2>
+                
+                <p class="mb-6">
+                    O portfólio concentrado (45-60 posições) foca em empresas líderes de alta qualidade, com forte presença em Ásia (China 28%, Índia 18%, Taiwan 16%, Coreia 14%) e exposição seletiva a América Latina. Destaque para setores de tecnologia (24%), consumo discricionário (22%) e financeiro (18%), que representam mais de 60% da carteira.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Alocação Geográfica</h3>
+                        <div class="chart-container">
+                            <canvas id="geoChart" style="max-height:320px;width:100%;height:auto;"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Setores do Portfólio</h3>
+                        <div class="chart-container">
+                            <canvas id="sectorChart" style="max-height:320px;width:100%;height:auto;"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="font-bold mb-4">Principais Características do Portfólio</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Característica</th>
+                                    <th class="py-2 px-3 border text-center">Valor</th>
+                                    <th class="py-2 px-3 border text-left">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-3 border">Número de posições</td>
+                                    <td class="py-2 px-3 border text-center">45-60</td>
+                                    <td class="py-2 px-3 border">Portfólio concentrado em empresas de alta qualidade</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Exposição geográfica</td>
+                                    <td class="py-2 px-3 border text-center">Multi-país</td>
+                                    <td class="py-2 px-3 border">Diversificação entre China, Índia, Taiwan, Coreia, Brasil</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Estilo Quality Growth</td>
+                                    <td class="py-2 px-3 border text-center">Core</td>
+                                    <td class="py-2 px-3 border">Empresas com crescimento estável e previsível</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Turnover anual típico</td>
+                                    <td class="py-2 px-3 border text-center">20-40%</td>
+                                    <td class="py-2 px-3 border">Abordagem de longo prazo</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Active Share</td>
+                                    <td class="py-2 px-3 border text-center">>70%</td>
+                                    <td class="py-2 px-3 border">Alto desvio do índice MSCI EM</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-stone-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Processo de Seleção</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><span class="font-semibold">Filtro inicial:</span> Empresas com capitalização > $500 milhões</li>
+                                <li><span class="font-semibold">Análise fundamental:</span> Foco em balanços fortes e fluxo de caixa sustentável</li>
+                                <li><span class="font-semibold">Governança:</span> Ênfase em práticas ESG e management alinhado</li>
+                                <li><span class="font-semibold">Valuation:</span> Disciplina em pagar preços razoáveis por qualidade</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-zinc-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Setores Típicos</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Tecnologia: semicondutores, software, internet</li>
+                                <li>Consumo: marcas premium, e-commerce</li>
+                                <li>Financeiro: bancos privados, seguradoras</li>
+                                <li>Saúde: farmacêuticas, biotecnologia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="font-bold mb-4">Top 10 Holdings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Empresa</th>
+                                    <th class="py-2 px-3 border text-center">País</th>
+                                    <th class="py-2 px-3 border text-center">Setor GICS</th>
+                                    <th class="py-2 px-3 border text-center">Peso (%)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="py-2 px-3 border">Tencent Holdings Ltd.</td><td class="py-2 px-3 border text-center">China</td><td class="py-2 px-3 border text-center">Communication Services</td><td class="py-2 px-3 border text-center">7,9</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Taiwan Semiconductor Mfg. Co. (TSMC)</td><td class="py-2 px-3 border text-center">Taiwan</td><td class="py-2 px-3 border text-center">Information Technology</td><td class="py-2 px-3 border text-center">7,1</td></tr>
+                                <tr><td class="py-2 px-3 border">Alibaba Group Holding Ltd.</td><td class="py-2 px-3 border text-center">China</td><td class="py-2 px-3 border text-center">Consumer Discretionary</td><td class="py-2 px-3 border text-center">3,4</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">AIA Group Ltd.</td><td class="py-2 px-3 border text-center">Hong Kong</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">3,2</td></tr>
+                                <tr><td class="py-2 px-3 border">ICICI Bank Ltd.</td><td class="py-2 px-3 border text-center">Índia</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">2,4</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">President Chain Store Corp.</td><td class="py-2 px-3 border text-center">Taiwan</td><td class="py-2 px-3 border text-center">Consumer Staples</td><td class="py-2 px-3 border text-center">2,3</td></tr>
+                                <tr><td class="py-2 px-3 border">Trip.com Group Ltd.</td><td class="py-2 px-3 border text-center">China</td><td class="py-2 px-3 border text-center">Consumer Discretionary</td><td class="py-2 px-3 border text-center">2,0</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Eicher Motors Ltd.</td><td class="py-2 px-3 border text-center">Índia</td><td class="py-2 px-3 border text-center">Consumer Discretionary</td><td class="py-2 px-3 border text-center">1,9</td></tr>
+                                <tr><td class="py-2 px-3 border">Meituan Class B</td><td class="py-2 px-3 border text-center">China</td><td class="py-2 px-3 border text-center">Consumer Discretionary</td><td class="py-2 px-3 border text-center">1,8</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Fomento Económico Mexicano (FEMSA ADR B)</td><td class="py-2 px-3 border text-center">México</td><td class="py-2 px-3 border text-center">Consumer Staples</td><td class="py-2 px-3 border text-center">1,8</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4"><strong>Total das top 10 posições:</strong> 33,8% do portfólio</p>
+                </div>
+            </section>
+            
+            <!-- Seção: Desempenho Histórico -->
+            <section id="desempenho" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Desempenho Histórico</h2>
+                <p class="mb-6">
+                    O fundo <a href="https://markets.ft.com/data/funds/tearsheet/charts?s=LU0040507039:USD" target="_blank" class="text-black-600 hover:text-blue-800 underline"> apresenta histórico longo</a>, com desempenho abaixo do benchmark, menor volatilidade e melhor proteção em quedas.
+                </p>
+
+                <div class="mb-8">
+                    
+                    <div class="chart-container my-8" style="min-height: 420px;">
+                        <div class="mb-4">
+                            <label for="startDateSelector" class="font-semibold mr-2">Selecione a data inicial:</label>
+                            <select id="startDateSelector" class="bg-white border border-gray-300 rounded px-3 py-1">
+  
+                            </select>
+                            <button id="resetChart" class="ml-4 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                                Resetar para início
+                            </button>
+                        </div>
+                        <canvas id="performanceChart" style="width:100%;height:400px;"></canvas>
+                    </div>
+                </div>
+
+                <!-- Cards de métricas principais -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Excesso de Retorno</h3>
+                        <p class="text-3xl font-bold text-slate-800">-6,10%</p>
+                        <p class="text-sm text-slate-600">5 anos (anualizado)</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Histórico vs. Benchmark</h3>
+                        <p class="text-lg font-bold text-stone-800">Anos acima: 4 (40%)<br>Anos abaixo: 6 (60%)</p>
+                        <p class="text-sm text-stone-600">Período 2015-2024</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Volatilidade</h3>
+                        <p class="text-3xl font-bold text-zinc-800">14,4%</p>
+                        <p class="text-sm text-zinc-600">Desvio padrão para 3 anos</p>
+                    </div>
+                </div>
+
+                <!-- Nota do MSCI EM -->
+                <div id="msci-note-html" style="font-size:0.95em;color:#222;margin-bottom:10px;"><b>*</b> Os retornos reais do MSCI EM começam em 05/2014. Antes disso, a linha do benchmark replica o Vontobel apenas para referência visual.</div>
+
+                <!-- Tabela de desempenho acumulado -->
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left"></th>
+                                <th class="py-2 px-3 border text-center">2015</th>
+                                <th class="py-2 px-3 border text-center">2016</th>
+                                <th class="py-2 px-3 border text-center">2017</th>
+                                <th class="py-2 px-3 border text-center">2018</th>
+                                <th class="py-2 px-3 border text-center">2019</th>
+                                <th class="py-2 px-3 border text-center">2020</th>
+                                <th class="py-2 px-3 border text-center">2021</th>
+                                <th class="py-2 px-3 border text-center">2022</th>
+                                <th class="py-2 px-3 border text-center">2023</th>
+                                <th class="py-2 px-3 border text-center">2024</th>
+                                <th class="py-2 px-3 border text-center">2025 YTD¹</th>
+                                <th class="py-2 px-3 border text-center">Média</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border font-semibold">Vontobel Fund – Emerging Markets Equity I USD</td>
+                                <td class="py-2 px-3 border text-center">-8,5%</td>
+                                <td class="py-2 px-3 border text-center">+0,7%</td>
+                                <td class="py-2 px-3 border text-center">+34,2%</td>
+                                <td class="py-2 px-3 border text-center">-14,2%</td>
+                                <td class="py-2 px-3 border text-center">+18,3%</td>
+                                <td class="py-2 px-3 border text-center">+16,0%</td>
+                                <td class="py-2 px-3 border text-center">-6,0%</td>
+                                <td class="py-2 px-3 border text-center">-23,3%</td>
+                                <td class="py-2 px-3 border text-center">+2,5%</td>
+                                <td class="py-2 px-3 border text-center">-3,2%</td>
+                                <td class="py-2 px-3 border text-center">-0,4%</td>
+                                <td class="py-2 px-3 border text-center">+1,65%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border font-semibold">MSCI Emerging Markets NR USD</td>
+                                <td class="py-2 px-3 border text-center">-14,9%</td>
+                                <td class="py-2 px-3 border text-center">+11,2%</td>
+                                <td class="py-2 px-3 border text-center">+37,3%</td>
+                                <td class="py-2 px-3 border text-center">-14,6%</td>
+                                <td class="py-2 px-3 border text-center">+18,4%</td>
+                                <td class="py-2 px-3 border text-center">+18,3%</td>
+                                <td class="py-2 px-3 border text-center">-2,5%</td>
+                                <td class="py-2 px-3 border text-center">-20,1%</td>
+                                <td class="py-2 px-3 border text-center">+9,8%</td>
+                                <td class="py-2 px-3 border text-center">+7,5%</td>
+                                <td class="py-2 px-3 border text-center">+0,6%</td>
+                                <td class="py-2 px-3 border text-center">+5,04%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="text-sm text-gray-600 mt-2">¹ Dados até 31 de março de 2025</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Métricas de Risco/Retorno</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">Métrica</th>
+                                        <th class="py-2 px-3 border text-center">Vontobel Fund</th>
+                                        <th class="py-2 px-3 border text-center">MSCI EM</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Beta (5Y)</td>
+                                        <td class="py-2 px-3 border text-center">0,88</td>
+                                        <td class="py-2 px-3 border text-center">1,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Alpha (5Y)</td>
+                                        <td class="py-2 px-3 border text-center">-6,10%</td>
+                                        <td class="py-2 px-3 border text-center">N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Sharpe Ratio (5Y)</td>
+                                        <td class="py-2 px-3 border text-center">0,21</td>
+                                        <td class="py-2 px-3 border text-center">0,34</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Tracking Error (5Y)</td>
+                                        <td class="py-2 px-3 border text-center">7,5%</td>
+                                        <td class="py-2 px-3 border text-center">N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Volatilidade (5Y)</td>
+                                        <td class="py-2 px-3 border text-center">17,4%</td>
+                                        <td class="py-2 px-3 border text-center">19,0%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Maximum Drawdown</td>
+                                        <td class="py-2 px-3 border text-center">-34%</td>
+                                        <td class="py-2 px-3 border text-center">-36%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Análise de Desempenho</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Sub-performance recente:</span> Nos últimos cinco anos o fundo entregou 1,8% a.a. contra 7,9% a.a. do MSCI EM, gerando alpha negativo de -6,1 pp e Sharpe mais baixo.</li>
+                            <li><span class="font-semibold">Menor risco sistemático:</span> Beta 0,88 indica carteira menos sensível a choques amplos; volatilidade 1,6 pp abaixo do índice reforça o perfil defensivo.</li>
+                            <li><span class="font-semibold">Proteção parcial em quedas:</span> Down-capture 89% comprova que a estratégia "quality-growth" preserva capital melhor nos bear-markets, embora o diferencial não tenha sido suficiente para compensar a perda de upside.</li>
+                            <li><span class="font-semibold">Eficiência relativa:</span> Com tracking-error 7,5%, o Information Ratio é -0,81 (alpha ÷ TE), sugerindo relação risco/retorno pouco atraente frente a pares — principal razão para a <a href="https://www.morningstar.co.uk/uk/funds/snapshot/snapshot.aspx?id=F0GBR04HWE&tab=11&MQR=1" target="_blank" class="text-blue-600 hover:text-blue-800 underline">revisão negativa de rating pela Morningstar</a> em ago 2024.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-blue-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-3">Onde o fundo ainda agrega</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>Governança & ESG (rating MSCI AA) e exposição a campeões asiáticos de larga escala (Tencent, TSMC) — adequados para quem quer emergentes com viés de qualidade.</li>
+                        <li>Menor drawdown histórico (-34%) sustenta apelo para investidores avessos a quedas bruscas.</li>
+                    </ul>
+                </div>
+
+            </section>
+
+            <!-- Seção: Consideração e Classificação do Produto -->
+            <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Pontos Fortes</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Abordagem Quality Growth reduz volatilidade típica de emergentes</li>
+                            <li>Histórico desde 1992</li>
+                            <li>Processo ESG totalmente integrado</li>
+                            <li>Equipe experiente e especializada</li>
+                            <li>Proteção superior em mercados de queda</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-stone-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Considerações</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Taxa elevada comparada a ETFs passivos</li>
+                            <li>Pode apresentar underperformance em bull markets especulativos</li>
+                            <li>Exposição limitada a small caps emergentes</li>
+ 
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-3">Posicionamento de Mercado</h3>
+                    <p class="mb-4">
+                        O Vontobel EM Equity Fund se posiciona como alternativa de menor risco para exposição a emergentes, adequado para investidores que buscam crescimento com volatilidade reduzida e preocupação ESG.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-4">
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Para investidor conservador</h4>
+                            <p>Possibilidade enquanto alocação em emergentes com foco em qualidade e menor volatilidade.</p>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Para diversificação</h4>
+                            <p>Complementa portfólios globais oferecendo exposição diferenciada a emergentes.</p>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Quality Growth em Emergentes</h4>
+                            <p>Enquanto o estilo "quality-growth" permanecer pressionado por valuations elevados e rotação em valor/cíclicos, a expectativa de geração de alpha é limitada.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </section>
+
+            <!-- Seção: Radar de Mercado -->
+            <section id="radar-mercado" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Radar de Mercado</h2>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+                    <p class="text-lg font-semibold mb-2">Cenário Base: Divergência regional em emergentes</p>
+                    <p class="text-sm">
+                        As principais casas de análise apresentam visões divergentes para mercados emergentes em 2025, com destaque para oportunidades seletivas em qualidade e exposição geográfica diferenciada.
+                    </p>
+                </div>
+
+                <h3 class="font-bold text-lg mb-4">House Views sobre Mercados Emergentes</h3>
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Data</th>
+                                <th class="py-2 px-3 border text-left">Casa</th>
+                                <th class="py-2 px-3 border text-left">Posição</th>
+                                <th class="py-2 px-3 border text-left">Premissas-chave</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">06 mar 2025</td>
+                                <td class="py-2 px-3 border font-medium">Goldman Sachs</td>
+                                <td class="py-2 px-3 border">Overweight</td>
+                                <td class="py-2 px-3 border">"AI-trade" impulsiona lucros de China Big-Tech; estímulos do PBoC travam desaceleração; correlação China → EM volta a fechar</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">27 nov 2024</td>
+                                <td class="py-2 px-3 border font-medium">Morgan Stanley GEO</td>
+                                <td class="py-2 px-3 border">Neutral/Underweight</td>
+                                <td class="py-2 px-3 border">Cresc. mundial ~3%, mas tarifas US & China abaixo do potencial; dólar firme reprime fluxos para EM, China ainda "growth-laggard"</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Jan 2025</td>
+                                <td class="py-2 px-3 border font-medium">J.P. Morgan Research</td>
+                                <td class="py-2 px-3 border">Seletivo em equities</td>
+                                <td class="py-2 px-3 border">"Soft-landing" global, mas dólar forte; prefere Índia & México (near-shoring), cautela em small-beta Asia</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Dez 2024</td>
+                                <td class="py-2 px-3 border font-medium">BlackRock Investment Institute</td>
+                                <td class="py-2 px-3 border">Overweight "quality EM"</td>
+                                <td class="py-2 px-3 border">Volatilidade política + checks institucionais fracos → buscar balanços sólidos; gosta de health-tech Índia, bancos digitais Brasil</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Jan 2025</td>
+                                <td class="py-2 px-3 border font-medium">HSBC AM Global IO</td>
+                                <td class="py-2 px-3 border">Overweight LatAm / Neutral EM Ásia</td>
+                                <td class="py-2 px-3 border">Soft-landing US → exportadores de commodities favorecidos; Brasil & Chile destaque em carry-trade, benefícios de nearshoring México</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Seção: Recomendação Final -->
+            <section id="recomendacao" class="bg-white rounded-lg shadow p-6 print-section">
+                <h2 class="text-2xl font-bold section-title">Recomendação Final</h2>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+                    <p class="text-lg font-semibold mb-2">Cenário Atual</p>
+                    <p class="text-sm">
+                        O Vontobel EM Equity Fund enfrenta um ambiente desafiador, com sub-performance significativa (-6,1 pp anuais nos últimos 5 anos). Apesar de manter características defensivas (Beta 0,88 e down-capture de 89%), o fundo não tem conseguido compensar a perda de upside em mercados em alta.
+                    </p>
+                </div>
+
+                <div class="bg-gray-100 p-5 rounded-lg mb-8">
+                    <h3 class="font-bold mb-4 text-lg">Análise de Adequação</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold mb-3">Pontos de Atenção</h4>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Sub-performance persistente vs. benchmark</li>
+                                <li>Taxa de administração elevada (2,08%)</li>
+                                <li>Information Ratio negativo (-0,81)</li>
+                                <li>Revisão negativa de rating pela Morningstar</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white p-4 rounded-lg border border-gray-200">
+                            <h4 class="font-semibold mb-3">Onde o fundo ainda poderia agregar</h4>
+                            <ul class="list-disc pl-5 space-y-2">
+                                <li>Governança & ESG (rating MSCI AA)</li>
+                                <li>Exposição a campeões asiáticos (Tencent, TSMC)</li>
+                                <li>Menor drawdown histórico (-34%)</li>
+                                <li>Proteção parcial em mercados de queda</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                   
+                </div>
+                
+                <div class="border-t pt-6">
+                    <p class="text-sm text-gray-600">
+                        <strong>Aviso de Responsabilidade:</strong> Esta análise não constitui recomendação de investimento. Investimentos em mercados financeiros estão sujeitos a riscos, incluindo possível perda do capital investido. Rentabilidade passada não é garantia de resultados futuros.
+                    </p>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar ao Topo
+        </button>
+    </div>
+    
+    <script src="vontobel-charts.js"></script>
+    <script>
+        document.getElementById('productSelector').addEventListener('change', function() {
+            const value = this.value;
+            if (value === 'inicio') {
+                window.location.href = '../../offshore.html';
+            } else if (value === 'vuaa') {
+                window.location.href = '../vuaa/vuaa.html';
+            } else if (value === 'harris') {
+                window.location.href = '../harris/harris.html';
+            } else if (value === 'vontobel') {
+                // já está nesta página, não faz nada
+            } else if (value === 'private-equity') {
+                window.location.href = '../private-equity/private-equity.html';
+            } else if (value === 'us-corporates') {
+                window.location.href = '../us-corporates/us-corporates.html';
+            } else if (value === 'hedge-funds') {
+                window.location.href = '../hedge-funds/hedge-funds.html';
+            }
+        });
+    </script>
+</body>
+</html>

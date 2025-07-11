@@ -1,0 +1,16 @@
+{
+  "analysis_date": "2025-07-09T16:39:24.871797",
+  "known_accounts": [],
+  "portfolio_summary": {},
+  "artesanal_analysis": {},
+  "errors": [
+    "Conta 004300296: unsupported operand type(s) for +=: 'int' and 'str'"
+  ],
+  "consolidated_file_available": false,
+  "consolidated_file_error": [
+    {
+      "code": 404,
+      "message": "There are no positions file for partner with cnpj 47952345000109"
+    }
+  ]
+}

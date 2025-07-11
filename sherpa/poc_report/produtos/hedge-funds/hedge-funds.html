@@ -1,0 +1,1063 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Hedge Funds: Os Cinco Titãs</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link rel="stylesheet" href="../../common-styles.css">
+    <style>
+        .fund-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .fund-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #3B82F6;
+            margin-top: 0.5rem;
+        }
+        .nav-link.active {
+            color: #3B82F6;
+            background-color: #EFF6FF;
+        }
+        #chart-container1, #chart-container2, #chart-container3 {
+            height: 300px;
+        }
+        .data-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6B7280;
+        }
+        .data-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+        .risk-meter {
+            height: 8px;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #10B981 0%, #FBBF24 50%, #EF4444 100%);
+        }
+        .risk-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #1E40AF;
+            position: relative;
+            top: -2px;
+            border: 2px solid white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates">Renda Fixa</option>
+                    <option value="hedge-funds" selected>Hedge Funds</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#panorama" class="nav-link active block px-3 py-2 rounded hover:text-blue-600">Panorama 2025</a></li>
+                    <li><a href="#fundos" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Perfil e Posicionamento</a></li>
+                    <li><a href="#comparativo" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Análise Comparativa</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+            <!-- Introdução -->
+            <section id="panorama" class="bg-white rounded-lg shadow p-6 mb-8">
+                <h2 class="text-2xl font-bold section-title mb-4">Indústria Global de Hedge Funds: Panorama 2025</h2>
+
+                
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4">
+                        <h3 class="font-semibold text-gray-800 mb-3">Dimensão do Mercado</h3>
+                        <div class="flex items-center justify-between mb-3">
+                            <div>
+                                <span class="text-xs text-gray-500">AUM Global (Preqin)</span>
+                                <p class="text-lg font-bold text-gray-800">$4,9 trilhões</p>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500">AUM Global (BarclayHedge)</span>
+                                <p class="text-lg font-bold text-blue-700">$5,22 trilhões</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-sm text-gray-700">
+                            <p>Crescimento anual composto de <span class="font-semibold">6,8%</span> na última década, apesar de saídas líquidas de $166,8 bilhões no período. A expansão foi impulsionada principalmente por ganhos de performance. <a href="https://www.gminsights.com/industry-analysis/hedge-fund-market" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-all duration-200 group" target="_blank" rel="noopener noreferrer">
+                                <span class="border-b border-blue-300 group-hover:border-blue-600 transition-colors duration-200">Fonte: GM Insights</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                </svg>
+                            </a></p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4">
+                        <h3 class="font-semibold text-gray-800 mb-3">Concentração do Mercado</h3>
+                        <div class="flex flex-col mb-3">
+                            <div class="mb-2">
+                                <span class="text-xs text-gray-500">Top 66 firms (>$10B AUM)</span>
+                                <p class="text-lg font-bold text-blue-700">39% dos ativos</p>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500">Origem geográfica líderes</span>
+                                <p class="text-sm font-medium text-gray-700">48 de 66 baseados nos EUA</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-sm text-gray-700">
+                            <p>Pequena porcentagem de gestores atraiu aproximadamente 90% dos novos ativos em 2024 segundo <a href="https://hedgefundalpha.com/hedge-funds-return-10-globally-in-2024/" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-all duration-200 group underline" target="_blank" rel="noopener noreferrer"><span class="border-b border-blue-300 group-hover:border-blue-600 transition-colors duration-200">Fonte: hedgefundalpha.com</span><svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4">
+                        <h3 class="font-semibold text-gray-800 mb-3">Evolução das Taxas</h3>
+                        <div class="flex flex-col mb-3">
+                            <div class="mb-2">
+                                <span class="text-xs text-gray-500">Taxa Adm. Média</span>
+                                <p class="text-lg font-bold text-blue-700">1,35%</p>
+                                <p class="text-xs text-gray-500">(vs. 1,6% há dez anos)</p>
+                            </div>
+                            <div>
+                                <span class="text-xs text-gray-500">Taxa Perf. Média</span>
+                                <p class="text-lg font-bold text-blue-700">16,01%</p>
+                                <p class="text-xs text-gray-500">(vs. 18,3% há dez anos)</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg text-sm text-gray-700">
+                            <p>Modelos alternativos como "1-ou-30" ganham tração, enquanto grandes alocadores ($100M+) obtêm descontos de 25-50%.</p>
+                            <div class="mt-2 flex items-center space-x-2">
+                                <span class="text-xs text-gray-500">Fonte:</span>
+                                <a href="https://www.statista.com/statistics/1447018/average-hedge-fund-fees-worldwide/" class="inline-flex items-center text-blue-600 hover:text-blue-800 transition-all duration-200 group underline" target="_blank" rel="noopener noreferrer">
+                                    <span class="border-b border-blue-300 group-hover:border-blue-600 transition-colors duration-200">Statista</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3 w-3 ml-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4">
+                        <h3 class="font-semibold text-gray-800 mb-3">Performance por Estratégia (2024)</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-700 font-semibold">L/S Equity</span>
+                                <span class="text-sm font-medium text-green-600">+12,3%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-700">Event-Driven</span>
+                                <span class="text-sm font-medium text-green-600">+8,7%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-700">Relative Value</span>
+                                <span class="text-sm font-medium text-green-600">+8,6%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-700">Global Macro & CTAs</span>
+                                <span class="text-sm font-medium text-blue-600">+6,0%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-700">EM Multistrategy</span>
+                                <span class="text-sm font-medium text-green-600">+13,7%</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-700">40/60 Equity/Bond</span>
+                                <span class="text-sm font-medium text-gray-600">+6,2%</span>
+                            </div>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-3">Fonte: <a href="https://research-center.amundi.com/article/hedge-fund-outlook-h1-2025" class="underline" target="_blank">research-center.amundi.com</a></p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4">
+                        <h3 class="font-semibold text-gray-800 mb-3">Adoção Tecnológica</h3>
+                        <div class="space-y-3 mb-3">
+                            <div>
+                                <p class="text-sm text-gray-600">Hedge funds utilizando IA/ML:</p>
+                                <p class="text-lg font-bold text-blue-700">56%</p>
+                                <p class="text-xs text-gray-500">(vs. 20% em 2023)</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Executivos com acesso a IA Generativa:</p>
+                                <p class="text-lg font-bold text-blue-700">86%</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Contribuição IA para volumes de trading:</p>
+                                <p class="text-lg font-bold text-blue-700">40%+</p>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 p-3 rounded-lg">
+                            <p class="text-sm text-gray-700">Fundos utilizando dados alternativos e IA reportaram geração de alfa 20% superior em 2024 segundo <a href="https://www.pwc.com" class="underline">PwC</a>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Strategy performance across market environments -->
+                <div class="bg-white rounded-lg border border-gray-200 shadow-sm p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-3">Estratégias e Estados de Mercado</h3>
+                    <p class="text-sm text-gray-700 mb-2">Diferentes estratégias de hedge funds apresentam características de performance distintas conforme o ambiente de mercado:</p>
+                    <ul class="list-disc pl-5 text-sm text-gray-600 mb-2">
+                        <li><span class="font-medium text-blue-700">Global Macro:</span> Costumam se destacar em ambientes de alta de juros, aproveitando volatilidade e divergências de políticas monetárias.</li>
+                        <li><span class="font-medium text-green-700">Long/Short Equity:</span> Geralmente performam bem em mercados de alta, mas podem se adaptar a diferentes ciclos.</li>
+                        <li><span class="font-medium text-purple-700">Event-Driven:</span> Se beneficiam de eventos corporativos, como fusões e aquisições, especialmente em ambientes de mudanças regulatórias ou reestruturações.</li>
+                        <li><span class="font-medium text-amber-700">Relative Value:</span> Buscam arbitragem de ineficiências, sendo resilientes em mercados laterais ou de baixa volatilidade.</li>
+                        <li><span class="font-medium text-red-700">CTAs:</span> Tendem a capturar tendências em mercados de commodities, moedas e taxas, mas podem sofrer em ambientes de reversão rápida.</li>
+                    </ul>
+                    <p class="text-xs text-gray-500">Fonte: Disruption Banking</p>
+                </div>
+
+                <!-- Novo Card de Performance e Perspectivas (agora ao final da seção) -->
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg border border-blue-100 shadow-sm p-6 mb-8">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-xl font-bold text-gray-800">Performance 2024 & Perspectivas 2025</h3>
+                        <!-- Botão 'Atualizado' removido aqui -->
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <!-- Performance 2024 -->
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clip-rule="evenodd" />
+                                    </svg>
+                                    Performance 2024
+                                </h4>
+                                <div class="space-y-2">
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Retorno Total</span>
+                                        <span class="text-lg font-bold text-green-600">+9,7%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Geração de Alpha</span>
+                                        <span class="text-lg font-bold text-green-600">+6,2%</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span class="text-sm text-gray-600">Volatilidade</span>
+                                        <span class="text-sm text-gray-600">Menor que carteiras 40/60</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" />
+                                    </svg>
+                                    Estratégias em Destaque
+                                </h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">Long/Short Equity</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">Emerging Markets</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">Event-Driven</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-red-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">CTAs (Underperformers)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                        
+                        <!-- Perspectivas 2025 -->
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd" />
+                                    </svg>
+                                    Temas Principais 2025
+                                </h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-start">
+                                        <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-2"></span>
+                                        <span class="text-sm text-gray-700">Maior dispersão econômica regional</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-2"></span>
+                                        <span class="text-sm text-gray-700">Incerteza macro e política</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-2"></span>
+                                        <span class="text-sm text-gray-700">Ciclos econômicos mais frequentes</span>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <span class="w-2 h-2 bg-indigo-500 rounded-full mt-2 mr-2"></span>
+                                        <span class="text-sm text-gray-700">Fundamentals em foco</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-4 shadow-sm">
+                                <h4 class="font-semibold text-gray-800 mb-3 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-500 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+                                    </svg>
+                                    Oportunidades
+                                </h4>
+                                <div class="space-y-2">
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">L/S Equity Neutral (EUA)</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">L/S Diversified Value (Europa)</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">EM Fixed Income</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="w-2 h-2 bg-purple-500 rounded-full mr-2"></span>
+                                        <span class="text-sm text-gray-700">Merger Arbitrage (H2)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-t border-blue-200">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center space-x-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+                                </svg>
+                                <span class="text-sm text-gray-600">Última atualização: 13 de maio de 2025</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs text-gray-500">Fonte: <a href="https://research-center.amundi.com/article/hedge-fund-outlook-h1-2025" class="underline" target="_blank">research-center.amundi.com</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card: Líderes por AUM (2024) -->
+                <div id="aum" class="bg-white rounded-lg border border-gray-200 shadow-sm p-4 mb-6">
+                    <h3 class="font-semibold text-gray-800 mb-3">Líderes por AUM (2024)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full divide-y divide-gray-200">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th scope="col" class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Gestora</th>
+                                    <th scope="col" class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">AUM</th>
+                                    <th scope="col" class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Estratégia Principal</th>
+                                    <th scope="col" class="px-3 py-2 text-left text-xs font-medium text-gray-500 uppercase">Performance Recente</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bg-white divide-y divide-gray-200">
+                                <tr>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">Citadel</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">$397,0 bilhões</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">Multi-estratégia</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-green-600">Wellington: +15,1% (2024)</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">Bridgewater</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">$171,7 bilhões</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">Global Macro</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-green-600">Pure Alpha: +11% (2024)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">AQR Capital</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">$132,5 bilhões</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">Quantitativo</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-600">Dados não disponíveis</td>
+                                </tr>
+                                <tr class="bg-gray-50">
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">D.E. Shaw</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">$120,0 bilhões</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">Multi-estratégia</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-green-600">Composite: +18% (2024)</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm font-medium text-gray-900">Millennium</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">$70,2 bilhões</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-gray-900">Multi-estratégia</td>
+                                    <td class="px-3 py-2 whitespace-nowrap text-sm text-green-600">+15% (2024)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Card: Top Performers 2024 -->
+                <div id="top-performers" class="bg-white rounded-lg border border-yellow-100 shadow-sm p-4 mb-6">
+                    <div class="flex items-center mb-3">
+
+                    <h3 class="text-lg font-bold text-gray-800">Top Performers 2024</h3>
+                    </div>
+                    <ul class="divide-y divide-gray-100">
+                    <li class="py-2 flex items-center">
+                        <span class="inline-block bg-amber-100 text-amber-700 text-xs font-bold px-2 py-1 rounded mr-2">149,3%</span>
+                        <span class="font-medium text-gray-800">Mulvaney Global Markets Fund</span>
+                        <span class="ml-2 text-xs text-gray-500">Macro/CTA</span>
+                        <span class="ml-auto text-xs text-green-600">Tendências em commodities e ações</span>
+                    </li>
+                    <li class="py-2 flex items-center">
+                        <span class="inline-block bg-blue-100 text-blue-700 text-xs font-bold px-2 py-1 rounded mr-2">59,4%</span>
+                        <span class="font-medium text-gray-800">Light Street Mercury Fund</span>
+                        <span class="ml-2 text-xs text-gray-500">L/S Equity</span>
+                        <span class="ml-auto text-xs text-green-600">Foco em IA e tecnologia</span>
+                    </li>
+                    <li class="py-2 flex items-center">
+                        <span class="inline-block bg-indigo-100 text-indigo-700 text-xs font-bold px-2 py-1 rounded mr-2">36,0%</span>
+                        <span class="font-medium text-gray-800">D.E. Shaw Oculus Fund</span>
+                        <span class="ml-2 text-xs text-gray-500">Event-Driven</span>
+                        <span class="ml-auto text-xs text-green-600">Melhor ano da história do fundo</span>
+                    </li>
+                    <li class="py-2 flex items-center">
+                        <span class="inline-block bg-emerald-100 text-emerald-700 text-xs font-bold px-2 py-1 rounded mr-2">24,0%</span>
+                        <span class="font-medium text-gray-800">Sandglass Capital Opportunity</span>
+                        <span class="ml-2 text-xs text-gray-500">EM Multi</span>
+                        <span class="ml-auto text-xs text-green-600">Crédito e situações especiais</span>
+                    </li>
+                    <li class="py-2 flex items-center">
+                        <span class="inline-block bg-yellow-100 text-yellow-700 text-xs font-bold px-2 py-1 rounded mr-2">9,7%</span>
+                        <span class="font-medium text-gray-800">Citadel Global Fixed Income</span>
+                        <span class="ml-2 text-xs text-gray-500">Relative Value</span>
+                        <span class="ml-auto text-xs text-green-600">Arbitragem de taxas e títulos</span>
+                    </li>
+                    <li class="py-2 flex items-center">
+                        <span class="inline-block bg-gray-100 text-gray-700 text-xs font-bold px-2 py-1 rounded mr-2">5,4%</span>
+                        <span class="font-medium text-gray-800">PIMCO Income Fund</span>
+                        <span class="ml-2 text-xs text-gray-500">40/60</span>
+                        <span class="ml-auto text-xs text-green-600">Alocação conservadora</span>
+                    </li>
+                    </ul>
+                    <div class="mt-3 text-xs text-gray-500 flex items-center">
+                    <span>Fonte: Elaboração própria com dados públicos e relatórios de fundos</span>
+                    </div>
+                </div>
+
+
+                
+
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-4 my-4">
+                    <p class="text-sm text-gray-700">
+                        <span class="font-bold">Nota sobre dados de desempenho:</span> As informações apresentadas neste relatório foram compiladas de fontes públicas e podem não representar o desempenho exato dos fundos analisados. Hedge funds frequentemente têm políticas restritivas quanto à divulgação de dados detalhados sobre retornos, alocações e estratégias específicas. Os investidores devem consultar diretamente os gestores para informações completas antes de tomar decisões de investimento.
+                    </p>
+                </div>
+                
+            </section>
+
+            
+            
+            <!-- Seção: Os Cinco Titãs -->
+            <section id="fundos" class="bg-white rounded-lg shadow p-6 mb-8">
+                <h2 class="text-2xl font-bold section-title mb-6">Perfil e Posicionamento</h2>
+                
+                <!-- Itaú Orion -->
+                <div class="mb-8 pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start">
+                        <div class="w-full md:w-1/3 pr-0 md:pr-6 mb-4 md:mb-0">
+                            <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Itaú Orion Global Fund Class B</h3>
+
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estratégia</span>
+                                        <p class="font-semibold text-gray-800">Global Macro / Multi-Estratégia</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estabelecido</span>
+                                        <p class="font-semibold text-gray-800">18 de abril de 2019</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Domicílio</span>
+                                        <p class="font-semibold text-gray-800">Ilhas Cayman</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Gestor</span>
+                                        <p class="font-semibold text-gray-800">Itaú USA Asset Management</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">AUM (IUAM)</span>
+                                        <p class="font-semibold text-gray-800">~$8 bilhões (2024)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Taxa Adm. / Perf. (est.)</span>
+                                        <p class="font-semibold text-gray-800">1-2% / 20%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-sm text-gray-700 mb-2">Perfil de Risco</h4>
+                                    <div class="risk-meter"></div>
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>Conservador</span>
+                                        <span>Moderado</span>
+                                        <span>Agressivo</span>
+                                    </div>
+                                    <div class="risk-indicator" style="margin-left: 50%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-2/3">
+                            <h4 class="font-semibold text-gray-800 mb-3">Posicionamento e Estratégia</h4>
+                            <p class="text-gray-700 mb-4">
+                                O Itaú Orion Global Fund opera como um veículo offshore que permite ao Itaú implementar estratégias sofisticadas com foco em mercados emergentes, especialmente América Latina. Sob liderança do CEO Charles Ferraz, a IUAM gerencia aproximadamente $8 bilhões em ativos, com crescimento consistente nos últimos anos.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-50 p-3 rounded-lg border border-blue-100">
+                                    <h5 class="font-medium text-gray-800 mb-2">Pontos Fortes</h5>
+                                    <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                        <li>Expertise distintiva em mercados latino-americanos</li>
+                                        <li>Estrutura offshore permitindo maior flexibilidade</li>
+                                        <li>Infraestrutura institucional robusta</li>
+                                        <li>Capacidade de explorar oportunidades em mercados menos eficientes</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-3 rounded-lg border border-blue-100">
+                                    <h5 class="font-medium text-gray-800 mb-2">Considerações</h5>
+                                    <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                        <li>Concentração em mercados emergentes aumenta volatilidade</li>
+                                        <li>Menor escala comparada aos gigantes globais</li>
+                                        <li>Sensibilidade a eventos políticos na América Latina</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h5 class="font-medium text-gray-800 mb-2">Abordagem de Investimento</h5>
+                                <p class="text-sm text-gray-700 mb-2">
+                                    O fundo provavelmente emprega uma abordagem global macro e/ou multi-estratégia com ênfase em mercados emergentes. Elementos distintivos podem incluir:
+                                </p>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Trading direcional em moedas latino-americanas</li>
+                                    <li>Posições em renda fixa e crédito regional</li>
+                                    <li>Estratégias de valor relativo entre diferentes mercados emergentes</li>
+                                    <li>Alocações oportunistas em ações de mercados emergentes</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Brevan Howard -->
+                <div class="mb-8 pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start">
+                        <div class="w-full md:w-1/3 pr-0 md:pr-6 mb-4 md:mb-0">
+                            <div class="bg-indigo-50 rounded-lg p-4 border border-indigo-100">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Brevan Howard Master F (USD) Series 4</h3>
+   
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estratégia</span>
+                                        <p class="font-semibold text-gray-800">Global Macro</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">CEO</span>
+                                        <p class="font-semibold text-gray-800">Aron Landy (desde 2019)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Fundador</span>
+                                        <p class="font-semibold text-gray-800">Alan Howard (2002)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">AUM</span>
+                                        <p class="font-semibold text-gray-800">~$34 bilhões (2025)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Desempenho Recente</span>
+                                        <p class="font-semibold text-gray-800">
+                                            2020: +99% | 2022: +20% | 
+                                            2024: +5,3% | 2025 (YTD): -1,5%
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Taxa Adm. / Perf.</span>
+                                        <p class="font-semibold text-gray-800">1-1,5% / 20-30%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-sm text-gray-700 mb-2">Perfil de Risco</h4>
+                                    <div class="risk-meter"></div>
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>Conservador</span>
+                                        <span>Moderado</span>
+                                        <span>Agressivo</span>
+                                    </div>
+                                    <div class="risk-indicator" style="margin-left: 60%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-2/3">
+                            <h4 class="font-semibold text-gray-800 mb-3">Posicionamento e Estratégia</h4>
+                            <p class="text-gray-700 mb-4">
+                                O Brevan Howard Master Fund demonstrou notável capacidade de gerar retornos expressivos durante períodos de volatilidade extrema, com ganho extraordinário de aproximadamente 99% durante a turbulência da pandemia em 2020 e 20% em 2022, em ambiente de alta inflação e aumento de taxas. Esta performance ilustra sua capacidade em gerar retornos assimétricos durante períodos de estresse de mercado.
+                            </p>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h5 class="font-medium text-gray-800 mb-2">Pontos Fortes</h5>
+                                    <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                        <li>Histórico comprovado em múltiplos ciclos de mercado</li>
+                                        <li>Capacidade demonstrada em períodos de crise</li>
+                                        <li>Cultura de gestão de risco rigorosa</li>
+                                        <li>Expertise em mercados de taxas e moedas</li>
+                                        <li>Correlação estruturalmente baixa com mercados</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-3 rounded-lg">
+                                    <h5 class="font-medium text-gray-800 mb-2">Considerações</h5>
+                                    <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                        <li>Desempenho recente abaixo de pares (2025: -1,5%)</li>
+                                        <li>Limites de risco reduzidos recentemente</li>
+                                        <li>Tamanho significativo limita agilidade</li>
+                                        <li>Períodos de baixa volatilidade limitam oportunidades</li>
+                                        <li>Competição crescente de outros macro funds</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-indigo-50 p-4 rounded-lg border border-indigo-100">
+                                <h5 class="font-medium text-gray-800 mb-2">Abordagem Estratégica</h5>
+                                <p class="text-sm text-gray-700 mb-2">
+                                    A estratégia do Brevan Howard destaca-se pela abordagem multi-trader que combina perspectivas macro direcionais e de valor relativo:
+                                </p>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Múltiplos gestores com mandatos diversificados (~170 portfolio managers)</li>
+                                    <li>Foco em convexidade buscando retornos assimétricos</li>
+                                    <li>Concentração em renda fixa e câmbio globais</li>
+                                    <li>Abordagem oportunista para capitalizar sobre rupturas de mercado</li>
+                                    <li>Adaptabilidade para identificar tendências macroeconômicas</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tudor BVI Global Fund -->
+                <div class="mb-8 pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start">
+                        <div class="w-full md:w-1/3 pr-0 md:pr-6 mb-4 md:mb-0">
+                            <div class="bg-purple-50 rounded-lg p-4 border border-purple-100">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Tudor BVI Global Fund</h3>
+
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estratégia</span>
+                                        <p class="font-semibold text-gray-800">Global Macro / Multi-Estratégia</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Fundador e CIO</span>
+                                        <p class="font-semibold text-gray-800">Paul Tudor Jones II</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">AUM</span>
+                                        <p class="font-semibold text-gray-800">$13,90 bilhões (2024)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Crescimento AUM</span>
+                                        <p class="font-semibold text-gray-800">
+                                            <span class="text-xs text-green-600">+8,5%</span> (2020-2024)
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Investidores</span>
+                                        <p class="font-semibold text-gray-800">128 (2024)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Taxa Adm. / Perf.</span>
+                                        <p class="font-semibold text-gray-800">4% / 23%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-sm text-gray-700 mb-2">Perfil de Risco</h4>
+                                    <div class="risk-meter"></div>
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>Conservador</span>
+                                        <span>Moderado</span>
+                                        <span>Agressivo</span>
+                                    </div>
+                                    <div class="risk-indicator" style="margin-left: 70%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-2/3">
+                            <h4 class="font-semibold text-gray-800 mb-3">Posicionamento e Estratégia</h4>
+                            <p class="text-gray-700 mb-4">
+                                O Tudor BVI Global Fund, estabelecido há décadas por Paul Tudor Jones II, apresenta crescimento constante em ativos e investidores entre 2019-2025. Historicamente, o fundo entregou retornos médios anualizados entre 17-22% durante grande parte de sua história inicial, mas enfrentou desempenho mais moderado na última década.
+                            </p>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg border border-blue-100 mb-4">
+                                <h5 class="font-medium text-gray-800 mb-2">Considerações</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Desempenho mais moderado na última década</li>
+                                    <li>Maior exposição a mercados desenvolvidos</li>
+                                    <li>Dependência da visão macro do gestor principal</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h5 class="font-medium text-gray-800 mb-2">Abordagem Estratégica</h5>
+                                <p class="text-sm text-gray-700 mb-2">
+                                    O Tudor BVI Global Fund opera como multi-estratégia com predominância macro.
+                                </p>
+     
+                                <p class="text-sm text-gray-700 mt-2">
+                                    Tudor Jones é conhecido por combinar análise técnica, momentum e ciclos macroeconômicos.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- VG Equities Fund -->
+                <div class="mb-8 pb-8 border-b border-gray-200">
+                    <div class="flex flex-col md:flex-row md:items-start">
+                        <div class="w-full md:w-1/3 pr-0 md:pr-6 mb-4 md:mb-0">
+                            <div class="bg-amber-50 rounded-lg p-4 border border-amber-100">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">VG Equities Fund</h3>
+ 
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estratégia</span>
+                                        <p class="font-semibold text-gray-800">Long/Short Equity Global</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Gestor</span>
+                                        <p class="font-semibold text-gray-800">Regal Partners Limited</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estrutura</span>
+                                        <p class="font-semibold text-gray-800">Segregated Portfolio (Cayman)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Desempenho (est.)</span>
+                                        <p class="font-semibold text-gray-800">
+                                            ~25% (2024)
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Taxa Adm. / Perf. (est.)</span>
+                                        <p class="font-semibold text-gray-800">1-2% / 20%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-sm text-gray-700 mb-2">Perfil de Risco</h4>
+                                    <div class="risk-meter"></div>
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>Conservador</span>
+                                        <span>Moderado</span>
+                                        <span>Agressivo</span>
+                                    </div>
+                                    <div class="risk-indicator" style="margin-left: 55%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-2/3">
+                            <h4 class="font-semibold text-gray-800 mb-3">Posicionamento e Estratégia</h4>
+                            <p class="text-gray-700 mb-4">
+                                O VG Equities Fund segue provavelmente a estratégia característica da VGI Partners (agora parte da Regal Partners), centrada em long/short equity global com abordagem fundamentalista. Fundos comparáveis da Regal Partners em estratégias long/short equity registraram desempenho aproximado de 25% em 2024, superando diversos pares no mercado.
+                            </p>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg border border-blue-100 mb-4">
+                                <h5 class="font-medium text-gray-800 mb-2">Considerações</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Maior exposição a mercados desenvolvidos</li>
+                                    <li>Dependência da visão fundamentalista do gestor</li>
+                                    <li>Potencial volatilidade em mercados de alta correlação</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-3 rounded-lg border border-blue-100 mb-4">
+                                <h5 class="font-medium text-gray-800 mb-2">Filosofia de Investimento</h5>
+                                <p class="text-sm text-gray-700 mb-2">Elementos distintivos da estratégia incluem:</p>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Concentração em 20-40 posições long de alta qualidade</li>
+                                    <li>Pesquisa fundamental profunda com horizonte de longo prazo</li>
+                                    <li>Abordagem bottom-up para seleção de ações</li>
+                                    <li>Exposição líquida ao mercado controlada via posições short</li>
+                                    <li>Busca por empresas com vantagens competitivas sustentáveis</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blue Owl SP2 -->
+                <div class="mb-8">
+                    <div class="flex flex-col md:flex-row md:items-start">
+                        <div class="w-full md:w-1/3 pr-0 md:pr-6 mb-4 md:mb-0">
+                            <div class="bg-emerald-50 rounded-lg p-4 border border-emerald-100">
+                                <h3 class="text-xl font-bold text-gray-800 mb-2">Blue Owl SP2</h3>
+ 
+                                
+                                <div class="space-y-3">
+                                    <div>
+                                        <span class="text-xs text-gray-500">Estratégia</span>
+                                        <p class="font-semibold text-gray-800">GP Strategic Capital</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Gestor</span>
+                                        <p class="font-semibold text-gray-800">Blue Owl Capital</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">AUM (Blue Owl)</span>
+                                        <p class="font-semibold text-gray-800">~$273 bilhões (Março 2025)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Classe</span>
+                                        <p class="font-semibold text-gray-800">C-A-ACC (iCapital)</p>
+                                    </div>
+                                    <div>
+                                        <span class="text-xs text-gray-500">Taxa Adm. / Perf. (est.)</span>
+                                        <p class="font-semibold text-gray-800">1-2% / 12,5%</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="mt-4">
+                                    <h4 class="font-medium text-sm text-gray-700 mb-2">Perfil de Risco</h4>
+                                    <div class="risk-meter"></div>
+                                    <div class="flex justify-between text-xs text-gray-500 mt-1">
+                                        <span>Conservador</span>
+                                        <span>Moderado</span>
+                                        <span>Agressivo</span>
+                                    </div>
+                                    <div class="risk-indicator" style="margin-left: 45%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="w-full md:w-2/3">
+                            <h4 class="font-semibold text-gray-800 mb-3">Posicionamento e Estratégia</h4>
+                            <p class="text-gray-700 mb-4">
+                                O Blue Owl SP2 representa uma abordagem distinta dos demais fundos analisados, focando em aquisições de participações minoritárias em gestoras de investimentos alternativos. Este modelo de negócios visa gerar fluxos de caixa estáveis a partir das taxas de administração recorrentes das gestoras investidas, complementados pelo potencial de valorização destes negócios.
+                            </p>
+                            
+                            <div class="bg-gray-50 p-3 rounded-lg border border-blue-100 mb-4">
+                                <h5 class="font-medium text-gray-800 mb-2">Considerações</h5>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Exposição indireta ao desempenho dos fundos investidos</li>
+                                    <li>Dependência do ciclo de fundraising das gestoras</li>
+                                    <li>Maior complexidade na avaliação de valuation</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-100">
+                                <h5 class="font-medium text-gray-800 mb-2">Abordagem Estratégica</h5>
+                                <p class="text-sm text-gray-700 mb-2">
+                                    O fundo implementa a estratégia central da plataforma GP Strategic Capital:
+                                </p>
+                                <ul class="list-disc pl-5 text-sm text-gray-600 space-y-1">
+                                    <li>Aquisição de participações minoritárias em gestoras alternativas</li>
+                                    <li>Abordagem "maximamente alinhada e minimamente invasiva"</li>
+                                    <li>Suporte estratégico via Business Services Platform (55+ profissionais)</li>
+                                    <li>Foco em rendimentos recorrentes de taxas de administração</li>
+                                    <li>Benefício do crescimento secular da indústria de alternativos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção: Análise Comparativa -->
+            <section id="comparativo" class="bg-white rounded-lg shadow p-6 mb-8">
+                <h2 class="text-2xl font-bold section-title mb-6">Análise Comparativa</h2>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Fundo</th>
+                                <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estratégia</th>
+                                <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Taxa Adm</th>
+                                <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Taxa Perf</th>
+                                <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Liquidez</th>
+                                <th scope="col" class="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Perfil Risco</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    <div class="font-medium text-gray-900">Itaú Orion</div>
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Global Macro / Multi</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">1-2%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">20%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Trimestral</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Moderado</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    <div class="font-medium text-gray-900">Brevan Howard</div>
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Global Macro</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">1-1,5%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">20-30%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Trimestral</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Moderado-Alto</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    <div class="font-medium text-gray-900">Tudor BVI</div>
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Global Macro / Multi</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800 font-semibold">4%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800 font-semibold">23%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Trimestral</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Alto</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    <div class="font-medium text-gray-900">VG Equities</div>
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Long/Short Equity</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">1-2%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">20%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Trimestral</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Moderado-Alto</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 whitespace-nowrap">
+                                    <div class="font-medium text-gray-900">Blue Owl SP2</div>
+                                </td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">GP Stakes</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">1-2%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">12,5%</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800 font-semibold">Limitada</td>
+                                <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-800">Moderado</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="bg-blue-50 p-5 rounded-lg">
+                    <h3 class="font-semibold text-gray-800 mb-3">Considerações sobre Seleção</h3>
+                    <div class="text-sm text-gray-700 space-y-2">
+                        <p>A análise comparativa entre os cinco fundos revela diferenças significativas em termos de estratégia, estrutura de taxas e perfil de risco-retorno. Em um cenário macroeconômico desafiador como o de 2025, com alta probabilidade de recessão e volatilidade elevada, destacam-se:</p>
+                        
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li><span class="font-medium">Brevan Howard:</span> Possivelmente o mais bem posicionado para o ambiente atual, dado seu histórico em períodos de stress e expertise em cenários inflacionários.</li>
+                            <li><span class="font-medium">Tudor BVI:</span> Oferece flexibilidade significativa em múltiplas classes de ativos, mas com prêmio substancial nas taxas.</li>
+                            <li><span class="font-medium">Blue Owl SP2:</span> Representa uma alternativa interessante para diversificação, com menor correlação direta a mercados tradicionais.</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Nota de Rodapé -->
+                <div class="mt-8 pt-4 border-t border-gray-200">
+                    <p class="text-sm text-gray-600 italic">
+                        Nota: Os documentos chave para a análise deste fundo (a exemplo do PPM e do LPA), além dos relatórios trimestrais/anuais, que detalham a estratégia, termos, taxas, riscos e a performance do fundo, não são documentos públicos.
+                    </p>
+                </div>
+            </section>
+
+
+                    </main>
+    </div>
+    
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8 z-50">
+        <button id="backToTopBtn" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar ao Topo
+        </button>
+    </div>
+    
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const selector = document.getElementById('productSelector');
+        if (selector) {
+          selector.addEventListener('change', function() {
+            const value = selector.value;
+            if (value === 'inicio') {
+              window.location.href = '../../offshore.html';
+            } else if (value === 'vuaa') {
+              window.location.href = '../vuaa/vuaa.html';
+            } else if (value === 'harris') {
+              window.location.href = '../harris/harris.html';
+            } else if (value === 'vontobel') {
+              window.location.href = '../vontobel/vontobel.html';
+            } else if (value === 'private-equity') {
+              window.location.href = '../private-equity/private-equity.html';
+            } else if (value === 'us-corporates') {
+              window.location.href = '../us-corporates/us-corporates.html';
+            } else if (value === 'hedge-funds') {
+              // já está nesta página, não faz nada
+            }
+          });
+        }
+
+            // Add click event handler for the back to top button
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (backToTopBtn) {
+                backToTopBtn.addEventListener('click', function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+      });
+    </script>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

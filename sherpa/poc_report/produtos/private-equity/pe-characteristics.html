@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Private Equity</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="../../common-styles.css">
+    <script src="../../common-scripts.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates">Renda Fixa</option>
+                    <option value="hedge-funds">Hedge Funds</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#ciclo-pe" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Ciclo de Vida de Private Equity</a></li>
+                    <li><a href="#performance-metrics" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Métricas de Performance</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+
+            <!-- Seção de Ciclo de Vida de PE -->
+            <section id="ciclo-pe" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title mb-6">Ciclo de Vida e Características de Private Equity</h2>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Curva J e Retornos Esperados</h3>
+                    <p class="mb-4">Fundos de Private Equity tipicamente seguem um padrão conhecido como "Curva J", onde há um período inicial de valor negativo seguido por apreciação à medida que as empresas do portfólio se desenvolvem.</p>
+                    
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <div class="flex justify-center">
+                            <svg id="j-curve-chart" viewBox="0 0 800 600" class="w-full max-w-3xl">
+                                <!-- Eixos -->
+                                <line x1="80" y1="500" x2="750" y2="500" stroke="black" stroke-width="2"></line>
+                                <line x1="80" y1="500" x2="80" y2="50" stroke="black" stroke-width="2"></line>
+                                
+                                <!-- Legendas dos eixos -->
+                                <text x="400" y="550" text-anchor="middle" font-size="16">Ano</text>
+                                <text x="30" y="275" text-anchor="middle" font-size="16" transform="rotate(-90, 30, 275)">Valor acumulado (% do capital investido)</text>
+                                
+                                <!-- Título -->
+                                <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold">Curvas de Payoff (J-Curve) para Diferentes Cenários de Fundos de PE</text>
+                                
+                                <!-- Grid -->
+                                <g stroke="lightgray" stroke-width="1">
+                                    <!-- Linhas horizontais -->
+                                    <line x1="80" y1="100" x2="750" y2="100"></line>
+                                    <line x1="80" y1="150" x2="750" y2="150"></line>
+                                    <line x1="80" y1="200" x2="750" y2="200"></line>
+                                    <line x1="80" y1="250" x2="750" y2="250"></line>
+                                    <line x1="80" y1="300" x2="750" y2="300"></line>
+                                    <line x1="80" y1="350" x2="750" y2="350"></line>
+                                    <line x1="80" y1="400" x2="750" y2="400"></line>
+                                    <line x1="80" y1="450" x2="750" y2="450"></line>
+                                    
+                                    <!-- Linhas verticais -->
+                                    <line x1="147" y1="50" x2="147" y2="500"></line>
+                                    <line x1="214" y1="50" x2="214" y2="500"></line>
+                                    <line x1="281" y1="50" x2="281" y2="500"></line>
+                                    <line x1="348" y1="50" x2="348" y2="500"></line>
+                                    <line x1="415" y1="50" x2="415" y2="500"></line>
+                                    <line x1="482" y1="50" x2="482" y2="500"></line>
+                                    <line x1="549" y1="50" x2="549" y2="500"></line>
+                                    <line x1="616" y1="50" x2="616" y2="500"></line>
+                                    <line x1="683" y1="50" x2="683" y2="500"></line>
+                                    <line x1="750" y1="50" x2="750" y2="500"></line>
+                                </g>
+                                
+                                <!-- Linha pontilhada horizontal em 0 -->
+                                <line x1="80" y1="400" x2="750" y2="400" stroke="black" stroke-width="1" stroke-dasharray="5,5"></line>
+                                
+                                <!-- Marcações no eixo X -->
+                                <text x="80" y="520" text-anchor="middle" font-size="14">0</text>
+                                <text x="147" y="520" text-anchor="middle" font-size="14">1</text>
+                                <text x="214" y="520" text-anchor="middle" font-size="14">2</text>
+                                <text x="281" y="520" text-anchor="middle" font-size="14">3</text>
+                                <text x="348" y="520" text-anchor="middle" font-size="14">4</text>
+                                <text x="415" y="520" text-anchor="middle" font-size="14">5</text>
+                                <text x="482" y="520" text-anchor="middle" font-size="14">6</text>
+                                <text x="549" y="520" text-anchor="middle" font-size="14">7</text>
+                                <text x="616" y="520" text-anchor="middle" font-size="14">8</text>
+                                <text x="683" y="520" text-anchor="middle" font-size="14">9</text>
+                                <text x="750" y="520" text-anchor="middle" font-size="14">10</text>
+                                
+                                <!-- Marcações no eixo Y - corrigidas para alinhar com as linhas de grade -->
+                                <text x="70" y="500" text-anchor="end" font-size="14">-100</text>
+                                <text x="70" y="450" text-anchor="end" font-size="14">-50</text>
+                                <text x="70" y="400" text-anchor="end" font-size="14">0</text>
+                                <text x="70" y="350" text-anchor="end" font-size="14">50</text>
+                                <text x="70" y="300" text-anchor="end" font-size="14">100</text>
+                                <text x="70" y="250" text-anchor="end" font-size="14">150</text>
+                                <text x="70" y="200" text-anchor="end" font-size="14">200</text>
+                                <text x="70" y="150" text-anchor="end" font-size="14">250</text>
+                                <text x="70" y="100" text-anchor="end" font-size="14">300</text>
+                                
+                                <!-- Dados para o gráfico - Todas as curvas agora começam em Y=500 (-100) -->
+                                
+                                <!-- Fundo Base -->
+                                <polyline
+                                    points="80,500 147,380 214,350 281,310 348,290 415,270 482,250 549,200 616,170 683,140 750,110"
+                                    fill="none"
+                                    stroke="blue"
+                                    stroke-width="3"
+                                ></polyline>
+                                
+                                <!-- Fundo Excelente -->
+                                <polyline
+                                    points="80,500 147,370 214,330 281,280 348,260 415,240 482,190 549,130 616,90 683,60 750,30"
+                                    fill="none"
+                                    stroke="green"
+                                    stroke-width="3"
+                                    stroke-dasharray="2,2"
+                                ></polyline>
+                                
+                                <!-- Fundo Ruim - começa em -100 e termina em +25 -->
+                                <polyline
+                                    points="80,500 147,390 214,370 281,350 348,330 415,320 482,310 549,300 616,290 683,280 750,275"
+                                    fill="none"
+                                    stroke="red"
+                                    stroke-width="3"
+                                    stroke-dasharray="5,5"
+                                ></polyline>
+                                
+                                <!-- Legendas reposicionadas -->
+                                <g transform="translate(150, 70)">
+                                    <rect x="0" y="0" width="15" height="3" fill="red" stroke="red" stroke-dasharray="5,5"></rect>
+                                    <text x="25" y="5" font-size="14">Fundo Ruim</text>
+                                    
+                                    <rect x="0" y="20" width="15" height="3" fill="blue" stroke="blue"></rect>
+                                    <text x="25" y="25" font-size="14">Fundo Base</text>
+                                    
+                                    <rect x="0" y="40" width="15" height="3" fill="green" stroke="green" stroke-dasharray="2,2"></rect>
+                                    <text x="25" y="45" font-size="14">Fundo Excelente</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4">O gráfico acima ilustra o padrão típico de retorno de fundos de private equity em diferentes cenários. Nos primeiros anos, todos os fundos mostram retornos negativos (a fase descendente da curva J) devido às taxas, despesas e potencial queda inicial no valor das empresas durante a fase de reestruturação. Com o tempo, os fundos se diferenciam significativamente por sua capacidade de gerar valor.</p>
+                </div>
+                
+                <div class="mt-8 mb-8">
+                    <h3 class="text-xl font-semibold mb-4">Linha do Tempo Típica de um Fundo de PE</h3>
+                    
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <div class="flex justify-center">
+                            <svg viewBox="0 0 800 200" class="w-full max-w-2xl">
+                                <!-- Título -->
+                                <text x="400" y="25" text-anchor="middle" font-size="16" font-weight="bold">Linha do Tempo Típica de um Fundo de Private Equity (10 anos)</text>
+                                
+                                <!-- Timeline -->
+                                <g transform="translate(80, 60)">
+                                    <!-- Blocos de períodos -->
+                                    <rect x="0" y="0" width="210" height="40" fill="#1565C0" stroke="white" stroke-width="1"></rect>
+                                    <rect x="210" y="0" width="210" height="40" fill="#E65100" stroke="white" stroke-width="1"></rect>
+                                    <rect x="420" y="0" width="280" height="40" fill="#2E7D32" stroke="white" stroke-width="1"></rect>
+                                    
+                                    <!-- Anos -->
+                                    <text x="35" y="65" text-anchor="middle" font-size="12">1</text>
+                                    <text x="105" y="65" text-anchor="middle" font-size="12">2</text>
+                                    <text x="175" y="65" text-anchor="middle" font-size="12">3</text>
+                                    <text x="245" y="65" text-anchor="middle" font-size="12">4</text>
+                                    <text x="315" y="65" text-anchor="middle" font-size="12">5</text>
+                                    <text x="385" y="65" text-anchor="middle" font-size="12">6</text>
+                                    <text x="455" y="65" text-anchor="middle" font-size="12">7</text>
+                                    <text x="525" y="65" text-anchor="middle" font-size="12">8</text>
+                                    <text x="595" y="65" text-anchor="middle" font-size="12">9</text>
+                                    <text x="665" y="65" text-anchor="middle" font-size="12">10</text>
+                                    
+                                    <!-- Linhas divisórias -->
+                                    <line x1="70" y1="-5" x2="70" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                    <line x1="140" y1="-5" x2="140" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                    <line x1="210" y1="-5" x2="210" y2="40" stroke="white" stroke-width="1"></line>
+                                    <line x1="280" y1="-5" x2="280" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                    <line x1="350" y1="-5" x2="350" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                    <line x1="420" y1="-5" x2="420" y2="40" stroke="white" stroke-width="1"></line>
+                                    <line x1="490" y1="-5" x2="490" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                    <line x1="560" y1="-5" x2="560" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                    <line x1="630" y1="-5" x2="630" y2="40" stroke="white" stroke-width="1" stroke-dasharray="2,2"></line>
+                                </g>
+                                
+                                <!-- Legendas em grid -->
+                                <g transform="translate(80, 120)">
+                                    <!-- Primeira coluna -->
+                                    <circle cx="15" cy="15" r="8" fill="#1565C0"></circle>
+                                    <text x="35" y="20" font-size="12">Anos 1-3: Investimento</text>
+                                    
+                                    <!-- Segunda coluna -->
+                                    <circle cx="250" cy="15" r="8" fill="#E65100"></circle>
+                                    <text x="270" y="20" font-size="12">Anos 4-6: Maturação</text>
+                                    
+                                    <!-- Terceira coluna -->
+                                    <circle cx="485" cy="15" r="8" fill="#2E7D32"></circle>
+                                    <text x="505" y="20" font-size="12">Anos 7-10: Exits</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <p class="mt-4">O ciclo de vida de um fundo típico de Private Equity dura aproximadamente 10 anos, embora possa ser estendido em alguns casos. Durante este período, o fundo passa por três fases principais que determinam o fluxo de capital e a criação de valor.</p>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold mb-4">Evolução do NAV e Distribuições</h3>
+                    
+                    <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                        <div class="flex justify-center">
+                            <svg viewBox="0 0 800 600" class="w-full max-w-3xl">
+                                <!-- Eixos -->
+                                <line x1="80" y1="500" x2="750" y2="500" stroke="black" stroke-width="2"></line>
+                                <line x1="80" y1="500" x2="80" y2="50" stroke="black" stroke-width="2"></line>
+                                
+                                <!-- Legendas dos eixos -->
+                                <text x="400" y="550" text-anchor="middle" font-size="16">Ano do Fundo</text>
+                                <text x="30" y="275" text-anchor="middle" font-size="16" transform="rotate(-90, 30, 275)">Valor (R$ milhões)</text>
+                                
+                                <!-- Título -->
+                                <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold">Evolução Típica do NAV e Distribuições em um Fundo de Private Equity</text>
+                                
+                                <!-- Grid -->
+                                <g stroke="lightgray" stroke-width="1">
+                                    <!-- Linhas horizontais -->
+                                    <line x1="80" y1="100" x2="750" y2="100"></line>
+                                    <line x1="80" y1="150" x2="750" y2="150"></line>
+                                    <line x1="80" y1="200" x2="750" y2="200"></line>
+                                    <line x1="80" y1="250" x2="750" y2="250"></line>
+                                    <line x1="80" y1="300" x2="750" y2="300"></line>
+                                    <line x1="80" y1="350" x2="750" y2="350"></line>
+                                    <line x1="80" y1="400" x2="750" y2="400"></line>
+                                    <line x1="80" y1="450" x2="750" y2="450"></line>
+                                    
+                                    <!-- Linhas verticais -->
+                                    <line x1="147" y1="50" x2="147" y2="500"></line>
+                                    <line x1="214" y1="50" x2="214" y2="500"></line>
+                                    <line x1="281" y1="50" x2="281" y2="500"></line>
+                                    <line x1="348" y1="50" x2="348" y2="500"></line>
+                                    <line x1="415" y1="50" x2="415" y2="500"></line>
+                                    <line x1="482" y1="50" x2="482" y2="500"></line>
+                                    <line x1="549" y1="50" x2="549" y2="500"></line>
+                                    <line x1="616" y1="50" x2="616" y2="500"></line>
+                                    <line x1="683" y1="50" x2="683" y2="500"></line>
+                                    <line x1="750" y1="50" x2="750" y2="500"></line>
+                                </g>
+                                
+                                <!-- Marcações no eixo X -->
+                                <text x="80" y="520" text-anchor="middle" font-size="14">1</text>
+                                <text x="147" y="520" text-anchor="middle" font-size="14">2</text>
+                                <text x="214" y="520" text-anchor="middle" font-size="14">3</text>
+                                <text x="281" y="520" text-anchor="middle" font-size="14">4</text>
+                                <text x="348" y="520" text-anchor="middle" font-size="14">5</text>
+                                <text x="415" y="520" text-anchor="middle" font-size="14">6</text>
+                                <text x="482" y="520" text-anchor="middle" font-size="14">7</text>
+                                <text x="549" y="520" text-anchor="middle" font-size="14">8</text>
+                                <text x="616" y="520" text-anchor="middle" font-size="14">9</text>
+                                <text x="683" y="520" text-anchor="middle" font-size="14">10</text>
+                                
+                                <!-- Marcações no eixo Y -->
+                                <text x="70" y="500" text-anchor="end" font-size="14">0</text>
+                                <text x="70" y="450" text-anchor="end" font-size="14">20</text>
+                                <text x="70" y="400" text-anchor="end" font-size="14">40</text>
+                                <text x="70" y="350" text-anchor="end" font-size="14">60</text>
+                                <text x="70" y="300" text-anchor="end" font-size="14">80</text>
+                                <text x="70" y="100" text-anchor="end" font-size="14">100</text>
+                                
+                                <!-- Dados para o gráfico -->
+                                <!-- NAV (Valor de Mercado no Fundo) -->
+                                <polyline
+                                    points="80,490 147,430 214,300 281,230 348,180 415,150 482,180 549,240 616,300 683,450 750,500"
+                                    fill="none"
+                                    stroke="blue"
+                                    stroke-width="3"
+                                ></polyline>
+                                
+                                <!-- Distribuições Acumuladas -->
+                                <polyline
+                                    points="80,500 147,500 214,490 281,480 348,470 415,450 482,410 549,370 616,310 683,260 750,100"
+                                    fill="none"
+                                    stroke="green"
+                                    stroke-width="3"
+                                ></polyline>
+                                
+                                <!-- Legendas -->
+                                <rect x="550" y="70" width="15" height="3" fill="blue" stroke="blue"></rect>
+                                <text x="575" y="75" font-size="14">NAV (Valor de Mercado no Fundo)</text>
+                                
+                                <rect x="550" y="90" width="15" height="3" fill="green" stroke="green"></rect>
+                                <text x="575" y="95" font-size="14">Distribuições Acumuladas</text>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 p-4 rounded-lg mt-4">
+                        <p><strong>NAV</strong> sobe nos primeiros anos (à medida que o fundo investe) e depois cai conforme os exits ocorrem.</p>
+                        <p class="mt-2"><strong>Distribuições acumuladas</strong> sobem gradualmente, refletindo a devolução de capital e lucros aos investidores.</p>
+                        <p class="mt-2">Isso ilustra bem a lógica por trás do ciclo de vida de um fundo PE.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção de Métricas de Performance -->
+            <section id="performance-metrics" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title mb-6">Métricas de Performance em Private Equity</h2>
+                
+                <div class="bg-gray-100 p-4 rounded-lg mb-6">
+                    <div class="flex justify-center">
+                        <svg viewBox="0 0 800 600" class="w-full max-w-3xl">
+                            <!-- Eixos -->
+                            <line x1="80" y1="500" x2="750" y2="500" stroke="black" stroke-width="2"></line>
+                            <line x1="80" y1="500" x2="80" y2="50" stroke="black" stroke-width="2"></line>
+                            
+                            <!-- Legendas dos eixos -->
+                            <text x="400" y="550" text-anchor="middle" font-size="16">Ano do Fundo</text>
+                            <text x="30" y="275" text-anchor="middle" font-size="16" transform="rotate(-90, 30, 275)">Múltiplo sobre o Capital Investido</text>
+                            
+                            <!-- Título -->
+                            <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold">Evolução dos Múltiplos (DPI, RVPI, TVPI) de um Fundo de Private Equity</text>
+                            
+                            <!-- Grid -->
+                            <g stroke="lightgray" stroke-width="1">
+                                <!-- Linhas horizontais -->
+                                <line x1="80" y1="100" x2="750" y2="100"></line>
+                                <line x1="80" y1="150" x2="750" y2="150"></line>
+                                <line x1="80" y1="200" x2="750" y2="200"></line>
+                                <line x1="80" y1="250" x2="750" y2="250"></line>
+                                <line x1="80" y1="300" x2="750" y2="300"></line>
+                                <line x1="80" y1="350" x2="750" y2="350"></line>
+                                <line x1="80" y1="400" x2="750" y2="400"></line>
+                                <line x1="80" y1="450" x2="750" y2="450"></line>
+                                
+                                <!-- Linhas verticais -->
+                                <line x1="147" y1="50" x2="147" y2="500"></line>
+                                <line x1="214" y1="50" x2="214" y2="500"></line>
+                                <line x1="281" y1="50" x2="281" y2="500"></line>
+                                <line x1="348" y1="50" x2="348" y2="500"></line>
+                                <line x1="415" y1="50" x2="415" y2="500"></line>
+                                <line x1="482" y1="50" x2="482" y2="500"></line>
+                                <line x1="549" y1="50" x2="549" y2="500"></line>
+                                <line x1="616" y1="50" x2="616" y2="500"></line>
+                                <line x1="683" y1="50" x2="683" y2="500"></line>
+                                <line x1="750" y1="50" x2="750" y2="500"></line>
+                            </g>
+                            
+                            <!-- Marcações no eixo X -->
+                            <text x="80" y="520" text-anchor="middle" font-size="14">1</text>
+                            <text x="147" y="520" text-anchor="middle" font-size="14">2</text>
+                            <text x="214" y="520" text-anchor="middle" font-size="14">3</text>
+                            <text x="281" y="520" text-anchor="middle" font-size="14">4</text>
+                            <text x="348" y="520" text-anchor="middle" font-size="14">5</text>
+                            <text x="415" y="520" text-anchor="middle" font-size="14">6</text>
+                            <text x="482" y="520" text-anchor="middle" font-size="14">7</text>
+                            <text x="549" y="520" text-anchor="middle" font-size="14">8</text>
+                            <text x="616" y="520" text-anchor="middle" font-size="14">9</text>
+                            <text x="683" y="520" text-anchor="middle" font-size="14">10</text>
+                            
+                            <!-- Marcações no eixo Y -->
+                            <text x="70" y="500" text-anchor="end" font-size="14">0.0</text>
+                            <text x="70" y="450" text-anchor="end" font-size="14">0.2</text>
+                            <text x="70" y="400" text-anchor="end" font-size="14">0.4</text>
+                            <text x="70" y="350" text-anchor="end" font-size="14">0.6</text>
+                            <text x="70" y="300" text-anchor="end" font-size="14">0.8</text>
+                            <text x="70" y="250" text-anchor="end" font-size="14">1.0</text>
+                            <text x="70" y="200" text-anchor="end" font-size="14">1.2</text>
+                            
+                            <!-- DPI (Distributions to Paid-In) -->
+                            <polyline
+                                points="80,500 147,500 214,475 281,460 348,450 415,430 482,400 549,350 616,330 683,280 750,250"
+                                fill="none"
+                                stroke="green"
+                                stroke-width="3"
+                            ></polyline>
+                            
+                            <!-- RVPI (Residual Value to Paid-In) -->
+                            <polyline
+                                points="80,480 147,450 214,325 281,300 348,280 415,260 482,350 549,400 616,440 683,480 750,500"
+                                fill="none"
+                                stroke="orange"
+                                stroke-width="3"
+                            ></polyline>
+                            
+                            <!-- TVPI (Total Value to Paid-In) -->
+                            <polyline
+                                points="80,480 147,435 214,325 281,270 348,250 415,235 482,235 549,240 616,240 683,240 750,250"
+                                fill="none"
+                                stroke="blue"
+                                stroke-width="3"
+                            ></polyline>
+                            
+                            <!-- Legendas -->
+                            <rect x="100" y="70" width="15" height="3" fill="green" stroke="green"></rect>
+                            <text x="125" y="75" font-size="14">DPI</text>
+                            
+                            <rect x="100" y="90" width="15" height="3" fill="orange" stroke="orange"></rect>
+                            <text x="125" y="95" font-size="14">RVPI</text>
+                            
+                            <rect x="100" y="110" width="15" height="3" fill="blue" stroke="blue"></rect>
+                            <text x="125" y="115" font-size="14">TVPI</text>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-2">DPI (Distributions to Paid-In)</h3>
+                        <p>O múltiplo DPI representa quanto capital foi <strong>devolvido aos investidores</strong> em relação ao capital integralizado. Em um fundo de PE típico, o DPI começa em zero e aumenta gradualmente à medida que o fundo realiza distribuições. Um DPI final acima de 1.0x significa que o fundo retornou mais capital do que investido.</p>
+                    </div>
+                    
+                    <div class="bg-amber-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-2">RVPI (Residual Value to Paid-In)</h3>
+                        <p>O RVPI mede o valor dos investimentos <strong>ainda detidos pelo fundo</strong> (não realizados) em relação ao capital integralizado. Tipicamente, o RVPI aumenta nos primeiros anos, atinge um pico, e depois diminui à medida que o fundo vende seus ativos. No final da vida do fundo, o RVPI idealmente se aproxima de zero.</p>
+                    </div>
+                    
+                    <div class="bg-indigo-50 p-4 rounded-lg">
+                        <h3 class="font-bold text-lg mb-2">TVPI (Total Value to Paid-In)</h3>
+                        <p>O TVPI é a soma de DPI e RVPI, representando o <strong>retorno total</strong> do fundo (realizado + não realizado) em relação ao capital integralizado. Um TVPI final de 2.0x significa que o fundo gerou o dobro do valor em relação ao capital investido, combinando distribuições e valor residual.</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-semibold mb-4">Outras Métricas Importantes</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">TIR (Taxa Interna de Retorno)</h4>
+                            <p>A TIR mede o desempenho anualizado do fundo, levando em consideração o momento dos fluxos de caixa. Para fundos de PE, TIRs líquidas na faixa de:</p>
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>Abaixo de 10%: Desempenho fraco</li>
+                                <li>10-15%: Desempenho médio</li>
+                                <li>15-20%: Bom desempenho</li>
+                                <li>Acima de 20%: Desempenho excepcional</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2">PME (Public Market Equivalent)</h4>
+                            <p>O PME compara o desempenho do fundo de PE com um índice de mercado público (como S&P 500). Um PME > 1.0 indica que o fundo superou o mercado público.</p>
+                            <p class="mt-2">Outras métricas comuns incluem:</p>
+                            <ul class="list-disc pl-5 mt-2">
+                                <li>PIC (Paid-In Capital): Percentual do capital comprometido que foi efetivamente chamado</li>
+                                <li>MOIC (Multiple on Invested Capital): Sinônimo de TVPI</li>
+                                <li>Loss Ratio: Percentual de investimentos que resultaram em perda</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar ao Topo
+        </button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle product selector
+            document.getElementById('productSelector').addEventListener('change', function() {
+                const selectedValue = this.value;
+                if (selectedValue === 'inicio') {
+                    window.location.href = '../../offshore.html';
+                } else if (selectedValue === 'private-equity') {
+                    window.location.href = 'private-equity.html';
+                } else if (selectedValue === 'us-corporates') {
+                    window.location.href = '../us-corporates/us-corporates.html';
+                } else if (selectedValue === 'hedge-funds') {
+                    // Handle hedge funds
+                }
+            });
+
+            // Handle print button
+            document.getElementById('printBtn').addEventListener('click', function() {
+                window.print();
+            });
+        });
+    </script>
+</body>
+</html> 

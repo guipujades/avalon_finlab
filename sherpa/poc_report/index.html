@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem-vindo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            background: url('https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=1500&q=80') center center/cover no-repeat;
+        }
+        .mountain-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.45);
+            z-index: 0;
+        }
+        .modal-bg {
+            background: rgba(10, 37, 64, 0.92);
+        }
+        .fade-in {
+            animation: fadeIn 0.7s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center relative min-h-screen">
+    <div class="mountain-overlay"></div>
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="z-10 flex flex-col items-center justify-center w-full min-h-screen absolute top-0 left-0 fade-in">
+        <div class="bg-white bg-opacity-90 p-8 rounded-2xl shadow-2xl w-full max-w-sm flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-4 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17l6-6 4 4 8-8" />
+            </svg>
+            <p class="text-lg text-gray-700 mb-4 text-center">Acesso restrito<br><span class="text-sm text-gray-400">Digite a senha para continuar</span></p>
+            <input type="password" id="password" placeholder="Senha" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 text-center text-lg">
+            <button onclick="checkPassword()" class="mt-6 w-full py-2 rounded-lg bg-blue-900 text-white font-medium shadow hover:bg-blue-800 transition">Acessar</button>
+            <p id="errorMessage" class="text-red-600 text-sm text-center hidden mt-3">Senha incorreta. Tente novamente.</p>
+        </div>
+    </div>
+    <!-- Conteúdo Principal -->
+    <main id="mainContent" class="z-10 w-full flex flex-col items-center justify-center min-h-screen hidden fade-in">
+        <div class="flex flex-col md:flex-row gap-16 w-full max-w-2xl justify-center items-center py-20">
+            <a href="onshore.html" class="w-full md:w-1/2">
+                <div class="rounded-2xl shadow-xl p-10 flex flex-col items-center transition-transform transform hover:scale-105 bg-white bg-opacity-80 border border-gray-200 hover:border-blue-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-4 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17l6-6 4 4 8-8" />
+                        <path d="M2 20l10-10 10 10" stroke="#cbd5e1" stroke-width="1.2" fill="none"/>
+                    </svg>
+                    <span class="text-xl font-medium text-blue-900 tracking-wide">Onshore</span>
+                </div>
+            </a>
+            <a href="offshore.html" class="w-full md:w-1/2">
+                <div class="rounded-2xl shadow-xl p-10 flex flex-col items-center transition-transform transform hover:scale-105 bg-white bg-opacity-80 border border-gray-200 hover:border-blue-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-14 w-14 mb-4 text-blue-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 17l6-6 4 4 8-8" />
+                        <path d="M2 20l10-10 10 10" stroke="#cbd5e1" stroke-width="1.2" fill="none"/>
+                    </svg>
+                    <span class="text-xl font-medium text-blue-900 tracking-wide">Offshore</span>
+                </div>
+            </a>
+        </div>
+    </main>
+    <!-- Modal Página em Construção -->
+    <div id="modalOnshore" class="hidden fixed inset-0 flex items-center justify-center z-50">
+        <div class="modal-bg absolute inset-0"></div>
+        <div class="relative bg-white rounded-2xl shadow-2xl p-8 max-w-md w-full flex flex-col items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mb-4 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M12 20a8 8 0 100-16 8 8 0 000 16z" />
+            </svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Página em construção</h2>
+            <p class="text-gray-600 mb-6 text-center">A área Onshore estará disponível em breve.<br>Por favor, retorne mais tarde.</p>
+            <button onclick="closeModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold px-6 py-2 rounded-lg shadow transition">Fechar</button>
+        </div>
+    </div>
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const correctPassword = '@valon123';
+            if (password === correctPassword) {
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'flex';
+            } else {
+                document.getElementById('errorMessage').classList.remove('hidden');
+            }
+        }
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+        function showModal() {
+            document.getElementById('modalOnshore').classList.remove('hidden');
+        }
+        function closeModal() {
+            document.getElementById('modalOnshore').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

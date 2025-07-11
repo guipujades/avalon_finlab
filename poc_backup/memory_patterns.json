@@ -1,0 +1,21 @@
+{
+  "categories": {
+    "geral": {
+      "count": 1,
+      "questions": [
+        "qual a taxa selic atual no brasil?"
+      ]
+    }
+  },
+  "common_questions": {
+    "qual a taxa selic atual": 1
+  },
+  "question_evolution": [
+    {
+      "timestamp": "2025-06-02 14:14:30",
+      "category": "geral",
+      "was_useful": true
+    }
+  ],
+  "successful_contexts": []
+}

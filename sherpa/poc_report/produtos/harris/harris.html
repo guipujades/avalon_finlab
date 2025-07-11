@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise do Harris Associates US Value Equity Fund R/A (USD)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="../../common-styles.css">
+    <script src="../../common-scripts.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa">Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris" selected>Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates">Renda Fixa</option>
+                    <option value="hedge-funds">Hedge Funds</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#estrutura" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Estrutura do Ativo</a></li>
+                    <li><a href="#taxas" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Análise de Taxas</a></li>
+                    <li><a href="#comparativo" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Comparativo com Pares</a></li>
+                    <li><a href="#composicao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Composição da Carteira</a></li>
+                    <li><a href="#desempenho" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Desempenho Histórico</a></li>
+                    <li><a href="#consideracoes" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Considerações sobre o produto</a></li>
+                    <li><a href="#radar-mercado" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Radar de Mercado</a></li>
+                    <li><a href="#recomendacao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Recomendação Final</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-600 rounded-full p-3 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Visão Geral</h2>
+                        <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                    </div>
+                </div>
+                
+                <p class="mb-4">
+                    O <strong><a href="https://www.im.natixis.com/en-intl/funds/fund-details.harris-associates-us-value-equity-fund.LU0130102774#overview" target="_blank" class="text-black-600 hover:text-blue-800 underline">Harris Associates U.S. Value Equity Fund</strong></a> tem como objetivo principal o crescimento de capital a longo prazo, investindo
+predominantemente em ações de grandes empresas dos Estados Unidos. A estratégia do fundo é baseada em uma abordagem de
+<strong>investimento em valor</strong>, buscando identificar empresas cujas ações estejam sendo negociadas com um desconto significativo em relação ao
+seu valor intrínseco estimado. A carteira é composta por aproximadamente 50 a 60 ações, com uma concentração máxima de 25% em um
+único setor e limite de 5% por posição no momento da compra. Esta análise examina em profundidade sua estrutura, taxas, composição e desempenho, proporcionando um panorama completo para decisões de investimento informadas.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">TER</h3>
+                        <p class="text-3xl font-bold text-slate-800">2,00%*</p>
+                        <p class="text-sm text-slate-600">Taxa de Despesa Total</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">AUM</h3>
+                        <p class="text-3xl font-bold text-stone-800">$2,08B</p>
+                        <p class="text-sm text-stone-600">Ativos sob Gestão (Harris)</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Lançamento</h3>
+                        <p class="text-3xl font-bold text-zinc-800">2001</p>
+                        <p class="text-sm text-zinc-600">04 de julho de 2001</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção: Estrutura do Fundo -->
+            <section id="estrutura" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full data-table">
+                        <tbody>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                <td class="py-3 px-4">Harris Associates U.S. Value Equity Fund R/A (USD)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">ISIN</th>
+                                <td class="py-3 px-4">LU0130102774</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Domicílio</th>
+                                <td class="py-3 px-4">Luxemburgo</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Data de Lançamento</th>
+                                <td class="py-3 px-4">04 de julho de 2001</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Estrutura Regulatória</th>
+                                <td class="py-3 px-4">UCITS (Undertakings for Collective Investment in Transferable Securities)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Taxa de Administração</th>
+                                <td class="py-3 px-4">2,00% ao ano*</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Política de Dividendos</th>
+                                <td class="py-3 px-4">Acumulação (reinvestimento automático)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Ativos sob Gestão (Harris Associates)</th>
+                                <td class="py-3 px-4">Aproximadamente 93,6 bilhões de dólares</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Investimento Mínimo Inicial</th>
+                                <td class="py-3 px-4">USD 100.000</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Estratégia</th>
+                                <td class="py-3 px-4">Value Investing (compra de ações subvalorizadas)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Moeda Base</th>
+                                <td class="py-3 px-4">USD</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Gestora</th>
+                                <td class="py-3 px-4">Harris Associates (subsidiária do Natixis Investment Managers)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">Pontos-chave da Estrutura</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Estrutura UCITS proporciona proteção robusta ao investidor e requisitos de diversificação</li>
+                        <li>Domicílio em Luxemburgo com framework regulatório estável</li>
+                        <li>Política de acumulação (reinvestimento automático de dividendos) favorece crescimento de longo prazo</li>
+                        <li>Estratégia de value investing com foco em empresas subvalorizadas</li>
+                    </ul>
+                </div>
+
+                <!-- Gestão do Fundo -->
+                <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                    <h3 class="font-bold text-xl mb-4">Sobre a Gestão</h3>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Gestora -->
+                        <div class="bg-slate-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Harris Associates</h4>
+                            <div class="space-y-3">
+                                <p class="text-gray-700">
+                                    Fundada em 1976, a Harris Associates é uma gestora focada em value investing, com aproximadamente US$ 93,6 bilhões em ativos sob gestão. A empresa utiliza uma filosofia de investimento consistente e perene desde sua fundação.
+                                </p>
+                                <p class="text-gray-700">
+                                    A gestora é subsidiária do Natixis Investment Managers, um dos principais grupos de gestão de ativos global com US$ 1,4 trilhões sob gestão.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="bg-stone-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-lg mb-3">Equipe de Gestão</h4>
+                            <div class="space-y-3">
+                                <p class="text-gray-700">
+                                    <strong>William C. Nygren, CFA</strong> - Partner, Portfolio Manager e CIO-U.S.<br>
+                                    <strong>Robert F. Bierig</strong> - Partner, Portfolio Manager<br>
+                                    <strong>Michael A. Nicolas, CFA</strong> - Portfolio Manager
+                                </p>
+                                <p class="text-gray-700">
+                                    A equipe utiliza um processo de pesquisa fundamental intensivo para identificar empresas negociando com desconto significativo em relação ao valor intrínseco estimado.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+                        <h4 class="font-semibold mb-2">Filosofia de Investimento</h4>
+                        <p class="text-gray-700 text-sm">
+                            A filosofia de investimento da Harris Associates é baseada em três pilares: (1) Comprar negócios com desconto significativo em relação ao valor intrínseco estimado; (2) Investir em empresas capazes de crescer o valor por ação ao longo do tempo; (3) Investir com equipes de gestão que pensam e agem como proprietários.
+                        </p>
+                    </div>
+                </div>
+
+            </section>
+            
+            <!-- Seção: Análise de Taxas -->
+            <section id="taxas" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Análise de Taxas</h2>
+                
+                <p class="mb-4">
+                    A TER do Harris US Value Fund (2,00%) está 0,94% acima da média dos fundos ativos (1,06%). Para um investimento de $1.000.000, isso representa um custo anual de $20.000, comparado a $10.600 da média dos fundos ativos.
+                </p>
+                
+                <p class="mb-4">
+                    Em relação a alternativas passivas como o VUAA (0,07%), a diferença de 1,93% representa $19.300 adicionais em custos anuais para um investimento de $1.000.000. 
+                </p>
+
+                <div class="chart-container mb-6" style="height: 400px;">
+                    <canvas id="terChart"></canvas>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Comparação de Taxas com Concorrentes</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">Fundo</th>
+                                        <th class="py-2 px-3 border text-center">Taxa (%)</th>
+                                        <th class="py-2 px-3 border text-center">Custo por $1M/ano</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Dodge & Cox US Stock</td>
+                                        <td class="py-2 px-3 border text-center">0,63%</td>
+                                        <td class="py-2 px-3 border text-center">$6.300</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">T. Rowe Price US Large Cap Value</td>
+                                        <td class="py-2 px-3 border text-center">0,72%</td>
+                                        <td class="py-2 px-3 border text-center">$7.200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">JPMorgan US Value</td>
+                                        <td class="py-2 px-3 border text-center">1,02%</td>
+                                        <td class="py-2 px-3 border text-center">$10.200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">American Funds US Value</td>
+                                        <td class="py-2 px-3 border text-center">1,25%</td>
+                                        <td class="py-2 px-3 border text-center">$12.500</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Wellington US Value</td>
+                                        <td class="py-2 px-3 border text-center">1,66%</td>
+                                        <td class="py-2 px-3 border text-center">$16.600</td>
+                                    </tr>
+                                    <tr class="bg-blue-50 font-semibold">
+                                        <td class="py-2 px-3 border">Harris US Value Equity</td>
+                                        <td class="py-2 px-3 border text-center">2,00%</td>
+                                        <td class="py-2 px-3 border text-center">$20.000</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="bg-gray-100">
+                                        <td class="py-2 px-3 border font-semibold">Média dos Fundos Ativos</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">1,06%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">$10.600</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-3">Análise Comparativa de Custos</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">1</span>
+                                    <div>
+                                        <span class="font-semibold">Posicionamento:</span> 
+                                        O Harris Fund está 0,94% acima da média dos fundos ativos (1,06%)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">2</span>
+                                    <div>
+                                        <span class="font-semibold">Diferença vs. ETFs:</span> 
+                                        +1,93% (ou +$19.300 por ano para cada $1.000.000 investidos) comparado ao VUAA
+                                    </div>
+                                </li>
+                               
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="comparativo" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Comparativo com Pares</h2>
+               
+                <p class="mb-4">
+                    Ao comparar o Harris Associates US Value Equity Fund com outros fundos de valor americanos, temos o seguinte:
+                </p>
+               
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Métrica</th>
+                                <th class="py-2 px-3 border text-center">Harris US Value</th>
+                                <th class="py-2 px-3 border text-center">Dodge & Cox US Stock</th>
+                                <th class="py-2 px-3 border text-center">S&P 500 Value Index</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">Taxa de administração</td>
+                                <td class="py-2 px-3 border text-center">2,00%</td>
+                                <td class="py-2 px-3 border text-center">0,63%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">0,04%</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Estilo de gestão</td>
+                                <td class="py-2 px-3 border text-center">Ativo (Value)</td>
+                                <td class="py-2 px-3 border text-center">Ativo (Value)</td>
+                                <td class="py-2 px-3 border text-center">Passivo (Índice)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Número de holdings</td>
+                                <td class="py-2 px-3 border text-center">50-60 ações</td>
+                                <td class="py-2 px-3 border text-center">60-80 ações</td>
+                                <td class="py-2 px-3 border text-center font-semibold">~400 ações</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Tracking error típico</td>
+                                <td class="py-2 px-3 border text-center">Elevado (>8%)</td>
+                                <td class="py-2 px-3 border text-center">Médio (4-6%)</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Baixo (~1%)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Capitalização média</td>
+                                <td class="py-2 px-3 border text-center">Large/Mega cap</td>
+                                <td class="py-2 px-3 border text-center">Large/Mega cap</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Large/Mega cap</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div>
+                <div class="bg-slate-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-3">Impacto Real dos Custos</h3>
+                    <p class="mb-3">
+                        Considerando o retorno médio aproximado do S&P 500 dos últimos 10 anos (11% ao ano), vamos analisar o impacto das diferentes taxas de administração em um investimento inicial de $1.000.000 ao longo de 10 anos:
+                    </p>
+                    <div class="overflow-x-auto mb-4">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Fundo</th>
+                                    <th class="py-2 px-3 border text-center">Taxa Anual</th>
+                                    <th class="py-2 px-3 border text-center">Retorno Líquido Anual</th>
+                                    <th class="py-2 px-3 border text-center">Valor Final (10 anos)</th>
+                                    <th class="py-2 px-3 border text-center">Custo Total em Taxas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-3 border">Harris US Value</td>
+                                    <td class="py-2 px-3 border text-center">2,00%</td>
+                                    <td class="py-2 px-3 border text-center">9,00%</td>
+                                    <td class="py-2 px-3 border text-center">$2.367.000</td>
+                                    <td class="py-2 px-3 border text-center">$472.000</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Dodge & Cox US Stock</td>
+                                    <td class="py-2 px-3 border text-center">0,63%</td>
+                                    <td class="py-2 px-3 border text-center">10,37%</td>
+                                    <td class="py-2 px-3 border text-center">$2.682.000</td>
+                                    <td class="py-2 px-3 border text-center">$157.000</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">VUAA (ETF)</td>
+                                    <td class="py-2 px-3 border text-center">0,07%</td>
+                                    <td class="py-2 px-3 border text-center">10,93%</td>
+                                    <td class="py-2 px-3 border text-center">$2.821.000</td>
+                                    <td class="py-2 px-3 border text-center">$17.000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">
+                        <strong>Nota:</strong> Os cálculos consideram um investimento inicial de $1.000.000 e retorno bruto de 11% ao ano. Os valores são aproximados e não consideram impostos ou outros custos.
+                    </p>
+                    <p class="mb-3">
+                        Como podemos observar, a diferença nas taxas de administração tem um impacto significativo no retorno final do investimento. No entanto, é importante ressaltar que o valor agregado pela gestão ativa deve ser analisado em relação ao custo adicional.
+                    </p>
+                    <p class="mb-3">
+                        <strong>Aspectos tributários:</strong> Por ser um fundo UCITS domiciliado em Luxemburgo, o Harris US Value Equity Fund oferece benefícios tributários semelhantes aos fundos irlandeses, como o VUAA. O fundo se beneficia da alíquota reduzida de 15% de retenção na fonte sobre dividendos de ações americanas (graças ao tratado EUA-Luxemburgo), em vez dos 30% aplicados a investidores pessoa física ou ETFs americanos. Além disso, não há cobrança de imposto sobre ganhos de capital ou imposto sucessório para investidores estrangeiros em Luxemburgo, tornando o fundo eficiente do ponto de vista fiscal para investidores internacionais e brasileiros. Esses fatores contribuem para uma maior eficiência líquida, especialmente em estratégias de longo prazo.
+                    </p>
+                </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Composição da Carteira -->
+            <section id="composicao" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Composição da Carteira</h2>
+                
+                <p class="mb-6">
+                    O Harris Associates US Value Equity Fund concentra-se em empresas americanas de grande capitalização que negociam com desconto significativo em relação ao valor intrínseco estimado pela equipe de gestão.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Alocação Setorial</h3>
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="sectorChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Características do Portfólio</h3>
+                        <div class="chart-container" style="height: 300px;">
+                            <canvas id="sizeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="font-bold mb-4">Principais Características do Portfólio</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Característica</th>
+                                    <th class="py-2 px-3 border text-center">Valor</th>
+                                    <th class="py-2 px-3 border text-left">Descrição</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-3 border">Número de posições</td>
+                                    <td class="py-2 px-3 border text-center">50-60</td>
+                                    <td class="py-2 px-3 border">Portfólio concentrado com alta convicção</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Capitalização média</td>
+                                    <td class="py-2 px-3 border text-center">Large/Mega cap</td>
+                                    <td class="py-2 px-3 border">Foco em empresas com market cap > $5 bilhões</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Estilo Value</td>
+                                    <td class="py-2 px-3 border text-center">Deep Value</td>
+                                    <td class="py-2 px-3 border">Ênfase em empresas subvalorizadas</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Turnover anual típico</td>
+                                    <td class="py-2 px-3 border text-center">20-30%</td>
+                                    <td class="py-2 px-3 border">Abordagem de longo prazo</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Active Share</td>
+                                    <td class="py-2 px-3 border text-center">>80%</td>
+                                    <td class="py-2 px-3 border">Alto desvio do índice de referência</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top 10 Holdings Section -->
+                <div class="mb-8">
+                    <h3 class="font-bold mb-4">Top 10 Holdings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Empresa</th>
+                                    <th class="py-2 px-3 border text-center">Setor GICS</th>
+                                    <th class="py-2 px-3 border text-center">% do Portfólio</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="py-2 px-3 border">American International Group un USD</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">3,42%</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Alphabet Inc-cl A uw USD</td><td class="py-2 px-3 border text-center">Communication Services</td><td class="py-2 px-3 border text-center">3,15%</td></tr>
+                                <tr><td class="py-2 px-3 border">Charles Schwab Corp un USD</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">3,14%</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Deere & Co un USD</td><td class="py-2 px-3 border text-center">Industrials</td><td class="py-2 px-3 border text-center">3,13%</td></tr>
+                                <tr><td class="py-2 px-3 border">Intercontinental Exchange in un USD</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">2,98%</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Citigroup Inc un USD</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">2,86%</td></tr>
+                                <tr><td class="py-2 px-3 border">General Motors Co un USD</td><td class="py-2 px-3 border text-center">Consumer Discretionary</td><td class="py-2 px-3 border text-center">2,71%</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">ConocoPhillips un USD</td><td class="py-2 px-3 border text-center">Energy</td><td class="py-2 px-3 border text-center">2,70%</td></tr>
+                                <tr><td class="py-2 px-3 border">Phillips 66 un USD</td><td class="py-2 px-3 border text-center">Energy</td><td class="py-2 px-3 border text-center">2,65%</td></tr>
+                                <tr class="bg-gray-50"><td class="py-2 px-3 border">Willis Towers Watson plc uw USD</td><td class="py-2 px-3 border text-center">Financials</td><td class="py-2 px-3 border text-center">2,31%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-4"><strong>Total das top 10 posições:</strong> 29,05% do portfólio</p>
+
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div class="bg-stone-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Processo de Seleção</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                                <li><span class="font-semibold">Filtro inicial:</span> Empresas com market cap > $5 bilhões</li>
+                                <li><span class="font-semibold">Análise fundamental:</span> Foco em fluxo de caixa e valor intrínseco</li>
+                                <li><span class="font-semibold">Gestão:</span> Preferência por gestores que pensam como donos</li>
+                                <li><span class="font-semibold">Margem de segurança:</span> Compra com desconto significativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-zinc-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Setores Típicos</h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                                <li>Financeiro: bancos, seguradoras, asset managers</li>
+                                <li>Consumo cíclico: varejo, mídia, bens duráveis</li>
+                                <li>Tecnologia: foco em empresas estabelecidas</li>
+                                <li>Indústria: conglomerados, aeroespacial</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Desempenho Histórico -->
+            <section id="desempenho" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Desempenho Histórico</h2>
+                
+                <p class="mb-6">
+                    O Harris Associates US Value Equity Fund <a href="https://markets.ft.com/data/funds/tearsheet/summary?s=lu0130102774:usd" target="_blank" class="text-black-600 hover:text-blue-800 underline">tem histórico desde 2001</a>, oferecendo amplo período para análise de seu comportamento em diferentes ciclos de mercado. Para esse estudo, limitamos o período de retornos, com início em 2011.
+                </p>
+                
+                <div class="chart-container my-8">
+                    <div class="mb-4">
+                        <label for="startDateSelector" class="font-semibold mr-2">Selecione a data inicial:</label>
+                        <select id="startDateSelector" class="bg-white border border-gray-300 rounded px-3 py-1">
+                            <!-- As opções serão preenchidas dinamicamente -->
+                        </select>
+                        <button id="resetChart" class="ml-4 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                            Resetar para início
+                        </button>
+                    </div>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Retorno vs. S&P 500 TR</h3>
+                        <p class="text-3xl font-bold text-slate-800">-3,25%</p>
+                        <p class="text-sm text-slate-600">Diferença das médias (2015-2024)</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Histórico vs. Benchmark</h3>
+                        <p class="text-lg font-bold text-stone-800">Anos acima: 8 (35%)<br>Anos abaixo: 15 (65%)</p>
+                        <p class="text-sm text-stone-600">Período 2010-2024</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Volatilidade</h3>
+                        <p class="text-3xl font-bold text-stone-800">19,03%</p>
+                        <p class="text-sm text-zinc-600">Desvio padrão para 3 anos</p>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left"></th>
+                                <th class="py-2 px-3 border text-center">2015</th>
+                                <th class="py-2 px-3 border text-center">2016</th>
+                                <th class="py-2 px-3 border text-center">2017</th>
+                                <th class="py-2 px-3 border text-center">2018</th>
+                                <th class="py-2 px-3 border text-center">2019</th>
+                                <th class="py-2 px-3 border text-center">2020</th>
+                                <th class="py-2 px-3 border text-center">2021</th>
+                                <th class="py-2 px-3 border text-center">2022</th>
+                                <th class="py-2 px-3 border text-center">2023</th>
+                                <th class="py-2 px-3 border text-center">2024</th>
+                                <th class="py-2 px-3 border text-center">Média</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border font-semibold">Harris Associates U.S. Value Equity Fund R/A (USD)</td>
+                                <td class="py-2 px-3 border text-center">-8,89%</td>
+                                <td class="py-2 px-3 border text-center">15,25%</td>
+                                <td class="py-2 px-3 border text-center">15,52%</td>
+                                <td class="py-2 px-3 border text-center">-14,19%</td>
+                                <td class="py-2 px-3 border text-center">31,56%</td>
+                                <td class="py-2 px-3 border text-center">17,75%</td>
+                                <td class="py-2 px-3 border text-center">25,56%</td>
+                                <td class="py-2 px-3 border text-center">-14,03%</td>
+                                <td class="py-2 px-3 border text-center">28,58%</td>
+                                <td class="py-2 px-3 border text-center">13,05%</td>
+                                <td class="py-2 px-3 border text-center">11,01%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border font-semibold">S&amp;P 500 TR USD</td>
+                                <td class="py-2 px-3 border text-center">1,38%</td>
+                                <td class="py-2 px-3 border text-center">11,96%</td>
+                                <td class="py-2 px-3 border text-center">21,83%</td>
+                                <td class="py-2 px-3 border text-center">-4,38%</td>
+                                <td class="py-2 px-3 border text-center">31,49%</td>
+                                <td class="py-2 px-3 border text-center">18,4%</td>
+                                <td class="py-2 px-3 border text-center">28,71%</td>
+                                <td class="py-2 px-3 border text-center">-18,11%</td>
+                                <td class="py-2 px-3 border text-center">26,29%</td>
+                                <td class="py-2 px-3 border text-center">25,02%</td>
+                                <td class="py-2 px-3 border text-center">14,26%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Métricas de Risco/Retorno</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">Métrica</th>
+                                        <th class="py-2 px-3 border text-center">Harris Fund</th>
+                                        <th class="py-2 px-3 border text-center">S&P 500 TR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">CAGR</td>
+                                        <td class="py-2 px-3 border text-center">6,37%</td>
+                                        <td class="py-2 px-3 border text-center">10,9%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Volatilidade (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">19,03%</td>
+                                        <td class="py-2 px-3 border text-center">17,57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Sharpe Ratio (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">0,18</td>
+                                        <td class="py-2 px-3 border text-center">0,29</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Beta (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">1,20</td>
+                                        <td class="py-2 px-3 border text-center">1,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Tracking Error (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">8,5%</td>
+                                        <td class="py-2 px-3 border text-center">1,05%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Alpha (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">-0,35%</td>
+                                        <td class="py-2 px-3 border text-center">-0,75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Maximum Drawdown (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">-18,66%</td>
+                                        <td class="py-2 px-3 border text-center">-20,92%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Análise de Desempenho</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Value premium:</span> O fator de valor tem enfrentado um período prolongado de underperformance, com o fundo demonstrando dificuldade em gerar retornos superiores ao benchmark. Esta tendência reflete um ciclo desfavorável para estratégias value, que vem perdendo espaço para growth stocks nos últimos anos.</li>
+                            <li><span class="font-semibold">Desempenho relativo:</span> O fundo não demonstrou capacidade de superar o índice em períodos longos, com alpha negativo persistente e tracking error elevado. A gestão ativa não tem conseguido compensar o custo adicional da taxa de administração.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Consideração e Classificação do Produto -->
+            <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                
+                <p class="mb-6">
+                    O Harris Associates US Value Equity Fund R/A (USD) representa uma abordagem de investimento ativa focada em value para o mercado americano de grande capitalização.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Pontos Fortes</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Equipe de gestão experiente</li>
+                            <li>Filosofia de value investing consistente e disciplinada</li>
+                            <li>Processo de pesquisa fundamental profundo</li>
+                            <li>Estrutura de acumulação que reinveste automaticamente os dividendos</li>
+                            <li>Horizonte de investimento de longo prazo alinhado com value investing</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-stone-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Considerações</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Taxa de administração elevada (2,00%) comparada a alternativas passivas</li>
+                            <li>Alto tracking error pode resultar em períodos de underperformance significativa</li>
+                            <li>Concentração pode amplificar riscos específicos de empresas</li>
+                            <li>Viés concentrado em apenas um fator (value) pode sofrer em diversos momentos de mercado</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-3">Posicionamento de Mercado</h3>
+                    <p class="mb-4">
+                        O Harris US Value Fund se posiciona como uma alternativa para investidores que buscam exposição ativa ao mercado americano com uma abordagem de value investing.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-4">
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Custos vs. Performance</h4>
+                            <p>A taxa de administração de 2,00% é significativamente superior à de fundos passivos ou mesmo à média de fundos similares e a gestão não tem demonstrado capacidade consistente de gerar alpha suficiente para compensar este custo adicional.</p>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Para diversificação</h4>
+                            <p>Complementa portfólios com exposição passiva ou growth, oferecendo diversificação de estilo de investimento.</p>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Underperformance Value</h4>
+                            <p>O fator de valor tem enfrentado um período prolongado de underperformance, como pode ser observado no desempenho do IWVL. Esta tendência reflete um ciclo desfavorável para estratégias value, que vem perdendo espaço para growth stocks nos últimos anos, independentemente da gestão ativa ou passiva.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+               
+            </section>
+
+            <!-- Seção: Radar de Mercado -->
+            <section id="radar-mercado" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Radar de Mercado</h2>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+                    <p class="text-lg font-semibold mb-2">Cenário Base: Rotação para Value com foco em qualidade</p>
+                    <p class="text-sm">
+                        As principais casas de análise convergem para uma visão favorável ao value investing em 2025, com ênfase em empresas de alta qualidade e balanços sólidos. O desconto médio de 25-30% em relação ao fair value e a expectativa de normalização de juros criam um ambiente propício para a estratégia do Harris.
+                    </p>
+                </div>
+
+                <h3 class="font-bold text-lg mb-4">House Views sobre Value Investing</h3>
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Data</th>
+                                <th class="py-2 px-3 border text-left">Casa</th>
+                                <th class="py-2 px-3 border text-left">Posição para Value</th>
+                                <th class="py-2 px-3 border text-left">Principais Premissas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">27 mar 2025</td>
+                                <td class="py-2 px-3 border font-medium">Morningstar</td>
+                                <td class="py-2 px-3 border">Overweight</td>
+                                <td class="py-2 px-3 border">Desconto vs. fair-value, queda das ações-AI, Fed deverá cortar juros no 2º sem.</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">07 abr 2025</td>
+                                <td class="py-2 px-3 border font-medium">BofA Global Research</td>
+                                <td class="py-2 px-3 border">Preferência por Value</td>
+                                <td class="py-2 px-3 border">Impacto de tarifas na margem, EPS -15%; Energy & Financials vistos como hedge.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">25 abr 2025</td>
+                                <td class="py-2 px-3 border font-medium">UBS CIO House View</td>
+                                <td class="py-2 px-3 border">Quality-Value é o foco</td>
+                                <td class="py-2 px-3 border">Volatilidade tarifária, cortes de juros, procura por balanços sólidos.</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">24 dez 2024</td>
+                                <td class="py-2 px-3 border font-medium">RBC Capital Markets</td>
+                                <td class="py-2 px-3 border">Overweight Financials & Energy</td>
+                                <td class="py-2 px-3 border">Valuation baixo, upside de lucros com normalização da curva e PIB EUA.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">04 dez 2024</td>
+                                <td class="py-2 px-3 border font-medium">BlackRock Investment Institute</td>
+                                <td class="py-2 px-3 border">Neutro-positivo</td>
+                                <td class="py-2 px-3 border">Mega-forces (AI, green capex) ainda puxam growth; escolher value de alta qualidade.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="mb-8">
+                    <h3 class="font-bold text-lg mb-4">Tendências Emergentes</h3>
+                    <div class="space-y-4">
+                        <!-- Tendência 1: Convergência de Visão -->
+                        <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-purple-50 to-white rounded-lg border border-purple-100">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100">
+                                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-1">Convergência de Visão</h4>
+                                <p class="text-gray-700 mb-2">Apenas Goldman Sachs mantém posição explicitamente defensiva. Demais casas veem oportunidades seletivas em value, com foco em qualidade e balanços sólidos.</p>
+                                <p class="text-sm text-gray-600"><strong>Relevância para o Harris:</strong> Alinhamento com a estratégia de seleção de empresas com fundamentos robustos.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tendência 2: Qualidade vs. Deep Value -->
+                        <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-amber-50 to-white rounded-lg border border-amber-100">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-amber-100">
+                                    <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-amber-800 mb-1">Qualidade antes de "Deep Value"</h4>
+                                <p class="text-gray-700 mb-2">40% das casas enfatizam a importância de balance sheets fortes para evitar "value traps". A tendência é buscar value de alta qualidade em vez de simplesmente empresas baratas.</p>
+                                <p class="text-sm text-gray-600"><strong>Relevância para o Harris:</strong> Processo de seleção já focado em empresas com balanços sólidos e fluxo de caixa estável.</p>
+                            </div>
+                        </div>
+
+                        <!-- Tendência 3: Setores-Chave -->
+                        <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-blue-50 to-white rounded-lg border border-blue-100">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100">
+                                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-1">Setores-Chave em Foco</h4>
+                                <p class="text-gray-700 mb-2">Financials, Energy e "old-tech" (hardware, semis) aparecem em 70% dos relatórios como principais bolsões de desconto. Estes setores se beneficiam da normalização de juros e da demanda por infraestrutura.</p>
+                                <p class="text-sm text-gray-600"><strong>Relevância para o Harris:</strong> Alinhamento com a atual composição setorial do fundo.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-3">Implicações para o Harris Fund</h3>
+                    <ul class="list-disc pl-5 space-y-2">
+                        <li>O ambiente atual favorece a estratégia value do fundo, especialmente considerando o foco em empresas de alta qualidade</li>
+                        <li>A composição setorial atual (Financials, Energy) está alinhada com as principais oportunidades identificadas pelas casas de análise</li>
+                        <li>O processo de seleção do fundo, que prioriza balanços sólidos, está em sintonia com a tendência de evitar "value traps"</li>
+                        <li>O fundo pode ser considerado como parte de uma estratégia barbell, complementando exposições growth em portfólios mais amplos</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Seção: Recomendação Final -->
+            <section id="recomendacao" class="bg-white rounded-lg shadow p-6 print-section">
+                <h2 class="text-2xl font-bold section-title">Recomendação Final</h2>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+                    <p class="text-lg font-semibold mb-2">Tendência de Mercado</p>
+                    <p class="text-sm">
+                        As principais casas de análise convergem para uma visão favorável ao value investing em 2025, com ênfase em empresas de alta qualidade e balanços sólidos. O desconto médio de 25-30% em relação ao fair value e a expectativa de normalização de juros criam um ambiente propício para a estratégia do Harris.
+                    </p>
+                </div>
+
+                <div class="bg-gray-100 p-5 rounded-lg mb-8">
+                    <h3 class="font-bold mb-4 text-lg">Adequação do Harris Fund</h3>
+                    
+                    <p class="mb-4">
+                        O Harris US Value Fund é particularmente adequado no cenário atual, considerando:
+                    </p>
+                    
+                    <ul class="list-disc pl-5 space-y-2 mb-4">
+                        <li>Processo de seleção focado em empresas com balanços sólidos e fluxo de caixa estável, alinhado com a tendência de evitar "value traps"</li>
+                        <li>Composição setorial atual (Financials, Energy) em linha com as principais oportunidades identificadas pelas casas de análise</li>
+                        <li>Estratégia de investimento que prioriza qualidade e fundamentos robustos, em sintonia com o consenso de mercado</li>
+                        <li>Histórico de gestão através de diferentes ciclos de mercado*</li>
+                    </ul>
+
+                    
+                    <h3 class="font-bold mb-4 text-lg mt-8">Comparativo com ETFs Passivos</h3>
+                    
+                    <p class="mb-4">
+                        Considerando um investimento de $1.000.000 por 5 anos, temos:
+                    </p>
+                    
+                    <ul class="list-disc pl-5 space-y-2 mb-4">
+                        <li><span class="font-semibold">Diferença de taxas em 5 anos:</span>
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>Harris (2,00%): $102.800 (considerando capitalização de 11% ao ano)</li>
+                                <li>ETF UCITS (0,07%): $3.770</li>
+                                <li>Gap total: $99.030 a mais no Harris</li>
+                            </ul>
+                        </li>
+                        <li><span class="font-semibold">Retenção de dividendos:</span>
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>Dividend yield histórico do S&P ≈ 2% ao ano</li>
+                                <li>ETF EUA (30% WHT): $6.000/ano</li>
+                                <li>UCITS Luxemburgo/Irlanda (15% WHT): $3.000/ano</li>
+                                <li>Economia total em 5 anos: $15.000</li>
+                            </ul>
+                        </li>
+                        <li><span class="font-semibold">Estate-tax dos EUA:</span>
+                            <ul class="list-disc pl-5 mt-1">
+                                <li>Regra: 40% sobre valor acima de $60.000 para não-residentes</li>
+                                <li>Harris: Sem estate-tax (estrutura UCITS luxemburguesa)</li>
+                                <li>Ponto de equilíbrio: $79.000</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    
+                    <h3 class="font-bold mb-4 text-lg mt-8">Considerações para Alocação</h3>
+                    
+                    <p class="mb-4">
+                        Do ponto de vista tributário, o valor investido está além do ponto de equilíbrio ($79.000), o que é um ponto positivo para o Harris Fund. A estrutura UCITS luxemburguesa elimina naturalmente o estate-tax de 40% aplicado a não-residentes sobre investimentos americanos acima de $60.000.
+                    </p>
+
+                    <p class="mb-4">
+                        Todavia, é importante notar que existem estratégias alternativas para investidores em ETFs americanos que desejam evitar o estate-tax, como o "foreign blocker". 
+                    </p>
+                    
+                    <p class="mb-4">
+                        Por fim, levando em consideração apenas a visão do mercado, o posicionamento atual parece adequado, sendo necessário monitorar valuations do setor financeiro e o alinhamento entre expectativas de lucros e consenso.
+                    </p>
+
+                </div>
+                
+                <div class="border-t pt-6">
+                    <p class="text-sm text-gray-600">
+                        <strong>Aviso de Responsabilidade:</strong> Esta análise não constitui recomendação de investimento. Investimentos em mercados financeiros estão sujeitos a riscos, incluindo possível perda do capital investido. Rentabilidade passada não é garantia de resultados futuros. Os dados apresentados foram obtidos de fontes consideradas confiáveis, mas não garantimos sua precisão.
+                    </p>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gray-800 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar ao Topo
+        </button>
+    </div>
+    
+    <script>
+        // Verificar se o Chart.js foi carregado corretamente
+        if (typeof Chart === 'undefined') {
+            console.error('Chart.js não foi carregado corretamente');
+        } else {
+            console.log('Chart.js carregado com sucesso');
+        }
+
+        document.getElementById('productSelector').addEventListener('change', function() {
+            const value = this.value;
+            if (value === 'inicio') {
+                window.location.href = '../../offshore.html';
+            } else if (value === 'vuaa') {
+                window.location.href = '../vuaa/vuaa.html';
+            } else if (value === 'harris') {
+                // já está nesta página, não faz nada
+            } else if (value === 'vontobel') {
+                window.location.href = '../vontobel/vontobel.html';
+            } else if (value === 'private-equity') {
+                window.location.href = '../private-equity/private-equity.html';
+            } else if (value === 'us-corporates') {
+                window.location.href = '../us-corporates/us-corporates.html';
+            } else if (value === 'hedge-funds') {
+                window.location.href = '../hedge-funds/hedge-funds.html';
+            }
+        });
+    </script>
+    <script src="harris-charts.js"></script>
+</body>
+</html>

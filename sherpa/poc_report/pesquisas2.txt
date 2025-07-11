@@ -1,0 +1,112 @@
+Informações Gerais
+Nome Completo: ITAÚ VÉRTICE IBOVESPA EQUITIES FUNDO DE INVESTIMENTO FINANCEIRO EM AÇÕES RESPONSABILIDADE LIMITADA
+CNPJ: 24.546.223/0001-17
+Data de Início: 28/10/2016
+Tipo: Fundo de Investimento (FI)
+Classe: Ações
+Subclasse: Indexados Índices
+Benchmark: IBOVESPA
+Administração e Gestão
+Administrador: ITAU UNIBANCO
+Gestor: ITAU UNIBANCO ASSET MANAGEMENT LTDA.
+Diretores Responsáveis:
+
+Arlindo De Souza Penteado
+Pedro Gabriel Boainain
+Sylvio Ricardo Pereira De Castro
+
+Contato:
+
+Email: relacionamento.reguladores@itau-unibanco.com.br
+Site: www.itau.com.br
+Telefone: 50199986
+
+Dados Patrimoniais e Performance
+Patrimônio Líquido: R$ 1,76 bilhões
+PL Médio 12M: R$ 1,48 bilhões
+Número de Cotistas: 287
+Performance (12 meses):
+
+Rentabilidade: 11,70%
+Volatilidade: 15,15%
+Índice de Sharpe: -0,02
+
+Composição da Carteira
+
+Ações e TVM em Empréstimo: R$ 921,21 mi (53,40%)
+
+BOVV11 - IT NOW IBOVESPA FUNDO DE ÍNDICE: 100%
+
+
+Cotas de Fundos: R$ 664,76 mi (38,54%)
+
+IT NOW IBOVESPA INDICE RL: 100%
+
+
+Títulos Públicos: R$ 182,98 mil (0,01%)
+
+LFT - COM CUPONS - 09/2027
+
+
+Operações Compromissadas: R$ 62,41 mi (3,62%)
+
+LTN - COM CUPONS - 01/2022
+
+
+Disponibilidades: R$ 75,62 mil (0,00%)
+Valores a Receber: R$ 11,78 mi (0,68%)
+Valores a Pagar: R$ 64,71 mi (3,75%)
+Mercado Futuro - Posições Compradas: -R$ 84,24 mil (-0,00%)
+
+Movimentação e Taxas
+Aporte Mínimo: R$ 1,00
+Valor Mínimo para Permanência: R$ 1,00
+Taxa de Administração: Não informada
+Taxa de Performance: Não há
+Rentabilidade Histórica
+Acumulado 2025 (até julho): 14,51%
+Rentabilidade Anual:
+
+2024: -9,71%
+2023: 23,63%
+2022: 6,55%
+2021: -11,70%
+2020: 2,90%
+2019: 31,73%
+2018: 15,27%
+2017: 26,96%
+2016: -6,20%
+
+Rentabilidade Total desde o início: 123,79%
+Indicadores de Risco e Retorno
+Últimos 60 meses:
+
+Rentabilidade: 52,83%
+Volatilidade: 18,83%
+Índice de Sharpe: -0,04
+
+O fundo busca replicar o índice Ibovespa, investindo principalmente em ETFs de Ibovespa (BOVV11) e cotas de fundos indexados ao Ibovespa, mantendo uma estratégia passiva de gestão.
+
+Rentabilidade Mês a Mês - ITAÚ VÉRTICE IBOVESPA vs IBOV
+2025
+MêsFundoIBOVJaneiro4,92%4,86%Fevereiro-2,38%-2,64%Março6,06%6,08%Abril3,75%3,69%Maio1,60%1,45%Junho0,01%-0,12%Acumulado 202514,51%13,79%
+2024
+MêsFundoIBOVJaneiro-4,75%-4,79%Fevereiro1,06%0,99%Março-0,80%-0,71%Abril-1,64%-1,70%Maio-2,98%-3,04%Junho1,58%1,48%Julho3,05%3,02%Agosto6,70%6,54%Setembro-3,00%-3,08%Outubro-1,60%-1,60%Novembro-3,17%-3,12%Dezembro-4,02%-4,28%Acumulado 2024-9,71%-10,36%
+2023
+MêsFundoIBOVJaneiro3,25%3,37%Fevereiro-7,59%-7,49%Março-2,66%-2,91%Abril2,66%2,50%Maio3,86%3,74%Junho9,09%9,00%Julho3,54%3,27%Agosto-4,88%-5,09%Setembro0,78%0,71%Outubro-2,98%-2,94%Novembro12,66%12,54%Dezembro5,49%5,38%Acumulado 202323,63%22,28%
+2022
+MêsFundoIBOVJaneiro7,17%6,98%Fevereiro1,14%0,89%Março5,90%6,06%Abril-10,14%-10,10%Maio3,52%3,22%Junho-11,42%-11,50%Julho4,94%4,69%Agosto6,68%6,16%Setembro0,63%0,47%Outubro5,53%5,45%Novembro-3,01%-3,06%Dezembro-2,29%-2,45%Acumulado 20226,55%4,69%
+2021
+MêsFundoIBOVJaneiro-3,42%-3,32%Fevereiro-4,50%-4,37%Março6,14%6,00%Abril1,92%1,94%Maio6,21%6,16%Junho0,63%0,46%Julho-3,92%-3,94%Agosto-2,62%-2,48%Setembro-6,55%-6,57%Outubro-6,44%-6,74%Novembro-1,43%-1,53%Dezembro2,67%2,85%Acumulado 2021-11,70%-11,93%
+2020
+MêsFundoIBOVJaneiro-1,62%-1,63%Fevereiro-8,40%-8,43%Março-30,19%-29,90%Abril10,36%10,25%Maio8,57%8,57%Junho9,04%8,76%Julho8,26%8,27%Agosto-3,49%-3,44%Setembro-4,80%-4,80%Outubro-0,67%-0,69%Novembro16,13%15,90%Dezembro9,10%9,30%Acumulado 20202,90%2,92%
+2019
+MêsFundoIBOVJaneiro10,87%10,82%Fevereiro-1,82%-1,86%Março-0,26%-0,18%Abril1,06%0,98%Maio0,71%0,70%Junho4,01%4,06%Julho0,78%0,84%Agosto-0,55%-0,67%Setembro3,45%3,57%Outubro2,34%2,36%Novembro1,04%0,95%Dezembro6,91%6,85%Acumulado 201931,73%31,58%
+2018
+MêsFundoIBOVJaneiro11,13%11,14%Fevereiro0,55%0,52%Março0,02%0,01%Abril0,86%0,88%Maio-10,92%-10,87%Junho-5,19%-5,20%Julho8,86%8,88%Agosto-3,15%-3,21%Setembro3,50%3,48%Outubro10,18%10,19%Novembro2,50%2,38%Dezembro-1,76%-1,81%Acumulado 201815,27%15,03%
+2017
+MêsFundoIBOVJaneiro7,40%7,38%Fevereiro3,13%3,08%Março-2,50%-2,52%Abril0,68%0,65%Maio-4,11%-4,12%Junho0,26%0,30%Julho4,78%4,80%Agosto7,45%7,46%Setembro4,86%4,88%Outubro-0,02%0,02%Novembro-3,15%-3,15%Dezembro6,24%6,16%Acumulado 201726,96%26,86%
+2016 (desde outubro)
+MêsFundoIBOVOutubro0,91%0,90%Novembro-4,54%-4,65%Dezembro-2,62%-2,71%Acumulado 2016-6,20%-6,35%
+Resumo Comparativo
+O fundo tem acompanhado de forma muito próxima o benchmark IBOVESPA, com pequenas variações mensais, demonstrando eficiência na replicação do índice. Em 2025 (até julho), o fundo está superando ligeiramente o benchmark com 14,51% contra 13,79% do IBOV.

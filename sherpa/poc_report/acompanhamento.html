@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Ativa - Análises e Decisões</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Gestão Ativa: Análises e Decisões</h1>
+            <div class="mt-2">
+                <a href="offshore.html" class="text-gray-400 hover:text-white transition-colors duration-300">
+                    ← Voltar à Visão Geral
+                </a>
+            </div>
+            <p class="mt-2 opacity-80">Tomada de decisões e gestão estratégica do portfólio</p>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Seção de Composição Atual -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Renda Variável e Alternativos - Fundos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
+                <!-- VUAA -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Vanguard S&P 500 UCITS ETF</h3>
+                        <p class="text-sm text-gray-600 mt-1">VUAA LN</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$1M</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">5,5%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Harris -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Harris US Value Equity Fund</h3>
+                        <p class="text-sm text-gray-600 mt-1">R/A (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$563k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">3,0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vontobel -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Vontobel Emerging Markets</h3>
+                        <p class="text-sm text-gray-600 mt-1">Equity B USD</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$424k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">2,3%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Hedge Funds -->
+                <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-amber-800">Hedge Funds</h3>
+                        <p class="text-sm text-amber-700 mt-1">5 fundos</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-700">Valor Inicial</span>
+                                <span class="font-bold">$2,30M</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-amber-700">Valor Atual</span>
+                                <span class="font-bold">$2,54M</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-amber-700">% do Portfólio</span>
+                                <span class="font-bold">13,8%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Private Equity -->
+                <div class="bg-amber-50 p-6 rounded-lg border border-amber-200">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-amber-800">Private Equity</h3>
+                        <p class="text-sm text-amber-700 mt-1">6 fundos</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-amber-700">Valor Inicial</span>
+                                <span class="font-bold">$1,83M</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-1">
+                                <span class="text-amber-700">Valor Atual</span>
+                                <span class="font-bold">$1,72M</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-amber-700">% do Portfólio</span>
+                                <span class="font-bold">8,75%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção de Performance Agregada -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Performance Comparativa</h2>
+            <div class="w-full" style="height: 400px;">
+                <canvas id="performanceAgregadaChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>* A linha dos Alternativos representa a rentabilidade ponderada dos Hedge Funds e Private Equity</p>
+                <p>* Rentabilidade total dos Alternativos: <span class="font-bold">3,20%</span></p>
+                <p>* A linha Stocks representa a composição de fundos de ações do portfólio</p>
+            </div>
+        </div>
+
+        <!-- Seção de Renda Fixa -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Renda Fixa - Fundos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+                <!-- PIMCO Income Fund -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">PIMCO Income Fund</h3>
+                        <p class="text-sm text-gray-600 mt-1">FI Fund ACC (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$893k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">4,84%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Itau US Fixed Income -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Itau US Fixed Income</h3>
+                        <p class="text-sm text-gray-600 mt-1">Fund Class C ACC (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$344k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">1,87%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Nordea US Corp Bond -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Nordea US Corp Bond</h3>
+                        <p class="text-sm text-gray-600 mt-1">ACC (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$710k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">3,85%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- AXA High Yield -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">AXA US HY Bonds</h3>
+                        <p class="text-sm text-gray-600 mt-1">Fd ACC (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$718k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">3,89%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PIMCO High Yield -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">PIMCO US HY Bond</h3>
+                        <p class="text-sm text-gray-600 mt-1">Fund ACC (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$720k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">3,90%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Robeco High Yield -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Robeco HY Bonds</h3>
+                        <p class="text-sm text-gray-600 mt-1">Fd II ACC (USDHGD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$579k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">3,14%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lord Abbett High Yield -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Lord Abbett HY</h3>
+                        <p class="text-sm text-gray-600 mt-1">A ACC (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$702k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">3,81%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mt-6">
+                <!-- Goldman Sachs EM -->
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <div class="flex flex-col">
+                        <h3 class="text-lg font-semibold text-gray-800">Goldman Sachs EM Corp Bond</h3>
+                        <p class="text-sm text-gray-600 mt-1">Prt Dls Acc (USD)</p>
+                        <div class="mt-4">
+                            <div class="flex justify-between items-center">
+                                <span class="text-gray-600">Valor</span>
+                                <span class="font-bold">$1.052k</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-gray-600">% do Portfólio</span>
+                                <span class="font-bold">5,70%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção PIMCO Income Fund -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">PIMCO Income Fund vs BND ETF</h2>
+            <div class="w-full" style="height: 400px;">
+                <canvas id="pimcoChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>* Período: <span class="font-bold">Março/2023 a Maio/2025</span></p>
+                <p>* PIMCO GIS Income Fund E USD ACC vs Vanguard Total Bond Market ETF (BND)</p>
+                <p>* Rentabilidade PIMCO Income: <span class="font-bold text-green-600">+12,6%</span></p>
+                <p>* Rentabilidade BND ETF: <span class="font-bold text-blue-600">+5,7%</span></p>
+            </div>
+        </div>
+
+        <!-- Seção Nordea US Corporate Bond Fund -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Nordea US Corporate Bond Fund vs VCIT ETF</h2>
+            <div class="w-full" style="height: 400px;">
+                <canvas id="nordeaChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>* Investimento inicial: <span class="font-bold">$710.138</span> em agosto/2019</p>
+                <p>* Nordea US Corporate Bond Fund ACC USD vs Vanguard Intermediate-Term Corporate Bond ETF (VCIT)</p>
+                <p>* Rentabilidade Nordea: <span class="font-bold text-purple-600">+0,0%</span></p>
+                <p>* Rentabilidade VCIT ETF: <span class="font-bold text-blue-600">+7,3%</span></p>
+            </div>
+        </div>
+
+        <!-- Seção Goldman Sachs EM Corporate Bond Fund -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Goldman Sachs EM Corporate Bond Fund vs VWO ETF</h2>
+            <div class="w-full" style="height: 400px;">
+                <canvas id="gsEmChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>* Período: <span class="font-bold">Agosto/2019 a Maio/2025</span></p>
+                <p>* Goldman Sachs EM Corporate Bond Fund vs Vanguard FTSE Emerging Markets ETF (VWO)</p>
+                <p>* Rentabilidade GS EM: <span class="font-bold text-yellow-600">+12,1%</span></p>
+                <p>* Rentabilidade VWO ETF: <span class="font-bold text-blue-600">+41,8%</span></p>
+            </div>
+        </div>
+
+        <!-- Seção High Yield Portfolio -->
+        <div class="bg-white rounded-lg shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6">Portfólio High Yield vs USHY ETF</h2>
+            <div class="w-full" style="height: 400px;">
+                <canvas id="hyChart"></canvas>
+            </div>
+            <div class="mt-4 text-sm text-gray-600">
+                <p>* Período: <span class="font-bold">Outubro/2020 a Maio/2025</span></p>
+                <p>* Portfólio High Yield (AXA + PIMCO + Robeco + Lord Abbett) vs iShares Broad USD High Yield Corporate Bond ETF (USHY)</p>
+                <p>* Rentabilidade Portfólio HY: <span class="font-bold text-red-600">+17,3%</span></p>
+                <p>* Rentabilidade USHY ETF: <span class="font-bold text-blue-600">+23,53%</span></p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Dados de rentabilidade dos fundos
+            const vontobelLabels = [
+                '01/2011', '02/2011', '03/2011', '04/2011', '05/2011', '06/2011', '07/2011', '08/2011', '09/2011', '10/2011', '11/2011', '12/2011',
+                '01/2012', '02/2012', '03/2012', '04/2012', '05/2012', '06/2012', '07/2012', '08/2012', '09/2012', '10/2012', '11/2012', '12/2012',
+                '01/2013', '02/2013', '03/2013', '04/2013', '05/2013', '06/2013', '07/2013', '08/2013', '09/2013', '10/2013', '11/2013', '12/2013',
+                '01/2014', '02/2014', '03/2014', '04/2014', '05/2014', '06/2014', '07/2014', '08/2014', '09/2014', '10/2014', '11/2014', '12/2014',
+                '01/2015', '02/2015', '03/2015', '04/2015', '05/2015', '06/2015', '07/2015', '08/2015', '09/2015', '10/2015', '11/2015', '12/2015',
+                '01/2016', '02/2016', '03/2016', '04/2016', '05/2016', '06/2016', '07/2016', '08/2016', '09/2016', '10/2016', '11/2016', '12/2016',
+                '01/2017', '02/2017', '03/2017', '04/2017', '05/2017', '06/2017', '07/2017', '08/2017', '09/2017', '10/2017', '11/2017', '12/2017',
+                '01/2018', '02/2018', '03/2018', '04/2018', '05/2018', '06/2018', '07/2018', '08/2018', '09/2018', '10/2018', '11/2018', '12/2018',
+                '01/2019', '02/2019', '03/2019', '04/2019', '05/2019', '06/2019', '07/2019', '08/2019', '09/2019', '10/2019', '11/2019', '12/2019',
+                '01/2020', '02/2020', '03/2020', '04/2020', '05/2020', '06/2020', '07/2020', '08/2020', '09/2020', '10/2020', '11/2020', '12/2020',
+                '01/2021', '02/2021', '03/2021', '04/2021', '05/2021', '06/2021', '07/2021', '08/2021', '09/2021', '10/2021', '11/2021', '12/2021',
+                '01/2022', '02/2022', '03/2022', '04/2022', '05/2022', '06/2022', '07/2022', '08/2022', '09/2022', '10/2022', '11/2022', '12/2022',
+                '01/2023', '02/2023', '03/2023', '04/2023', '05/2023', '06/2023', '07/2023', '08/2023', '09/2023', '10/2023', '11/2023', '12/2023',
+                '01/2024', '02/2024', '03/2024', '04/2024', '05/2024', '06/2024', '07/2024', '08/2024', '09/2024', '10/2024', '11/2024', '12/2024',
+                '01/2025', '02/2025', '03/2025', '04/2025'
+            ];
+            
+            // Retornos do Vontobel (em %) - converter para decimal
+            const vontobel_returns = [
+                -0.085624, 0.012109, 0.082009, 0.129687, 0.128945, 0.139783, 0.148415, 0.116766, -0.011368, 0.090112, 0.053979, 0.048365,
+                0.109211, 0.173057, 0.182959, 0.188466, 0.081392, 0.139748, 0.152916, 0.163189, 0.203682, 0.199252, 0.240998, 0.251836,
+                0.274748, 0.248959, 0.269946, 0.309115, 0.276548, 0.190055, 0.194574, 0.100632, 0.174345, 0.222075, 0.178705, 0.172403,
+                0.098125, 0.140878, 0.195315, 0.198969, 0.242904, 0.283644, 0.302831, 0.340288, 0.265339, 0.299001, 0.302443, 0.230513,
+                0.272506, 0.294076, 0.248853, 0.263045, 0.240203, 0.231483, 0.216162, 0.110852, 0.101726, 0.167761, 0.130234, 0.139007,
+                0.079450, 0.051331, 0.137312, 0.147585, 0.158935, 0.200823, 0.232984, 0.249417, 0.257626, 0.221440, 0.118972, 0.113906,
+                0.155970, 0.201423, 0.254078, 0.289134, 0.342883, 0.361117, 0.417108, 0.427452, 0.409147, 0.419791, 0.445968, 0.481501,
+                0.583139, 0.493063, 0.476576, 0.470434, 0.406093, 0.372379, 0.395255, 0.345990, 0.323501, 0.215773, 0.280979, 0.259938,
+                0.345848, 0.358505, 0.400092, 0.447133, 0.366271, 0.436772, 0.434530, 0.386800, 0.384788, 0.401327, 0.400480, 0.477159,
+                0.434813, 0.342706, 0.127445, 0.218209, 0.224811, 0.321313, 0.441679, 0.474387, 0.447222, 0.485331, 0.595972, 0.695721,
+                0.763627, 0.761297, 0.726965, 0.741033, 0.784527, 0.751536, 0.616889, 0.630587, 0.581762, 0.590447, 0.537757, 0.576273,
+                0.489021, 0.483372, 0.430682, 0.353086, 0.341683, 0.267051, 0.268658, 0.261456, 0.152563, 0.111346, 0.211943, 0.195951,
+                0.267457, 0.180241, 0.208960, 0.190055, 0.163436, 0.208783, 0.253477, 0.182077, 0.138283, 0.093412, 0.174486, 0.212949,
+                0.154946, 0.191397, 0.193921, 0.178052, 0.192067, 0.230336, 0.203294, 0.214450, 0.290864, 0.215897, 0.174910, 0.160948,
+                0.178334, 0.170797, 0.165643, 0.145573
+            ];
+            
+            // Dados do Harris
+            const harrisReturns = [
+                0.000000, -0.001030, -0.035079, -0.035814, -0.028901, -0.030593, -0.031990, 0.015002, 0.007501, -0.034785, -0.029048, -0.018606,
+                -0.000735, -0.071408, -0.054787, -0.054420, -0.049272, -0.052361, 0.028607, 0.034932, -0.047875, -0.038609, -0.038976, -0.031622,
+                0.148551, 0.105677, 0.104207, 0.111046, 0.148992, 0.148845, 0.105898, 0.100824, 0.109281, 0.116635, 0.115017, 0.156714,
+                0.480880, 0.452934, 0.452714, 0.380129, 0.379615, 0.448448, 0.456538, 0.457420, 0.458156, 0.462568, 0.429916, 0.432637,
+                0.618106, 0.654434, 0.613987, 0.603545, 0.615532, 0.596411, 0.615385, 0.641418, 0.623327, 0.632299, 0.634873, 0.605163,
+                0.393587, 0.363656, 0.370716, 0.490293, 0.483453, 0.451243, 0.406898, 0.391602, 0.336594, 0.331225, 0.390940, 0.402339,
+                0.787469, 0.742242, 0.755552, 0.775188, 0.769378, 0.776364, 0.798059, 0.796294, 0.772540, 0.780850, 0.789087, 0.782394,
+                1.149654, 1.033608, 1.052875, 1.071481, 1.087513, 1.044418, 1.035226, 1.088469, 1.089351, 1.087586, 1.111046, 1.122297,
+                0.960141, 0.742168, 0.706574, 0.778056, 0.981468, 0.975217, 0.796882, 0.811222, 0.828210, 0.836667, 0.845124, 0.982350,
+                0.570231, 1.295558, 1.276291, 1.279673, 1.313281, 1.281659, 1.272761, 1.289013, 1.300485, 1.288719, 1.322695, 1.346227,
+                1.637741, 1.691278, 1.712825, 1.630387, 1.646492, 1.696058, 1.729151, 1.732166, 1.793499, 1.790925, 1.721209, 1.722533,
+                2.310707, 2.333064, 2.391602, 2.427342, 2.370054, 2.372408, 2.367995, 2.305633, 2.344315, 2.358435, 2.396088, 2.398882,
+                2.266142, 1.888292, 1.902118, 1.959259, 1.937270, 2.010149, 2.313355, 2.269451, 2.033314, 2.060744, 2.100750, 2.119503,
+                2.763421, 2.722165, 2.672967, 2.657082, 2.673849, 2.734887, 2.750037, 2.709443, 2.681277, 2.677600, 2.667745, 2.662083,
+                3.219370, 3.188557, 3.220547, 3.377041, 3.391602, 3.234005, 3.215546, 3.213193, 3.213046, 3.151052, 3.371672, 3.356302
+            ];
+            
+            // Dados do VUAA
+            const vuaaLabels = [
+                '05/2019', '06/2019', '07/2019', '08/2019', '09/2019', '10/2019', '11/2019', '12/2019',
+                '01/2020', '02/2020', '03/2020', '04/2020', '05/2020', '06/2020', '07/2020', '08/2020', 
+                '09/2020', '10/2020', '11/2020', '12/2020', '01/2021', '02/2021', '03/2021', '04/2021', 
+                '05/2021', '06/2021', '07/2021', '08/2021', '09/2021', '10/2021', '11/2021', '12/2021', 
+                '01/2022', '02/2022', '03/2022', '04/2022', '05/2022', '06/2022', '07/2022', '08/2022', 
+                '09/2022', '10/2022', '11/2022', '12/2022', '01/2023', '02/2023', '03/2023', '04/2023', 
+                '05/2023', '06/2023', '07/2023', '08/2023', '09/2023', '10/2023', '11/2023', '12/2023', 
+                '01/2024', '02/2024', '03/2024', '04/2024', '05/2024', '06/2024', '07/2024', '08/2024', '09/2024', 
+                '10/2024', '11/2024', '12/2024', '01/2025', '02/2025', '03/2025', '04/2025'
+            ];
+            const vuaaReturns = [
+                0.035605, 0.058193, 0.116577, 0.205015, 0.165390, 0.128446, 0.245406, 0.293070,
+                0.294027, 0.327431, 0.383614, 0.454154, 0.467075, 0.496554, 0.534648, 0.581929,
+                0.519908, 0.607772, 0.606623, 0.672473, 0.566615, 0.539242, 0.614089, 0.486792,
+                0.451187, 0.334992, 0.445253, 0.407351, 0.297856, 0.372129, 0.404096, 0.360834,
+                0.437979, 0.417879, 0.455781, 0.480283, 0.489089, 0.588438, 0.640697, 0.620597,
+                0.547664, 0.498660, 0.635337, 0.723966, 0.759954, 0.831547, 0.895674, 0.836524,
+                0.884954, 0.991960, 1.004594, 1.029479, 1.083078, 1.081164, 1.195252, 1.165385,
+                1.231793, 1.150414, 0.895674, 0.934758, 0.976482, 1.015640, 1.054239, 1.095121, 1.138234, 
+                1.165678, 1.203564, 1.245281, 1.272531, 1.302934, 1.328645, 1.351264
+            ];
+            
+            // Dados do S&P 500 TR
+            const sp500Returns = [
+                0.000000, -0.002545, -0.028284, -0.029543, -0.024558, -0.026257, -0.028052, 0.013656, 0.010952, -0.029393, -0.025775, -0.016896,
+                0.034401, -0.011302, -0.003699, -0.003299, -0.000368, -0.002527, 0.052592, 0.055246, -0.000245, 0.008652, 0.009061, 0.011452,
+                0.209112, 0.167236, 0.164800, 0.170467, 0.207776, 0.208590, 0.166818, 0.163428, 0.166541, 0.175402, 0.175480, 0.215052,
+                0.544853, 0.493583, 0.493124, 0.432348, 0.429872, 0.489398, 0.498473, 0.498605, 0.499118, 0.502581, 0.486335, 0.486667,
+                0.722604, 0.712616, 0.707463, 0.700873, 0.681419, 0.666473, 0.686377, 0.716579, 0.702159, 0.724404, 0.724949, 0.688386,
+                0.649804, 0.618930, 0.627569, 0.710485, 0.713929, 0.692057, 0.651999, 0.634103, 0.577113, 0.577358, 0.635494, 0.648259,
+                0.982286, 0.952643, 0.960919, 0.972584, 0.971084, 0.978628, 0.994451, 0.996469, 0.971616, 0.971625, 0.977387, 0.973193,
+                1.503340, 1.388632, 1.403919, 1.414103, 1.431080, 1.391240, 1.379343, 1.435166, 1.439065, 1.436370, 1.453698, 1.470266,
+                1.449031, 1.267880, 1.212320, 1.288279, 1.477301, 1.472029, 1.304325, 1.326720, 1.336999, 1.347556, 1.347219, 1.485290,
+                1.288820, 2.003485, 1.982595, 2.043567, 2.077872, 1.993147, 1.985058, 1.999786, 2.020549, 2.011929, 2.100871, 2.121016,
+                2.546543, 2.595876, 2.599503, 2.474270, 2.499295, 2.519332, 2.572350, 2.592427, 2.677143, 2.675966, 2.568874, 2.570360,
+                3.333005, 3.373876, 3.567247, 3.564675, 3.476492, 3.472502, 3.455202, 3.310283, 3.373399, 3.448781, 3.489530, 3.502249,
+                2.991188, 2.709003, 2.701637, 2.729730, 2.686890, 2.771170, 3.035332, 2.990743, 2.768984, 2.795286, 2.844138, 2.857726,
+                3.832059, 3.666896, 3.629677, 3.614413, 3.622842, 3.879788, 3.920069, 3.688176, 3.681910, 3.708512, 3.705522, 3.709457,
+                4.638279, 4.854736, 4.928945, 5.028725, 5.052346, 4.962236, 4.896094, 4.905428, 4.860498, 4.815568, 5.060785, 5.044925
+            ];
+            
+            // Função para converter retornos acumulados em retornos mensais
+            function getMonthlyReturns(cumulativeReturns) {
+                const monthlyReturns = [];
+                monthlyReturns.push(cumulativeReturns[0]);
+                for (let i = 1; i < cumulativeReturns.length; i++) {
+                    const monthlyReturn = (1 + cumulativeReturns[i]) / (1 + cumulativeReturns[i-1]) - 1;
+                    monthlyReturns.push(monthlyReturn);
+                }
+                return monthlyReturns;
+            }
+            
+            // Calcular retornos mensais
+            const vontobelMonthly = getMonthlyReturns(vontobel_returns);
+            const harrisMonthly = getMonthlyReturns(harrisReturns);
+            const sp500Monthly = getMonthlyReturns(sp500Returns);
+            const vuaaMonthly = getMonthlyReturns(vuaaReturns);
+            
+            // Data mais antiga de investimento e índice correspondente
+            // Com base na tabela de investimentos, a data mais antiga é de março/2023 (22/03/2023)
+            const dataAntiga = '03/2023';
+            const idxDataAntiga = vontobelLabels.indexOf(dataAntiga);
+            
+            // Datas dos aportes
+            const aportes = [
+                { data: '27/12/2019', valor: 424180.33, fundo: 'Vontobel' },
+                { data: '16/03/2023', valor: 563648.00, fundo: 'Harris' },
+                { data: '25/09/2024', valor: 1015380.00, fundo: 'VUAA' }
+            ];
+            
+            // Encontrar índices dos aportes
+            function encontrarIndice(labels, dataAporte) {
+                const [dia, mes, ano] = dataAporte.split('/');
+                const dataProcurada = `${mes}/${ano}`;
+                return labels.findIndex(label => label === dataProcurada);
+            }
+            
+            const idxVontobel = encontrarIndice(vontobelLabels, '27/12/2019');
+            const idxHarris = encontrarIndice(vontobelLabels, '16/03/2023');
+            const idxVUAA = encontrarIndice(vontobelLabels, '25/09/2024');
+            
+            // Função para calcular cotas ponderadas
+            function calcularCotasPonderadas() {
+                const cotas = [], cotasSP = [];
+                let valVontobel = 424180.33, valHarris = 0, valVuaa = 0;
+                let carteira = valVontobel;      // valor da carteira no mês 0
+                let cota = 100, cotaSP = 100;
+              
+                for (let i = idxVontobel; i < vontobelLabels.length; i++) {
+              
+                  // **1. entra Harris em mar/23**
+                  if (i === idxHarris)  { valHarris = 563648;  carteira += valHarris; }
+              
+                  // **2. entra VUAA em set/24**
+                  if (i === idxVUAA)    { valVuaa   = 1015380; carteira += valVuaa;  }
+              
+                  /* ---- retorno mensal (antes de atualizar valores) ---- */
+                  const prevCarteira = valVontobel + valHarris + valVuaa;
+              
+                  const rVont   = 1 + vontobelMonthly[i];
+                  const rHarris = 1 + (i >= idxHarris ? harrisMonthly[i] : 0);
+                  const idxVU   = vuaaLabels.indexOf(vontobelLabels[i]);
+                  const rVuaa   = 1 + (i >= idxVUAA && idxVU !== -1 ? vuaaMonthly[idxVU] : 0);
+              
+                  const postCarteira = valVontobel*rVont + valHarris*rHarris + valVuaa*rVuaa;
+                  const retCarteira  = postCarteira / prevCarteira - 1;
+              
+                  cota  *= 1 + retCarteira;
+                  cotas.push(cota);
+              
+                  /* ---- atualiza valores p/ próximo mês ---- */
+                  valVontobel *= rVont;
+                  if (i >= idxHarris)  valHarris *= rHarris;
+                  if (i >= idxVUAA && idxVU !== -1) valVuaa *= rVuaa;
+              
+                  /* ---- S&P 500 com aportes idênticos ---- */
+                  const rSP = 1 + sp500Monthly[i];
+                  const prevSP = cotaSP;                 // cota ~ valor porque base=100 nos aportes
+                  // aporta "virtualmente" no mesmo mês, convertendo para cota
+                  if (i === idxHarris) cotaSP *= (prevSP*carteira + 563648) / (prevSP*carteira);
+                  if (i === idxVUAA)   cotaSP *= (prevSP*carteira + 1015380) / (prevSP*carteira);
+                  cotaSP *= rSP;
+                  cotasSP.push(cotaSP);
+                }
+                return { cotas, cotasSP };
+            }
+              
+            // Calcular as cotas
+            const { cotas, cotasSP } = calcularCotasPonderadas();
+            const labels = vontobelLabels.slice(idxVontobel, idxVontobel + cotas.length);
+            
+            // Criar linha reta para Alternativos
+            const alternativosValues = [];
+            const valorInicial = 100; // Mesmo ponto de partida da carteira
+            
+            // Rendimento final dos alternativos com base nos dados corrigidos
+            // Rentabilidade total ponderada dos alternativos: 3,20%
+            const rentabilidadeAlternativos = 3.20 / 100; // Converter percentual para decimal
+            const valorFinal = valorInicial * (1 + rentabilidadeAlternativos);
+            
+            // Criar a linha reta para os Alternativos
+            for (let i = 0; i < cotas.length; i++) {
+                // Interpolação linear entre valor inicial e final
+                const progress = i / (cotas.length - 1);
+                alternativosValues.push(valorInicial + progress * (valorFinal - valorInicial));
+            }
+            
+            // Criar o gráfico
+            const ctx = document.getElementById('performanceAgregadaChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels.map(label => {
+                        const [mes, ano] = label.split('/');
+                        return `${mes}/${ano.slice(2)}`;
+                    }),
+                    datasets: [
+                        {
+                            label: 'Stocks',
+                            data: cotas,
+                            borderColor: 'rgb(30, 58, 138)',
+                            backgroundColor: 'rgba(30, 58, 138, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: 'S&P 500 TR (mesmos aportes)',
+                            data: cotasSP,
+                            borderColor: 'rgb(156, 163, 175)',
+                            backgroundColor: 'rgba(156, 163, 175, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Alternativos (Hedge Funds + Private Equity)',
+                            data: alternativosValues,
+                            borderColor: 'rgb(255, 153, 51)',
+                            backgroundColor: 'rgba(255, 153, 51, 0.1)',
+                            fill: false,
+                            tension: 0,  // Sem curva, linha reta
+                            borderWidth: 2,
+                            borderDash: [5, 5]  // Linha tracejada
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('en-US', {
+                                            style: 'currency',
+                                            currency: 'USD',
+                                            minimumFractionDigits: 0,
+                                            maximumFractionDigits: 0
+                                        }).format(context.parsed.y);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance do Portfólio de Renda Variável e Alternativos',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return new Intl.NumberFormat('en-US', {
+                                        style: 'currency',
+                                        currency: 'USD',
+                                        minimumFractionDigits: 0,
+                                        maximumFractionDigits: 0
+                                    }).format(value);
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Valor ($)',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hitRadius: 5,
+                            hoverRadius: 5
+                        }
+                    }
+                }
+            });
+            
+            // Criar gráfico do PIMCO Income Fund
+            createPimcoChart();
+            
+            // Criar gráfico do Nordea US Corporate Bond Fund
+            createNordeaChart();
+            
+            // Criar gráfico do Goldman Sachs EM Corporate Bond Fund
+            createGsEmChart();
+            
+            // Criar gráfico do High Yield Portfolio
+            createHyChart();
+        });
+        
+        function createPimcoChart() {
+            // Dados do PIMCO GIS - convertidos para base 100
+            const pimcoGISLabels = [
+                '03/2023', '04/2023', '05/2023', '06/2023', '07/2023', '08/2023', '09/2023', '10/2023', 
+                '11/2023', '12/2023', '01/2024', '02/2024', '03/2024', '04/2024', '05/2024', '06/2024', 
+                '07/2024', '08/2024', '09/2024', '10/2024', '11/2024', '12/2024', '01/2025', '02/2025', 
+                '03/2025', '04/2025', '05/2025'
+            ];
+            const pimcoGISPrices = [
+                14.73, 14.77, 14.68, 14.85, 15.00, 14.96, 14.73, 14.55, 
+                15.12, 15.54, 15.62, 15.55, 15.74, 15.48, 15.73, 15.77, 
+                16.10, 16.21, 16.42, 16.13, 16.37, 16.25, 16.42, 16.71, 
+                16.74, 16.73, 16.58
+            ];
+
+            // Dados do BND ETF - convertidos para base 100
+            const bondPrices = [
+                68.4385757446289, 68.84093475341797, 68.03978729248047, 67.8875732421875, 67.80707550048828, 67.35924530029297, 
+                65.68923950195312, 64.69052124023438, 67.62835693359375, 70.03276824951172, 69.91851806640625, 68.96549224853516, 
+                69.55154418945312, 67.87648010253906, 69.01713562011719, 69.6249771118164, 71.26407623291016, 72.29857635498047, 
+                73.25041961669922, 71.45166015625, 72.21499633789062, 71.0010757446289, 71.42562866210938, 72.96599578857422, 
+                72.97492980957031, 73.26399993896484, 72.33000183105469
+            ];
+            
+            // Converter para base 100
+            const precoInicial = pimcoGISPrices[0];
+            const precoInicialBond = bondPrices[0];
+            
+            // Calcular índices base 100
+            const valoresPimco = pimcoGISPrices.map(preco => {
+                return (preco / precoInicial) * 100;
+            });
+            
+            const valoresBond = bondPrices.map(preco => {
+                return (preco / precoInicialBond) * 100;
+            });
+            
+            // Criar o gráfico
+            const ctx = document.getElementById('pimcoChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: pimcoGISLabels.map(label => {
+                        const [mes, ano] = label.split('/');
+                        return `${mes}/${ano.slice(2)}`;
+                    }),
+                    datasets: [
+                        {
+                            label: 'PIMCO Income Fund',
+                            data: valoresPimco,
+                            borderColor: 'rgb(34, 197, 94)',
+                            backgroundColor: 'rgba(34, 197, 94, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: 'BND ETF (benchmark)',
+                            data: valoresBond,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 2,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y.toFixed(2);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance PIMCO Income Fund vs BND ETF',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(1);
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Índice de Performance',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hitRadius: 5,
+                            hoverRadius: 5
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createNordeaChart() {
+            // Dados do Nordea US Corporate Bond Fund - convertidos para base 100
+            const nordeaLabels = [
+                '08/2019', '09/2019', '10/2019', '11/2019', '12/2019', '01/2020', '02/2020', '03/2020', 
+                '04/2020', '05/2020', '06/2020', '07/2020', '08/2020', '09/2020', '10/2020', '11/2020', 
+                '12/2020', '01/2021', '02/2021', '03/2021', '04/2021', '05/2021', '06/2021', '07/2021', 
+                '08/2021', '09/2021', '10/2021', '11/2021', '12/2021', '01/2022', '02/2022', '03/2022', 
+                '04/2022', '05/2022', '06/2022', '07/2022', '08/2022', '09/2022', '10/2022', '11/2022', 
+                '12/2022', '01/2023', '02/2023', '03/2023', '04/2023', '05/2023', '06/2023', '07/2023', 
+                '08/2023', '09/2023', '10/2023', '11/2023', '12/2023', '01/2024', '02/2024', '03/2024', 
+                '04/2024', '05/2024', '06/2024', '07/2024', '08/2024', '09/2024', '10/2024', '11/2024', 
+                '12/2024', '01/2025', '02/2025', '03/2025', '04/2025', '05/2025'
+            ];
+            const nordeaPrices = [
+                15.76, 15.61, 15.68, 15.72, 15.71, 16.09, 16.30, 15.10, 
+                16.03, 16.20, 16.56, 17.09, 16.83, 16.81, 16.80, 17.23, 
+                17.31, 17.10, 16.76, 16.57, 16.73, 16.82, 17.14, 17.34, 
+                17.32, 17.13, 17.07, 17.10, 17.08, 16.49, 16.14, 15.78, 
+                14.92, 14.94, 14.49, 14.90, 14.53, 13.78, 13.60, 14.11, 
+                14.16, 14.68, 14.20, 14.53, 14.69, 14.47, 14.49, 14.57, 
+                14.48, 14.12, 13.84, 14.58, 15.22, 15.20, 14.99, 15.19, 
+                14.84, 15.10, 15.30, 15.52, 15.86, 16.09, 15.71, 15.93, 
+                15.69, 15.77, 16.03, 15.97, 15.90, 15.76
+            ];
+
+            // Dados do VCIT ETF - convertidos para base 100
+            const vcitPrices = [
+                75.42, 75.10, 75.60, 75.63, 76.00, 77.67, 78.55, 72.82, 
+                76.60, 78.65, 80.17, 81.76, 81.56, 81.23, 81.10, 82.73, 
+                83.19, 82.46, 81.15, 79.96, 80.79, 81.25, 82.17, 83.20, 
+                82.91, 82.04, 81.74, 81.47, 81.72, 79.70, 78.54, 76.09, 
+                72.29, 73.23, 71.24, 74.03, 71.23, 67.87, 67.59, 70.87, 
+                70.30, 73.28, 70.92, 73.17, 73.70, 72.74, 72.75, 73.05, 
+                72.54, 70.63, 69.45, 73.58, 76.61, 76.57, 75.47, 76.41, 
+                74.64, 76.16, 76.71, 78.68, 79.99, 81.26, 79.23, 80.33, 
+                79.06, 79.58, 81.12, 81.13, 81.47, 80.92
+            ];
+            
+            // Converter para base 100
+            const precoInicial = nordeaPrices[0];
+            const precoInicialVcit = vcitPrices[0];
+            
+            // Calcular índices base 100
+            const valoresNordea = nordeaPrices.map(preco => {
+                return (preco / precoInicial) * 100;
+            });
+            
+            const valoresVcit = vcitPrices.map(preco => {
+                return (preco / precoInicialVcit) * 100;
+            });
+            
+            // Criar o gráfico
+            const ctx = document.getElementById('nordeaChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: nordeaLabels.map(label => {
+                        const [mes, ano] = label.split('/');
+                        return `${mes}/${ano.slice(2)}`;
+                    }),
+                    datasets: [
+                        {
+                            label: 'Nordea US Corp Bond',
+                            data: valoresNordea,
+                            borderColor: 'rgb(147, 51, 234)',
+                            backgroundColor: 'rgba(147, 51, 234, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: 'VCIT ETF (benchmark)',
+                            data: valoresVcit,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 2,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y.toFixed(2);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance Nordea US Corporate Bond Fund vs VCIT ETF',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(1);
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Índice de Performance',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hitRadius: 5,
+                            hoverRadius: 5
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createGsEmChart() {
+            // Dados do Goldman Sachs EM - convertidos para base 100
+            const gsEmLabels = [
+                '08/2019', '09/2019', '10/2019', '11/2019', '12/2019', '01/2020', '02/2020', '03/2020', 
+                '04/2020', '05/2020', '06/2020', '07/2020', '08/2020', '09/2020', '10/2020', '11/2020', 
+                '12/2020', '01/2021', '02/2021', '03/2021', '04/2021', '05/2021', '06/2021', '07/2021', 
+                '08/2021', '09/2021', '10/2021', '11/2021', '12/2021', '01/2022', '02/2022', '03/2022', 
+                '04/2022', '05/2022', '06/2022', '07/2022', '08/2022', '09/2022', '10/2022', '11/2022', 
+                '12/2022', '01/2023', '02/2023', '03/2023', '04/2023', '05/2023', '06/2023', '07/2023', 
+                '08/2023', '09/2023', '10/2023', '11/2023', '12/2023', '01/2024', '02/2024', '03/2024', 
+                '04/2024', '05/2024', '06/2024', '07/2024', '08/2024', '09/2024', '10/2024', '11/2024', 
+                '12/2024', '01/2025', '02/2025', '03/2025', '04/2025', '05/2025'
+            ];
+            const gsEmPrices = [
+                100.00, 100.89, 101.63, 101.95, 102.97, 104.89, 103.48, 90.14, 94.39, 98.91, 102.00, 104.04,
+                105.44, 104.74, 105.10, 108.69, 110.49, 110.31, 109.89, 108.58, 109.11, 109.89, 110.90, 110.96,
+                112.10, 111.11, 110.29, 109.42, 109.72, 107.56, 100.58, 99.27, 97.00, 96.12, 92.46, 93.19,
+                94.78, 90.56, 88.48, 93.88, 95.27, 98.31, 96.05, 96.37, 97.24, 96.61, 97.78, 98.95,
+                98.24, 97.63, 96.61, 100.18, 103.30, 103.87, 103.98, 105.11, 106.89, 107.02, 108.07, 109.86,
+                111.17, 110.09, 110.48, 109.98, 110.84, 112.46, 112.45, 111.67, 112.16, 112.10
+            ];
+
+            // Dados do VWO ETF - convertidos para base 100
+            const vwoPrices = [
+                100.00, 100.91, 104.91, 105.44, 112.91, 106.66, 102.93, 85.33, 92.00, 95.02, 101.19, 109.87,
+                112.89, 111.53, 113.01, 122.70, 130.06, 134.13, 136.18, 135.24, 137.70, 139.99, 141.86, 133.52,
+                136.40, 131.84, 133.58, 129.68, 131.69, 132.23, 127.30, 123.17, 116.01, 116.53, 112.04, 111.15,
+                110.63, 99.49, 96.65, 110.45, 108.00, 117.02, 109.24, 112.00, 111.56, 108.27, 113.41, 120.05,
+                113.01, 110.21, 106.67, 114.18, 117.98, 113.81, 117.74, 120.04, 121.17, 123.79, 126.24, 127.76,
+                129.02, 138.44, 134.78, 131.84, 130.49, 131.56, 132.50, 134.26, 134.24, 141.77
+            ];
+            
+            // Converter para base 100
+            const precoInicial = gsEmPrices[0];
+            const precoInicialVwo = vwoPrices[0];
+            
+            // Calcular índices base 100
+            const valoresGsEm = gsEmPrices.map(preco => {
+                return (preco / precoInicial) * 100;
+            });
+            
+            const valoresVwo = vwoPrices.map(preco => {
+                return (preco / precoInicialVwo) * 100;
+            });
+            
+            // Criar o gráfico
+            const ctx = document.getElementById('gsEmChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: gsEmLabels.map(label => {
+                        const [mes, ano] = label.split('/');
+                        return `${mes}/${ano.slice(2)}`;
+                    }),
+                    datasets: [
+                        {
+                            label: 'Goldman Sachs EM',
+                            data: valoresGsEm,
+                            borderColor: 'rgb(255, 215, 0)',
+                            backgroundColor: 'rgba(255, 215, 0, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: 'VWO ETF (benchmark)',
+                            data: valoresVwo,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 2,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y.toFixed(2);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance Goldman Sachs EM vs VWO ETF',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(1);
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Índice de Performance',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hitRadius: 5,
+                            hoverRadius: 5
+                        }
+                    }
+                }
+            });
+        }
+        
+        function createHyChart() {
+
+
+            // HY Composite – base 100 (primeiro aporte 21/12/2020)
+            const hyLabels = [
+            '12/2020','01/2021','02/2021','03/2021','04/2021','05/2021','06/2021','07/2021','08/2021','09/2021','10/2021','11/2021',
+            '12/2021','01/2022','02/2022','03/2022','04/2022','05/2022','06/2022','07/2022','08/2022','09/2022','10/2022','11/2022',
+            '12/2022','01/2023','02/2023','03/2023','04/2023','05/2023','06/2023','07/2023','08/2023','09/2023','10/2023','11/2023',
+            '12/2023','01/2024','02/2024','03/2024','04/2024','05/2024','06/2024','07/2024','08/2024','09/2024','10/2024','11/2024',
+            '12/2024','01/2025','02/2025','03/2025','04/2025'
+            ];
+
+            const hyReturns = [
+            100.00,100.27,100.71,100.73,101.80,102.00,103.38,103.54,104.02,103.95,103.79,102.52,
+            103.21,102.49,102.14,102.70,103.13,102.15,96.88,94.69,95.05,91.84,89.31,92.11,
+            93.03,96.35,96.95, 97.62, 99.74,101.09,100.46,102.69,104.39,102.30,102.78,103.34,
+            104.31,103.86,104.85,106.15,106.71,107.09,109.57,110.52,111.07,109.37,110.77,112.61,
+            114.42,114.74,115.89,116.77,117.30
+            ];
+
+            // Dados do Benchmark USHY (expandido para coincidir com o período)
+            const ushyReturns = [
+                100.000000, 103.503473, 105.811357, 105.580595, 105.709352, 106.557923, 107.545284, 107.628758,
+                109.348192, 109.613986, 110.306381, 110.117970, 110.046026, 108.654760, 111.117789, 107.934543,
+                107.173280, 105.736623, 101.271799, 102.969158, 95.496575, 101.834568, 97.876084, 94.105698,
+                97.078024, 100.347419, 98.696764, 102.298185, 100.609381, 102.887072, 103.143210, 102.010712,
+                103.897365, 105.181808, 105.503199, 103.889948, 102.920626, 107.733681, 111.254564, 111.683059,
+                111.954037, 113.341746, 112.023294, 113.904417, 114.383653, 117.009243, 118.822838, 120.672173,
+                119.650638, 121.630811, 120.655922, 122.295706, 123.529351, 122.102996, 122.102996, 123.283840
+            ];
+            
+            // Criar o gráfico
+            const ctx = document.getElementById('hyChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: hyLabels.map(label => {
+                        const [mes, ano] = label.split('/');
+                        return `${mes}/${ano.slice(2)}`;
+                    }),
+                    datasets: [
+                        {
+                            label: 'Portfólio High Yield',
+                            data: hyReturns,
+                            borderColor: 'rgb(220, 38, 38)',
+                            backgroundColor: 'rgba(220, 38, 38, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 3
+                        },
+                        {
+                            label: 'USHY ETF (benchmark)',
+                            data: ushyReturns,
+                            borderColor: 'rgb(59, 130, 246)',
+                            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                            fill: false,
+                            tension: 0.4,
+                            borderWidth: 2,
+                            borderDash: [5, 5]
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        tooltip: {
+                            mode: 'index',
+                            intersect: false,
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += context.parsed.y.toFixed(2);
+                                    }
+                                    return label;
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Performance Portfólio High Yield vs USHY ETF',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(1);
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Índice de Performance',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período',
+                                font: {
+                                    weight: 'bold'
+                                }
+                            },
+                            ticks: {
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
+                        }
+                    },
+                    interaction: {
+                        intersect: false,
+                        mode: 'index'
+                    },
+                    elements: {
+                        point: {
+                            radius: 0,
+                            hitRadius: 5,
+                            hoverRadius: 5
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

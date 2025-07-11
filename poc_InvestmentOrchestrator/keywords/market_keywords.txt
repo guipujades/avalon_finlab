@@ -1,0 +1,108 @@
+bolsa
+ações
+índice
+bovespa
+b3
+nasdaq
+dow jones
+s&p
+s&p500
+nyse
+ibovespa
+pregão
+circuit breaker
+blue chips
+small caps
+mid caps
+day trade
+swing trade
+position trade
+scalping
+mercado futuro
+opções
+derivativos
+commodities
+forex
+câmbio
+renda fixa
+renda variável
+fundos imobiliários
+fiis
+etf
+bdr
+units
+ipo
+oferta pública
+bookbuilding
+underwriting
+home broker
+corretora
+mesa de operações
+análise técnica
+análise fundamentalista
+análise gráfica
+candlestick
+suporte
+resistência
+tendência
+volatilidade
+liquidez
+volume
+spread
+bid
+ask
+stop loss
+stop gain
+trailing stop
+hedge
+arbitragem
+alavancagem
+margem
+garantia
+clearing
+custódia
+dividendos
+juros sobre capital próprio
+bonificação
+desdobramento
+grupamento
+tag along
+free float
+market cap
+valuation
+p/l
+p/vp
+dividend yield
+roe
+roic
+ebitda
+ebit
+lucro líquido
+receita líquida
+balanço patrimonial
+dre
+fluxo de caixa
+governança corporativa
+novo mercado
+nível 1
+nível 2
+mercado de balcão
+otc
+nasdaq
+nyse
+lse
+tse
+shanghai
+hong kong
+frankfurt
+paris
+milão
+madri
+amsterdã
+zurique
+tóquio
+sydney
+toronto
+mumbai
+méxico
+buenos aires

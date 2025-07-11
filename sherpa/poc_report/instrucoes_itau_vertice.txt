@@ -1,0 +1,45 @@
+INSTRUÇÕES PARA ESTRUTURAÇÃO Dos fundos
+
+CONTEXTO:
+- Base de referência: Estrutura do fundo Capstone em onshore.html
+- Dados do fundo: arquivo pesquisas2.txt
+- Objetivo: apresentação em padrão elegante
+
+ESTRUTURA IMPLEMENTADA:
+
+1. VISÃO GERAL
+
+2. ESTRUTURA DO FUNDO
+   - Tabela com informações completas:
+     * Nome completo, CNPJ, Classificação ANBIMA
+     * Gestor, Administrador, Taxas
+     * Aplicação mínima, Público alvo, Benchmark
+     * Diretores responsáveis e contato
+   - Box com características principais do fundo
+
+3. PERFORMANCE E INDICADORES
+   - Métricas lado a lado (12 meses vs 60 meses)
+   - Gráfico de linha comparando evolução do fundo vs IBOVESPA
+   - Dados desde janeiro/2020 até junho/2025
+
+4. COMPOSIÇÃO DA CARTEIRA
+   - Gráfico de pizza  mostrando distribuição:
+
+
+5. RENTABILIDADE HISTÓRICA
+   - Gráfico de rentabilidade
+
+
+DADOS INTEGRADOS:
+- Rentabilidade mensal completa de 2020 a 2025
+- Comparação mês a mês com IBOVESPA
+- Indicadores de risco (Sharpe, volatilidade)
+- Composição detalhada da carteira
+- Informações institucionais completas
+
+PADRÃO MANTIDO:
+- Estrutura consistente com fundo Capstone
+- Framework elegante com Tailwind CSS
+- Seções bem organizadas e espaçadas
+- Responsividade para diferentes telas
+- Interatividade suave nos gráficos

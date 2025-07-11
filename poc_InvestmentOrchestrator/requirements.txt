@@ -1,0 +1,44 @@
+# Core dependencies
+openai==1.35.9
+anthropic>=0.25.0
+google-generativeai>=0.3.0
+python-dotenv==1.0.0
+requests==2.31.0
+tavily-python==0.3.3
+
+# LlamaIndex
+llama-index==0.10.57
+llama-index-llms-openai==0.1.22
+llama-index-core==0.10.57
+llama-index-embeddings-openai==0.1.10
+llama-index-vector-stores-chroma==0.1.10
+chromadb==0.5.3
+llama-cloud==0.0.7
+
+# Document processing (optional but recommended)
+llama-parse==0.4.4
+
+# Document format support
+pypdf==4.2.0
+python-docx>=1.1.0
+
+# Data processing
+pandas>=2.0.0
+
+# Async support
+aiofiles==23.2.0
+
+# Added for compatibility
+nest-asyncio==1.6.0
+
+# Added for compatibility
+
+
+# Added for compatibility
+python-pptx==0.6.23
+
+# Added for compatibility
+markdown==3.6
+
+# Added for compatibility
+beautifulsoup4==4.12.3 

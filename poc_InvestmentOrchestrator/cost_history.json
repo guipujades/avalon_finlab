@@ -1,0 +1,79 @@
+{
+  "last_updated": "2025-06-05T00:28:29.849996",
+  "total_costs": {
+    "openai": 0.012750000000000001,
+    "anthropic": 0.216549,
+    "google": 0.46326625,
+    "tavily": 0.005,
+    "perplexity": 0.005
+  },
+  "api_calls_count": {
+    "openai": 1,
+    "anthropic": 28,
+    "google": 24,
+    "tavily": 1,
+    "perplexity": 1
+  },
+  "current_session": [
+    {
+      "timestamp": "2025-06-05T00:27:39.190336",
+      "api_provider": "anthropic",
+      "model": "claude-3-5-sonnet-20241022",
+      "operation": "supervision",
+      "input_tokens": 581,
+      "output_tokens": 345,
+      "total_tokens": 926,
+      "cost_usd": 0.006917999999999999,
+      "query_context": "temporal_analysis",
+      "response_preview": ""
+    },
+    {
+      "timestamp": "2025-06-05T00:27:45.513819",
+      "api_provider": "anthropic",
+      "model": "claude-3-5-sonnet-20241022",
+      "operation": "supervision",
+      "input_tokens": 2833,
+      "output_tokens": 253,
+      "total_tokens": 3086,
+      "cost_usd": 0.012294000000000001,
+      "query_context": "logical_analysis",
+      "response_preview": ""
+    },
+    {
+      "timestamp": "2025-06-05T00:27:50.403715",
+      "api_provider": "anthropic",
+      "model": "claude-3-5-sonnet-20241022",
+      "operation": "supervision",
+      "input_tokens": 183,
+      "output_tokens": 237,
+      "total_tokens": 420,
+      "cost_usd": 0.004104,
+      "query_context": "",
+      "response_preview": ""
+    },
+    {
+      "timestamp": "2025-06-05T00:28:10.188625",
+      "api_provider": "google",
+      "model": "gemini-1.5-pro",
+      "operation": "comprehensive_efficiency",
+      "input_tokens": 23306,
+      "output_tokens": 249,
+      "total_tokens": 23555,
+      "cost_usd": 0.0303775,
+      "query_context": "system_audit",
+      "response_preview": "```json\n{\n  \"current_efficiency\": 0.7142857142857143,\n  \"historical_comparison\": {\n    \"trend\": \"imp"
+    },
+    {
+      "timestamp": "2025-06-05T00:28:29.849942",
+      "api_provider": "google",
+      "model": "gemini-1.5-pro",
+      "operation": "system_integration",
+      "input_tokens": 23289,
+      "output_tokens": 292,
+      "total_tokens": 23581,
+      "cost_usd": 0.03057125,
+      "query_context": "integration_audit",
+      "response_preview": "```json\n{\n  \"integration_score\": 0.75,\n  \"agent_communication\": {\n    \"orchestrator_research\": {\n   "
+    }
+  ]
+}

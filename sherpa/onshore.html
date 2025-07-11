@@ -1,0 +1,2680 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise Onshore - Chimborazo</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="common-styles.css">
+    <script src="common-scripts.js"></script>
+    <style>
+        /* Correção para gráficos */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            display: block;
+            overflow: hidden;
+        }
+        
+        .chart-container canvas {
+            position: absolute !important;
+            top: 0;
+            left: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        
+        /* Container específico para evolução */
+        #chartEvolucao {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        /* Previne problemas de overflow */
+        section {
+            overflow: visible;
+        }
+        
+        /* Ajuste para navegação lateral */
+        .sticky {
+            position: sticky !important;
+            position: -webkit-sticky !important;
+            top: 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="chimborazo">Chimborazo FI Financeiro Multimercado RL</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+
+    <!-- Botões de navegação -->
+    <div class="container mx-auto px-4">
+        <div class="transform -translate-y-1/4 flex justify-end space-x-4">
+            <a href="onshore.html" 
+               class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                      hover:bg-gray-800 transition-all duration-300 
+                      border border-gray-700 hover:border-gray-600
+                      shadow-lg hover:shadow-xl
+                      backdrop-filter backdrop-blur-sm">
+                <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="1.5" 
+                          d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+                <span class="font-medium tracking-wide">Chimborazo FI</span>
+            </a>
+            
+            <a href="offshore.html" 
+               class="group inline-flex items-center px-6 py-3 bg-gray-900 text-white rounded-lg 
+                      hover:bg-gray-800 transition-all duration-300 
+                      border border-gray-700 hover:border-gray-600
+                      shadow-lg hover:shadow-xl
+                      backdrop-filter backdrop-blur-sm">
+                <svg class="w-5 h-5 mr-3 text-gray-400 group-hover:text-white transition-colors duration-300" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="1.5" 
+                          d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="font-medium tracking-wide">Offshore</span>
+                <svg class="w-4 h-4 ml-3 opacity-0 group-hover:opacity-100 transform translate-x-0 group-hover:translate-x-1 transition-all duration-300" 
+                     fill="none" 
+                     stroke="currentColor" 
+                     viewBox="0 0 24 24">
+                    <path stroke-linecap="round" 
+                          stroke-linejoin="round" 
+                          stroke-width="1.5" 
+                          d="M9 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#estrutura" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Estrutura do Fundo</a></li>
+                    <li><a href="#custos" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Custos</a></li>
+                    <li><a href="#composicao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Composição da Carteira</a></li>
+                    <li><a href="#camadas" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Análise por Camadas</a></li>
+                    <li><a href="#evolucao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Evolução Patrimonial</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+
+            <!-- Botões de seleção de fundos -->
+            <div class="mb-6">
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="showFund('alpamayo')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Alpamayo FI Ações (70.15%)
+                    </button>
+                    <button onclick="showFund('capstone')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Capstone Macro A (16.85%)
+                    </button>
+                    <button onclick="showFund('vinci')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Vinci Capital Partners III (7.69%)
+                    </button>
+                    <button onclick="showFund('kinea')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Kinea Private Equity V (2.66%)
+                    </button>
+                    <button onclick="showFund('itau-dolomitas')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Itaú Dolomitas (2.15%)
+                    </button>
+                    <button onclick="showFund('itau-vertice-ibovespa')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Itaú Vértice Ibovespa (0.30%)
+                    </button>
+                    <button onclick="showFund('itau-vertice-rf')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Itaú Vértice RF (0.11%)
+                    </button>
+                    <button onclick="showFund('itau-caixa')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        Itaú Caixa Ações (0.07%)
+                    </button>
+                    <button onclick="showFund('fidc-silverado')" class="fund-button px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+                        FIDC Silverado (0.02%)
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Container de Fundos -->
+            <div id="funds-container">
+                <!-- Chimborazo Fund -->
+                <div id="chimborazo" class="fund-section">
+                    <!-- Seção de Informações do Chimborazo -->
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-600 rounded-full p-3 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Chimborazo FI Financeiro Multimercado RL</h2>
+                        <p class="text-gray-600">Última atualização: Junho de 2025</p>
+                    </div>
+                </div>
+
+                <p class="mb-4">
+                    O <strong>Chimborazo FI Financeiro Multimercado RL</strong> é um fundo de investimento multimercado que busca rentabilidade através de alocação diversificada em diferentes classes de ativos, com foco em gestão ativa e preservação de capital no longo prazo.
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">CNPJ</h3>
+                        <p class="text-sm font-mono text-slate-800">54.195.596/0001-51</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Patrimônio Líquido</h3>
+                        <p class="text-2xl font-bold text-stone-800">R$ 148.072.426,32</p>
+                        <p class="text-sm text-stone-600">Maio/2025</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Classificação</h3>
+                        <p class="text-lg font-bold text-zinc-800">Multimercado</p>
+                        <p class="text-sm text-zinc-600">Macro</p>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Taxa de Admin</h3>
+                        <p class="text-2xl font-bold text-amber-800">0,35%</p>
+                        <p class="text-sm text-amber-600">ao ano</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Estrutura do Fundo -->
+            <section id="estrutura" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Estrutura do Fundo</h2>
+                
+                <div class="mt-6">
+                    <h3 class="text-xl font-semibold mb-4">Informações Regulatórias</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table">
+                            <tbody>
+                                <tr class="border-b">
+                                    <th class="text-left py-3 px-4 font-semibold">Razão Social</th>
+                                    <td class="py-3 px-4">CHIMBORAZO FI FIM RESP LTDA</td>
+                                </tr>
+                                <tr class="border-b highlight-row">
+                                    <th class="text-left py-3 px-4 font-semibold">CNPJ</th>
+                                    <td class="py-3 px-4 font-mono">54.195.596/0001-51</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th class="text-left py-3 px-4 font-semibold">Administrador</th>
+                                    <td class="py-3 px-4">ITAU UNIBANCO S.A.</td>
+                                </tr>
+                                <tr class="border-b highlight-row">
+                                    <th class="text-left py-3 px-4 font-semibold">Gestor</th>
+                                    <td class="py-3 px-4">ITAU UNIBANCO S.A.</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th class="text-left py-3 px-4 font-semibold">Taxa de Administração</th>
+                                    <td class="py-3 px-4">0,35% ao ano</td>
+                                </tr>
+                                <tr class="border-b highlight-row">
+                                    <th class="text-left py-3 px-4 font-semibold">Aplicação Mínima</th>
+                                    <td class="py-3 px-4">R$ 1.000.000,00</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th class="text-left py-3 px-4 font-semibold">Movimentação Mínima</th>
+                                    <td class="py-3 px-4">R$ 100,00</td>
+                                </tr>
+                                <tr class="border-b highlight-row">
+                                    <th class="text-left py-3 px-4 font-semibold">Saldo Mínimo</th>
+                                    <td class="py-3 px-4">R$ 100,00</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th class="text-left py-3 px-4 font-semibold">Tipo de Condomínio</th>
+                                    <td class="py-3 px-4">Aberto / Exclusivo</td>
+                                </tr>
+                                <tr class="border-b highlight-row">
+                                    <th class="text-left py-3 px-4 font-semibold">Cotização Aplicação</th>
+                                    <td class="py-3 px-4">Cota de fechamento D0 útil</td>
+                                </tr>
+                                <tr class="border-b">
+                                    <th class="text-left py-3 px-4 font-semibold">Cotização Resgate</th>
+                                    <td class="py-3 px-4">Cota de fechamento D1 útil</td>
+                                </tr>
+                                <tr class="border-b highlight-row">
+                                    <th class="text-left py-3 px-4 font-semibold">Crédito do Resgate</th>
+                                    <td class="py-3 px-4">D2 úteis após a cotização</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custos -->
+            <section id="custos" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title mb-6">Custos</h2>
+                
+                <div class="mb-6">
+                    <p class="text-gray-700 mb-4">Análise detalhada dos custos em três camadas, considerando as taxas de administração e a estrutura de fundos investidos.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Primeira Camada</h3>
+                        <p class="text-3xl font-bold text-gray-900 mb-2">0,35%</p>
+                        <p class="text-sm text-gray-700">Taxa de administração do Chimborazo FI</p>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Segunda Camada</h3>
+                        <p class="text-3xl font-bold text-gray-900 mb-2">~0,80%</p>
+                        <div class="text-xs text-gray-700 space-y-1">
+                            <p>Custos estimados dos fundos dentro do Chimborazo FI</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <h3 class="text-lg font-bold text-gray-900 mb-3">Terceira Camada</h3>
+                        <p class="text-3xl font-bold text-gray-900 mb-2">~1,67%</p>
+                        <p class="text-sm text-gray-700">Custos estimados dos fundos dentro dos fundos de fundos</p>
+                    </div>
+                </div>
+                
+                <div class="mt-6 bg-gray-50 p-4 rounded-lg border border-gray-200">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-lg font-bold text-gray-900">Custo Efetivo Total Estimado</h4>
+                        <p class="text-2xl font-bold text-gray-900">1,46% a.a.</p>
+                    </div>
+                    <p class="text-sm text-gray-600 mt-2">O custo efetivo total considera a soma das três camadas de taxas de administração e também a taxa de rebate estimada</p>
+                    
+                    <div class="mt-4 pt-4 border-t border-gray-300">
+                        <div class="flex items-center justify-between">
+                            <h5 class="text-base font-semibold text-gray-900">Custo Anual Efetivo Estimado</h5>
+                            <p class="text-xl font-bold text-black-600">~ R$ 1.749.031,00</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Composição da Carteira -->
+            <section id="composicao" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title mb-6">Composição da Carteira</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Distribuição por Classe ANBIMA</h3>
+                        <div class="chart-container">
+                            <canvas id="chartClasseAnbima"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Detalhamento dos Ativos</h3>
+                        <div class="space-y-3">
+                            <div class="border-l-4 border-blue-900 pl-4">
+                                <p class="font-semibold text-blue-900">Ações (70.52%)</p>
+                                <p class="text-sm text-gray-600">Alpamayo FI Financeiro Ações - R$ 103,88M</p>
+                                <p class="text-sm text-gray-600">Itaú Vértice Ibovespa Equities - R$ 447,79K</p>
+                                <p class="text-sm text-gray-600">Itaú Caixa Ações - R$ 98,29K</p>
+                            </div>
+                            <div class="border-l-4 border-teal-800 pl-4">
+                                <p class="font-semibold text-teal-800">Multimercado (19.00%)</p>
+                                <p class="text-sm text-gray-600">Capstone Macro A - R$ 24,96M</p>
+                                <p class="text-sm text-gray-600">Itaú Dolomitas - R$ 3,19M</p>
+                            </div>
+                            <div class="border-l-4 border-purple-800 pl-4">
+                                <p class="font-semibold text-purple-800">Alternativos (10.37%)</p>
+                                <p class="text-sm text-gray-600">Vinci Capital Partners III - R$ 11,38M</p>
+                                <p class="text-sm text-gray-600">Kinea Private Equity V - R$ 3,93M</p>
+                                <p class="text-sm text-gray-600">FIDC Silverado Maximum II - R$ 34,17K</p>
+                            </div>
+                            <div class="border-l-4 border-gray-700 pl-4">
+                                <p class="font-semibold text-gray-700">Renda Fixa (0.11%)</p>
+                                <p class="text-sm text-gray-600">Itaú Vértice Compromisso RF - R$ 156,92K</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Análise por Camadas -->
+            <section id="camadas" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title mb-6">Análise por Camadas de Risco</h2>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Distribuição por Camadas</h3>
+                        <div class="chart-container">
+                            <canvas id="chartCamadas"></canvas>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-semibold mb-4">Detalhamento das Camadas</h3>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800">Preservação (0.11%)</h4>
+                                <p class="text-sm text-gray-700 mt-1">Fundos de baixa volatilidade compatíveis com Selic</p>
+                                <ul class="text-sm text-gray-600 mt-2 list-disc list-inside">
+                                    <li>Itaú Vértice Compromisso RF - R$ 156,92K</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-yellow-800">Manutenção (19.00%)</h4>
+                                <p class="text-sm text-gray-700 mt-1">Volatilidade moderada com ganhos acima da inflação</p>
+                                <ul class="text-sm text-gray-600 mt-2 list-disc list-inside">
+                                    <li>Capstone Macro A - R$ 24,96M</li>
+                                    <li>Itaú Dolomitas - R$ 3,19M</li>
+                                </ul>
+                            </div>
+                            <div class="bg-red-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-red-800">Ganho (80.89%)</h4>
+                                <p class="text-sm text-gray-700 mt-1">Ativos de renda variável e alternativos</p>
+                                <ul class="text-sm text-gray-600 mt-2 list-disc list-inside">
+                                    <li>Alpamayo FI Ações - R$ 103,88M</li>
+                                    <li>Vinci Capital Partners III - R$ 11,38M</li>
+                                    <li>Kinea Private Equity V - R$ 3,93M</li>
+                                    <li>Itaú Vértice Ibovespa Equities - R$ 447,79K</li>
+                                    <li>Itaú Caixa Ações - R$ 98,29K</li>
+                                    <li>FIDC Silverado Maximum II - R$ 34,17K</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Evolução Patrimonial -->
+            <section id="evolucao" class="mt-8 bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title mb-6">Evolução Patrimonial</h2>
+                
+                <div class="mb-4">
+                    <p class="text-gray-700">Acompanhamento do patrimônio líquido e performance do fundo ao longo do tempo.</p>
+                </div>
+                
+                <div class="mt-6">
+                    <div style="position: relative; height: 300px;">
+                        <canvas id="chartEvolucao"></canvas>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-red-50 p-4 rounded">
+                        <h3 class="font-semibold text-red-800">Retorno 2024</h3>
+                        <p class="text-2xl font-bold text-red-900">-5.40%</p>
+                        <p class="text-sm text-gray-600">Set-Dez (4 meses)</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded">
+                        <h3 class="font-semibold text-green-800">Retorno 2025 YTD</h3>
+                        <p class="text-2xl font-bold text-green-900">+13.42%</p>
+                        <p class="text-sm text-gray-600">Jan-Jun (6 meses)</p>
+                    </div>
+                    <div class="bg-purple-50 p-4 rounded">
+                        <h3 class="font-semibold text-purple-800">Retorno Total</h3>
+                        <p class="text-2xl font-bold text-purple-900">+7.29%</p>
+                        <p class="text-sm text-gray-600">vs Ibov: +3.09%</p>
+                    </div>
+                </div>
+            </section>
+                </div>
+                <!-- Fim Chimborazo Fund -->
+                
+                <!-- Alpamayo Fund -->
+                <div id="alpamayo" class="fund-section" style="display: none;">
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-blue-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Alpamayo FI Financeiro Ações RL</h2>
+                                <p class="text-gray-600">Análise do fundo de ações</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Em construção - análise detalhada do Alpamayo FI Financeiro Ações RL será adicionada em breve.</p>
+                    </div>
+                </div>
+                
+                <!-- Capstone Fund -->
+                <div id="capstone" class="fund-section" style="display: none;">
+                    <!-- Visão Geral -->
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-green-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Capstone Macro A FI Financeiro Cotas FIM</h2>
+                                <p class="text-gray-600">Última atualização: Junho de 2025</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-4">
+                            O <strong><a href="https://maisretorno.com/fundo/capstone-macro-a-fi-financeiro-cotas-fim" target="_blank" class="text-black-600 hover:text-blue-800 underline">Capstone Macro A FI Financeiro Cotas FIM</a></strong> é um fundo multimercado macro que busca rentabilidade através de estratégias diversificadas em múltiplas classes de ativos, com foco em análise macroeconômica global e gestão ativa de risco.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-slate-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Taxa Admin</h3>
+                                <p class="text-3xl font-bold text-slate-800">1,90%</p>
+                                <p class="text-sm text-slate-600">ao ano</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">PL do Fundo</h3>
+                                <p class="text-3xl font-bold text-stone-800">R$ 1,48B</p>
+                                <p class="text-sm text-stone-600">Junho/2025</p>
+                            </div>
+                            <div class="bg-zinc-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Início</h3>
+                                <p class="text-3xl font-bold text-zinc-800">2017</p>
+                                <p class="text-sm text-zinc-600">8 anos de histórico</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Estrutura do Fundo -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Fundo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">Capstone Macro A FI Financeiro em Cotas de FIM</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">CNPJ</th>
+                                        <td class="py-3 px-4">36.248.791/0001-10</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Classificação ANBIMA</th>
+                                        <td class="py-3 px-4">Multimercados Macro</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestora</th>
+                                        <td class="py-3 px-4">Capstone Partners Gestão de Recursos Ltda.</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Administrador</th>
+                                        <td class="py-3 px-4">BTG Pactual Serviços Financeiros S.A.</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Taxa de Administração</th>
+                                        <td class="py-3 px-4">1,90% ao ano</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Taxa de Performance</th>
+                                        <td class="py-3 px-4">20% sobre o que exceder 100% do CDI</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Aplicação Mínima</th>
+                                        <td class="py-3 px-4">R$ 10.000,00</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Resgate</th>
+                                        <td class="py-3 px-4">DC+90 (cotização) / DC+91 (pagamento)</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Público Alvo</th>
+                                        <td class="py-3 px-4">Investidor Qualificado</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Diretor Responsável</th>
+                                        <td class="py-3 px-4">Marcio Goldenzon De Albuquerque</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Contato</th>
+                                        <td class="py-3 px-4">capstone@capstone.com.br | www.capstonepartners.com.br</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-bold mb-2">Características Principais</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Fundo multimercado com estratégia macro focada em oportunidades globais</li>
+                                <li>Gestão ativa com flexibilidade para operar em diversos mercados</li>
+                                <li>Pode aplicar em ativos no Brasil e exterior</li>
+                                <li>Utiliza derivativos para hedge e posicionamento</li>
+                            </ul>
+                           
+                        </div>
+
+                        <!-- Gestão do Fundo -->
+                        <div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+                            <h3 class="font-bold text-xl mb-4">Sobre a Gestão</h3>
+                            
+                            <!-- História da Capstone -->
+                            <div class="mb-8 relative">
+                                <div class="absolute left-0 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+                                <div class="pl-8">
+                                    <h4 class="font-semibold text-xl mb-4 text-gray-900">História e Fundação</h4>
+                                    <div class="space-y-4">
+                                        <p class="text-gray-600 leading-relaxed">
+                                            A Capstone foi fundada no final de 2018 por ex-sócios da SPX Capital: <strong>Marcio Goldenzon De Albuquerque</strong> (câmbio), 
+                                            <strong>Cristiano Freire Amorim</strong> (COO) e <strong>Leonardo Linhares</strong> (juros), juntamente com 
+                                            <strong>Frederico Djun Takahashi Saraiva</strong> (renda variável) e <strong>Leandro Marchal Rothmuller</strong> (economista-chefe).
+                                        </p>
+                                        <p class="text-gray-600 leading-relaxed italic">
+                                            "A gestora nasceu com a filosofia de voltar ao início da SPX: uma casa pequena e monoproduto, focada em rentabilidade 
+                                            e remuneração do próprio patrimônio dos sócios (~R$ 1 bilhão investido no fundo)." (Maria Eduarda Lassance - Reunião do dia 24/06/2025)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                                <!-- Estrutura -->
+                                <div class="border border-gray-200 p-6 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-4 text-gray-900 border-b border-gray-200 pb-2">Estrutura da Gestora</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Colaboradores</span>
+                                            <span class="font-medium text-gray-900">48 pessoas</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Sócios</span>
+                                            <span class="font-medium text-gray-900">36 (75%)</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Partnership</span>
+                                            <span class="font-medium text-gray-900">25% distribuído</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Revisão</span>
+                                            <span class="font-medium text-gray-900">Bianual</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Turnover</span>
+                                            <span class="font-medium text-gray-900">Baixíssimo</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- AuM e Crescimento -->
+                                <div class="border border-gray-200 p-6 rounded-lg">
+                                    <h4 class="font-semibold text-lg mb-4 text-gray-900 border-b border-gray-200 pb-2">Crescimento e AuM</h4>
+                                    <div class="space-y-3">
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Abertura</span>
+                                            <span class="font-medium text-gray-900">31/03/2020</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Primeiros 3 meses</span>
+                                            <span class="font-medium text-gray-900">R$ 2,5 bi</span>
+                                        </div>
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">AuM</span>
+                                            <span class="font-medium text-gray-900">~R$ 22 bilhões</span>
+                                        </div>
+                        
+                                        <div class="flex justify-between items-center">
+                                            <span class="text-gray-600">Offshore</span>
+                                            <span class="font-medium text-gray-900">~USD 150M</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Filosofia de Gestão -->
+                            <div class="border-t border-gray-200 pt-8">
+                                <h4 class="font-semibold text-lg mb-6 text-gray-900">Filosofia de Gestão</h4>
+                                <div class="space-y-6">
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-3">Tomada de Decisão</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Sem comitê de investimento</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Decisões no dia a dia na mesa</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Cada diretor dono de 100% do risco (VaR 4%)</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Foco nas melhores oportunidades</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div>
+                                        <h5 class="font-medium text-gray-900 mb-3">Características</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Gestores como pesquisadores</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Entrada pequena, aumento gradual</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Análise macro direciona áreas</span>
+                                            </div>
+                                            <div class="flex items-center space-x-3">
+                                                <div class="w-1 h-1 bg-gray-400 rounded-full"></div>
+                                                <span class="text-gray-600">Sem rebate para investidores</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Composição e Estratégias -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Composição e Estratégias</h2>
+                        
+                        <div class="mb-6 bg-amber-50 border border-amber-200 p-4 rounded-lg">
+                            <p class="text-amber-800 font-medium">
+                                <strong>Referência:</strong> As posições e dados de composição apresentados abaixo referem-se a dezembro de 2024.
+                            </p>
+                        </div>
+                        
+                        <p class="mb-6">
+                            O Capstone Macro A utiliza diversas estratégias para buscar retornos consistentes acima do CDI, com foco em preservação de capital e baixa correlação com os principais índices de mercado.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h3 class="font-bold mb-4 text-center">Alocação por Estratégia</h3>
+                                <div class="chart-container">
+                                    <canvas id="capstoneStrategyChart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-bold mb-4 text-center">Detalhamento por Classe</h3>
+                                <div class="chart-container">
+                                    <canvas id="capstoneAssetChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                            <div class="bg-stone-50 p-4 rounded-lg">
+                                <h3 class="font-bold mb-3">Principais Exposições</h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li><span class="font-semibold">Ações Brasil (39,6%):</span> Foco em large caps com viés setorial</li>
+                                    <li><span class="font-semibold">Renda Fixa (17,5%):</span> Operações compromissadas e títulos públicos</li>
+                                    <li><span class="font-semibold">Internacional (15,8%):</span> Fundo offshore para diversificação global</li>
+                                    <li><span class="font-semibold">ETFs (15,0%):</span> Exposição indexada via BOVA11 e SMAL11</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-zinc-50 p-4 rounded-lg">
+                                <h3 class="font-bold mb-3">Gestão de Risco</h3>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Derivativos para hedge (12,1% do PL)</li>
+                                    <li>Aluguel de ações para geração de renda (2,6%)</li>
+                                    <li>Diversificação entre classes de ativos</li>
+                                    <li>Exposição controlada a cada setor</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Posições Detalhadas -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Posições da Carteira</h2>
+                        
+                        <p class="mb-6 text-gray-600">
+                            Detalhamento das posições do fundo em dezembro de 2024, organizadas por classe de ativo.
+                        </p>
+
+                        <!-- Resumo por Classe -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                            <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                                <h4 class="font-semibold text-red-900 text-sm">Ações</h4>
+                                <p class="text-2xl font-bold text-red-900">39,60%</p>
+                                <p class="text-xs text-red-700">R$ 6,65 bi</p>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                                <h4 class="font-semibold text-blue-900 text-sm">Op. Compromissadas</h4>
+                                <p class="text-2xl font-bold text-blue-900">17,53%</p>
+                                <p class="text-xs text-blue-700">R$ 2,95 bi</p>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg border border-yellow-200">
+                                <h4 class="font-semibold text-yellow-900 text-sm">Inv. Exterior</h4>
+                                <p class="text-2xl font-bold text-yellow-900">15,84%</p>
+                                <p class="text-xs text-yellow-700">R$ 2,66 bi</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                <h4 class="font-semibold text-gray-900 text-sm">Outros</h4>
+                                <p class="text-2xl font-bold text-gray-900">27,03%</p>
+                                <p class="text-xs text-gray-700">R$ 4,54 bi</p>
+                            </div>
+                        </div>
+
+                        <!-- Tabs para diferentes classes -->
+                        <div class="border-b border-gray-200">
+                            <nav class="-mb-px flex space-x-8">
+                                <button onclick="showPositionTab('acoes')" class="position-tab active-tab py-2 px-1 border-b-2 font-medium text-sm">
+                                    Ações (39,60%)
+                                </button>
+                                <button onclick="showPositionTab('exterior')" class="position-tab py-2 px-1 border-b-2 font-medium text-sm">
+                                    Investimento Exterior (15,84%)
+                                </button>
+                                <button onclick="showPositionTab('derivativos')" class="position-tab py-2 px-1 border-b-2 font-medium text-sm">
+                                    Derivativos
+                                </button>
+                                <button onclick="showPositionTab('outros')" class="position-tab py-2 px-1 border-b-2 font-medium text-sm">
+                                    Outros Ativos
+                                </button>
+                            </nav>
+                        </div>
+
+                        <!-- Conteúdo das Tabs -->
+                        <div class="mt-6">
+                            <!-- Tab Ações -->
+                            <div id="tab-acoes" class="position-content">
+                                <h3 class="font-bold mb-4">Principais Posições em Ações</h3>
+                                <div class="overflow-x-auto">
+                                    <table class="min-w-full text-sm">
+                                        <thead>
+                                            <tr class="bg-gray-50">
+                                                <th class="py-2 px-3 text-left font-medium text-gray-700">Ativo</th>
+                                                <th class="py-2 px-3 text-right font-medium text-gray-700">Valor (R$ mi)</th>
+                                                <th class="py-2 px-3 text-right font-medium text-gray-700">% Classe</th>
+                                                <th class="py-2 px-3 text-right font-medium text-gray-700">% Fundo</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200">
+                                            <tr class="hover:bg-gray-50">
+                                                <td class="py-2 px-3">PETR4 - Petrobras</td>
+                                                <td class="py-2 px-3 text-right">826,14</td>
+                                                <td class="py-2 px-3 text-right">12,42%</td>
+                                                <td class="py-2 px-3 text-right">4,92%</td>
+                                            </tr>
+                                            <tr class="hover:bg-gray-50">
+                                                <td class="py-2 px-3">VALE3 - Vale</td>
+                                                <td class="py-2 px-3 text-right">676,66</td>
+                                                <td class="py-2 px-3 text-right">10,17%</td>
+                                                <td class="py-2 px-3 text-right">4,03%</td>
+                                            </tr>
+                                            <tr class="hover:bg-gray-50">
+                                                <td class="py-2 px-3">ITUB4 - Itaú Unibanco</td>
+                                                <td class="py-2 px-3 text-right">501,13</td>
+                                                <td class="py-2 px-3 text-right">7,53%</td>
+                                                <td class="py-2 px-3 text-right">2,98%</td>
+                                            </tr>
+                                            <tr class="hover:bg-gray-50">
+                                                <td class="py-2 px-3">PRIO3 - Prio</td>
+                                                <td class="py-2 px-3 text-right">384,33</td>
+                                                <td class="py-2 px-3 text-right">5,78%</td>
+                                                <td class="py-2 px-3 text-right">2,29%</td>
+                                            </tr>
+                                            <tr class="hover:bg-gray-50">
+                                                <td class="py-2 px-3">SUZB3 - Suzano</td>
+                                                <td class="py-2 px-3 text-right">339,62</td>
+                                                <td class="py-2 px-3 text-right">5,10%</td>
+                                                <td class="py-2 px-3 text-right">2,02%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="mt-4 text-sm text-gray-600">
+                                        <p>Top 5 posições representam 40,98% da classe de ações</p>
+                                    </div>
+                                </div>
+
+                                <!-- Análise Setorial -->
+                                <div class="mt-6">
+                                    <h4 class="font-semibold mb-3">Distribuição Setorial</h4>
+                                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                                        <div class="bg-gray-50 p-3 rounded">
+                                            <p class="text-xs text-gray-600">Petróleo & Gás</p>
+                                            <p class="font-semibold">17,44%</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-3 rounded">
+                                            <p class="text-xs text-gray-600">Mineração</p>
+                                            <p class="font-semibold">11,02%</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-3 rounded">
+                                            <p class="text-xs text-gray-600">Financeiro</p>
+                                            <p class="font-semibold">14,87%</p>
+                                        </div>
+                                        <div class="bg-gray-50 p-3 rounded">
+                                            <p class="text-xs text-gray-600">Consumo</p>
+                                            <p class="font-semibold">8,45%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab Investimento Exterior -->
+                            <div id="tab-exterior" class="position-content" style="display: none;">
+                                <h3 class="font-bold mb-4">Investimento no Exterior</h3>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <div class="flex justify-between items-center mb-2">
+                                        <h4 class="font-semibold">BTG Pactual Int Port Fund II SPC - SP Capstone One - CYM</h4>
+                                        <span class="text-lg font-bold">R$ 2,66 bi</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600">Fundo offshore administrado pelo BTG Pactual com estratégias globais diversificadas</p>
+                                    <div class="mt-3 grid grid-cols-2 gap-4">
+                                        <div>
+                                            <p class="text-xs text-gray-500">% do Fundo</p>
+                                            <p class="font-semibold">15,84%</p>
+                                        </div>
+                                        <div>
+                                            <p class="text-xs text-gray-500">Jurisdição</p>
+                                            <p class="font-semibold">Cayman Islands</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab Derivativos -->
+                            <div id="tab-derivativos" class="position-content" style="display: none;">
+                                <h3 class="font-bold mb-4">Posições em Derivativos</h3>
+                                
+                                <!-- Opções -->
+                                <div class="mb-6">
+                                    <h4 class="font-semibold mb-4 text-gray-900">Opções</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="border border-gray-200 p-4 rounded-lg">
+                                            <h5 class="font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-2">Posições Lançadas</h5>
+                                            <p class="text-2xl font-bold text-gray-900 mb-1">R$ 219,13 mi</p>
+                                            <p class="text-sm text-gray-600">Principalmente BOVA11 (95,12%)</p>
+                                        </div>
+                                        <div class="border border-gray-200 p-4 rounded-lg">
+                                            <h5 class="font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-2">Posições Titulares</h5>
+                                            <p class="text-2xl font-bold text-gray-900 mb-1">R$ 67,07 mi</p>
+                                            <p class="text-sm text-gray-600">Diversificado em ações e índices</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Futuros -->
+                                <div>
+                                    <h4 class="font-semibold mb-4 text-gray-900">Mercado Futuro</h4>
+                                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                        <div class="border border-gray-200 p-4 rounded-lg">
+                                            <h5 class="font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-2">Posições Vendidas</h5>
+                                            <p class="text-2xl font-bold text-gray-900 mb-1">R$ 106,13 mi</p>
+                                            <p class="text-sm text-gray-600">DI Futuro e Dólar Futuro</p>
+                                        </div>
+                                        <div class="border border-gray-200 p-4 rounded-lg">
+                                            <h5 class="font-semibold text-gray-900 mb-2 border-b border-gray-200 pb-2">Posições Compradas</h5>
+                                            <p class="text-2xl font-bold text-gray-900 mb-1">-R$ 85,49 mi</p>
+                                            <p class="text-sm text-gray-600">Hedge e posicionamento tático</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Tab Outros -->
+                            <div id="tab-outros" class="position-content" style="display: none;">
+                                <h3 class="font-bold mb-4">Outros Ativos</h3>
+                                <div class="space-y-4">
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <h4 class="font-semibold">Operações Compromissadas</h4>
+                                            <span class="text-lg font-bold">R$ 2,95 bi (17,53%)</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">LFT com vencimento em 09/2028</p>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <h4 class="font-semibold">ETFs de Índice</h4>
+                                            <span class="text-lg font-bold">R$ 2,51 bi (14,95%)</span>
+                                        </div>
+                                        <div class="text-sm text-gray-600 space-y-1">
+                                            <p>• BOVA11: R$ 2,23 bi (88,93%)</p>
+                                            <p>• SMAL11: R$ 201,23 mi (8,01%)</p>
+                                            <p>• Outros: R$ 71,75 mi (2,86%)</p>
+                                        </div>
+                                    </div>
+
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <div class="flex justify-between items-center mb-2">
+                                            <h4 class="font-semibold">Aluguel de Ações</h4>
+                                            <span class="text-lg font-bold">R$ 429,19 mi (2,55%)</span>
+                                        </div>
+                                        <p class="text-sm text-gray-600">Ações cedidas em empréstimo para geração de renda adicional</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <style>
+                            .position-tab {
+                                color: #6b7280;
+                                border-color: transparent;
+                            }
+                            .position-tab:hover {
+                                color: #374151;
+                                border-color: #e5e7eb;
+                            }
+                            .position-tab.active-tab {
+                                color: #1f2937;
+                                border-color: #3b82f6;
+                            }
+                        </style>
+
+                        <script>
+                            function showPositionTab(tab) {
+                                // Esconde todos os conteúdos
+                                document.querySelectorAll('.position-content').forEach(content => {
+                                    content.style.display = 'none';
+                                });
+                                
+                                // Remove active de todas as tabs
+                                document.querySelectorAll('.position-tab').forEach(button => {
+                                    button.classList.remove('active-tab');
+                                });
+                                
+                                // Mostra o conteúdo selecionado
+                                document.getElementById('tab-' + tab).style.display = 'block';
+                                
+                                // Ativa a tab clicada
+                                event.target.classList.add('active-tab');
+                            }
+                        </script>
+                    </section>
+
+                    <!-- Desempenho -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Desempenho Histórico</h2>
+                        
+                        <p class="mb-6">
+                            Análise do desempenho do Capstone Macro A desde seu início, comparado ao CDI e outros benchmarks relevantes.
+                        </p>
+                        
+                        <div class="chart-container my-8">
+                            <canvas id="capstonePerformanceChart"></canvas>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-slate-50 p-4 rounded">
+                                <h3 class="font-bold mb-2">Retorno 2025 YTD</h3>
+                                <p class="text-3xl font-bold text-slate-800">+8,34%</p>
+                                <p class="text-sm text-slate-600">vs CDI: +5,98%</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded">
+                                <h3 class="font-bold mb-2">Retorno 12 meses</h3>
+                                <p class="text-3xl font-bold text-stone-800">+16,98%</p>
+                                <p class="text-sm text-stone-600">vs CDI: +11,86%</p>
+                            </div>
+                            <div class="bg-zinc-50 p-4 rounded">
+                                <h3 class="font-bold mb-2">Retorno desde início</h3>
+                                <p class="text-3xl font-bold text-zinc-800">+161,15%</p>
+                                <p class="text-sm text-zinc-600">vs CDI: +58,65%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto mb-8">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-gray-50">
+                                        <th class="py-2 px-3 border text-left">Período</th>
+                                        <th class="py-2 px-3 border text-center">Capstone</th>
+                                        <th class="py-2 px-3 border text-center">CDI</th>
+                                        <th class="py-2 px-3 border text-center">Alpha</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Junho/2025</td>
+                                        <td class="py-2 px-3 border text-center">+0,27%</td>
+                                        <td class="py-2 px-3 border text-center">+0,76%</td>
+                                        <td class="py-2 px-3 border text-center">-0,49%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Maio/2025</td>
+                                        <td class="py-2 px-3 border text-center">+0,06%</td>
+                                        <td class="py-2 px-3 border text-center">+1,14%</td>
+                                        <td class="py-2 px-3 border text-center">-1,08%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Abril/2025</td>
+                                        <td class="py-2 px-3 border text-center">+5,96%</td>
+                                        <td class="py-2 px-3 border text-center">+1,06%</td>
+                                        <td class="py-2 px-3 border text-center">+4,90%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">2024</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+11,66%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+10,87%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+0,79%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">2023</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+15,99%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+13,05%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+2,94%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">2022</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+30,87%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+12,37%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+18,50%</td>
+                                    </tr>
+                                    <tr class="bg-blue-50">
+                                        <td class="py-2 px-3 border font-semibold">Desde início</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">+161,15%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">+58,65%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">+102,50%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Comparativo com Pares -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Comparativo com Pares</h2>
+                        
+                        <p class="mb-6">
+                            Abaixo apresentamos uma análise comparativa com pares, considerando performance, estrutura, liquidez e custos efetivos.
+                        </p>
+                        
+                        <div class="overflow-x-auto mb-8">
+                            <table class="min-w-full bg-white border border-gray-200 rounded-xl shadow-sm">
+                                <thead>
+                                    <tr class="bg-gradient-to-r from-gray-50 to-gray-100">
+                                        <th class="py-4 px-6 text-left font-semibold text-gray-900 border-b border-gray-200">Métrica</th>
+                                        <th class="py-4 px-6 text-center font-semibold text-gray-900 border-b border-gray-200">Kapitalo I Kappa</th>
+                                        <th class="py-4 px-6 text-center font-semibold text-gray-900 border-b border-gray-200">SPX Nimitz Master</th>
+                                        <th class="py-4 px-6 text-center font-semibold text-gray-900 border-b border-gray-200 bg-gray-100">Capstone Macro A</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-gray-100">
+                                    <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                        <td class="py-3 px-6 font-medium text-gray-900">Taxa de Administração</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">1,40%</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">1,30%</td>
+                                        <td class="py-3 px-6 text-center font-medium text-gray-900">1,90%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                        <td class="py-3 px-6 font-medium text-gray-900">Taxa de Performance</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">20% s/ CDI</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">-</td>
+                                        <td class="py-3 px-6 text-center font-medium text-gray-900">20% s/ CDI</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                        <td class="py-3 px-6 font-medium text-gray-900">Aplicação Mínima</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">R$ 50.000</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">R$ 50.000</td>
+                                        <td class="py-3 px-6 text-center font-semibold text-gray-900">R$ 10.000</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                        <td class="py-3 px-6 font-medium text-gray-900">PL (R$ mi)</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">5,74</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">6.310</td>
+                                        <td class="py-3 px-6 text-center font-semibold text-gray-900">16.800</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                        <td class="py-3 px-6 font-medium text-gray-900">Retorno 12M</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">+16,62%</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">+16,03%</td>
+                                        <td class="py-3 px-6 text-center font-semibold text-gray-900">+16,98%</td>
+                                    </tr>
+                                    <tr class="hover:bg-gray-50 transition-colors duration-150">
+                                        <td class="py-3 px-6 font-medium text-gray-900">Sharpe 12M</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">0,90</td>
+                                        <td class="py-3 px-6 text-center text-gray-700">0,79</td>
+                                        <td class="py-3 px-6 text-center font-semibold text-gray-900">1,32</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-gray-50 to-white p-6 rounded-xl border border-gray-200 mt-6">
+                            <h4 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                <div class="w-1 h-6 bg-gray-400 rounded-full mr-3"></div>
+                                Síntese Comparativa
+                            </h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                O Capstone Macro A demonstra <strong>performance consistentemente superior</strong> (+16,98% vs +16,62% Kapitalo e +16,03% SPX) 
+                                com <strong>excelente gestão de risco</strong> (Sharpe 1,32 vs 0,90-0,79 dos pares). Destaca-se pela 
+                                <strong>maior acessibilidade</strong> (R$ 10k vs R$ 50k) e <strong>escala significativamente superior</strong> 
+                                (R$ 16,8 bi vs R$ 5,74 mi - 6,31 bi).
+                            </p>
+                        </div>
+                       
+                    </section>
+
+                    <!-- Considerações -->
+                    <section class="bg-white rounded-xl shadow-lg p-10 mb-8 border border-gray-100">
+                        <div class="relative">
+                            <!-- Barra lateral elegante -->
+                            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gray-800 via-gray-600 to-gray-400 rounded-full"></div>
+                            
+                            <div class="pl-10">
+                                <!-- Título principal -->
+                                <div class="mb-12">
+                                    <h2 class="text-4xl font-light text-gray-900 mb-3 tracking-tight">
+                                        Considerações sobre o Fundo
+                                    </h2>
+                                    <div class="w-20 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"></div>
+                                </div>
+                                
+                                <!-- Nota sobre reunião -->
+                                <div class="bg-blue-50 p-4 rounded-lg mb-6">
+                                    <p class="text-gray-700 italic">
+                                        <strong>Nota:</strong> Reunião feita com a equipe da Capstone no dia 24/06/2025
+                                    </p>
+                                </div>
+                                
+                                <!-- Perfil Institucional -->
+                                <div class="mb-16">
+                                    <div class="flex items-center mb-8">
+                                        <div class="relative">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-600 rounded-full flex items-center justify-center mr-5 shadow-md">
+                                                <div class="w-3 h-3 bg-white rounded-full opacity-90"></div>
+                                            </div>
+                                            <div class="absolute -inset-2 bg-gray-800 rounded-full opacity-20 animate-pulse"></div>
+                                        </div>
+                                        <h3 class="text-2xl font-medium text-gray-900 tracking-wide">Perfil Institucional</h3>
+                                    </div>
+                                    
+                                    <div class="ml-15 space-y-6">
+                                        <div class="group">
+                                            <div class="border-l-3 border-gray-300 group-hover:border-gray-500 transition-all duration-300 pl-8 py-3">
+                                                <p class="text-gray-700 leading-loose text-lg">
+                                                    <span class="font-semibold text-gray-900">Base de investidores:</span> 80% grandes bancos institucionais, 
+                                                    demonstrando confiança e relacionamento sólido com instituições financeiras de grande porte.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="group">
+                                            <div class="border-l-3 border-gray-300 group-hover:border-gray-500 transition-all duration-300 pl-8 py-3">
+                                                <p class="text-gray-700 leading-loose text-lg">
+                                                    <span class="font-semibold text-gray-900">Distribuição digital:</span> Apenas R$ 200MM dos R$ 22BI totais 
+                                                    vêm do BTG digital, reforçando o caráter institucional do fundo.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Estratégias de Investimento -->
+                                <div class="mb-16">
+                                    <div class="flex items-center mb-8">
+                                        <div class="relative">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-600 rounded-full flex items-center justify-center mr-5 shadow-md">
+                                                <div class="w-3 h-3 bg-white rounded-full opacity-90"></div>
+                                            </div>
+                                            <div class="absolute -inset-2 bg-gray-800 rounded-full opacity-20 animate-pulse"></div>
+                                        </div>
+                                        <h3 class="text-2xl font-medium text-gray-900 tracking-wide">Abordagem de Investimento</h3>
+                                    </div>
+                                    
+                                    <div class="ml-15 grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                        <div class="space-y-8">
+                                            <div class="group">
+                                                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-sm">
+                                                    <h4 class="font-semibold text-gray-900 mb-3 text-lg">Câmbio Global</h4>
+                                                    <p class="text-gray-600 leading-relaxed">
+                                                        Dólar americano como direcionador principal para operações em múltiplas moedas, 
+                                                        explorando tendências cambiais globais com precisão estratégica.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="group">
+                                                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-sm">
+                                                    <h4 class="font-semibold text-gray-900 mb-3 text-lg">Renda Variável</h4>
+                                                    <p class="text-gray-600 leading-relaxed">
+                                                        Long & Short Brasil com ~80 ativos, net controlado (-10% a +10%), 
+                                                        operações short via índice para máxima eficiência.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="space-y-8">
+                                            <div class="group">
+                                                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-sm">
+                                                    <h4 class="font-semibold text-gray-900 mb-3 text-lg">Expansão Estratégica</h4>
+                                                    <p class="text-gray-600 leading-relaxed">
+                                                        Novas áreas em Global Equities e Commodities para capturar 
+                                                        oportunidades micro específicas nos mercados internacionais.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="group">
+                                                <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-sm">
+                                                    <h4 class="font-semibold text-gray-900 mb-3 text-lg">Tecnologia Avançada</h4>
+                                                    <p class="text-gray-600 leading-relaxed">
+                                                        Data Science robusta com análise automatizada de relatórios 
+                                                        sell-side globais e monitoramento temático inteligente.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Pontos de Atenção -->
+                                <div class="mb-16">
+                                    <div class="flex items-center mb-8">
+                                        <div class="relative">
+                                            <div class="w-10 h-10 bg-gradient-to-br from-gray-800 to-gray-600 rounded-full flex items-center justify-center mr-5 shadow-md">
+                                                <div class="w-3 h-3 bg-white rounded-full opacity-90"></div>
+                                            </div>
+                                            <div class="absolute -inset-2 bg-gray-800 rounded-full opacity-20 animate-pulse"></div>
+                                        </div>
+                                        <h3 class="text-2xl font-medium text-gray-900 tracking-wide">Considerações Importantes</h3>
+                                    </div>
+                                    
+                                    <div class="ml-15">
+                                        <div class="bg-gradient-to-b from-white to-gray-50 border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                                            <div class="divide-y divide-gray-200">
+                                                <div class="p-8 hover:bg-gray-50 transition-colors duration-200">
+                                                    <div class="flex items-start space-x-5">
+                                                        <div class="flex-shrink-0 mt-2">
+                                                            <div class="w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <h4 class="font-semibold text-gray-900 mb-2 text-lg">Taxa de Administração Premium</h4>
+                                                            <p class="text-gray-600 leading-relaxed">
+                                                                1,90% a.a. reflete estratégia diferenciada e histórico de performance superior, 
+                                                                justificando o premium sobre fundos tradicionais do mercado.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-8 hover:bg-gray-50 transition-colors duration-200">
+                                                    <div class="flex items-start space-x-5">
+                                                        <div class="flex-shrink-0 mt-2">
+                                                            <div class="w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <h4 class="font-semibold text-gray-900 mb-2 text-lg">Exposição Internacional</h4>
+                                                            <p class="text-gray-600 leading-relaxed">
+                                                                15,84% em estrutura offshore "Capstone One" proporciona diversificação 
+                                                                geográfica e acesso privilegiado a estratégias globais em USD.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="p-8 hover:bg-gray-50 transition-colors duration-200">
+                                                    <div class="flex items-start space-x-5">
+                                                        <div class="flex-shrink-0 mt-2">
+                                                            <div class="w-2.5 h-2.5 bg-gray-500 rounded-full"></div>
+                                                        </div>
+                                                        <div class="flex-1">
+                                                            <h4 class="font-semibold text-gray-900 mb-2 text-lg">Política de Transparência</h4>
+                                                            <p class="text-gray-600 leading-relaxed">
+                                                                Ausência de rebates fortalece alinhamento de interesses entre gestora 
+                                                                e investidores, priorizando performance sobre captação pura.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Síntese Final -->
+                                <div class="border-t border-gray-200 pt-10">
+                                    <div class="relative">
+                                        <div class="bg-gradient-to-br from-gray-50 via-white to-gray-50 p-8 rounded-xl border border-gray-200 shadow-sm">
+                                            <!-- Badge de conclusão -->
+                                            <div class="absolute -top-4 left-8">
+                                                <div class="bg-white px-4 py-2 rounded-full border border-gray-200 shadow-sm">
+                                                    <span class="text-sm font-medium text-gray-700">Síntese Executiva</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="mt-4 space-y-6">
+                                                <div class="flex items-start space-x-4">
+                                                    <div class="w-1.5 h-8 bg-gradient-to-b from-gray-600 to-gray-400 rounded-full mt-1"></div>
+                                                    <div>
+                                                        <p class="text-gray-700 leading-loose text-lg">
+                                                            <strong class="text-gray-900">Estratégia sofisticada:</strong> O Capstone Macro A combina análise macroeconômica rigorosa 
+                                                            com execução disciplinada, respaldado por equipe experiente com significativo patrimônio próprio investido.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="flex items-start space-x-4">
+                                                    <div class="w-1.5 h-8 bg-gradient-to-b from-gray-600 to-gray-400 rounded-full mt-1"></div>
+                                                    <div>
+                                                        <p class="text-gray-700 leading-loose text-lg">
+                                                            <strong class="text-gray-900">Foco na qualidade:</strong> A gestora prioriza eficiência operacional e consistência de resultados 
+                                                            sobre crescimento desenfreado, mantendo estrutura enxuta e alta qualidade de investidores.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="flex items-start space-x-4">
+                                                    <div class="w-1.5 h-8 bg-gradient-to-b from-gray-600 to-gray-400 rounded-full mt-1"></div>
+                                                    <div>
+                                                        <p class="text-gray-700 leading-loose text-lg italic">
+                                                            <strong class="text-gray-900 not-italic">Performance histórica:</strong> +161,15% vs +58,65% do CDI desde o início (alfa de +102,50%), 
+                                                            demonstrando capacidade consistente de geração de valor superior no longo prazo.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    
+                    <script>
+                        // Gráfico de Estratégias - Capstone (baseado nas posições reais)
+                        const ctxCapstoneStrategy = document.getElementById('capstoneStrategyChart');
+                        if (ctxCapstoneStrategy) {
+                            new Chart(ctxCapstoneStrategy.getContext('2d'), {
+                                type: 'doughnut',
+                                data: {
+                                    labels: ['Ações Brasil', 'Inv. Exterior', 'Renda Fixa', 'ETFs/Índices', 'Derivativos'],
+                                    datasets: [{
+                                        data: [39.60, 15.84, 17.53, 14.95, 12.08],
+                                        backgroundColor: [
+                                            'rgba(59, 130, 246, 0.8)',
+                                            'rgba(34, 197, 94, 0.8)',
+                                            'rgba(251, 146, 60, 0.8)',
+                                            'rgba(147, 51, 234, 0.8)',
+                                            'rgba(239, 68, 68, 0.8)'
+                                        ],
+                                        borderColor: '#ffffff',
+                                        borderWidth: 2
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: {
+                                            position: 'bottom',
+                                            labels: {
+                                                padding: 20,
+                                                font: { size: 12 }
+                                            }
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    return context.label + ': ' + context.parsed.toFixed(2) + '%';
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                        
+                        // Gráfico de Classes de Ativos - Capstone (detalhamento)
+                        const ctxCapstoneAsset = document.getElementById('capstoneAssetChart');
+                        if (ctxCapstoneAsset) {
+                            new Chart(ctxCapstoneAsset.getContext('2d'), {
+                                type: 'pie',
+                                data: {
+                                    labels: ['Ações', 'Op. Compromissadas', 'Offshore', 'ETFs', 'Aluguel', 'Opções', 'Outros'],
+                                    datasets: [{
+                                        data: [39.60, 17.53, 15.84, 14.95, 2.55, 1.70, 7.83],
+                                        backgroundColor: [
+                                            'rgba(30, 58, 138, 0.8)',
+                                            'rgba(21, 94, 117, 0.8)',
+                                            'rgba(91, 33, 182, 0.8)',
+                                            'rgba(55, 65, 81, 0.8)',
+                                            'rgba(251, 146, 60, 0.8)',
+                                            'rgba(239, 68, 68, 0.8)',
+                                            'rgba(156, 163, 175, 0.8)'
+                                        ],
+                                        borderColor: '#ffffff',
+                                        borderWidth: 2
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: {
+                                            position: 'bottom',
+                                            labels: {
+                                                padding: 20,
+                                                font: { size: 12 }
+                                            }
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    return context.label + ': ' + context.parsed.toFixed(2) + '%';
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                        
+                        // Gráfico de Alocação por Fundos - Itaú Dolomitas
+                        const ctxDolomitasAsset = document.getElementById('dolomitasAssetChart');
+                        if (ctxDolomitasAsset) {
+                            new Chart(ctxDolomitasAsset.getContext('2d'), {
+                                type: 'doughnut',
+                                data: {
+                                    labels: [
+                                        'ITAU DOLOMITAS VÉRTICE DEB INCENTIVADAS FIF INCENTIVADO INFRA RF CP RL',
+                                        'ITAU CRÉDITO ESTRUTURADO DOLOMITAS I FIDC RL',
+                                        'ITAU DOLOMITAS LISTADOS FI FINANCEIRO MULTIMERCADO CP RL',
+                                        'ITAU ZERAGEM RF REFERENCIADO DI FI FINANCEIRO RL'
+                                    ],
+                                    datasets: [{
+                                        data: [65.46, 31.62, 1.11, 0.20],
+                                        backgroundColor: [
+                                            'rgba(79, 70, 229, 0.8)',
+                                            'rgba(129, 140, 248, 0.8)',
+                                            'rgba(167, 139, 250, 0.8)',
+                                            'rgba(192, 132, 252, 0.8)'
+                                        ],
+                                        borderColor: '#ffffff',
+                                        borderWidth: 2
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: {
+                                            position: 'bottom',
+                                            labels: {
+                                                padding: 20,
+                                                font: { size: 12 }
+                                            }
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    return context.label + ': ' + context.parsed.toFixed(2) + '%';
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        // Gráfico de Performance - Itaú Dolomitas (dados reais)
+                        const ctxDolomitasPerf = document.getElementById('dolomitasPerformanceChart');
+                        if (ctxDolomitasPerf) {
+                            const retornosFundoDolomitas = [
+                                // 2024
+                                0.15, 0.74, 1.02,
+                                // 2025
+                                0.79, 1.14, 1.32, 0.75, 1.27, 1.40
+                            ];
+
+                            const retornosCDIDolomitas = [
+                                // 2024
+                                0.77, 0.79, 0.93,
+                                // 2025
+                                1.01, 0.99, 0.96, 1.06, 1.14, 1.04
+                            ];
+
+                            const labelsDolomitas = [
+                                // 2024
+                                "Out/24", "Nov/24", "Dez/24",
+                                // 2025
+                                "Jan/25", "Fev/25", "Mar/25", "Abr/25", "Mai/25", "Jun/25"
+                            ];
+
+                            // Cálculo dos valores acumulados (base 100)
+                            let valorFundoDolomitas = 100;
+                            let valorCDIDolomitas = 100;
+                            const valoresFundoDolomitas = [100];
+                            const valoresCDIDolomitas = [100];
+
+                            for (let i = 0; i < retornosFundoDolomitas.length; i++) {
+                                valorFundoDolomitas = valorFundoDolomitas * (1 + retornosFundoDolomitas[i] / 100);
+                                valorCDIDolomitas = valorCDIDolomitas * (1 + retornosCDIDolomitas[i] / 100);
+                                valoresFundoDolomitas.push(valorFundoDolomitas);
+                                valoresCDIDolomitas.push(valorCDIDolomitas);
+                            }
+
+                            new Chart(ctxDolomitasPerf.getContext('2d'), {
+                                type: 'line',
+                                data: {
+                                    labels: ["Set/24"].concat(labelsDolomitas),
+                                    datasets: [{
+                                        label: 'Itaú Dolomitas',
+                                        data: valoresFundoDolomitas,
+                                        borderColor: 'rgba(79, 70, 229, 1)', // Cor azul para o Dolomitas
+                                        backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                                        tension: 0.4,
+                                        fill: true,
+                                        pointRadius: 0,
+                                        pointHoverRadius: 4
+                                    }, {
+                                        label: 'CDI',
+                                        data: valoresCDIDolomitas,
+                                        borderColor: 'rgba(156, 163, 175, 1)',
+                                        backgroundColor: 'transparent',
+                                        tension: 0.4,
+                                        borderDash: [5, 5],
+                                        pointRadius: 0,
+                                        pointHoverRadius: 4
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    interaction: {
+                                        mode: 'index',
+                                        intersect: false
+                                    },
+                                    plugins: {
+                                        legend: {
+                                            position: 'bottom',
+                                            labels: {
+                                                padding: 20,
+                                                usePointStyle: true,
+                                                font: { size: 12 }
+                                            }
+                                        },
+                                        tooltip: {
+                                            mode: 'index',
+                                            intersect: false,
+                                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                                            titleColor: '#1a365d',
+                                            bodyColor: '#374151',
+                                            borderColor: '#e5e7eb',
+                                            borderWidth: 1,
+                                            padding: 12,
+                                            displayColors: true,
+                                            callbacks: {
+                                                label: function(context) {
+                                                    let label = context.dataset.label || '';
+                                                    if (label) {
+                                                        label += ': ';
+                                                    }
+                                                    const value = context.parsed.y;
+                                                    const percentChange = ((value - 100) / 100 * 100).toFixed(2);
+                                                    label += value.toFixed(2) + ' (' + (percentChange >= 0 ? '+' : '') + percentChange + '%)';
+                                                    return label;
+                                                }
+                                            }
+                                        }
+                                    },
+                                    scales: {
+                                        y: {
+                                            beginAtZero: false,
+                                            min: 90,
+                                            grid: {
+                                                color: 'rgba(0, 0, 0, 0.05)'
+                                            },
+                                            ticks: {
+                                                font: { size: 11 },
+                                                callback: function(value) {
+                                                    return value.toFixed(0);
+                                                }
+                                            },
+                                            title: {
+                                                display: true,
+                                                text: 'Base 100',
+                                                font: { size: 12 }
+                                            }
+                                        },
+                                        x: {
+                                            grid: {
+                                                display: false
+                                            },
+                                            ticks: {
+                                                font: { size: 10 },
+                                                maxTicksLimit: 20
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+
+                        // Gráfico de Alocação por Fundos - Itaú Dolomitas
+                        const ctxDolomitasAsset = document.getElementById('dolomitasAssetChart');
+                        if (ctxDolomitasAsset) {
+                            new Chart(ctxDolomitasAsset.getContext('2d'), {
+                                type: 'doughnut',
+                                data: {
+                                    labels: [
+                                        'ITAU DOLOMITAS VÉRTICE DEB INCENTIVADAS FIF INCENTIVADO INFRA RF CP RL',
+                                        'ITAU CRÉDITO ESTRUTURADO DOLOMITAS I FIDC RL',
+                                        'ITAU DOLOMITAS LISTADOS FI FINANCEIRO MULTIMERCADO CP RL',
+                                        'ITAU ZERAGEM RF REFERENCIADO DI FI FINANCEIRO RL'
+                                    ],
+                                    datasets: [{
+                                        data: [65.46, 31.62, 1.11, 0.20],
+                                        backgroundColor: [
+                                            'rgba(79, 70, 229, 0.8)',
+                                            'rgba(129, 140, 248, 0.8)',
+                                            'rgba(167, 139, 250, 0.8)',
+                                            'rgba(192, 132, 252, 0.8)'
+                                        ],
+                                        borderColor: '#ffffff',
+                                        borderWidth: 2
+                                    }]
+                                },
+                                options: {
+                                    responsive: true,
+                                    maintainAspectRatio: false,
+                                    plugins: {
+                                        legend: {
+                                            position: 'bottom',
+                                            labels: {
+                                                padding: 20,
+                                                font: { size: 12 }
+                                            }
+                                        },
+                                        tooltip: {
+                                            callbacks: {
+                                                label: function(context) {
+                                                    return context.label + ': ' + context.parsed.toFixed(2) + '%';
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    </script>
+                </div>
+                
+                <!-- FIDC Silverado Fund -->
+                <div id="fidc-silverado" class="fund-section" style="display: none;">
+                    <!-- Visão Geral -->
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-gray-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">FIDC Multisetorial Silverado Maximum II</h2>
+                                <p class="text-gray-600">Última atualização: Junho de 2025</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-4">
+                            O <strong>FIDC Multisetorial Silverado Maximum II</strong> é um Fundo de Investimento em Direitos Creditórios que investe em direitos creditórios diversos, com foco em operações estruturadas e recebíveis de diferentes setores da economia.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-slate-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Tipo</h3>
+                                <p class="text-2xl font-bold text-slate-800">FIDC</p>
+                                <p class="text-sm text-slate-600">Multisetorial</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Valor no Chimborazo</h3>
+                                <p class="text-2xl font-bold text-stone-800">R$ 34,17K</p>
+                                <p class="text-sm text-stone-600">0,02% do PL</p>
+                            </div>
+                            <div class="bg-zinc-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Status</h3>
+                                <p class="text-lg font-bold text-zinc-800">Em Liquidação</p>
+                                <p class="text-sm text-zinc-600">Processo Judicial</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Estrutura do Fundo -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Fundo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">FIDC Multisetorial Silverado Maximum II</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Tipo</th>
+                                        <td class="py-3 px-4">Fundo de Investimento em Direitos Creditórios</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Classificação</th>
+                                        <td class="py-3 px-4">FIDC Multisetorial</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Administrador Atual</th>
+                                        <td class="py-3 px-4">Genial Investimentos</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestora Original</th>
+                                        <td class="py-3 px-4">Silverado (processo judicial em curso)</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Situação Atual</th>
+                                        <td class="py-3 px-4">Em processo de liquidação</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Participação no Chimborazo</th>
+                                        <td class="py-3 px-4">R$ 34.170,00 (0,02% do PL)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-50 p-4 rounded-lg">
+                            <h3 class="font-semibold mb-2 text-gray-900">Aviso Importante</h3>
+                            <p class="text-gray-700">
+                                Este fundo está em processo de liquidação judicial. A recuperação dos valores investidos depende do andamento do processo judicial em curso.
+                            </p>
+                        </div>
+                    </section>
+
+                   
+                    
+                    <!-- Considerações sobre o Fundo -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Considerações sobre o Fundo</h2>
+                        
+                        <div class="mb-6">
+                            <h3 class="text-xl font-semibold mb-4">Informações sobre o Processo Judicial</h3>
+                            <p class="text-gray-600 mb-4">
+                                O FIDC Multisetorial Silverado Maximum II encontra-se em processo judicial sob o número 1004306-59.2018.8.26.0100, 
+                                envolvendo questões relacionadas ao descumprimento de normas contratuais e regulamentares.
+                            </p>
+                        </div>
+                        
+                        <div class="space-y-6">
+                            <!-- Estágio Atual -->
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Estágio Atual do Processo (junho de 2025)</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                                    <p class="text-gray-700 mb-3">
+                                        <strong>Sentença Favorável:</strong> A sentença já condenou os réus, incluindo a gestora Silverado e a massa falida da Gradual, 
+                                        ao pagamento de danos materiais por descumprimento de normas contratuais e regulamentares.
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <h5 class="font-semibold text-gray-800 mb-2">Liquidação Provisória:</h5>
+                                    <p class="text-gray-700 mb-2">O juiz está apurando o valor exato a ser pago, com base em documentos e perícia contábil.</p>
+                                    <p class="text-gray-700 mb-2">A atual administradora, Genial Investimentos, deve prestar informações detalhadas sobre:</p>
+                                    <ul class="text-gray-600 list-disc list-inside ml-4 space-y-1">
+                                        <li>Todos os títulos na carteira do fundo (datas, valores e lastros)</li>
+                                        <li>Títulos que ainda podem gerar recebimento (judicial ou extrajudicial)</li>
+                                        <li>Valores já pagos ou baixados</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Cronograma -->
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Cronograma e Prazos</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <ul class="text-gray-700 space-y-2">
+                                        <li>A Genial tem 5 dias para encaminhar os documentos solicitados</li>
+                                        <li>Prazo adicional de 30 dias para resposta judicial</li>
+                                        <li>Possibilidade de arquivamento em caso de não resposta (decisão de 17/06/2025)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- Próximos Passos -->
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Situação do Pagamento</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 mb-3">Ainda não há data prevista para pagamento. Os próximos passos incluem:</p>
+                                    <ol class="text-gray-600 list-decimal list-inside space-y-1">
+                                        <li>Entrega da documentação pela Genial Investimentos</li>
+                                        <li>Nomeação de perito contábil, se necessário</li>
+                                        <li>Homologação do cálculo pelo juiz</li>
+                                        <li>Início da execução da sentença</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            
+                            <!-- Recursos e Timeline -->
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Recursos e Perspectivas</h4>
+                                <div class="bg-gray-50 p-4 rounded-lg">
+                                    <p class="text-gray-700 mb-3">
+                                        O processo ainda admite recursos, conforme evidenciado pelos embargos de declaração apresentados em 11/06/2025. 
+                                        As partes podem questionar tanto a condenação quanto o valor liquidado.
+                                    </p>
+                                    
+                                    <div class="mt-4">
+                                        <h5 class="font-semibold text-gray-800 mb-2">Situação Atual:</h5>
+                                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            <div>
+                                                <p class="text-sm text-gray-600">Sentença de mérito</p>
+                                                <p class="font-medium">Favorável à parte autora</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-gray-600">Valor exato</p>
+                                                <p class="font-medium">Em apuração</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-gray-600">Pagamento</p>
+                                                <p class="font-medium">Sem previsão concreta</p>
+                                            </div>
+                                            <div>
+                                                <p class="text-sm text-gray-600">Tempo estimado</p>
+                                                <p class="font-medium">Meses a mais de um ano</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Observação Final -->
+                            <div class="border-t pt-4">
+                                <p class="text-gray-600 text-sm">
+                                    <strong>Observação:</strong> Recomenda-se acompanhamento regular das movimentações processuais 
+                                    ou atuação por meio de advogado habilitado no processo para monitoramento.
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Vinci Fund -->
+                <div id="vinci" class="fund-section" style="display: none;">
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-purple-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Vinci FI Ações</h2>
+                                <p class="text-gray-600">Análise do fundo de ações</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Em construção - análise detalhada do Vinci FI Ações será adicionada em breve.</p>
+                    </div>
+                </div>
+                
+                <!-- Kinea Fund -->
+                <div id="kinea" class="fund-section" style="display: none;">
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-orange-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Kinea FI Ações</h2>
+                                <p class="text-gray-600">Análise do fundo de ações</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Em construção - análise detalhada do Kinea FI Ações será adicionada em breve.</p>
+                    </div>
+                </div>
+                
+                <!-- Itaú Dolomitas Fund -->
+                <div id="itau-dolomitas" class="fund-section" style="display: none;">
+                    <!-- Visão Geral -->
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-indigo-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h2 class="text-2xl font-bold">ITAÚ DOLOMITAS CENTRALIZADOR FIF DA CIC MULTIMERCADO CP RL</h2>
+                                <p class="text-gray-600">Última atualização: Julho de 2025</p>
+                            </div>
+                        </div>
+                        
+                        <p class="mb-4">
+                            O <strong>ITAÚ DOLOMITAS CENTRALIZADOR FIF DA CIC MULTIMERCADO CP RL</strong> é um fundo de investimento multimercado que busca rentabilidade através de alocação diversificada em diferentes classes de ativos, com foco em gestão ativa e preservação de capital no longo prazo.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                            <div class="bg-slate-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Taxa Admin</h3>
+                                <p class="text-3xl font-bold text-slate-800">0,06%</p>
+                                <p class="text-sm text-slate-600">ao ano</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">PL do Fundo</h3>
+                                <p class="text-3xl font-bold text-stone-800">R$ 509,55M</p>
+                                <p class="text-sm text-stone-600">Julho/2025</p>
+                            </div>
+                            <div class="bg-zinc-50 p-4 rounded">
+                                <h3 class="font-bold text-lg mb-2">Início</h3>
+                                <p class="text-3xl font-bold text-zinc-800">04/10/2024</p>
+                                <p class="text-sm text-zinc-600">9 meses de histórico</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Estrutura do Fundo -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Estrutura do Fundo</h2>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table">
+                                <tbody>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                        <td class="py-3 px-4">ITAÚ DOLOMITAS CENTRALIZADOR FIF DA CIC MULTIMERCADO CRÉDITO PRIVADO RESPONSABILIDADE LIMITADA</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">CNPJ</th>
+                                        <td class="py-3 px-4 font-mono">55.419.784/0001-89</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Classificação ANBIMA</th>
+                                        <td class="py-3 px-4">Multimercado - Estratégia Livre</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Gestora</th>
+                                        <td class="py-3 px-4">ITAU UNIBANCO ASSET MANAGEMENT</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Administrador</th>
+                                        <td class="py-3 px-4">ITAU UNIBANCO</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Taxa de Administração</th>
+                                        <td class="py-3 px-4">0,06% ao ano</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Taxa de Performance</th>
+                                        <td class="py-3 px-4">Não há</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Aplicação Mínima</th>
+                                        <td class="py-3 px-4">R$ 1,00</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Resgate</th>
+                                        <td class="py-3 px-4">DC+4 (cotização) / DC+5 (pagamento)</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Público Alvo</th>
+                                        <td class="py-3 px-4">Investidor Qualificado</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <th class="text-left py-3 px-4 font-semibold">Benchmark</th>
+                                        <td class="py-3 px-4">CDI</td>
+                                    </tr>
+                                    <tr class="border-b highlight-row">
+                                        <th class="text-left py-3 px-4 font-semibold">Cotistas</th>
+                                        <td class="py-3 px-4">35</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                            <h3 class="font-bold mb-2">Características Principais</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Fundo de fundos multimercado com estratégia livre</li>
+                                <li>Gestão focada em diversificação através de outros fundos do Itaú</li>
+                                <li>Taxa de administração extremamente competitiva (0,06% a.a.)</li>
+                                <li>Liquidez diária com prazo curto de resgate</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Composição e Estratégias -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Composição e Estratégias</h2>
+                        
+                        <p class="mb-6">
+                            O Itaú Dolomitas é um fundo de fundos que investe em uma carteira diversificada de fundos geridos pelo Itaú, buscando otimizar o perfil de risco-retorno através de alocação estratégica.
+                        </p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h3 class="font-bold mb-4 text-center">Alocação por Estratégia</h3>
+                                <div class="chart-container">
+                                    <canvas id="itauDolomitasCompositionChart"></canvas>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-bold mb-4 text-center">Detalhamento por Fundo</h3>
+                                <div class="space-y-3">
+                                    <div class="bg-stone-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-gray-900 mb-2">Renda Fixa - 66,54%</h4>
+                                        <p class="text-sm text-gray-700">ITAÚ DOLOMITAS VÉRTICE DEB INCENTIVADAS FIF INCENTIVADO INFRA RF CP RL</p>
+                                        <p class="text-xs text-gray-600 mt-1">Fundo focado em debêntures incentivadas de infraestrutura</p>
+                                    </div>
+                                    
+                                    <div class="bg-zinc-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-gray-900 mb-2">Crédito Estruturado - 32,14%</h4>
+                                        <p class="text-sm text-gray-700">ITAÚ CRÉDITO ESTRUTURADO DOLOMITAS I FIDC RL</p>
+                                        <p class="text-xs text-gray-600 mt-1">FIDC focado em direitos creditórios diversificados</p>
+                                    </div>
+                                    
+                                    <div class="bg-amber-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-gray-900 mb-2">Multimercado - 1,13%</h4>
+                                        <p class="text-sm text-gray-700">ITAÚ DOLOMITAS LISTADOS FI FINANCEIRO MULTIMERCADO CP RL</p>
+                                        <p class="text-xs text-gray-600 mt-1">Estratégias diversificadas em ativos listados</p>
+                                    </div>
+                                    
+                                    <div class="bg-gray-50 p-4 rounded-lg">
+                                        <h4 class="font-semibold text-gray-900 mb-2">Liquidez - 0,20%</h4>
+                                        <p class="text-sm text-gray-700">ITAÚ ZERAGEM RF REFERENCIADO DI FI FINANCEIRO RL</p>
+                                        <p class="text-xs text-gray-600 mt-1">Fundo de liquidez para gestão de caixa</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Desempenho -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Desempenho Histórico</h2>
+                        
+                        <p class="mb-6">
+                            Análise do desempenho do Itaú Dolomitas desde seu início em outubro de 2024, comparado ao CDI.
+                        </p>
+                        
+                        <div class="chart-container my-8">
+                            <canvas id="itauDolomitasPerformanceChart"></canvas>
+                        </div>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                            <div class="bg-slate-50 p-4 rounded">
+                                <h3 class="font-bold mb-2">Retorno 2025 YTD</h3>
+                                <p class="text-3xl font-bold text-slate-800">+6,85%</p>
+                                <p class="text-sm text-slate-600">vs CDI: +6,35%</p>
+                            </div>
+                            <div class="bg-stone-50 p-4 rounded">
+                                <h3 class="font-bold mb-2">Retorno 2024</h3>
+                                <p class="text-3xl font-bold text-stone-800">+1,92%</p>
+                                <p class="text-sm text-stone-600">vs CDI: +2,51%</p>
+                            </div>
+                            <div class="bg-zinc-50 p-4 rounded">
+                                <h3 class="font-bold mb-2">Retorno Total</h3>
+                                <p class="text-3xl font-bold text-zinc-800">+8,90%</p>
+                                <p class="text-sm text-zinc-600">vs CDI: +9,02%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="overflow-x-auto mb-8">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-gray-50">
+                                        <th class="py-2 px-3 border text-left">Período</th>
+                                        <th class="py-2 px-3 border text-center">Itaú Dolomitas</th>
+                                        <th class="py-2 px-3 border text-center">CDI</th>
+                                        <th class="py-2 px-3 border text-center">% do CDI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Jun/25</td>
+                                        <td class="py-2 px-3 border text-center">+1,40%</td>
+                                        <td class="py-2 px-3 border text-center">+1,04%</td>
+                                        <td class="py-2 px-3 border text-center">134,6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Mai/25</td>
+                                        <td class="py-2 px-3 border text-center">+1,27%</td>
+                                        <td class="py-2 px-3 border text-center">+1,14%</td>
+                                        <td class="py-2 px-3 border text-center">111,4%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Abr/25</td>
+                                        <td class="py-2 px-3 border text-center">+0,75%</td>
+                                        <td class="py-2 px-3 border text-center">+1,06%</td>
+                                        <td class="py-2 px-3 border text-center">70,8%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Mar/25</td>
+                                        <td class="py-2 px-3 border text-center">+1,32%</td>
+                                        <td class="py-2 px-3 border text-center">+0,96%</td>
+                                        <td class="py-2 px-3 border text-center">137,5%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Fev/25</td>
+                                        <td class="py-2 px-3 border text-center">+1,14%</td>
+                                        <td class="py-2 px-3 border text-center">+0,99%</td>
+                                        <td class="py-2 px-3 border text-center">115,2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Jan/25</td>
+                                        <td class="py-2 px-3 border text-center">+0,79%</td>
+                                        <td class="py-2 px-3 border text-center">+1,01%</td>
+                                        <td class="py-2 px-3 border text-center">78,2%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">2025 YTD</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+6,85%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+6,35%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">107,9%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Dez/24</td>
+                                        <td class="py-2 px-3 border text-center">+1,02%</td>
+                                        <td class="py-2 px-3 border text-center">+0,97%</td>
+                                        <td class="py-2 px-3 border text-center">105,2%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Nov/24</td>
+                                        <td class="py-2 px-3 border text-center">+0,74%</td>
+                                        <td class="py-2 px-3 border text-center">+0,93%</td>
+                                        <td class="py-2 px-3 border text-center">79,6%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Out/24</td>
+                                        <td class="py-2 px-3 border text-center">+0,15%</td>
+                                        <td class="py-2 px-3 border text-center">+0,77%</td>
+                                        <td class="py-2 px-3 border text-center">19,5%</td>
+                                    </tr>
+                                    <tr class="bg-gray-50">
+                                        <td class="py-2 px-3 border font-medium">2024</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+1,92%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">+2,51%</td>
+                                        <td class="py-2 px-3 border text-center font-medium">76,5%</td>
+                                    </tr>
+                                    <tr class="bg-blue-50">
+                                        <td class="py-2 px-3 border font-semibold">Desde início</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">+8,90%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">+9,02%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">98,7%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <!-- Métricas de Risco -->
+                    <section class="bg-white rounded-lg shadow p-6 mb-8">
+                        <h2 class="text-2xl font-bold section-title">Métricas de Risco</h2>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mt-6">
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <h4 class="text-sm text-gray-600 mb-2">Volatilidade Anual</h4>
+                                <p class="text-2xl font-bold text-gray-900">0,99%</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <h4 class="text-sm text-gray-600 mb-2">Índice de Sharpe</h4>
+                                <p class="text-2xl font-bold text-gray-900">1,13</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <h4 class="text-sm text-gray-600 mb-2">PL Médio 12M</h4>
+                                <p class="text-2xl font-bold text-gray-900">R$ 298,44M</p>
+                            </div>
+                            <div class="bg-gray-50 p-4 rounded-lg text-center">
+                                <h4 class="text-sm text-gray-600 mb-2">Drawdown Máx</h4>
+                                <p class="text-2xl font-bold text-gray-900">-0,14%</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <p class="text-sm text-yellow-800">
+                                <strong>Nota:</strong> O fundo apresenta baixa volatilidade e risco controlado, adequado para investidores que buscam retornos consistentes acima do CDI com exposição limitada a oscilações de mercado.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Considerações -->
+                    <section class="bg-white rounded-xl shadow-lg p-10 mb-8 border border-gray-100">
+                        <div class="relative">
+                            <div class="absolute left-0 top-0 bottom-0 w-1.5 bg-gradient-to-b from-gray-800 via-gray-600 to-gray-400 rounded-full"></div>
+                            
+                            <div class="pl-10">
+                                <div class="mb-12">
+                                    <h2 class="text-4xl font-light text-gray-900 mb-3 tracking-tight">
+                                        Considerações sobre o Fundo
+                                    </h2>
+                                    <div class="w-20 h-0.5 bg-gradient-to-r from-gray-400 to-transparent"></div>
+                                </div>
+                                
+                                <div class="space-y-8">
+                                    <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200">
+                                        <h3 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                            <div class="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
+                                            Estrutura e Gestão
+                                        </h3>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            O Itaú Dolomitas é um fundo de fundos que oferece acesso diversificado a estratégias de renda fixa 
+                                            e crédito estruturado através de uma taxa de administração extremamente competitiva de apenas 0,06% a.a., 
+                                            uma das menores do mercado para fundos multimercado.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200">
+                                        <h3 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                            <div class="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
+                                            Estratégia de Investimento
+                                        </h3>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            A alocação concentrada em debêntures incentivadas (66,54%) e crédito estruturado (32,14%) 
+                                            demonstra foco em ativos de renda fixa com benefícios fiscais e spreads de crédito atrativos, 
+                                            buscando retornos superiores ao CDI com volatilidade controlada.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200">
+                                        <h3 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                            <div class="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
+                                            Performance e Consistência
+                                        </h3>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            Com retorno acumulado de 98,7% do CDI desde o início e Sharpe de 1,13, o fundo demonstra 
+                                            capacidade de entregar retornos consistentes próximos ao benchmark com baixíssima volatilidade (0,99% a.a.), 
+                                            adequado para a camada de manutenção de patrimônio.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="bg-gradient-to-br from-gray-50 to-white p-6 rounded-lg border border-gray-200">
+                                        <h3 class="font-semibold text-gray-900 mb-3 flex items-center">
+                                            <div class="w-2 h-2 bg-gray-600 rounded-full mr-3"></div>
+                                            Pontos de Atenção
+                                        </h3>
+                                        <p class="text-gray-700 leading-relaxed">
+                                            O fundo é relativamente novo (início em outubro/2024), portanto ainda possui histórico limitado. 
+                                            A performance ligeiramente abaixo do CDI no acumulado pode ser atribuída ao período inicial de 
+                                            estruturação e à natureza conservadora das estratégias implementadas.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- Itaú Vértice Ibovespa Fund -->
+                <div id="itau-vertice-ibovespa" class="fund-section" style="display: none;">
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-red-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Itaú Vértice Ibovespa FI Ações</h2>
+                                <p class="text-gray-600">Análise do fundo indexado</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Em construção - análise detalhada do Itaú Vértice Ibovespa FI Ações será adicionada em breve.</p>
+                    </div>
+                </div>
+                
+                <!-- Itaú Vértice RF Fund -->
+                <div id="itau-vertice-rf" class="fund-section" style="display: none;">
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-teal-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Itaú Vértice RF FI Renda Fixa</h2>
+                                <p class="text-gray-600">Análise do fundo de renda fixa</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Em construção - análise detalhada do Itaú Vértice RF FI Renda Fixa será adicionada em breve.</p>
+                    </div>
+                </div>
+                
+                <!-- Itaú Caixa Fund -->
+                <div id="itau-caixa" class="fund-section" style="display: none;">
+                    <div class="bg-white rounded-lg shadow p-6 mb-8">
+                        <div class="flex items-center mb-6">
+                            <div class="bg-gray-600 rounded-full p-3 mr-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <h2 class="text-2xl font-bold">Itaú Caixa FI Referenciado DI</h2>
+                                <p class="text-gray-600">Análise do fundo de caixa</p>
+                            </div>
+                        </div>
+                        <p class="mb-4">Em construção - análise detalhada do Itaú Caixa FI Referenciado DI será adicionada em breve.</p>
+                    </div>
+                </div>
+                
+                <!-- Adicionar outras seções de fundos conforme necessário -->
+                
+            </div>
+            <!-- Fim Container de Fundos -->
+
+        </main>
+    </div>
+
+
+    <script>
+        // Função para mostrar/esconder fundos
+        function showFund(fundId) {
+            // Esconde todos os fundos
+            const allFunds = document.querySelectorAll('.fund-section');
+            allFunds.forEach(fund => {
+                fund.style.display = 'none';
+            });
+            
+            // Mostra o fundo selecionado
+            const selectedFund = document.getElementById(fundId);
+            if (selectedFund) {
+                selectedFund.style.display = 'block';
+            }
+            
+            // Atualiza botões
+            const allButtons = document.querySelectorAll('.fund-button');
+            allButtons.forEach(button => {
+                button.classList.remove('bg-blue-900', 'text-white');
+                button.classList.add('bg-gray-200', 'text-gray-700');
+            });
+            
+            // Destaca o botão selecionado
+            const selectedButton = document.querySelector(`[onclick="showFund('${fundId}')"]`);
+            if (selectedButton) {
+                selectedButton.classList.remove('bg-gray-200', 'text-gray-700');
+                selectedButton.classList.add('bg-blue-900', 'text-white');
+            }
+        }
+        
+        // Configuração dos gráficos
+        Chart.defaults.font.family = '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif';
+        
+        // Gráfico de Classe ANBIMA
+        const ctxClasse = document.getElementById('chartClasseAnbima').getContext('2d');
+        const chartClasseAnbima = new Chart(ctxClasse, {
+            type: 'pie',
+                            data: {
+                    labels: ['Ações', 'Multimercado', 'Alternativos', 'Renda Fixa'],
+                    datasets: [{
+                        data: [70.52, 19.00, 10.37, 0.11],
+                    backgroundColor: [
+                        'rgba(30, 58, 138, 0.9)',
+                        'rgba(21, 94, 117, 0.9)',
+                        'rgba(91, 33, 182, 0.9)',
+                        'rgba(55, 65, 81, 0.9)'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Camadas
+        const ctxCamadas = document.getElementById('chartCamadas').getContext('2d');
+        const chartCamadas = new Chart(ctxCamadas, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ganho', 'Manutenção', 'Preservação'],
+                datasets: [{
+                    data: [80.89, 19.00, 0.11],
+                    backgroundColor: [
+                        'rgba(252, 165, 165, 0.9)',
+                        'rgba(251, 146, 60, 0.9)',
+                        'rgba(59, 130, 246, 0.9)'
+                    ],
+                    borderColor: '#ffffff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '60%',
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return context.label + ': ' + context.parsed.toFixed(2) + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Gráfico de Evolução Patrimonial
+        const ctxEvolucao = document.getElementById('chartEvolucao').getContext('2d');
+        
+        // Dados reais desde o início do fundo (Set/2024)
+        const retornosMensais = [
+            -1.67,  // set/24
+            -0.26,  // out/24
+            -2.54,  // nov/24
+            -1.03,  // dez/24
+            2.68,   // jan/25
+            -0.74,  // fev/25
+            2.17,   // mar/25
+            5.77,   // abr/25
+            2.16,   // mai/25
+            0.79    // jun/25
+        ];
+        
+        const retornosCDI = [
+            0.52,   // set/24
+            0.93,   // out/24
+            0.79,   // nov/24
+            0.93,   // dez/24
+            1.01,   // jan/25
+            0.99,   // fev/25
+            0.96,   // mar/25
+            1.06,   // abr/25
+            1.14,   // mai/25
+            0.65    // jun/25
+        ];
+        
+        const retornosIbov = [
+            -2.12,  // set/24
+            -1.60,  // out/24
+            -3.12,  // nov/24
+            -4.28,  // dez/24
+            4.86,   // jan/25
+            -2.64,  // fev/25
+            6.08,   // mar/25
+            3.69,   // abr/25
+            1.45,   // mai/25
+            1.32    // jun/25
+        ];
+        
+        // Calculando valores acumulados base 100
+        let valorChimborazo = 100;
+        let valorCDI = 100;
+        let valorIbov = 100;
+        const valoresChimborazo = [100];
+        const valoresCDI = [100];
+        const valoresIbov = [100];
+        
+        for (let i = 0; i < retornosMensais.length; i++) {
+            valorChimborazo = valorChimborazo * (1 + retornosMensais[i] / 100);
+            valorCDI = valorCDI * (1 + retornosCDI[i] / 100);
+            valorIbov = valorIbov * (1 + retornosIbov[i] / 100);
+            valoresChimborazo.push(valorChimborazo);
+            valoresCDI.push(valorCDI);
+            valoresIbov.push(valorIbov);
+        }
+        
+        const chartEvolucao = new Chart(ctxEvolucao, {
+            type: 'line',
+            data: {
+                labels: ['Ago/24', 'Set/24', 'Out/24', 'Nov/24', 'Dez/24', 'Jan/25', 'Fev/25', 'Mar/25', 'Abr/25', 'Mai/25', 'Jun/25'],
+                datasets: [{
+                    label: 'Chimborazo',
+                    data: valoresChimborazo,
+                    borderColor: 'rgba(26, 54, 93, 1)',
+                    backgroundColor: 'rgba(26, 54, 93, 0.05)',
+                    tension: 0.4,
+                    fill: true,
+                    pointBackgroundColor: 'rgba(26, 54, 93, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }, {
+                    label: 'CDI',
+                    data: valoresCDI,
+                    borderColor: 'rgba(156, 163, 175, 1)',
+                    backgroundColor: 'transparent',
+                    tension: 0.4,
+                    fill: false,
+                    borderDash: [5, 5],
+                    pointRadius: 0,
+                    pointHoverRadius: 0
+                }, {
+                    label: 'Ibovespa',
+                    data: valoresIbov,
+                    borderColor: 'rgba(220, 38, 38, 1)',
+                    backgroundColor: 'transparent',
+                    tension: 0.4,
+                    fill: false,
+                    borderDash: [3, 3],
+                    pointRadius: 0,
+                    pointHoverRadius: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            padding: 20,
+                            usePointStyle: true,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                        titleColor: '#1a365d',
+                        bodyColor: '#374151',
+                        borderColor: '#e5e7eb',
+                        borderWidth: 1,
+                        padding: 12,
+                        displayColors: true,
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                const value = context.parsed.y;
+                                const percentChange = ((value - 100) / 100 * 100).toFixed(2);
+                                label += value.toFixed(2) + ' (' + (percentChange >= 0 ? '+' : '') + percentChange + '%)';
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 11
+                            }
+                        }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        min: 85,
+                        max: 120,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 11
+                            },
+                            callback: function(value) {
+                                return value.toFixed(0);
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: 'Base 100',
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Navegação do dropdown
+        document.getElementById('productSelector').addEventListener('change', function(e) {
+            const value = e.target.value;
+            if (value === 'inicio') {
+                window.location.href = 'index.html';
+            } else if (value === 'chimborazo') {
+                // Já estamos na página do Chimborazo
+            }
+        });
+    </script>
+</body>
+</html> 

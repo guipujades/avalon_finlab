@@ -1,0 +1,13 @@
+ANÁLISE DE CUSTOS - FUNDO CHIMBORAZO
+============================================================
+
+Data base: Maio/2025
+Patrimônio Total: R$ 148,072,426.33
+
+RESUMO DOS CUSTOS:
+Camada 0 (Itaú 0.35%):          R$ 518,253.49
+Camada 1 (Fundos diretos):      R$ 553,000.74
+Camada 2 - PE/FIDC (estimado):  R$ 512,797.86
+Camada 2 - Outros (parcial):    R$ 575,214.20
+TOTAL CALCULÁVEL:               R$ 2,159,266.29
+TAXA EFETIVA:                   1.4583%

@@ -1,0 +1,26 @@
+{
+  "data_execucao": "2025-06-27 10:17:06",
+  "sistema_operacional": "Windows",
+  "python_version": "3.13.3",
+  "caminho_dados": "C:\\Users\\guilh\\documents\\github\\database\\chimpa",
+  "total": 22,
+  "sucesso": 22,
+  "falhas": [],
+  "anos": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "tipos": [
+    "ITR",
+    "DFP"
+  ]
+}

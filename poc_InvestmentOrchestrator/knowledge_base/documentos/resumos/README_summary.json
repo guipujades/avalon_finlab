@@ -1,0 +1,27 @@
+{
+  "document_path": "README.md",
+  "parsing_result": {
+    "status": "success",
+    "content": "# Base de Conhecimento Local\n\n## Estrutura de Pastas\n\n- **documentos/**: Arquivos de texto (PDF, DOCX, TXT, MD)\n  - relatorios/: Relatórios formais\n  - pesquisas/: Documentos de pesquisa\n  - notas/: Notas e rascunhos\n\n- **audio/**: Arquivos de áudio (MP3, WAV, M4A)\n  - reunioes/: Gravações de reuniões\n  - podcasts/: Podcasts relevantes\n  - notas_voz/: Notas de voz pessoais\n\n- **video/**: Arquivos de vídeo (MP4, AVI, MOV)\n  - apresentacoes/: Vídeos de apresentações\n  - tutoriais/: Vídeos educacionais\n\n- **imagens/**: Imagens e gráficos\n  - graficos/: Gráficos e visualizações\n  - diagramas/: Diagramas e fluxogramas\n\n## Formatos Suportados\n\n### Documentos\n- PDF, TXT, DOCX, DOC, MD, RTF\n\n### Áudio\n- MP3, WAV, M4A, FLAC, OGG, AAC\n- Processamento automático de transcrição\n\n### Vídeo\n- MP4, AVI, MOV, MKV, WEBM\n- Extração e transcrição de áudio\n\n## Como Adicionar Conteúdo\n\n1. Coloque os arquivos nas pastas apropriadas\n2. Execute o comando 'scan' no sistema\n3. Os arquivos serão indexados automaticamente\n\n## Processamento de Mídia\n\n- Áudio e vídeo são transcritos automaticamente\n- As transcrições são armazenadas em cache\n- O conteúdo transcrito fica pesquisável\n",
+    "summary": {
+      "word_count": 175,
+      "sections": [
+        "# Base de Conhecimento Local",
+        "## Estrutura de Pastas",
+        "## Formatos Suportados",
+        "### Documentos",
+        "- PDF, TXT, DOCX, DOC, MD, RTF"
+      ],
+      "entities": [],
+      "has_tables": false,
+      "has_numbers": false,
+      "preview": "# Base de Conhecimento Local\n\n## Estrutura de Pastas\n\n- **documentos/**: Arquivos de texto (PDF, DOCX, TXT, MD)\n  - relatorios/: Relatórios formais\n  - pesquisas/: Documentos de pesquisa\n  - notas/: Notas e rascunhos\n\n- **audio/**: Arquivos de áudio (MP3, WAV, M4A)\n  - reunioes/: Gravações de reuniõ..."
+    },
+    "metadata": {
+      "parser": "basic_text",
+      "file_path": "knowledge_base\\README.md"
+    }
+  },
+  "created_at": "2025-06-04T00:14:12.330079",
+  "content_preview": "# Base de Conhecimento Local\n\n## Estrutura de Pastas\n\n- **documentos/**: Arquivos de texto (PDF, DOCX, TXT, MD)\n  - relatorios/: Relatórios formais\n  - pesquisas/: Documentos de pesquisa\n  - notas/: Notas e rascunhos\n\n- **audio/**: Arquivos de áudio (MP3, WAV, M4A)\n  - reunioes/: Gravações de reuniões\n  - podcasts/: Podcasts relevantes\n  - notas_voz/: Notas de voz pessoais\n\n- **video/**: Arquivos de vídeo (MP4, AVI, MOV)\n  - apresentacoes/: Vídeos de apresentações\n  - tutoriais/: Vídeos educacionais\n\n- **imagens/**: Imagens e gráficos\n  - graficos/: Gráficos e visualizações\n  - diagramas/: Diagramas e fluxogramas\n\n## Formatos Suportados\n\n### Documentos\n- PDF, TXT, DOCX, DOC, MD, RTF\n\n### Áudio\n- MP3, WAV, M4A, FLAC, OGG, AAC\n- Processamento automático de transcrição\n\n### Vídeo\n- MP4, AVI, MOV, MKV, WEBM\n- Extração e transcrição de áudio\n\n## Como Adicionar Conteúdo\n\n1. Coloque os arquivos nas pastas apropriadas\n2. Execute o comando 'scan' no sistema\n3. Os arquivos serão indexados automa"
+}

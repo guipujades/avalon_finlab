@@ -1,0 +1,15 @@
+
+================================================================================
+📊 RELATÓRIO COMPLETO DE ANÁLISE DE PORTFÓLIO BTG
+================================================================================
+📅 Data da análise: 09/07/2025 16:39:05
+🏢 Parceiro CNPJ: 47952345000109
+
+📈 RESUMO GERAL:
+   • Total de contas analisadas: 0
+   • Valor total sob gestão: R$ 0.00
+
+⚠️ ERROS ENCONTRADOS:
+   • Conta 004300296: unsupported operand type(s) for +=: 'int' and 'str'
+
+================================================================================

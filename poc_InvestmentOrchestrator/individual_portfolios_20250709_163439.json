@@ -1,0 +1,29 @@
+{
+  "tested_accounts": 3,
+  "found_accounts": 1,
+  "total_value": 0.0,
+  "accounts_data": [
+    {
+      "account_number": "004300296",
+      "total_amount": 0,
+      "position_date": "2025-07-09T00:00:00",
+      "has_funds": true,
+      "has_stocks": false,
+      "has_fixed_income": true,
+      "artesanal_funds": [
+        {
+          "name": "Artesanal Renda Fixa FIRF",
+          "balance": 0
+        },
+        {
+          "name": "Artesanal Credito Privado FICFIM",
+          "balance": 0
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "Conta 000000001: 401 Client Error: Unauthorized for url: https://api.btgpactual.com/iaas-api-position/api/v1/position/000000001",
+    "Conta 123456789: 401 Client Error: Unauthorized for url: https://api.btgpactual.com/iaas-api-position/api/v1/position/123456789"
+  ]
+}

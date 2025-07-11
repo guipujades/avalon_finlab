@@ -1,0 +1,49 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Relatório Consolidado de Carteiras</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            h1, h2 { color: #333366; }
+            .container { max-width: 1200px; margin: 0 auto; }
+            .grafico { text-align: center; margin: 30px 0; }
+            img { max-width: 100%; border: 1px solid #ddd; }
+            .footer { text-align: center; margin-top: 40px; color: #666; font-size: 12px; }
+            .fundo-table { width: 100%; border-collapse: collapse; margin-bottom: 30px; }
+            .fundo-table th { background-color: #f2f2f2; padding: 10px; text-align: left; border: 1px solid #ddd; }
+            .fundo-table td { padding: 8px; border: 1px solid #ddd; }
+            .fundo-table tr:nth-child(even) { background-color: #f9f9f9; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Relatório Consolidado de Carteiras</h1>
+            <p>Data de referência: 2025-02</p>
+            
+            <h2>Resumo dos Fundos</h2>
+            <table class='fundo-table'><tr><th>Fundo</th><th>Último Valor</th><th>Valor Médio</th><th>Data Inicial</th><th>Data Final</th></tr><tr><td>Chimborazo</td><td>R$ 134.84M</td><td>R$ 122.25M</td><td>2024-09</td><td>2025-02</td></tr><tr><td>Aconcagua</td><td>R$ 287.11M</td><td>R$ 324.47M</td><td>2019-01</td><td>2025-02</td></tr><tr><td>Alpamayo</td><td>R$ 92.84M</td><td>R$ 95.33M</td><td>2024-09</td><td>2025-02</td></tr><tr><td>Huayna</td><td>R$ 0.06M</td><td>R$ 40.48M</td><td>2019-09</td><td>2025-02</td></tr></table>
+            
+            <h2>Evolução do Patrimônio</h2>
+            <div class="grafico">
+                <img src="../graficos_fundos_consolidados/evolucao_patrimonio_fundos.png" alt="Evolução do Patrimônio">
+            </div>
+    
+            <h2>Composição por Categoria e Fundo</h2>
+            <div class="grafico">
+                <img src="../graficos_fundos_consolidados/composicao_por_fundo.png" alt="Composição por Fundo">
+            </div>
+        
+            <h2>Distribuição Consolidada por Categoria</h2>
+            <div class="grafico">
+                <img src="../graficos_fundos_consolidados/distribuicao_categoria_consolidada.png" alt="Distribuição por Categoria">
+            </div>
+        
+            <div class="footer">
+                <p>Relatório gerado em 09/04/2025 12:00</p>
+            </div>
+        </div>
+    </body>
+    </html>
+    

@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise do ETF Vanguard S&P 500 (VUAA LN)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <link rel="stylesheet" href="../../common-styles.css">
+    <script src="../../common-scripts.js"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="inicio">← Voltar ao Início</option>
+                    <option value="vuaa" selected>Vanguard S&P 500 UCITS ETF (VUAA LN)</option>
+                    <option value="harris">Harris Associates U.S. Value Equity Fund R/A (USD)</option>
+                    <option value="vontobel">Vontobel Fund - Emerging Markets Equity B USD</option>
+                    <option value="private-equity">Private Equity</option>
+                    <option value="us-corporates">Renda Fixa</option>
+                    <option value="hedge-funds">Hedge Funds</option>
+                </select>
+            </div>
+            <p class="mt-4 text-gray-400 text-sm">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#estrutura" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Estrutura do Ativo</a></li>
+                    <li><a href="#taxas" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Análise de Taxas</a></li>
+                    <li><a href="#comparativo" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Comparativo com Pares</a></li>
+                    <li><a href="#composicao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Composição da Carteira</a></li>
+                    <li><a href="#desempenho" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Desempenho Histórico</a></li>
+                    <li><a href="#consideracoes" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Considerações sobre o produto</a></li>
+                    <li><a href="#radar-mercado" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Radar de Mercado</a></li>
+                    <li><a href="#recomendacao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Recomendação Final</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-600 rounded-full p-3 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Visão Geral</h2>
+                        <p class="text-gray-600">Última atualização: 13 de maio de 2025</p>
+                    </div>
+                </div>
+                
+                <p class="mb-4">
+                    O <strong><a href="https://www.nl.vanguard/professional/product/etf/equity/9694/sp-500-ucits-etf-usd-accumulating" target="_blank" class="text-black-600 hover:text-blue-800 underline">Vanguard S&P 500 UCITS ETF USD Accumulating (VUAA LN)</strong></a> é um ETF que <strong>replica o desempenho do índice S&P 500</strong>, oferecendo exposição às 500 maiores empresas americanas. Esta análise examina em profundidade sua estrutura, taxas, composição e desempenho, proporcionando um panorama completo para decisões de investimento informadas.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">TER</h3>
+                        <p class="text-3xl font-bold text-slate-800">0,07%</p>
+                        <p class="text-sm text-slate-600">Taxa de Despesa Total</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">AUM</h3>
+                        <p class="text-3xl font-bold text-stone-800">$62,51B</p>
+                        <p class="text-sm text-stone-600">Ativos sob Gestão</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Lançamento</h3>
+                        <p class="text-3xl font-bold text-zinc-800">2019</p>
+                        <p class="text-sm text-zinc-600">14 de maio de 2019</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção: Estrutura do ETF -->
+            <section id="estrutura" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full data-table">
+                        <tbody>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                <td class="py-3 px-4">Vanguard S&P 500 UCITS ETF USD Accumulating</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Ticker</th>
+                                <td class="py-3 px-4">VUAA LN</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">ISIN</th>
+                                <td class="py-3 px-4">IE00BFMXXD54</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Domicílio</th>
+                                <td class="py-3 px-4">Irlanda</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Data de Lançamento</th>
+                                <td class="py-3 px-4">14 de maio de 2019</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Estrutura Regulatória</th>
+                                <td class="py-3 px-4">UCITS (Undertakings for Collective Investment in Transferable Securities)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Taxa de Despesa Total (TER)</th>
+                                <td class="py-3 px-4">0,07% ao ano</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Política de Dividendos</th>
+                                <td class="py-3 px-4">Acumulação (reinvestimento automático)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Ativos sob Gestão</th>
+                                <td class="py-3 px-4">Aproximadamente 62,51 bilhões de dólares</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">NAV (Valor Patrimonial Líquido)</th>
+                                <td class="py-3 px-4">100,87 USD</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Método de Replicação</th>
+                                <td class="py-3 px-4">Física completa (compra todos os componentes do índice)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Moeda Base</th>
+                                <td class="py-3 px-4">USD</td>
+                            </tr>
+                            <tr class=>
+                                <th class="text-left py-3 px-4 font-semibold">Provedor</th>
+                                <td class="py-3 px-4">Vanguard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">Pontos-chave da Estrutura</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Estrutura UCITS proporciona alto nível de proteção ao investidor e diversificação obrigatória</li>
+                        <li>Domicílio na Irlanda oferece vantagens fiscais para investidores internacionais</li>
+                        <li>Política de acumulação (reinvestimento automático de dividendos) favorece crescimento de longo prazo</li>
+                        <li>Método de replicação física completa minimiza o tracking error em relação ao índice</li>
+                        <li>Tamanho significativo do fundo ($62,51B) indica ampla aceitação pelo mercado e boa liquidez</li>
+                    </ul>
+                </div>
+
+                <!-- Gestão do Fundo -->
+<div class="mt-8 bg-white p-6 rounded-lg border border-gray-200">
+    <h3 class="font-bold text-xl mb-4">Sobre a Gestão</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Gestora -->
+        <div class="bg-slate-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-lg mb-3">Vanguard Asset Management</h4>
+            <div class="space-y-3">
+                <p class="text-gray-700">
+                    A Vanguard é uma das maiores gestoras de ETFs do mundo, com mais de US$ 7 trilhões em ativos sob gestão globalmente. Fundada em 1975, é reconhecida por sua abordagem de baixo custo e foco no investidor.
+                </p>
+
+            </div>
+        </div>
+
+        <!-- Gestão do ETF -->
+        <div class="bg-stone-50 p-4 rounded-lg">
+            <h4 class="font-semibold text-lg mb-3">Gestão do VUAA</h4>
+            <div class="space-y-3">
+                <p class="text-gray-700">
+                    O VUAA é um ETF de gestão passiva que replica o índice S&P 500. A gestão é realizada por uma equipe dedicada da Vanguard, focada em minimizar o tracking error e otimizar a eficiência operacional.
+                </p>
+ 
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-6 bg-blue-50 p-4 rounded-lg">
+        <h4 class="font-semibold mb-2">Nota sobre Governança</h4>
+        <p class="text-gray-700 text-sm">
+            A Vanguard mantém um robusto framework de governança para seus ETFs, com comitês dedicados à supervisão de riscos, conformidade e operações. O VUAA, como todos os ETFs da Vanguard, é submetido a rigorosos controles de qualidade e monitoramento contínuo de desempenho.
+        </p>
+    </div>
+</div>
+
+            </section>
+            
+            <!-- Seção: Análise de Taxas -->
+            <section id="taxas" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Análise de Taxas</h2>
+                
+                <p class="mb-4">
+                    A Taxa de Despesa Total (TER) do é de 0,07% ao ano, que se compara da seguinte forma com alguns pares de mercado:
+                </p>
+                
+                <div class="chart-container my-6">
+                    <canvas id="terChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Comparação de TER com Concorrentes</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">ETF</th>
+                                        <th class="py-2 px-3 border text-center">TER (%)</th>
+                                        <th class="py-2 px-3 border text-center">Custo por $1M/ano</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">SPLG</td>
+                                        <td class="py-2 px-3 border text-center">0,02%</td>
+                                        <td class="py-2 px-3 border text-center">$200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">SPYL</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">IVV</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">VOO</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">$300</td>
+                                    </tr>
+                                    <tr class="bg-blue-50 font-semibold">
+                                        <td class="py-2 px-3 border">VUAA</td>
+                                        <td class="py-2 px-3 border text-center">0,07%</td>
+                                        <td class="py-2 px-3 border text-center">$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">CSPX</td>
+                                        <td class="py-2 px-3 border text-center">0,07%</td>
+                                        <td class="py-2 px-3 border text-center">$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">VUSA</td>
+                                        <td class="py-2 px-3 border text-center">0,07%</td>
+                                        <td class="py-2 px-3 border text-center">$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">SPY</td>
+                                        <td class="py-2 px-3 border text-center">0,0945%</td>
+                                        <td class="py-2 px-3 border text-center">$945</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="bg-gray-100">
+                                        <td class="py-2 px-3 border font-semibold">Média do Mercado</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">0,055%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">$550</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-3">Análise Comparativa de Custos</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">1</span>
+                                    <div>
+                                        <span class="font-semibold">Posicionamento:</span> 
+                                        O VUAA está 0,015% acima da média de mercado (0,055%)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">2</span>
+                                    <div>
+                                        <span class="font-semibold">Diferença vs. mais econômicos:</span> 
+                                        +0,05% (ou +$500 por ano para cada $1.000.000 investidos) comparado ao ETF mais barato (SPLG)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">3</span>
+                                    <div>
+                                        <span class="font-semibold">Média UCITS vs. EUA:</span> 
+                                        ETFs UCITS têm média de 0,07% vs. 0,05% dos ETFs americanos
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Considerações Finais sobre Custos -->
+            <section id="comparativo" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Comparativo com Pares</h2>
+                
+                <p class="mb-4">
+                    Ao comparar o VUAA com alternativas populares de ETFs do S&P 500 como IVV e VOO, é fundamental analisar fatores que vão além da simples Taxa de Despesa Total (TER). Abaixo apresentamos uma análise completa considerando tributação, estrutura legal e custos operacionais.
+                </p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Métrica</th>
+                                <th class="py-2 px-3 border text-center">IVV (iShares)</th>
+                                <th class="py-2 px-3 border text-center">VOO (Vanguard US)</th>
+                                <th class="py-2 px-3 border text-center">VUAA (Vanguard UCITS)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">TER oficial</td>
+                                <td class="py-2 px-3 border text-center">0,03%</td>
+                                <td class="py-2 px-3 border text-center">0,03%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">0,07%</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Securities-lending</td>
+                                <td class="py-2 px-3 border text-center">1-5 bp/ano</td>
+                                <td class="py-2 px-3 border text-center">1-5 bp/ano</td>
+                                <td class="py-2 px-3 border text-center">Praticado com limites UCITS</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Dividendos</td>
+                                <td class="py-2 px-3 border text-center">Trimestral (distribui)</td>
+                                <td class="py-2 px-3 border text-center">Trimestral (distribui)</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Acumula (reinveste)</td>
+                            </tr>
+                            <tr  class="bg-gray-50">
+                                <td class="py-2 px-3 border">WHT sobre dividendos</td>
+                                <td class="py-2 px-3 border text-center">30%</td>
+                                <td class="py-2 px-3 border text-center">30%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">15% (tratado US-IE)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Estate tax EUA</td>
+                                <td class="py-2 px-3 border text-center">Até 40% acima de US$ 60k</td>
+                                <td class="py-2 px-3 border text-center">Até 40% acima de US$ 60k</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Inexistente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div>
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Impacto Real nos Custos</h3>
+                        <p class="mb-3">
+                            Quando consideramos todos os fatores, o diferencial de custos entre VUAA e seus concorrentes americanos muda significativamente:
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Tax drag:</span> A diferença de retenção na fonte (30% vs 15%) representa aproximadamente 15 bp/ano adicionais de custo efetivo para IVV/VOO</li>
+                            <li><span class="font-semibold">Diferimento tributário:</span> A estrutura de acumulação do VUAA transforma dividendos em ganho de capital, tributável apenas no desinvestimento, criando efeito juros-sobre-juros</li>
+                            <li><span class="font-semibold">Custos efetivos:</span> Somando TER + spread + tax drag - securities lending, acreditamos que o VUAA tende a superar IVV/VOO</li>
+                            <li><span class="font-semibold">Risco sucessório:</span> A blindagem contra estate tax americana representa proteção adicional significativa para investidores não-americanos</li>
+                        </ul>
+                    </div>
+                </div>
+  
+            </section>
+
+            </section>
+            
+            <!-- Seção: Composição da Carteira -->
+            <section id="composicao" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Composição da Carteira</h2>
+                
+                <p class="mb-6">
+                    Como um ETF que replica o S&P 500, o VUAA oferece exposição às 500 maiores empresas listadas nos EUA por capitalização de mercado. Esta seção analisa a distribuição setorial, geográfica e principais posições do fundo.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Alocação Setorial</h3>
+                        <div class="chart-container">
+                            <canvas id="sectorChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Concentração por Tamanho</h3>
+                        <div class="chart-container">
+                            <canvas id="sizeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="font-bold mb-4">Top 10 Holdings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Empresa</th>
+                                    <th class="py-2 px-3 border text-left">Símbolo</th>
+                                    <th class="py-2 px-3 border text-left">Setor GICS</th>
+                                    <th class="py-2 px-3 border text-center">% do Fundo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-3 border">Apple Inc.</td>
+                                    <td class="py-2 px-3 border">AAPL</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">7,02%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Microsoft Corp.</td>
+                                    <td class="py-2 px-3 border">MSFT</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">5,87%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">NVIDIA Corp.</td>
+                                    <td class="py-2 px-3 border">NVDA</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">5,58%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Amazon.com Inc.</td>
+                                    <td class="py-2 px-3 border">AMZN</td>
+                                    <td class="py-2 px-3 border">Consumo Cíclico</td>
+                                    <td class="py-2 px-3 border text-center">3,77%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Meta Platforms Inc.</td>
+                                    <td class="py-2 px-3 border">META</td>
+                                    <td class="py-2 px-3 border">Comunicação</td>
+                                    <td class="py-2 px-3 border text-center">2,65%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Berkshire Hathaway Inc.</td>
+                                    <td class="py-2 px-3 border">BRK.B</td>
+                                    <td class="py-2 px-3 border">Financeiro</td>
+                                    <td class="py-2 px-3 border text-center">2,05%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Alphabet Inc. Class A</td>
+                                    <td class="py-2 px-3 border">GOOGL</td>
+                                    <td class="py-2 px-3 border">Comunicação</td>
+                                    <td class="py-2 px-3 border text-center">1,90%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Broadcom Inc.</td>
+                                    <td class="py-2 px-3 border">AVGO</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">1,65%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Alphabet Inc. Class C</td>
+                                    <td class="py-2 px-3 border">GOOG</td>
+                                    <td class="py-2 px-3 border">Comunicação</td>
+                                    <td class="py-2 px-3 border text-center">1,55%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Tesla Inc.</td>
+                                    <td class="py-2 px-3 border">TSLA</td>
+                                    <td class="py-2 px-3 border">Consumo Cíclico</td>
+                                    <td class="py-2 px-3 border text-center">1,53%</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-gray-100">
+                                    <td class="py-2 px-3 border font-semibold" colspan="3">Total Top 10</td>
+                                    <td class="py-2 px-3 border text-center font-semibold">33,57%</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                
+                
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-stone-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Características da Composição</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><span class="font-semibold">Concentração:</span> As 10 maiores posições representam 33,57% do fundo</li>
+                                <li><span class="font-semibold">Dominância tecnológica:</span> O setor de tecnologia detém 31,00% do fundo</li>
+                                <li><span class="font-semibold">Distribuição setorial:</span> Presença em todos os 11 setores GICS</li>
+                                <li><span class="font-semibold">Concentração geográfica:</span> 100% alocado US</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-zinc-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Implicações para o Investidor</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Exposição significativa ao setor de tecnologia aumenta potencial de crescimento, porém também gera incremento significativo de volatilidade</li>
+                                <li>Concentração nas megacaps americanas proporciona estabilidade, mas limita diversificação geográfica</li>
+                                <li>Falta de exposição a empresas de menor capitalização</li>
+                                <li>Exposição indireta a mercados internacionais via receitas globais das empresas americanas</li>
+                            </ul>
+                        </div>
+                    </div>
+            </section>
+            
+            <!-- Seção: Desempenho Histórico -->
+            <section id="desempenho" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Desempenho Histórico</h2>
+                
+                <p class="mb-6">
+                    O VUAA foi lançado em maio de 2019, oferecendo um histórico de desempenho de aproximadamente 6 anos. Esta seção analisa seu comportamento em diferentes ciclos de mercado.
+                </p>
+                
+                <div class="chart-container my-8">
+                    <div class="mb-4">
+                        <label for="startDateSelector" class="font-semibold mr-2">Selecione a data inicial:</label>
+                        <select id="startDateSelector" class="bg-white border border-gray-300 rounded px-3 py-1">
+                            <!-- As opções serão preenchidas dinamicamente -->
+                        </select>
+                        <button id="resetChart" class="ml-4 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                            Resetar para início
+                        </button>
+                    </div>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Retorno Acumulado (desde entrada)</h3>
+                        <p class="text-3xl font-bold text-slate-800">-3,71%</p>
+                        <p class="text-sm text-slate-600">VUAA vs. S&P 500: -2,89%</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Anos Positivos vs. Negativos</h3>
+                        <p class="text-3xl font-bold text-stone-800">4 / 2</p>
+                        <p class="text-sm text-stone-600">66% de anos positivos</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Maior Drawdown</h3>
+                        <p class="text-3xl font-bold text-zinc-800">-20,32%</p>
+                        <p class="text-sm text-zinc-600">Período crítico em 2022</p>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Período</th>
+                                <th class="py-2 px-3 border text-center">VUAA</th>
+                                <th class="py-2 px-3 border text-center">S&P 500 TR</th>
+                                <th class="py-2 px-3 border text-center">Diferença</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">YTD (2025)</td>
+                                <td class="py-2 px-3 border text-center">-11,3%</td>
+                                <td class="py-2 px-3 border text-center">-11,0%</td>
+                                <td class="py-2 px-3 border text-center">-0,3%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2024</td>
+                                <td class="py-2 px-3 border text-center">+24,68%</td>
+                                <td class="py-2 px-3 border text-center">+24,50%</td>
+                                <td class="py-2 px-3 border text-center">+0,18%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2023</td>
+                                <td class="py-2 px-3 border text-center">+25,91%</td>
+                                <td class="py-2 px-3 border text-center">+25,67%</td>
+                                <td class="py-2 px-3 border text-center">+0,24%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2022</td>
+                                <td class="py-2 px-3 border text-center">-18,35%</td>
+                                <td class="py-2 px-3 border text-center">-18,51%</td>
+                                <td class="py-2 px-3 border text-center">+0,16%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2021</td>
+                                <td class="py-2 px-3 border text-center">+28,36%</td>
+                                <td class="py-2 px-3 border text-center">+28,16%</td>
+                                <td class="py-2 px-3 border text-center">+0,20%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2020</td>
+                                <td class="py-2 px-3 border text-center">+18,04%</td>
+                                <td class="py-2 px-3 border text-center">+17,75%</td>
+                                <td class="py-2 px-3 border text-center">+0,29%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2019 (desde 13/05)</td>
+                                <td class="py-2 px-3 border text-center">—</td>
+                                <td class="py-2 px-3 border text-center">+30,70%</td>
+                                <td class="py-2 px-3 border text-center">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Risco</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">Métrica</th>
+                                        <th class="py-2 px-3 border text-center">VUAA</th>
+                                        <th class="py-2 px-3 border text-center">S&P 500 TR</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">CAGR</td>
+                                        <td class="py-2 px-3 border text-center">13,12%</td>
+                                        <td class="py-2 px-3 border text-center">13,45%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Volatilidade (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">17,30%</td>
+                                        <td class="py-2 px-3 border text-center">17,57%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Sharpe Ratio (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">0,31</td>
+                                        <td class="py-2 px-3 border text-center">0,29</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Beta (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">0,98</td>
+                                        <td class="py-2 px-3 border text-center">1,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Tracking Error (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">1,05%</td>
+                                        <td class="py-2 px-3 border text-center">N/A</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Alpha (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">+0,46%</td>
+                                        <td class="py-2 px-3 border text-center">-0,75%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Maximum Drawdown (3Y)</td>
+                                        <td class="py-2 px-3 border text-center">-20,32%</td>
+                                        <td class="py-2 px-3 border text-center">-20,92%</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Análise de Desempenho</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Tracking Error baixo:</span> VUAA reproduz com extrema eficiência o desempenho do S&P 500, mantendo um tracking error de 1,05%</li>
+                            <li><span class="font-semibold">Consistência:</span> A diferença entre o ETF e o índice mantém-se estável ao longo do tempo, com o VUAA superando marginalmente o benchmark em todos os anos completos</li>
+                            <li><span class="font-semibold">Beta unitário:</span> Com um beta de 0,98, o VUAA demonstra uma correlação praticamente perfeita com o índice S&P 500</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Seção: Consideração e Classificação do Produto -->
+            <section id="consideracoes" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Considerações sobre o Produto</h2>
+                
+                <p class="mb-6">
+                    O Vanguard S&P 500 UCITS ETF USD Accumulating (VUAA LN) representa uma opção eficiente e econômica para investidores que buscam exposição ao mercado de ações dos EUA.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Pontos Fortes</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Taxa de despesa competitiva (0,07%) dentro do universo de ETFs UCITS</li>
+                            <li>Estrutura de acumulação que reinveste automaticamente os dividendos</li>
+                            <li>Replicação física que minimiza o tracking error</li>
+                            <li>Domicílio irlandês com vantagens fiscais para investidores internacionais</li>
+                            <li>Proteção regulatória robusta</li>
+                            <li>Exposição diversificada às maiores empresas americanas</li>
+                            <li>Boa liquidez e tamanho significativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-stone-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Considerações</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>TER ligeiramente superior a algumas alternativas como SPYL (0,03%)</li>
+                            <li>Exclusiva exposição ao mercado americano</li>
+                            <li>Concentração em empresas de grande capitalização exclui potencial de small/mid caps</li>
+                            <li>Significativa exposição ao setor de tecnologia aumenta risco setorial</li>
+                            <li>Sensibilidade a fatores macroeconômicos e políticas monetárias dos EUA</li>
+                            <li>Histórico de desempenho relativamente curto (desde 2019)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                    <h3 class="font-bold mb-3">Posicionamento de Mercado</h3>
+                    <p class="mb-4">
+                        O VUAA se posiciona como uma alternativa atraente para investidores internacionais que buscam exposição ao S&P 500 com uma estrutura de acumulação. Embora não seja o ETF mais econômico em termos absolutos, suas características estruturais oferecem vantagens importantes para certos perfis de investidores.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-4">
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Para investidor buy-and-hold</h4>
+                            <p>VUAA tende a oferecer vantagem significativa mesmo pagando TER maior e com spread levemente superior. A eficiência tributária e proteção contra estate tax compensam a diferença de custos explícitos.</p>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Para trading ativo</h4>
+                            <p>IVV e VOO são imbatíveis em liquidez intradiária. Além disso, para operações de curto prazo, os ETFs americanos oferecem spread consideravelmente menor.</p>
+                        </div>
+                        
+                        <div class="bg-white p-3 rounded shadow">
+                            <h4 class="font-semibold mb-2 text-blue-600">Estratégia sugerida</h4>
+                            <p>Alocação VUAA como núcleo de longo prazo e IVV/VOO para exposição tática, posições estruturadas e estratégias de timing.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+            </section>
+
+
+            <!-- Seção: Radar de Mercado -->
+            <section id="radar-mercado" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Radar de Mercado</h2>
+                
+                <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+                    <p class="text-lg font-semibold mb-2">Cenário Base: Wall Street em Transição para otimismo com cautela</p>
+                    <p class="text-sm">
+                        Os estrategistas das principais casas de análise convergem para uma visão de "crescimento gradual, mas com sobressaltos" para o S&P 500 em 2025, reduzindo metas anteriores de 6.500+ pontos para a faixa de 5.600-6.300 devido às revisões de lucros mais suaves e choques tarifários.
+                    </p>
+                </div>
+
+                <h3 class="font-bold text-lg mb-4">House Price Targets</h3>
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Data</th>
+                                <th class="py-2 px-3 border text-left">Casa</th>
+                                <th class="py-2 px-3 border text-left">Target S&P-500 (fim/25)</th>
+                                <th class="py-2 px-3 border text-left">Principais Premissas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">12 mar 2025</td>
+                                <td class="py-2 px-3 border font-medium">Goldman Sachs</td>
+                                <td class="py-2 px-3 border">6.200</td>
+                                <td class="py-2 px-3 border">EPS +11%, AI-capex, serviços fortes; incerteza tarifária reduziu múltiplos</td>
+
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">07 abr 2025</td>
+                                <td class="py-2 px-3 border font-medium">BofA Global Research</td>
+                                <td class="py-2 px-3 border">5.600 <span class="text-red-500 text-sm">(revisão baixista)</span></td>
+                                <td class="py-2 px-3 border">Tariff drag sobre margens; preferência por Value (Energy, Financials)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">04 abr 2025</td>
+                                <td class="py-2 px-3 border font-medium">Morgan Stanley</td>
+                                <td class="py-2 px-3 border">5.800 <span class="text-red-500 text-sm">(revisão baixista)</span></td>
+                                <td class="py-2 px-3 border">Menor expansão de múltiplo, Fed "higher-for-longer"; estratégia barbell</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">27 nov 2024</td>
+                                <td class="py-2 px-3 border font-medium">J.P. Morgan</td>
+                                <td class="py-2 px-3 border">6.500 <span class="text-green-500 text-sm">(revisão altista)</span></td>
+                                <td class="py-2 px-3 border">Job-market robusto, boom de IA, cortes de juros em 2025</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">18 nov 2024</td>
+                                <td class="py-2 px-3 border font-medium">Morgan Stanley</td>
+                                <td class="py-2 px-3 border">6.500 <span class="text-green-500 text-sm">(revisão altista)</span></td>
+                                <td class="py-2 px-3 border">Qualidade cíclica, otimismo pós-eleição</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">04 dez 2024</td>
+                                <td class="py-2 px-3 border font-medium">BlackRock Investment Institute</td>
+                                <td class="py-2 px-3 border">6.200</td>
+                                <td class="py-2 px-3 border">"Mega-forces" (AI, green capex), inflação persistente, postura pró-risco</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                 <!-- Matriz de Riscos - Nova disposição -->
+                 <div class="mb-8">
+                    <h3 class="font-bold text-lg mb-4">Matriz de Riscos: Panorama 2025</h3>
+                <div class="space-y-4">
+                    <!-- Risco 1: Tarifas & Nacionalismo Comercial -->
+                    <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-purple-50 to-white rounded-lg border border-purple-100">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-purple-100">
+                                <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-purple-800 mb-1">Tarifas e Nacionalismo Comercial</h4>
+                            <p class="text-gray-700 mb-2">Trump elevou tarifas sobre bens chineses para 125% em abril de 2025, com ameaça de elevação para 145%, contudo já vem dando sinais de mudança de posição.</p>
+                            <p class="text-sm text-gray-600 mb-2"><strong>Impacto:</strong> Compressão de margens, adiamento de capex e pressão inflacionária via PPI. VIX atingiu 46 pontos após o anúncio.</p>
+                            <p class="text-sm text-gray-600"><strong>Indicador:</strong> Mais de 90% das empresas do S&P 500 citaram riscos tarifários em seus calls do 1T25</p>
+                        </div>
+                    </div>
+
+                    <!-- Risco 2: Fed em xeque -->
+                    <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-amber-50 to-white rounded-lg border border-amber-100">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-amber-100">
+                                <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-amber-800 mb-1">Fed em xeque (Higher-for-Longer + independência)</h4>
+                            <p class="text-gray-700 mb-2">Diretores como Kugler defendem manutenção da taxa dos Fed Funds em 4,25-4,50% por "meses", enquanto Trump ameaça demitir Powell.</p>
+                            <p class="text-sm text-gray-600 mb-2"><strong>Impacto:</strong> Reprecificação de juros longos: Treasury 20Y superou 4,9% em 21 de abril</p>
+                            <p class="text-sm text-gray-600"><strong>Indicador:</strong> Brecha 2-10Y e swaps OIS-5Y: mercado ainda enxerga afrouxos entre 12-24m</p>
+                        </div>
+                    </div>
+
+                    <!-- Risco 3: Estrangulamento Fiscal -->
+                    <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-blue-50 to-white rounded-lg border border-blue-100">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-blue-100">
+                                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-blue-800 mb-1">Estrangulamento Fiscal</h4>
+                            <p class="text-gray-700 mb-2">Déficit fiscal superior a 6% do PIB. CBO projeta dívida federal atingindo 122% do PIB em 2035.</p>
+                            <p class="text-sm text-gray-600 mb-2"><strong>Impacto:</strong> Efeito crowding-out, elevando equity risk premium</p>
+                            <p class="text-sm text-gray-600"><strong>Indicador:</strong> Leilões de T-Bonds com cobertura abaixo do esperado, spread OIS-10Y</p>
+                        </div>
+                    </div>
+
+                    <!-- Risco 4: Recessão de Lucros -->
+                    <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-red-50 to-white rounded-lg border border-red-100">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-red-100">
+                                <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-red-800 mb-1">Recessão de Lucros</h4>
+                            <p class="text-gray-700 mb-2">Bancos revisam projeções: Morgan Stanley e Citi reduzem EPS do S&P 500 para US$ 255 (cenário base) e US$ 230 (cenário bear) – alvo 5.000-5.200 pontos; índice acumula queda de aproximadamente 6% no ano.</p>
+                            <p class="text-sm text-gray-600 mb-2"><strong>Impacto:</strong> Valuations de growth stocks perdem suporte; fluxo migra para setores defensivos</p>
+                            <p class="text-sm text-gray-600"><strong>Indicador:</strong> 'Bottom-up EPS' FactSet, PMI serviços</p>
+                        </div>
+                    </div>
+
+                    <!-- Risco 5: Choques Geopolíticos & Energia -->
+                    <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-indigo-50 to-white rounded-lg border border-indigo-100">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 flex items-center justify-center rounded-full bg-indigo-100">
+                                <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-indigo-800 mb-1">Choques Geopolíticos & Energia</h4>
+                            <p class="text-gray-700 mb-2">Risk-premium do Brent oscila com tensões Irã-Israel; Goldman Sachs mantém alerta sobre volatilidade implícita elevada</p>
+                            <p class="text-sm text-gray-600 mb-2"><strong>Impacto:</strong> Picos de petróleo pressionam inflação implícita; BlackRock mantém "overweight light" em energéticas</p>
+                            <p class="text-sm text-gray-600"><strong>Indicador:</strong> Brent 1M, skew calls/puts</p>
+                        </div>
+                    </div>
+                
+                    <!-- Visão Itaú -->
+                    <div class="mt-8">
+                        <h3 class="font-bold text-lg mb-4">Visão Itaú</h3>
+                        <div class="flex items-start space-x-4 p-4 bg-gradient-to-r from-gray-50 to-white rounded-lg border border-gray-100">
+                            <div class="flex-shrink-0">
+                                <div class="w-12 h-12 flex items-center justify-center rounded-full bg-gray-100">
+                                    <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 mb-1">Posicionamento para S&P 500</h4>
+                                <p class="text-gray-700 mb-2">De acordo com o <a href="https://macroattachment.cloud.itau.com.br/attachments/28efe342-7ff9-4d25-bdef-c86909c7957f/MacroScenario-GLOBAL_Mar25.pdf" target="_blank" class="text-blue-600 hover:text-blue-800 underline">Macro Scenario - Global</a>, publicado em Março de 2025 pelo economista-chefe do Itaú Mario Mesquita, a Instituição mantém posição neutra para o S&P 500, com foco em qualidade e defensividade. A visão reflete expectativa de ausência de cortes de juros pelo Fed em 2025, preocupação com revisões de lucros mais suaves, riscos de escalada tarifária e pressão sobre múltiplos de valuation.</p>
+                        </div>
+                    </div>
+                
+                </div>
+            </section>
+
+            <!-- Seção: Recomendação Final -->
+<section id="recomendacao" class="bg-white rounded-lg shadow p-6 print-section">
+    <h2 class="text-2xl font-bold section-title">Recomendação Final</h2>
+    
+    <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-6">
+        <p class="text-lg font-semibold mb-2">Tendência de Mercado</p>
+        <p class="text-sm">
+            As principais casas de análise convergem para uma visão de "crescimento gradual, mas com sobressaltos" para o S&P 500 em 2025, com metas ajustadas para a faixa de 5.600-6.300 pontos. Esta revisão reflete preocupações com revisões de lucros mais suaves e choques tarifários.
+        </p>
+    </div>
+
+    <div class="bg-gray-100 p-5 rounded-lg mb-8">
+        <h3 class="font-bold mb-4 text-lg">Adequação do VUAA LN</h3>
+        
+        <p class="mb-4">
+            O VUAA LN é particularmente adequado no caso, tendo em vista:
+        </p>
+        
+        <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li>A exposição a empresas grandes e sólidas do mercado norte-americano com baixo custo e simplicidade</li>
+            <li>Reinvestimento automático de dividendos (estrutura de acumulação)</li>
+            <li>Benefício fiscal do ETF domiciliado na Irlanda</li>
+            <li>Proteção regulatória do framework UCITS</li>
+            <li>Posição significativa em ganho na carteira atual, indicando boa timing de entrada</li>
+            <li>Estrutura de custos eficiente para exposição de longo prazo</li>
+        </ul>
+        
+        <p class="mb-4">
+            Embora não seja o ETF com o menor custo do mercado, o VUAA oferece um equilíbrio atraente entre baixas taxas, eficiência operacional e vantagens estruturais, tornando-o uma opção sólida para uma exposição de longo prazo ao mercado americano.
+        </p>
+
+        <h3 class="font-bold mb-4 text-lg mt-8">Hedge</h3>
+        
+        <p class="mb-4">
+            Tendo em vista apenas a atual tendência de mercado, algumas recomendações táticas possíveis seriam:
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold mb-2">Estratégia de Hedge</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                    <li>Opções de VIX para proteção contra choques de volatilidade</li>
+                    <li>Puts de S&P 500 para proteção contra correções</li>
+                    <li>Ouro como hedge contra riscos geopolíticos</li>
+                </ul>
+            </div>
+            
+            <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <h4 class="font-semibold mb-2">Níveis de Atenção</h4>
+                <ul class="list-disc pl-5 space-y-1 text-sm text-gray-600">
+                    <li>VIX acima de 25</li>
+                    <li>S&P 500 abaixo de 5.600</li>
+                    <li>Spread 2-10Y</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="border-t pt-6">
+        <p class="text-sm text-gray-600">
+            <strong>Aviso de Responsabilidade:</strong> Esta análise não constitui recomendação de investimento. Investimentos em mercados financeiros estão sujeitos a riscos, incluindo possível perda do capital investido. Rentabilidade passada não é garantia de resultados futuros. Os dados apresentados foram obtidos de fontes consideradas confiáveis, mas não garantimos sua precisão.
+        </p>
+    </div>
+</section>
+            
+        </main>
+    </div>
+    
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Desenvolvido por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 13 de maio de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão Voltar ao Topo -->
+    <div class="fixed bottom-8 right-8">
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="bg-gray-800 text-white px-4 py-2 rounded-lg shadow-lg hover:bg-gray-700 transition-colors duration-300 flex items-center text-sm">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+            Voltar ao Topo
+        </button>
+    </div>
+    
+    <script src="vuaa-charts.js"></script>
+    <script>
+        document.getElementById('productSelector').addEventListener('change', function() {
+            const value = this.value;
+            if (value === 'inicio') {
+                window.location.href = '../../offshore.html';
+            } else if (value === 'vuaa') {
+                // já está nesta página, não faz nada
+            } else if (value === 'harris') {
+                window.location.href = '../harris/harris.html';
+            } else if (value === 'vontobel') {
+                window.location.href = '../vontobel/vontobel.html';
+            } else if (value === 'private-equity') {
+                window.location.href = '../private-equity/private-equity.html';
+            } else if (value === 'us-corporates') {
+                window.location.href = '../us-corporates/us-corporates.html';
+            } else if (value === 'hedge-funds') {
+                window.location.href = '../hedge-funds/hedge-funds.html';
+            }
+        });
+    </script>
+</body>
+</html>

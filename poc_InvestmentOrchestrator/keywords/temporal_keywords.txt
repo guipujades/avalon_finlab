@@ -1,0 +1,129 @@
+agora
+atual
+atualmente
+recente
+recentemente
+ontem
+anteontem
+amanhã
+depois de amanhã
+esta semana
+semana passada
+próxima semana
+este mês
+mês passado
+próximo mês
+este ano
+ano passado
+próximo ano
+este trimestre
+trimestre passado
+próximo trimestre
+este semestre
+semestre passado
+próximo semestre
+última hora
+últimas horas
+último dia
+últimos dias
+última semana
+últimas semanas
+último mês
+últimos meses
+último ano
+últimos anos
+última década
+tempo real
+ao vivo
+neste momento
+neste instante
+agora mesmo
+já
+imediatamente
+urgente
+urgentemente
+breaking news
+últimas notícias
+novidades
+atualização
+update
+fresh
+quente
+fresquinho
+acabou de
+acaba de
+está acontecendo
+acontecendo agora
+em andamento
+em curso
+corrente
+vigente
+presente
+contemporâneo
+moderno
+novo
+nova
+recém
+fresh
+latest
+recent
+current
+now
+today
+live
+realtime
+real-time
+trending
+em alta
+bombando
+no momento
+do momento
+da hora
+trending topics
+mais recente
+mais atual
+última versão
+versão atual
+edição atual
+temporada atual
+período atual
+fase atual
+etapa atual
+ciclo atual
+momento atual
+conjuntura atual
+cenário atual
+situação atual
+quadro atual
+panorama atual
+contexto atual
+data de hoje
+dia de hoje
+manhã de hoje
+tarde de hoje
+noite de hoje
+madrugada de hoje
+início da semana
+meio da semana
+fim de semana
+início do mês
+meio do mês
+fim do mês
+início do ano
+meio do ano
+fim do ano
+primeiro trimestre
+segundo trimestre
+terceiro trimestre
+quarto trimestre
+primeiro semestre
+segundo semestre
+alta temporada
+baixa temporada
+horário comercial
+horário de pico
+fora de pico
+abertura do mercado
+fechamento do mercado
+pré-mercado
+pós-mercado

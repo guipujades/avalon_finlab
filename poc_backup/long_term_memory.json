@@ -1,0 +1,83 @@
+[
+  {
+    "timestamp": "2025-06-02 14:12:05",
+    "question": "você errou a resposta",
+    "answer": "Peço desculpas pela confusão. A taxa Selic atual, conforme as informações mais recentes, é de **14,75% ao ano**. Essa taxa tem se mantido nesse nível desde 7 de maio de 2025, de acordo com o relatório Focus do Banco Central.\n\nSe precisar de mais informações ou esclarecimentos, estou à disposição!",
+    "analysis": {
+      "category": "geral",
+      "entities": [],
+      "temporal_context": "atual",
+      "intent": "informação",
+      "keywords": [
+        "você",
+        "errou",
+        "a",
+        "resposta"
+      ]
+    },
+    "usage_count": 2,
+    "usefulness_score": 1.0
+  },
+  {
+    "timestamp": "2025-06-02 14:14:30",
+    "question": "qual a taxa selic atual no brasil?",
+    "answer": "Atualmente, a taxa Selic no Brasil é de **14,75% ao ano**. Essa taxa se mantém nesse nível desde 7 de maio de 2025, conforme indicado pelo relatório Focus do Banco Central. \n\nSe precisar de mais informações ou esclarecimentos, estou à disposição!",
+    "analysis": {
+      "category": "geral",
+      "entities": [],
+      "temporal_context": "atual",
+      "intent": "informação",
+      "keywords": [
+        "qual",
+        "a",
+        "taxa",
+        "selic",
+        "atual"
+      ]
+    },
+    "usage_count": 1,
+    "usefulness_score": 1.0
+  },
+  {
+    "timestamp": "2025-06-02 14:38:02",
+    "question": "não, a sua resposta ainda está errada",
+    "answer": "Peço desculpas pela confusão anterior. A taxa de juros Selic atual no Brasil, em junho de 2025, é de **14,75% ao ano**. Essa informação foi confirmada pelo relatório Focus e outras fontes confiáveis.\n\nSe precisar de mais informações ou esclarecimentos, estou à disposição!",
+    "analysis": {
+      "category": "geral",
+      "entities": [],
+      "temporal_context": "atual",
+      "intent": "informação",
+      "keywords": [
+        "não,",
+        "a",
+        "sua",
+        "resposta",
+        "ainda"
+      ],
+      "needs_local_knowledge": false
+    },
+    "usage_count": 0,
+    "usefulness_score": 1.0
+  },
+  {
+    "timestamp": "2025-06-02 14:39:24",
+    "question": "qual a taxa selic atual no brasil?",
+    "answer": "A taxa Selic atual no Brasil, em junho de 2025, é de **14,75% ao ano**. Essa taxa é definida pelo Comitê de Política Monetária (Copom) do Banco Central e é um importante indicador da política monetária do país. Se precisar de mais informações ou detalhes, estou à disposição!",
+    "analysis": {
+      "category": "geral",
+      "entities": [],
+      "temporal_context": "atual",
+      "intent": "informação",
+      "keywords": [
+        "qual",
+        "a",
+        "taxa",
+        "selic",
+        "atual"
+      ],
+      "needs_local_knowledge": false
+    },
+    "usage_count": 0,
+    "usefulness_score": 1.0
+  }
+]

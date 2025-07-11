@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise do ETF Vanguard S&P 500 (VUAA LN)</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="common-scripts.js"></script>
+    <style>
+        .section-title {
+            border-bottom: 2px solid #1a365d;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            background-color: rgba(26, 54, 93, 0.1);
+        }
+        .nav-link.active {
+            border-left: 4px solid #1a365d;
+            background-color: rgba(26, 54, 93, 0.1);
+            font-weight: 600;
+        }
+        .chart-container {
+            position: relative;
+            height: 400px;
+            width: 100%;
+            margin-bottom: 2rem;
+        }
+        .data-table {
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            background-color: #f8fafc;
+        }
+        .highlight-row {
+            background-color: rgba(26, 54, 93, 0.05);
+        }
+        .analysis-section {
+            margin-top: 2rem;
+            clear: both;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .legend-color {
+            width: 15px;
+            height: 15px;
+            margin-right: 8px;
+            border-radius: 3px;
+        }
+        @media print {
+            .no-print {
+                display: none;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+            body {
+                font-size: 12pt;
+                color: #000;
+            }
+            .print-section {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-gray-900 text-white shadow-lg">
+        <div class="container mx-auto py-6 px-4">
+            <h1 class="text-3xl font-bold">Relatório de Alocação: análises e perspectivas</h1>
+            <div class="mt-2">
+                <select id="productSelector" class="bg-gray-800 text-white border border-gray-700 rounded px-3 py-1 font-medium">
+                    <option value="vuaa" selected>ETF Vanguard S&P 500 (VUAA LN)</option>
+                    <option value="orion">ITAU ORION GLOBAL FUND CLASS B</option>
+                    <option value="veur">ETF Vanguard FTSE Developed Europe (VEUR)</option>
+                    <option value="vwrl">ETF Vanguard FTSE All-World (VWRL)</option>
+                    <option value="eimi">iShares Core MSCI EM IMI (EIMI)</option>
+                </select>
+            </div>
+            <p class="mt-2 opacity-80">Inteligência financeira: métricas, comparativos e tendências de mercado</p>
+        </div>
+    </header>
+    
+    <div class="container mx-auto px-4 py-8 flex flex-wrap">
+        <!-- Barra de navegação lateral -->
+        <nav class="no-print w-full md:w-1/4 lg:w-1/5 pr-4 mb-6 md:mb-0">
+            <div class="bg-white rounded-lg shadow p-4 sticky top-4">
+                <h2 class="font-bold text-lg mb-4 border-b pb-2">Índice</h2>
+                <ul class="space-y-1">
+                    <li><a href="#estrutura" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Estrutura do Ativo</a></li>
+                    <li><a href="#taxas" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Análise de Taxas</a></li>
+                    <li><a href="#comparativo" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Comparativo com Pares</a></li>
+                    <li><a href="#composicao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Composição da Carteira</a></li>
+                    <li><a href="#desempenho" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Desempenho Histórico</a></li>
+                    <li><a href="#conclusao" class="nav-link block px-3 py-2 rounded hover:text-blue-600">Conclusão</a></li>
+                </ul>
+                <div class="mt-6 pt-4 border-t">
+                    <button id="printBtn" class="bg-blue-600 text-white px-4 py-2 rounded shadow hover:bg-blue-700 transition w-full">Imprimir Análise</button>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Conteúdo principal -->
+        <main class="w-full md:w-3/4 lg:w-4/5">
+            <div class="bg-white rounded-lg shadow p-6 mb-8">
+                <div class="flex items-center mb-6">
+                    <div class="bg-blue-600 rounded-full p-3 mr-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold">Visão Geral</h2>
+                        <p class="text-gray-600">Última atualização: 23 de abril de 2025</p>
+                    </div>
+                </div>
+                
+                <p class="mb-4">
+                    O Vanguard S&P 500 UCITS ETF USD Accumulating (VUAA LN) é um ETF que replica o desempenho do índice S&P 500, oferecendo exposição às 500 maiores empresas americanas. Esta análise examina em profundidade sua estrutura, taxas, composição e desempenho, proporcionando um panorama completo para decisões de investimento informadas.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">TER</h3>
+                        <p class="text-3xl font-bold text-slate-800">0,07%</p>
+                        <p class="text-sm text-slate-600">Taxa de Despesa Total</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">AUM</h3>
+                        <p class="text-3xl font-bold text-stone-800">$62,51B</p>
+                        <p class="text-sm text-stone-600">Ativos sob Gestão</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold text-lg mb-2">Lançamento</h3>
+                        <p class="text-3xl font-bold text-zinc-800">2019</p>
+                        <p class="text-sm text-zinc-600">14 de maio de 2019</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seção: Estrutura do ETF -->
+            <section id="estrutura" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Estrutura do Ativo</h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="min-w-full data-table">
+                        <tbody>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Nome Completo</th>
+                                <td class="py-3 px-4">Vanguard S&P 500 UCITS ETF USD Accumulating</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Ticker</th>
+                                <td class="py-3 px-4">VUAA LN</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">ISIN</th>
+                                <td class="py-3 px-4">IE00BFMXXD54</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Domicílio</th>
+                                <td class="py-3 px-4">Irlanda</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Data de Lançamento</th>
+                                <td class="py-3 px-4">14 de maio de 2019</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Estrutura Regulatória</th>
+                                <td class="py-3 px-4">UCITS (Undertakings for Collective Investment in Transferable Securities)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Taxa de Despesa Total (TER)</th>
+                                <td class="py-3 px-4">0,07% ao ano</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Política de Dividendos</th>
+                                <td class="py-3 px-4">Acumulação (reinvestimento automático)</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Ativos sob Gestão</th>
+                                <td class="py-3 px-4">Aproximadamente 62,51 bilhões de dólares</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">NAV (Valor Patrimonial Líquido)</th>
+                                <td class="py-3 px-4">100,87 USD</td>
+                            </tr>
+                            <tr class="border-b">
+                                <th class="text-left py-3 px-4 font-semibold">Método de Replicação</th>
+                                <td class="py-3 px-4">Física completa (compra todos os componentes do índice)</td>
+                            </tr>
+                            <tr class="border-b highlight-row">
+                                <th class="text-left py-3 px-4 font-semibold">Moeda Base</th>
+                                <td class="py-3 px-4">USD</td>
+                            </tr>
+                            <tr class=>
+                                <th class="text-left py-3 px-4 font-semibold">Provedor</th>
+                                <td class="py-3 px-4">Vanguard</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-6 bg-gray-100 p-4 rounded-lg">
+                    <h3 class="font-bold mb-2">Pontos-chave da Estrutura</h3>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Estrutura UCITS proporciona alto nível de proteção ao investidor e diversificação obrigatória</li>
+                        <li>Domicílio na Irlanda oferece vantagens fiscais para investidores internacionais</li>
+                        <li>Política de acumulação (reinvestimento automático de dividendos) favorece crescimento de longo prazo</li>
+                        <li>Método de replicação física completa minimiza o tracking error em relação ao índice</li>
+                        <li>Tamanho significativo do fundo ($62,51B) indica ampla aceitação pelo mercado e boa liquidez</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Seção: Análise de Taxas -->
+            <section id="taxas" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Análise de Taxas</h2>
+                
+                <p class="mb-4">
+                    A Taxa de Despesa Total (TER) do é de 0,07% ao ano, que se compara da seguinte forma com alguns pares de mercado:
+                </p>
+                
+                <div class="chart-container my-6">
+                    <canvas id="terChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Comparação de TER com Concorrentes</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">ETF</th>
+                                        <th class="py-2 px-3 border text-center">TER (%)</th>
+                                        <th class="py-2 px-3 border text-center">Custo por $1M/ano</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">SPLG</td>
+                                        <td class="py-2 px-3 border text-center">0,02%</td>
+                                        <td class="py-2 px-3 border text-center">$200</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">SPYL</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">IVV</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">$300</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">VOO</td>
+                                        <td class="py-2 px-3 border text-center">0,03%</td>
+                                        <td class="py-2 px-3 border text-center">$300</td>
+                                    </tr>
+                                    <tr class="bg-blue-50 font-semibold">
+                                        <td class="py-2 px-3 border">VUAA</td>
+                                        <td class="py-2 px-3 border text-center">0,07%</td>
+                                        <td class="py-2 px-3 border text-center">$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">CSPX</td>
+                                        <td class="py-2 px-3 border text-center">0,07%</td>
+                                        <td class="py-2 px-3 border text-center">$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">VUSA</td>
+                                        <td class="py-2 px-3 border text-center">0,07%</td>
+                                        <td class="py-2 px-3 border text-center">$700</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">SPY</td>
+                                        <td class="py-2 px-3 border text-center">0,0945%</td>
+                                        <td class="py-2 px-3 border text-center">$945</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr class="bg-gray-100">
+                                        <td class="py-2 px-3 border font-semibold">Média do Mercado</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">0,055%</td>
+                                        <td class="py-2 px-3 border text-center font-semibold">$550</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-3">Análise Comparativa de Custos</h3>
+                        <div class="bg-gray-100 p-4 rounded-lg">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">1</span>
+                                    <div>
+                                        <span class="font-semibold">Posicionamento:</span> 
+                                        O VUAA está 0,015% acima da média de mercado (0,055%)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">2</span>
+                                    <div>
+                                        <span class="font-semibold">Diferença vs. mais econômicos:</span> 
+                                        +0,05% (ou +$500 por ano para cada $1.000.000 investidos) comparado ao ETF mais barato (SPLG)
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="inline-flex items-center justify-center h-6 w-6 rounded-full bg-gray-200 text-gray-800 font-semibold text-sm mr-2 mt-0.5">3</span>
+                                    <div>
+                                        <span class="font-semibold">Média UCITS vs. EUA:</span> 
+                                        ETFs UCITS têm média de 0,07% vs. 0,05% dos ETFs americanos
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Seção: Considerações Finais sobre Custos -->
+            <section id="comparativo" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Comparativo com Pares</h2>
+                
+                <p class="mb-4">
+                    Ao comparar o VUAA com alternativas populares de ETFs do S&P 500 como IVV e VOO, é fundamental analisar fatores que vão além da simples Taxa de Despesa Total (TER). Abaixo apresentamos uma análise completa considerando tributação, estrutura legal e custos operacionais.
+                </p>
+                
+                <div class="overflow-x-auto mb-6">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Métrica</th>
+                                <th class="py-2 px-3 border text-center">IVV (iShares)</th>
+                                <th class="py-2 px-3 border text-center">VOO (Vanguard US)</th>
+                                <th class="py-2 px-3 border text-center">VUAA (Vanguard UCITS)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">TER oficial</td>
+                                <td class="py-2 px-3 border text-center">0,03%</td>
+                                <td class="py-2 px-3 border text-center">0,03%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">0,07%</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="py-2 px-3 border">Securities-lending</td>
+                                <td class="py-2 px-3 border text-center">1-5 bp/ano</td>
+                                <td class="py-2 px-3 border text-center">1-5 bp/ano</td>
+                                <td class="py-2 px-3 border text-center">Praticado com limites UCITS</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Dividendos</td>
+                                <td class="py-2 px-3 border text-center">Trimestral (distribui)</td>
+                                <td class="py-2 px-3 border text-center">Trimestral (distribui)</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Acumula (reinveste)</td>
+                            </tr>
+                            <tr  class="bg-gray-50">
+                                <td class="py-2 px-3 border">WHT sobre dividendos</td>
+                                <td class="py-2 px-3 border text-center">30%</td>
+                                <td class="py-2 px-3 border text-center">30%</td>
+                                <td class="py-2 px-3 border text-center font-semibold">15% (tratado US-IE)</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">Estate tax EUA</td>
+                                <td class="py-2 px-3 border text-center">Até 40% acima de US$ 60k</td>
+                                <td class="py-2 px-3 border text-center">Até 40% acima de US$ 60k</td>
+                                <td class="py-2 px-3 border text-center font-semibold">Inexistente</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div>
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Impacto Real nos Custos</h3>
+                        <p class="mb-3">
+                            Quando consideramos todos os fatores, o diferencial de custos entre VUAA e seus concorrentes americanos muda significativamente:
+                        </p>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Tax drag:</span> A diferença de retenção na fonte (30% vs 15%) representa aproximadamente 15 bp/ano adicionais de custo efetivo para IVV/VOO</li>
+                            <li><span class="font-semibold">Diferimento tributário:</span> A estrutura de acumulação do VUAA transforma dividendos em ganho de capital, tributável apenas no desinvestimento, criando efeito juros-sobre-juros</li>
+                            <li><span class="font-semibold">Custos efetivos:</span> Somando TER + spread + tax drag - securities lending, acreditamos que o VUAA tende a superar IVV/VOO</li>
+                            <li><span class="font-semibold">Risco sucessório:</span> A blindagem contra estate tax americana representa proteção adicional significativa para investidores não-americanos</li>
+                        </ul>
+                    </div>
+                </div>
+  
+            </section>
+
+
+            <div class="mt-8 bg-gray-50 p-4 rounded-lg">
+                <h3 class="font-bold mb-3">Posicionamento de Mercado</h3>
+                <p class="mb-4">
+                    O VUAA se posiciona como uma alternativa atraente para investidores internacionais que buscam exposição ao S&P 500 com uma estrutura de acumulação. Embora não seja o ETF mais econômico em termos absolutos, suas características estruturais oferecem vantagens importantes para certos perfis de investidores.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4 mb-4">
+                    <div class="bg-white p-3 rounded shadow">
+                        <h4 class="font-semibold mb-2 text-blue-600">Para investidor buy-and-hold</h4>
+                        <p>VUAA tende a oferecer vantagem significativa mesmo pagando TER maior e com spread levemente superior. A eficiência tributária e proteção contra estate tax compensam a diferença de custos explícitos.</p>
+                    </div>
+                    
+                    <div class="bg-white p-3 rounded shadow">
+                        <h4 class="font-semibold mb-2 text-blue-600">Para trading ativo</h4>
+                        <p>IVV e VOO são imbatíveis em liquidez intradiária. Além disso, para operações de curto prazo, os ETFs americanos oferecem spread consideravelmente menor.</p>
+                    </div>
+                    
+                    <div class="bg-white p-3 rounded shadow">
+                        <h4 class="font-semibold mb-2 text-blue-600">Estratégia sugerida</h4>
+                        <p>Alocação VUAA como núcleo de longo prazo e IVV/VOO para exposição tática, posições estruturadas e estratégias de timing.</p>
+                    </div>
+                </div>
+                
+            </div>
+            </section>
+            
+            <!-- Seção: Composição da Carteira -->
+            <section id="composicao" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Composição da Carteira</h2>
+                
+                <p class="mb-6">
+                    Como um ETF que replica o S&P 500, o VUAA oferece exposição às 500 maiores empresas listadas nos EUA por capitalização de mercado. Esta seção analisa a distribuição setorial, geográfica e principais posições do fundo.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Alocação Setorial</h3>
+                        <div class="chart-container">
+                            <canvas id="sectorChart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-bold mb-4 text-center">Concentração por Tamanho</h3>
+                        <div class="chart-container">
+                            <canvas id="sizeChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="font-bold mb-4">Top 10 Holdings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full data-table border">
+                            <thead>
+                                <tr class="bg-blue-50">
+                                    <th class="py-2 px-3 border text-left">Empresa</th>
+                                    <th class="py-2 px-3 border text-left">Símbolo</th>
+                                    <th class="py-2 px-3 border text-left">Setor</th>
+                                    <th class="py-2 px-3 border text-center">% do Fundo</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="py-2 px-3 border">Apple Inc.</td>
+                                    <td class="py-2 px-3 border">AAPL</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">7,02%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Microsoft Corp.</td>
+                                    <td class="py-2 px-3 border">MSFT</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">5,87%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">NVIDIA Corp.</td>
+                                    <td class="py-2 px-3 border">NVDA</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">5,58%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Amazon.com Inc.</td>
+                                    <td class="py-2 px-3 border">AMZN</td>
+                                    <td class="py-2 px-3 border">Consumo Cíclico</td>
+                                    <td class="py-2 px-3 border text-center">3,77%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Meta Platforms Inc.</td>
+                                    <td class="py-2 px-3 border">META</td>
+                                    <td class="py-2 px-3 border">Comunicação</td>
+                                    <td class="py-2 px-3 border text-center">2,65%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Berkshire Hathaway Inc.</td>
+                                    <td class="py-2 px-3 border">BRK.B</td>
+                                    <td class="py-2 px-3 border">Financeiro</td>
+                                    <td class="py-2 px-3 border text-center">2,05%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Alphabet Inc. Class A</td>
+                                    <td class="py-2 px-3 border">GOOGL</td>
+                                    <td class="py-2 px-3 border">Comunicação</td>
+                                    <td class="py-2 px-3 border text-center">1,90%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Broadcom Inc.</td>
+                                    <td class="py-2 px-3 border">AVGO</td>
+                                    <td class="py-2 px-3 border">Tecnologia</td>
+                                    <td class="py-2 px-3 border text-center">1,65%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Alphabet Inc. Class C</td>
+                                    <td class="py-2 px-3 border">GOOG</td>
+                                    <td class="py-2 px-3 border">Comunicação</td>
+                                    <td class="py-2 px-3 border text-center">1,55%</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 px-3 border">Tesla Inc.</td>
+                                    <td class="py-2 px-3 border">TSLA</td>
+                                    <td class="py-2 px-3 border">Consumo Cíclico</td>
+                                    <td class="py-2 px-3 border text-center">1,53%</td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr class="bg-gray-100">
+                                    <td class="py-2 px-3 border font-semibold" colspan="3">Total Top 10</td>
+                                    <td class="py-2 px-3 border text-center font-semibold">33,57%</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                
+                
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                        <div class="bg-stone-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Características da Composição</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><span class="font-semibold">Concentração:</span> As 10 maiores posições representam 33,57% do fundo</li>
+                                <li><span class="font-semibold">Dominância tecnológica:</span> O setor de tecnologia detém 31,00% do fundo</li>
+                                <li><span class="font-semibold">Distribuição setorial:</span> Presença em todos os 11 setores GICS</li>
+                                <li><span class="font-semibold">Concentração geográfica:</span> 100% alocado US</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-zinc-50 p-4 rounded-lg">
+                            <h3 class="font-bold mb-3">Implicações para o Investidor</h3>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Exposição significativa ao setor de tecnologia aumenta potencial de crescimento, porém também gera incremento significativo de volatilidade</li>
+                                <li>Concentração nas megacaps americanas proporciona estabilidade, mas limita diversificação geográfica</li>
+                                <li>Falta de exposição a empresas de menor capitalização</li>
+                                <li>Exposição indireta a mercados internacionais via receitas globais das empresas americanas</li>
+                            </ul>
+                        </div>
+                    </div>
+            </section>
+            
+            <!-- Seção: Desempenho Histórico -->
+            <section id="desempenho" class="bg-white rounded-lg shadow p-6 mb-8 print-section">
+                <h2 class="text-2xl font-bold section-title">Desempenho Histórico</h2>
+                
+                <p class="mb-6">
+                    O VUAA foi lançado em maio de 2019, oferecendo um histórico de desempenho de aproximadamente 6 anos. Esta seção analisa seu comportamento em diferentes ciclos de mercado.
+                </p>
+                
+                <div class="chart-container my-8">
+                    <div class="mb-4">
+                        <label for="startDateSelector" class="font-semibold mr-2">Selecione a data inicial:</label>
+                        <select id="startDateSelector" class="bg-white border border-gray-300 rounded px-3 py-1">
+                            <!-- As opções serão preenchidas dinamicamente -->
+                        </select>
+                        <button id="resetChart" class="ml-4 bg-blue-600 text-white px-3 py-1 rounded hover:bg-blue-700">
+                            Resetar para início
+                        </button>
+                    </div>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                    <div class="bg-slate-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Retorno Acumulado (desde entrada no fundo)</h3>
+                        <p class="text-3xl font-bold text-slate-800">-4,88%</p>
+                        <p class="text-sm text-slate-600">VUAA vs. S&P 500: -6,43%</p>
+                    </div>
+                    <div class="bg-stone-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Anos Positivos vs. Negativos</h3>
+                        <p class="text-3xl font-bold text-stone-800">5 / 2</p>
+                        <p class="text-sm text-stone-600">71% de anos positivos</p>
+                    </div>
+                    <div class="bg-zinc-50 p-4 rounded">
+                        <h3 class="font-bold mb-2">Maior Drawdown</h3>
+                        <p class="text-3xl font-bold text-zinc-800">-34,1%</p>
+                        <p class="text-sm text-zinc-600">Período crítico em 2022</p>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto mb-8">
+                    <table class="min-w-full data-table border">
+                        <thead>
+                            <tr class="bg-blue-50">
+                                <th class="py-2 px-3 border text-left">Período</th>
+                                <th class="py-2 px-3 border text-center">VUAA</th>
+                                <th class="py-2 px-3 border text-center">S&P 500</th>
+                                <th class="py-2 px-3 border text-center">Diferença</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="py-2 px-3 border">YTD (2025)</td>
+                                <td class="py-2 px-3 border text-center">-11,3%</td>
+                                <td class="py-2 px-3 border text-center">-11,0%</td>
+                                <td class="py-2 px-3 border text-center">-0,3%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2024</td>
+                                <td class="py-2 px-3 border text-center">+24,68%</td>
+                                <td class="py-2 px-3 border text-center">+24,50%</td>
+                                <td class="py-2 px-3 border text-center">+0,18%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2023</td>
+                                <td class="py-2 px-3 border text-center">+25,91%</td>
+                                <td class="py-2 px-3 border text-center">+25,67%</td>
+                                <td class="py-2 px-3 border text-center">+0,24%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2022</td>
+                                <td class="py-2 px-3 border text-center">-18,35%</td>
+                                <td class="py-2 px-3 border text-center">-18,51%</td>
+                                <td class="py-2 px-3 border text-center">+0,16%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2021</td>
+                                <td class="py-2 px-3 border text-center">+28,36%</td>
+                                <td class="py-2 px-3 border text-center">+28,16%</td>
+                                <td class="py-2 px-3 border text-center">+0,20%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2020</td>
+                                <td class="py-2 px-3 border text-center">+18,04%</td>
+                                <td class="py-2 px-3 border text-center">+17,75%</td>
+                                <td class="py-2 px-3 border text-center">+0,29%</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 px-3 border">2019 (desde 13/05)</td>
+                                <td class="py-2 px-3 border text-center">—</td>
+                                <td class="py-2 px-3 border text-center">+30,70%</td>
+                                <td class="py-2 px-3 border text-center">—</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-bold mb-3">Risco</h3>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full data-table border">
+                                <thead>
+                                    <tr class="bg-blue-50">
+                                        <th class="py-2 px-3 border text-left">Métrica</th>
+                                        <th class="py-2 px-3 border text-center">VUAA</th>
+                                        <th class="py-2 px-3 border text-center">S&P 500</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="py-2 px-3 border">CAGR</td>
+                                        <td class="py-2 px-3 border text-center">12,2%</td>
+                                        <td class="py-2 px-3 border text-center">10,3%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Volatilidade (Anual)</td>
+                                        <td class="py-2 px-3 border text-center">19,9%</td>
+                                        <td class="py-2 px-3 border text-center">21,1%</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Sharpe Ratio</td>
+                                        <td class="py-2 px-3 border text-center">3,41</td>
+                                        <td class="py-2 px-3 border text-center">3,04</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Beta</td>
+                                        <td class="py-2 px-3 border text-center">1,00</td>
+                                        <td class="py-2 px-3 border text-center">1,00</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="py-2 px-3 border">Tracking Error</td>
+                                        <td class="py-2 px-3 border text-center">0,02%</td>
+                                        <td class="py-2 px-3 border text-center">N/A</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Análise de Desempenho</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li><span class="font-semibold">Tracking Error mínimo:</span> VUAA reproduz com extrema eficiência o desempenho do S&P 500, mantendo um tracking error de apenas 0,02%</li>
+                            <li><span class="font-semibold">Consistência:</span> A diferença entre o ETF e o índice mantém-se estável ao longo do tempo, com o VUAA superando marginalmente o benchmark em todos os anos completos</li>
+                            <li><span class="font-semibold">Beta unitário:</span> Com um beta de 1,00, o VUAA demonstra perfeita correlação com o índice S&P 500</li>
+
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+             
+            <!-- Seção: Conclusão -->
+            <section id="conclusao" class="bg-white rounded-lg shadow p-6 print-section">
+                <h2 class="text-2xl font-bold section-title">Conclusão</h2>
+                
+                <p class="mb-6">
+                    O Vanguard S&P 500 UCITS ETF USD Accumulating (VUAA LN) representa uma opção eficiente e econômica para investidores que buscam exposição ao mercado de ações dos EUA.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-slate-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Pontos Fortes</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>Taxa de despesa competitiva (0,07%) dentro do universo de ETFs UCITS</li>
+                            <li>Estrutura de acumulação que reinveste automaticamente os dividendos</li>
+                            <li>Replicação física que minimiza o tracking error</li>
+                            <li>Domicílio irlandês com vantagens fiscais para investidores internacionais</li>
+                            <li>Proteção regulatória robusta</li>
+                            <li>Exposição diversificada às maiores empresas americanas</li>
+                            <li>Boa liquidez e tamanho significativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-stone-50 p-4 rounded-lg">
+                        <h3 class="font-bold mb-3">Considerações</h3>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>TER ligeiramente superior a algumas alternativas como SPYL (0,03%)</li>
+                            <li>Exclusiva exposição ao mercado americano</li>
+                            <li>Concentração em empresas de grande capitalização exclui potencial de small/mid caps</li>
+                            <li>Significativa exposição ao setor de tecnologia aumenta risco setorial</li>
+                            <li>Sensibilidade a fatores macroeconômicos e políticas monetárias dos EUA</li>
+                            <li>Histórico de desempenho relativamente curto (desde 2019)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-100 p-5 rounded-lg mb-8">
+                    <h3 class="font-bold mb-4 text-lg">Recomendação Final</h3>
+                    
+                    <p class="mb-4">
+                        O VUAA LN é particularmente adequado no caso, tendo em vista:
+                    </p>
+                    
+                    <ul class="list-disc pl-5 space-y-2 mb-4">
+                        <li>A exposição a empresas grandes e sólidas do mercado norte-americano com baixo custo e simplicidade</li>
+                        <li>Reinvestimento automático de dividendos (estrutura de acumulação)</li>
+                        <li>Benefício fiscal do ETF domiciliado na Irlanda</li>
+                        <li>Proteção regulatória do framework UCITS</li>
+                    </ul>
+                    
+                    <p>
+                        Embora não seja o ETF com o menor custo do mercado, o VUAA oferece um equilíbrio atraente entre baixas taxas, eficiência operacional e vantagens estruturais, tornando-o uma opção sólida para uma exposição de longo prazo ao mercado americano.
+                    </p>
+                </div>
+                
+                <div class="border-t pt-6">
+                    <p class="text-sm text-gray-600">
+                        <strong>Aviso de Responsabilidade:</strong> Esta análise não constitui recomendação de investimento. Investimentos em mercados financeiros estão sujeitos a riscos, incluindo possível perda do capital investido. Rentabilidade passada não é garantia de resultados futuros. Os dados apresentados foram obtidos de fontes consideradas confiáveis, mas não garantimos sua precisão. Consulte um assessor financeiro profissional antes de tomar decisões de investimento.
+                    </p>
+                </div>
+            </section>
+            
+        </main>
+    </div>
+    
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <p class="mb-2">Análise desenvolvida por Marcius Lima</p>
+                <p class="text-sm text-gray-400">Última atualização: 23 de abril de 2025</p>
+                <p class="mt-4 text-sm text-gray-400">© 2025 - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Ativar navegação
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('section');
+            
+            function setActiveLink() {
+                let currentSection = '';
+                
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    
+                    if (window.scrollY >= (sectionTop - 100)) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+                
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+            
+            window.addEventListener('scroll', setActiveLink);
+            setActiveLink();
+            
+            // Configurar botão de impressão
+            document.getElementById('printBtn').addEventListener('click', function() {
+                window.print();
+            });
+            
+            // Manipulador do seletor de produtos
+            if (document.getElementById('productSelector')) {
+                document.getElementById('productSelector').addEventListener('change', function() {
+                    const selectedProduct = this.value;
+                    
+                    // Se for o ITAU ORION, redirecionar para a página específica (quando existir)
+                    if (selectedProduct === 'orion') {
+                        // NOTA: Aqui você pode adicionar a lógica para carregar o conteúdo do ORION
+                        // Por exemplo, redirecionando para uma página específica:
+                        // window.location.href = 'analise-orion.html';
+                        
+                        // Por enquanto, apenas um alerta
+                        alert('Carregando análise do ITAU ORION GLOBAL FUND CLASS B...');
+                        return;
+                    }
+                    
+                    // Para outros produtos, mantém o comportamento atual
+                    if (selectedProduct !== 'vuaa' && selectedProduct !== 'orion') {
+                        alert('A análise para este produto estará disponível em breve. Por enquanto, apenas a análise do VUAA está completa.');
+                        this.value = 'vuaa';
+                    }
+                });
+            }
+        });
+        
+        // Configurar gráficos
+        document.addEventListener('DOMContentLoaded', function() {
+            // Gráfico TER
+            const terCtx = document.getElementById('terChart').getContext('2d');
+            new Chart(terCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['SPLG', 'SPYL', 'IVV', 'VOO', 'VUAA', 'CSPX', 'VUSA', 'SPY'],
+                    datasets: [{
+                        label: 'Taxa de Despesa Total (%)',
+                        data: [0.02, 0.03, 0.03, 0.03, 0.07, 0.07, 0.07, 0.0945],
+                        backgroundColor: ['#4b5563', '#4b5563', '#4b5563', '#4b5563', '#1a365d', '#1a365d', '#1a365d', '#9ca3af'],
+                        borderColor: ['#374151', '#374151', '#374151', '#374151', '#1e3a8a', '#1e3a8a', '#1e3a8a', '#6b7280'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw.toFixed(2) + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 0.11,
+                            ticks: {
+                                callback: function(value) {
+                                    return value.toFixed(2) + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'TER (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'ETFs S&P 500'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico Alocação Setorial
+            const sectorCtx = document.getElementById('sectorChart').getContext('2d');
+            new Chart(sectorCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['Tecnologia', 'Financeiro', 'Saúde', 'Consumo Cíclico', 'Comunicação', 'Industriais', 'Consumo Defensivo', 'Energia', 'Utilitários', 'Imobiliário', 'Materiais Básicos'],
+                    datasets: [{
+                        data: [31.00, 14.21, 11.19, 10.35, 9.33, 7.46, 6.03, 3.66, 2.72, 2.27, 1.79],
+                        backgroundColor: [
+                            '#1a365d', '#2d3748', '#4a5568', '#718096', '#a0aec0',
+                            '#cbd5e0', '#e2e8f0', '#edf2f7', '#f7fafc', '#4b5563', '#6b7280'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                            labels: {
+                                boxWidth: 15,
+                                font: {
+                                    size: 10
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Gráfico Concentração por Tamanho
+            const sizeCtx = document.getElementById('sizeChart').getContext('2d');
+            new Chart(sizeCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Top 10 Holdings', 'Outras 490 empresas'],
+                    datasets: [{
+                        data: [33.57, 66.43],
+                        backgroundColor: ['#1a365d', '#e2e8f0'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.label + ': ' + context.raw + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+            
+        // Gráfico de Desempenho
+        const performanceCtx = document.getElementById('performanceChart').getContext('2d');
+        const startDateSelector = document.getElementById('startDateSelector');
+        const resetButton = document.getElementById('resetChart');
+
+        // Dados originais
+        const performanceLabels = [
+            '05/2019', '06/2019', '07/2019', '08/2019', '09/2019', '10/2019', '11/2019', '12/2019',
+            '01/2020', '02/2020', '03/2020', '04/2020', '05/2020', '06/2020', '07/2020', '08/2020', 
+            '09/2020', '10/2020', '11/2020', '12/2020', '01/2021', '02/2021', '03/2021', '04/2021', 
+            '05/2021', '06/2021', '07/2021', '08/2021', '09/2021', '10/2021', '11/2021', '12/2021', 
+            '01/2022', '02/2022', '03/2022', '04/2022', '05/2022', '06/2022', '07/2022', '08/2022', 
+            '09/2022', '10/2022', '11/2022', '12/2022', '01/2023', '02/2023', '03/2023', '04/2023', 
+            '05/2023', '06/2023', '07/2023', '08/2023', '09/2023', '10/2023', '11/2023', '12/2023', 
+            '01/2024', '02/2024', '03/2024', '04/2024', '05/2024', '06/2024', '07/2024', '08/2024', 
+            '09/2024', '10/2024', '11/2024', '12/2024', '01/2025', '02/2025', '03/2025', '04/2025'
+        ];
+
+        const originalVUAA = [
+            0.96, 3.66, 6.81, 3.43, 5.75, 7.64, 12.02, 14.82,
+            15.50, 3.97, -4.09, 5.98, 9.76, 12.15, 18.34, 27.71,
+            23.51, 19.59, 31.99, 37.04, 37.14, 40.68, 46.64, 54.11,
+            55.48, 58.61, 62.64, 67.66, 61.08, 70.39, 70.27, 77.25,
+            66.03, 63.13, 71.06, 57.57, 53.80, 41.48, 53.17, 49.15,
+            37.55, 45.42, 48.81, 44.22, 52.40, 50.27, 54.29, 56.88,
+            57.82, 68.35, 73.88, 71.75, 64.02, 58.83, 73.32, 82.71,
+            86.52, 94.11, 100.91, 94.64, 99.77, 111.11, 112.45, 115.09,
+            120.77, 120.57, 132.66, 129.49, 136.53, 127.90, 115.33, 109.39
+        ];
+
+        const originalSP500 = [
+            -3.47, 3.18, 4.54, 2.65, 4.41, 6.55, 10.17, 13.32,
+            13.14, 3.62, -9.34, 2.16, 6.78, 8.75, 14.74, 22.78,
+            17.96, 14.70, 27.03, 31.75, 30.28, 33.68, 39.35, 46.66,
+            47.46, 50.74, 54.17, 58.64, 51.09, 61.54, 60.19, 67.18,
+            58.39, 53.42, 58.91, 44.93, 44.94, 32.78, 44.87, 38.73,
+            25.77, 35.81, 43.11, 34.67, 42.99, 39.26, 44.14, 46.25,
+            46.61, 56.10, 60.96, 58.11, 50.41, 47.10, 60.22, 67.31,
+            69.97, 78.76, 84.30, 76.63, 85.11, 91.53, 93.70, 98.12,
+            102.12, 100.12, 111.59, 106.30, 111.88, 108.86, 96.84, 85.47
+        ];
+
+        // Preencher o seletor de datas
+        performanceLabels.forEach((label, index) => {
+            const option = document.createElement('option');
+            option.value = index;
+            option.textContent = label;
+            startDateSelector.appendChild(option);
+        });
+
+        let chartInstance;
+
+        function createChart(startIndex = 0) {
+            // Destruir o gráfico existente se houver
+            if (chartInstance) {
+                chartInstance.destroy();
+            }
+
+            // Normalizar os dados a partir do índice selecionado para começar em 0
+            const baseValueVUAA = originalVUAA[startIndex];
+            const baseValueSP500 = originalSP500[startIndex];
+            
+            const normalizedVUAA = originalVUAA.slice(startIndex).map(value => 
+                value - baseValueVUAA
+            );
+            
+            const normalizedSP500 = originalSP500.slice(startIndex).map(value => 
+                value - baseValueSP500
+            );
+            
+            const normalizedLabels = performanceLabels.slice(startIndex);
+
+            chartInstance = new Chart(performanceCtx, {
+                type: 'line',
+                data: {
+                    labels: normalizedLabels,
+                    datasets: [
+                        {
+                            label: 'VUAA LN',
+                            data: normalizedVUAA,
+                            backgroundColor: 'rgba(26, 54, 93, 0.5)',
+                            borderColor: 'rgba(26, 54, 93, 1)',
+                            borderWidth: 2,
+                            pointRadius: 2,
+                            tension: 0.1
+                        },
+                        {
+                            label: 'S&P 500',
+                            data: normalizedSP500,
+                            backgroundColor: 'rgba(153, 27, 27, 0.5)',
+                            borderColor: 'rgba(153, 27, 27, 1)',
+                            borderWidth: 2,
+                            pointRadius: 0,
+                            tension: 0.1
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': ' + context.raw.toFixed(2) + '%';
+                                }
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: `Retorno Acumulado desde ${performanceLabels[startIndex]}`
+                        }
+                    },
+                    scales: {
+                        y: {
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Retorno Acumulado (%)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Criar o gráfico inicial
+        createChart(0);
+
+        // Event listener para o seletor de data
+        startDateSelector.addEventListener('change', function() {
+            createChart(parseInt(this.value));
+        });
+
+        // Event listener para o botão de reset
+        resetButton.addEventListener('click', function() {
+            startDateSelector.value = '0';
+            createChart(0);
+        });
+            
+            // Gráfico Radar de Risco (se o elemento existir)
+            if(document.getElementById('riskRadarChart')) {
+                const riskRadarCtx = document.getElementById('riskRadarChart').getContext('2d');
+                new Chart(riskRadarCtx, {
+                    type: 'radar',
+                    data: {
+                        labels: [
+                            'Risco de Mercado', 
+                            'Risco de Concentração', 
+                            'Risco de Liquidez', 
+                            'Risco Cambial', 
+                            'Risco de Contraparte'
+                        ],
+                        datasets: [{
+                            label: 'Nível de Risco (1-10)',
+                            data: [7, 6, 2, 6, 1],
+                            backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                            borderColor: 'rgba(59, 130, 246, 1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: 'rgba(59, 130, 246, 1)',
+                            pointRadius: 4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            r: {
+                                angleLines: {
+                                    display: true
+                                },
+                                suggestedMin: 0,
+                                suggestedMax: 10,
+                                ticks: {
+                                    stepSize: 2
+                                }
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'bottom'
+                            }
+                        }
+                    }
+                });
+            }
+            
+            // Função para download dos dados
+            if(document.getElementById('downloadBtn')) {
+                document.getElementById('downloadBtn').addEventListener('click', function() {
+                    // Cabeçalho do CSV
+                    let csvContent = "data:text/csv;charset=utf-8,";
+                    csvContent += "ETF,Domicílio,Método,Dividendos,TER (%),AUM ($B),Lançamento\n";
+                    
+                    // Dados do VUAA e concorrentes
+                    csvContent += "VUAA,Irlanda,Física,Acumulação,0.07,62.51,2019\n";
+                    csvContent += "CSPX,Irlanda,Física,Acumulação,0.07,60.00,2010\n";
+                    csvContent += "SPYL,Irlanda,Física,Acumulação,0.03,4.00,2023\n";
+                    csvContent += "SPLG,EUA,Física,Distribuição,0.02,15.37,2019\n"; // Adicionado SPLG
+                    csvContent += "VUSA,Irlanda,Física,Distribuição,0.07,35.33,2012\n";
+                    csvContent += "SPY,EUA,Física,Distribuição,0.0945,598.19,1993\n";
+                    csvContent += "IVV,EUA,Física,Distribuição,0.03,556.38,2000\n";
+                    csvContent += "VOO,EUA,Física,Distribuição,0.03,594.75,2010\n";
+
+                    
+                    // Criação do elemento para download
+                    var encodedUri = encodeURI(csvContent);
+                    var link = document.createElement("a");
+                    link.setAttribute("href", encodedUri);
+                    link.setAttribute("download", "comparativo_etf_sp500.csv");
+                    document.body.appendChild(link);
+                    
+                    // Download
+                    link.click();
+                    document.body.removeChild(link);
+                });
+            }
+        });
+    </script>
+</body>
+</html>

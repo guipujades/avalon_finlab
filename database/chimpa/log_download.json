@@ -1,0 +1,25 @@
+{
+  "data_execucao": "2025-06-27 09:58:28",
+  "sistema_operacional": "Linux",
+  "caminho_dados": "/mnt/c/Users/guilh/documents/github/database/chimpa",
+  "total": 22,
+  "sucesso": 22,
+  "falhas": [],
+  "anos": [
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "tipos": [
+    "ITR",
+    "DFP"
+  ]
+}
